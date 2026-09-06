@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Asistente de Parla</title>
+<title>Asistente de Sant Cugat del Vallès</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -105,9 +105,9 @@ footer b{color:var(--ink-2);font-weight:600}
   </header>
 
   <div class="intro">
-    <h1>Asistente de atención ciudadana<br>del Ayuntamiento de Parla</h1>
-    <p class="sub">Responde con la documentación publicada en ayuntamientoparla.es y sede.ayuntamientoparla.es, citando en
-    cada respuesta la página de la que procede.</p>
+    <h1>Asistente de atención ciudadana<br>del Ayuntamiento de Sant Cugat del Vallès</h1>
+    <p class="sub">Responde con la documentación publicada en santcugat.cat, citando en
+    cada respuesta la página de la que procede. Contesta en el idioma de la pregunta.</p>
   </div>
 
   <div class="chips" id="chips"></div>
@@ -119,27 +119,28 @@ footer b{color:var(--ink-2);font-weight:600}
   </form>
 
   <footer>
-    <b>Demostración de AutoIA.</b> No es un servicio oficial del Ayuntamiento de Parla.
-    Contenido recogido de ayuntamientoparla.es y sede.ayuntamientoparla.es el 6 de septiembre de 2026.<br>
+    <b>Demostración de AutoIA.</b> No es un servicio oficial del Ayuntamiento de Sant Cugat del Vallès.
+    Contenido recogido de santcugat.cat el 6 de septiembre de 2026.<br>
     Las tasas, licencias y ayudas sociales están excluidas a propósito: son las materias en las que
     una respuesta aproximada causa más perjuicio que la ausencia de respuesta.
   </footer>
 </div>
 
 <script>
-const OFI = "010";
-const OFI_MAIL = "sac@ayuntamientoparla.es";
-const OFI_SIGLA = "el SAC";
-const KB = [{"k":["sac","oficina","atencion ciudadana","direccion","horario","telefono","contacto","010","dulce chacon","parla este"],"es":{"h":"El <b>Servicio de Atención al Ciudadano (SAC)</b> funciona por tres vías: presencial, telefónica e internet.","l":["Bajos del Ayuntamiento.","Centro cultural Dulce Chacón.","Caseta del Parque Universo, en Parla Este.","Teléfono: el <b>010</b>."],"f":"Horario: de lunes a viernes de 8:30 a 19:30, y sábados de 9:00 a 13:00."},"s":{"t":"Servicio de Atención al Ciudadano (SAC) — ayuntamientoparla.es","u":"https://www.ayuntamientoparla.es/callejero/servicio-de-atencion-al-ciudadano-sac"}},{"k":["cita","cita previa","pedir cita","reservar","como pido cita","presencial","sin cita"],"es":{"h":"Los trámites presenciales del SAC se atienden <b>con cita previa</b>.","l":["La cita se pide en la web municipal o llamando al 010.","La oficina de Parla Este atiende con cita previa a quienes tienen que acreditar su identidad presencialmente para obtener el certificado digital."],"f":"El horario del SAC es amplio —de 8:30 a 19:30 entre semana y sábados por la mañana—, pero eso no sustituye a la cita."},"s":{"t":"Atención a la ciudadanía con cita previa — ayuntamientoparla.es","u":"https://www.ayuntamientoparla.es/noticias/el-servicio-de-atencion-a-la-ciudadania-de-parla-vuelve-a-realizar-tramites-presenciales-solo-con-cita-previa-desde-el-8-de-junio"}},{"k":["empadronar","empadronarme","empadronamiento","padron","certificado","volante","cambio de domicilio","mudarme","censo"],"es":{"h":"El SAC gestiona los trámites de <b>padrón</b>, además del censo electoral, los certificados digitales y la firma electrónica.","l":["Presencialmente en cualquiera de las tres oficinas, con cita previa.","Por teléfono en el 010 para consultar requisitos antes de ir."],"f":"La documentación depende de su situación concreta. Confírmela en el 010 antes de pedir la cita."},"s":{"t":"Servicio de Atención al Ciudadano (SAC) — ayuntamientoparla.es","u":"https://www.ayuntamientoparla.es/callejero/servicio-de-atencion-al-ciudadano-sac"}},{"k":["sede electronica","tramite","tramites","online","internet","por internet","catalogo","certificado digital","firma"],"es":{"h":"La <b>sede electrónica</b> permite hacer trámites sin desplazarse.","l":["Se accede desde www.ayuntamientoparla.es.","El SAC también tramita certificados digitales y firma electrónica, que es lo que hace falta para operar en la sede."],"f":"Para acreditar la identidad presencialmente hace falta cita en la oficina de Parla Este."},"s":{"t":"Sede Electrónica del Ayuntamiento de Parla","u":"https://sede.ayuntamientoparla.es/"}}];
-const L2KEY = null;
-const T = null;
+const OFI = "010 o 900 104 941";
+const OFI_MAIL = "bustiaciutadana@santcugat.cat";
+const OFI_SIGLA = "la OAC";
+const KB = [{"k":["oac","oficina","atencion ciudadana","direccion","horario","telefono","contacto","plaza de la vila","mira-sol","mira sol","atencio ciutadana","adreca","horari","telefon","placa de la vila"],"es":{"h":"La <b>Oficina d'Atenció Ciutadana (OAC)</b> principal está en la plaça de la Vila, 1.","l":["Horario: de lunes a viernes de 10:00 a 14:00.","Hay una segunda OAC en el barrio de Mira-sol: carrer de Mallorca, 42. Teléfono 935 892 018.","La de Mira-sol abre lunes, martes, miércoles y viernes de 10:00 a 14:00."],"f":"Teléfono único: el <b>010</b>, o el 900 104 941 desde móvil o desde fuera del municipio. Es gratuito."},"ca":{"h":"L'<b>Oficina d'Atenció Ciutadana (OAC)</b> principal és a la plaça de la Vila, 1.","l":["Horari: de dilluns a divendres de 10:00 a 14:00.","Hi ha una segona OAC al barri de Mira-sol: carrer de Mallorca, 42. Telèfon 935 892 018.","La de Mira-sol obre dilluns, dimarts, dimecres i divendres de 10:00 a 14:00."],"f":"Telèfon únic: el <b>010</b>, o el 900 104 941 des de mòbil o des de fora del municipi. És gratuït."},"s":{"t":"Oficina d'Atenció Ciutadana — santcugat.cat","u":"https://www.santcugat.cat/servei/oficina-datencio-ciutadana"}},{"k":["cita","cita previa","pedir cita","sin cita","reservar","visita concertada","demanar cita","sense cita","visita concertada"],"es":{"h":"La OAC <b>combina la cita previa con la atención a quien no la ha pedido</b>.","l":["La cita se pide por internet, desde el formulario de solicitud.","O por teléfono en el 010 (900 104 941 desde móvil o fuera del municipio), que es gratuito."],"f":"Es decir: con cita espera menos, pero sin cita también le atienden."},"ca":{"h":"L'OAC <b>combina la cita prèvia amb l'atenció a qui no l'ha demanat</b>.","l":["La cita es demana per internet, des del formulari de sol·licitud.","O per telèfon al 010 (900 104 941 des de mòbil o fora del municipi), que és gratuït."],"f":"És a dir: amb cita esperarà menys, però sense cita també l'atendran."},"s":{"t":"Visites concertades a l'OAC — santcugat.cat","u":"https://www.santcugat.cat/servei/visites-concertades-a-loac"}},{"k":["padron","empadronar","empadronarme","empadronamiento","certificado","volante","cambio de domicilio","mudarme","padro","empadronar-me","empadronament","certificat","volant","canvi de domicili"],"es":{"h":"La OAC gestiona el <b>padró municipal</b> como parte de sus trámites administrativos generales.","l":["Presencialmente en plaça de la Vila, 1, o en la OAC de Mira-sol.","Con cita previa o sin ella."],"f":"La documentación concreta depende de su caso. Confírmela en el 010 antes de ir: la llamada es gratuita."},"ca":{"h":"L'OAC gestiona el <b>padró municipal</b> com a part dels seus tràmits administratius generals.","l":["Presencialment a la plaça de la Vila, 1, o a l'OAC de Mira-sol.","Amb cita prèvia o sense."],"f":"La documentació concreta depèn del seu cas. Confirmi-la al 010 abans d'anar-hi: la trucada és gratuïta."},"s":{"t":"Atenció ciutadana — santcugat.cat","u":"https://www.santcugat.cat/web/atencio-ciutadana"}},{"k":["sede electronica","tramite","tramites","online","internet","por internet","010","seu electronica","tramit","tramits","per internet"],"es":{"h":"Para consultas sobre trámites o sobre la ciudad, el teléfono es el <b>010</b>.","l":["Desde móvil o desde fuera del municipio: 900 104 941.","El servicio es gratuito."],"f":"Los trámites en línea están en santcugat.cat."},"ca":{"h":"Per a consultes sobre tràmits o sobre la ciutat, el telèfon és el <b>010</b>.","l":["Des de mòbil o des de fora del municipi: 900 104 941.","El servei és gratuït."],"f":"Els tràmits en línia són a santcugat.cat."},"s":{"t":"OAC 010 — santcugat.cat","u":"https://www.santcugat.cat/OAC/"}}];
+const L2KEY = "ca";
+const T = {"fuera":"Fora d'abast","sinfuente":"Sense font","bloqueo":"No puc donar-li aquesta informació. <b>Els imports de taxes i impostos, les llicències i els ajuts socials estan exclosos d'aquest assistent</b> a propòsit: una resposta aproximada en aquestes matèries causa més perjudici que no respondre.","consulte":"Consulti-ho directament a l'OAC: <b>010 o 900 104 941</b>, o al correu bustiaciutadana@santcugat.cat.","nose":"No he trobat documentació municipal publicada que sustenti una resposta a això, i no me la inventaré.","recomiendo":"Li recomano consultar-ho a l'OAC: <b>010 o 900 104 941</b>."};
 
 // Materias excluidas a proposito: importes, licencias y ayudas sociales.
 const BLOCK = ["tasa","tasas","basura","basuras","ibi","impuesto","impuestos","cuanto cuesta","cuánto cuesta","precio","importe","coste","cuota","recibo","licencia","licencias","obra","apertura","ayuda","ayudas","subvencion","subvención","subvenciones","servicios sociales","emergencia social","plusvalia","plusvalía","circulacion","circulación","taxa","taxes","impost","quant costa","preu","import","llicencia","llicencies","ajuda","ajudes","subvencio","plusvalua","plusvàlua","licenzas","axuda","axudas","canto custa"];
 
 const norm = s => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9\s]/g," ").replace(/\s+/g," ").trim();
 
-const is2 = () => false;
+const L2 = ["que necessito","necessito","empadronar-me","aquest","aquesta","quin","quina","com puc","on puc","aixo","tramit","tramits","seu electronica","atencio","quant","per a","hi ha","cal","puc","voldria","m agradaria","gracies","si us plau","padro","volant","certificat","llicencia","ajuda","taxa","adreca","horari","telefon","demanar"];
+const is2 = t => { const n=norm(t); return L2.some(w=>(" "+n+" ").includes(" "+norm(w)+" ")); };
 
 // Las claves se buscan por PALABRA COMPLETA, no como subcadena. Con subcadena,
 // la clave catalana "on" casaba dentro de "Girona" y el asistente contestaba la
@@ -200,7 +201,7 @@ function render(q, hit, dos){
 
 function ask(t){ t = t.trim(); if(!t) return; render(t, match(t), is2(t)); }
 
-const SUG = [{"lang":"ES","t":"¿Dónde están las oficinas del SAC?"},{"lang":"ES","t":"¿Cuánto cuesta la licencia de obra?"},{"lang":"ES","t":"¿El SAC abre los sábados?"},{"lang":"ES","t":"¿Cómo consigo el certificado digital?"}];
+const SUG = [{"lang":"ES","t":"¿Puedo ir a la OAC sin cita previa?"},{"lang":"ES","t":"¿Cuánto cuesta exactamente el IBI?"},{"lang":"CA","t":"Quin horari té l'OAC de Mira-sol?"},{"lang":"ES","t":"¿Cuál es el teléfono del ayuntamiento?"}];
 const chips = document.getElementById("chips");
 SUG.forEach(s=>{
   const b=document.createElement("button");

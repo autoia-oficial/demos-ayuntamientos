@@ -129,11 +129,13 @@ footer b{color:var(--ink-2);font-weight:600}
 <script>
 const OFI = "010 o 912 489 010";
 const OFI_MAIL = "010@leganes.org";
-const OFI_SIGLA = "SAC";
+const OFI_SIGLA = "el SAC";
 const KB = [{"k":["sac","oficina","atencion ciudadana","direccion","horario","telefono","contacto","casa del reloj","010"],"es":{"h":"El <b>Servicio de Atención al Ciudadano (010)</b> es el canal de atención del Ayuntamiento, presencial y telefónico.","l":["Casa del Reloj: avenida de Gibraltar, 2.","Horario presencial: de lunes a viernes de 8:30 a 14:30 y de 17:00 a 19:00; sábados de 9:00 a 13:00.","En julio y agosto: de 8:30 a 14:30, y sábados de 9:00 a 13:00.","Teléfono: el <b>010</b> desde Leganés, o el 912 489 010 desde fuera."],"f":"La atención telefónica es más amplia que la presencial: de lunes a viernes de 8:00 a 21:30, y sábados, domingos y festivos de 10:00 a 20:00."},"s":{"t":"Servicio de Atención al Ciudadano - 010 — leganes.org","u":"https://www.leganes.org/w/servicio-de-atencion-al-ciudadano-010"}},{"k":["cita","cita previa","pedir cita","reservar","como pido cita","sin cita","presencial"],"es":{"h":"Para la atención presencial es <b>imprescindible pedir cita previa</b>.","l":["La cita se pide en la página web municipal, www.leganes.org."],"f":"Si su consulta se puede resolver por teléfono, el 010 atiende de 8:00 a 21:30 entre semana y también fines de semana y festivos, sin cita."},"s":{"t":"Atención a la Ciudadanía — leganes.org","u":"https://www.leganes.org/atencion-a-la-ciudadania"}},{"k":["empadronar","empadronarme","empadronamiento","padron","certificado","volante","cambio de domicilio","mudarme"],"es":{"h":"Los trámites del <b>Padrón Municipal de Habitantes</b> —altas, cambios de domicilio, volantes y certificados— se atienden en el SAC.","l":["Presencialmente en la Casa del Reloj, con cita previa.","Por teléfono en el 010 para consultar los requisitos de su caso antes de desplazarse."],"f":"La documentación exacta depende de su situación (vivienda propia, alquiler, autorización de un tercero). Confírmela en el 010 antes de pedir la cita: se ahorra un viaje."},"s":{"t":"Atención a la Ciudadanía — leganes.org","u":"https://www.leganes.org/atencion-a-la-ciudadania"}},{"k":["sede electronica","tramite","tramites","online","internet","por internet","catalogo"],"es":{"h":"El Ayuntamiento tiene <b>sede electrónica</b> para presentar solicitudes sin ir a la oficina.","l":["Se accede desde www.leganes.org.","Desde ahí también se pide la cita previa para lo presencial."],"f":"Si no encuentra el trámite, el 010 le dice si existe versión electrónica antes de que se desplace."},"s":{"t":"Ayuntamiento de Leganés","u":"https://www.leganes.org/"}}];
+const L2KEY = null;
+const T = null;
 
 // Materias excluidas a proposito: importes, licencias y ayudas sociales.
-const BLOCK = ["tasa","tasas","basura","basuras","ibi","impuesto","impuestos","cuanto cuesta","cuánto cuesta","precio","importe","coste","cuota","recibo","licencia","licencias","obra","apertura","ayuda","ayudas","subvencion","subvención","subvenciones","servicios sociales","emergencia social","plusvalia","plusvalía","circulacion","circulación","taxa","taxes","impost","quant costa","preu","import","llicencia","llicencies","ajuda","ajudes","subvencio","plusvalua","plusvàlua"];
+const BLOCK = ["tasa","tasas","basura","basuras","ibi","impuesto","impuestos","cuanto cuesta","cuánto cuesta","precio","importe","coste","cuota","recibo","licencia","licencias","obra","apertura","ayuda","ayudas","subvencion","subvención","subvenciones","servicios sociales","emergencia social","plusvalia","plusvalía","circulacion","circulación","taxa","taxes","impost","quant costa","preu","import","llicencia","llicencies","ajuda","ajudes","subvencio","plusvalua","plusvàlua","licenzas","axuda","axudas","canto custa"];
 
 const norm = s => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9\s]/g," ").replace(/\s+/g," ").trim();
 
@@ -170,28 +172,24 @@ function render(q, hit, dos){
   if (hit === "BLOCK"){
     a.classList.add("refuse");
     a.innerHTML = dos
-      ? `<div class="rlabel">Fora d'abast</div>
-         <p>No puc donar-li aquesta informació. <b>Els imports de taxes i impostos, les llicències i els ajuts socials estan exclosos d'aquest assistent</b> a propòsit: una resposta aproximada en aquestes matèries causa més perjudici que no respondre.</p>
-         <p>Consulti-ho directament a l'${OFI_SIGLA}: <b>${OFI}</b>, o al correu ${OFI_MAIL}.</p>`
+      ? `<div class="rlabel">${T.fuera}</div><p>${T.bloqueo}</p><p>${T.consulte}</p>`
       : `<div class="rlabel">Fuera de alcance</div>
          <p>No puedo darle esa información. <b>Los importes de tasas e impuestos, las licencias y las ayudas sociales están excluidos de este asistente</b> a propósito: una respuesta aproximada en esas materias causa más perjuicio que no responder.</p>
          <p>Consúltelo directamente en ${OFI_SIGLA}: <b>${OFI}</b>, o en el correo ${OFI_MAIL}.</p>`;
   } else if (!hit){
     a.classList.add("refuse");
     a.innerHTML = dos
-      ? `<div class="rlabel">Sense font</div>
-         <p>No he trobat documentació municipal publicada que sustenti una resposta a això, i no me la inventaré.</p>
-         <p>Li recomano consultar-ho a l'${OFI_SIGLA}: <b>${OFI}</b>.</p>`
+      ? `<div class="rlabel">${T.sinfuente}</div><p>${T.nose}</p><p>${T.recomiendo}</p>`
       : `<div class="rlabel">Sin fuente</div>
          <p>No he encontrado documentación municipal publicada que sustente una respuesta a esto, y no voy a improvisarla.</p>
          <p>Le recomiendo consultarlo en ${OFI_SIGLA}: <b>${OFI}</b>.</p>`;
   } else {
-    const c = (dos && hit.ca) ? hit.ca : hit.es;
+    const c = (dos && hit[L2KEY]) ? hit[L2KEY] : hit.es;
     let html = `<p>${c.h}</p>`;
     if (c.l && c.l.length) html += "<ul>" + c.l.map(x=>`<li>${x}</li>`).join("") + "</ul>";
     if (c.f) html += `<p>${c.f}</p>`;
     html += `<div class="src"><a href="${hit.s.u}" target="_blank" rel="noopener">
-      <span class="k">${dos?"Font":"Fuente"}</span><span>${esc(hit.s.t)}</span></a></div>`;
+      <span class="k">${dos ? (L2KEY==="gl" ? "Fonte" : "Font") : "Fuente"}</span><span>${esc(hit.s.t)}</span></a></div>`;
     a.innerHTML = html;
   }
 

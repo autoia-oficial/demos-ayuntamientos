@@ -20,8 +20,8 @@ export const MUNICIPIOS = [
   articulo: 'de Badalona',
   dominios: 'badalona.cat y seu.badalona.cat',
   fecha: '6 de septiembre de 2026',
-  oficina: { sigla: 'SAC', largo: 'Servei d\'Atenció al Ciutadà', tel: '93 483 26 00', email: 'sac@badalona.cat' },
-  idioma2: { cod: 'CA', nombre: 'catalán', sufijo: 'ca', oficinaLargo: 'Servei d\'Atenció al Ciutadà' },
+  oficina: { sigla: "el SAC", largo: 'Servei d\'Atenció al Ciutadà', tel: '93 483 26 00', email: 'sac@badalona.cat' },
+  idioma2: { cod: 'CA', clave: 'ca', sigla: "al SAC", nombre: 'catalán', sufijo: 'ca', oficinaLargo: 'Servei d\'Atenció al Ciutadà' },
   kb: [
     {
       k: ['empadronar', 'empadronarme', 'empadronamiento', 'alta padron', 'darme de alta', 'cambio de domicilio', 'mudarme', 'nuevo vecino',
@@ -108,8 +108,8 @@ export const MUNICIPIOS = [
   articulo: 'de Terrassa',
   dominios: 'terrassa.cat y aoberta.terrassa.cat',
   fecha: '6 de septiembre de 2026',
-  oficina: { sigla: 'OAC', largo: 'Oficina d\'Atenció Ciutadana', tel: '937 397 000', email: 'padro.habitants@terrassa.cat' },
-  idioma2: { cod: 'CA', nombre: 'catalán', sufijo: 'ca', oficinaLargo: 'Oficina d\'Atenció Ciutadana' },
+  oficina: { sigla: "la OAC", largo: 'Oficina d\'Atenció Ciutadana', tel: '937 397 000', email: 'padro.habitants@terrassa.cat' },
+  idioma2: { cod: 'CA', clave: 'ca', sigla: "a l'OAC", nombre: 'catalán', sufijo: 'ca', oficinaLargo: 'Oficina d\'Atenció Ciutadana' },
   kb: [
     {
       k: ['volante', 'volante de empadronamiento', 'acreditar residencia', 'convivencia',
@@ -189,7 +189,7 @@ export const MUNICIPIOS = [
   articulo: 'de Jerez de la Frontera',
   dominios: 'jerez.es y sedeelectronica.jerez.es',
   fecha: '6 de septiembre de 2026',
-  oficina: { sigla: 'OAC', largo: 'Oficina de Atención a la Ciudadanía', tel: '956 149 370 o 010', email: 'oac@aytojerez.es' },
+  oficina: { sigla: "la OAC", largo: 'Oficina de Atención a la Ciudadanía', tel: '956 149 370 o 010', email: 'oac@aytojerez.es' },
   idioma2: null,
   kb: [
     {
@@ -241,7 +241,7 @@ export const MUNICIPIOS = [
   articulo: 'de Leganés',
   dominios: 'leganes.org',
   fecha: '6 de septiembre de 2026',
-  oficina: { sigla: 'SAC', largo: 'Servicio de Atención al Ciudadano', tel: '010 o 912 489 010', email: '010@leganes.org' },
+  oficina: { sigla: "el SAC", largo: 'Servicio de Atención al Ciudadano', tel: '010 o 912 489 010', email: '010@leganes.org' },
   idioma2: null,
   kb: [
     {
@@ -292,7 +292,7 @@ export const MUNICIPIOS = [
   articulo: 'de Santander',
   dominios: 'santander.es y sede.santander.es',
   fecha: '6 de septiembre de 2026',
-  oficina: { sigla: 'Servicio de Estadística', largo: 'Servicio de Estadística', tel: '942 200 613', email: 'estadistica@ayto-santander.es' },
+  oficina: { sigla: "el Servicio de Estadística", largo: 'Servicio de Estadística', tel: '942 200 613', email: 'estadistica@ayto-santander.es' },
   idioma2: null,
   kb: [
     {
@@ -346,7 +346,7 @@ export const MUNICIPIOS = [
   articulo: 'de Dos Hermanas',
   dominios: 'doshermanas.es y sede.doshermanas.es',
   fecha: '6 de septiembre de 2026',
-  oficina: { sigla: 'SAC', largo: 'Oficina de Atención al Ciudadano', tel: '954 91 95 00', email: 'sede@doshermanas.es' },
+  oficina: { sigla: "la Oficina de Atención al Ciudadano", largo: 'Oficina de Atención al Ciudadano', tel: '954 91 95 00', email: 'sede@doshermanas.es' },
   idioma2: null,
   kb: [
     {
@@ -399,7 +399,7 @@ export const MUNICIPIOS = [
   articulo: 'de Parla',
   dominios: 'ayuntamientoparla.es y sede.ayuntamientoparla.es',
   fecha: '6 de septiembre de 2026',
-  oficina: { sigla: 'SAC', largo: 'Servicio de Atención al Ciudadano', tel: '010', email: 'sac@ayuntamientoparla.es' },
+  oficina: { sigla: "el SAC", largo: 'Servicio de Atención al Ciudadano', tel: '010', email: 'sac@ayuntamientoparla.es' },
   idioma2: null,
   kb: [
     {
@@ -455,8 +455,8 @@ export const MUNICIPIOS = [
   articulo: 'de Tarragona',
   dominios: 'tarragona.cat y tramits.tarragona.cat',
   fecha: '6 de septiembre de 2026',
-  oficina: { sigla: 'OMAC', largo: 'Oficina Municipal d\'Atenció Ciutadana', tel: '977 296 258', email: 'omac@tarragona.cat' },
-  idioma2: { cod: 'CA', nombre: 'catalán', sufijo: 'ca', oficinaLargo: 'Oficina Municipal d\'Atenció Ciutadana' },
+  oficina: { sigla: "la OMAC", largo: 'Oficina Municipal d\'Atenció Ciutadana', tel: '977 296 258', email: 'omac@tarragona.cat' },
+  idioma2: { cod: 'CA', clave: 'ca', sigla: "a l'OMAC", nombre: 'catalán', sufijo: 'ca', oficinaLargo: 'Oficina Municipal d\'Atenció Ciutadana' },
   kb: [
     {
       k: ['omac', 'oficina', 'atencion ciudadana', 'direccion', 'telefono', 'contacto', 'rambla',

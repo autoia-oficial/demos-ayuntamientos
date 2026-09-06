@@ -129,15 +129,17 @@ footer b{color:var(--ink-2);font-weight:600}
 <script>
 const OFI = "977 296 258";
 const OFI_MAIL = "omac@tarragona.cat";
-const OFI_SIGLA = "OMAC";
+const OFI_SIGLA = "la OMAC";
 const KB = [{"k":["omac","oficina","atencion ciudadana","direccion","telefono","contacto","rambla","atencio ciutadana","adreca","telefon"],"es":{"h":"La <b>Oficina Municipal d'Atenció Ciutadana (OMAC)</b> es el canal presencial del Ayuntamiento.","l":["OMAC: Rambla Nova, 59 — Tarragona.","Teléfono: 977 296 258.","Correo: omac@tarragona.cat.","Trámites por internet: tramits.tarragona.cat."],"f":"La OMAC informa sobre población, licencias de obra, aperturas, fiestas, dominio público, medio ambiente, limpieza, enseñanza, contratación, cultura, deportes, juventud y servicios sociales."},"ca":{"h":"L'<b>Oficina Municipal d'Atenció Ciutadana (OMAC)</b> és el canal presencial de l'Ajuntament.","l":["OMAC: Rambla Nova, 59 — Tarragona.","Telèfon: 977 296 258.","Correu: omac@tarragona.cat.","Tràmits per internet: tramits.tarragona.cat."],"f":"L'OMAC informa sobre població, llicències d'obra, obertures, festes, domini públic, medi ambient, neteja, ensenyament, contractació, cultura, esports, joventut i serveis socials."},"s":{"t":"OMAC — Oficina Municipal d'Atenció Ciutadana","u":"https://www.tarragona.cat/lajuntament/atencio-ciutadana/omac"}},{"k":["cita","cita previa","pedir cita","reservar","como pido cita","sin cita","plusvalia","cita previa","demanar cita","plusvalua"],"es":{"h":"La <b>cita previa es obligatoria solo para el trámite de plusvalía</b>. Para el resto de trámites de la OMAC no lo es.","l":["Para los demás trámites la cita es la vía preferente, pero no obligatoria: sirve para evitar esperas.","Se pide en citaprevia.tarragona.cat."],"f":"Si su gestión no es la plusvalía, puede acudir sin cita — aunque con ella espera menos."},"ca":{"h":"La <b>cita prèvia és obligatòria només per al tràmit de plusvàlua</b>. Per a la resta de tràmits de l'OMAC no ho és.","l":["Per als altres tràmits la cita és la via preferent, però no obligatòria: serveix per evitar esperes.","Es demana a citaprevia.tarragona.cat."],"f":"Si la seva gestió no és la plusvàlua, pot venir sense cita — encara que amb cita esperarà menys."},"s":{"t":"Cita prèvia — Ajuntament de Tarragona","u":"https://citaprevia.tarragona.cat/"}},{"k":["empadronar","empadronarme","empadronamiento","padron","poblacion","certificado","volante","cambio de domicilio","empadronar-me","empadronament","padro","poblacio","certificat","volant","canvi de domicili"],"es":{"h":"Los trámites de <b>población</b> —el padrón— son una de las materias que atiende la OMAC.","l":["Presencialmente en Rambla Nova, 59, con cita preferente pero no obligatoria.","Por internet en tramits.tarragona.cat."],"f":"La documentación concreta de su caso está en la ficha del trámite. Si prefiere confirmarla antes: 977 296 258 o omac@tarragona.cat."},"ca":{"h":"Els tràmits de <b>població</b> —el padró— són una de les matèries que atén l'OMAC.","l":["Presencialment a la Rambla Nova, 59, amb cita preferent però no obligatòria.","Per internet a tramits.tarragona.cat."],"f":"La documentació concreta del seu cas és a la fitxa del tràmit. Si ho vol confirmar abans: 977 296 258 o omac@tarragona.cat."},"s":{"t":"Atenció ciutadana — Ajuntament de Tarragona","u":"https://www.tarragona.cat/lajuntament/atencio-ciutadana"}},{"k":["sede electronica","tramite","tramites","online","internet","por internet","catalogo","seu electronica","tramit","tramits","cataleg","per internet"],"es":{"h":"Los trámites municipales por internet están en <b>tramits.tarragona.cat</b>.","l":["Disponible las 24 horas, sin desplazamiento ni cita."],"f":"Si no encuentra su trámite, la OMAC lo aclara en el 977 296 258."},"ca":{"h":"Els tràmits municipals per internet són a <b>tramits.tarragona.cat</b>.","l":["Disponible les 24 hores, sense desplaçament ni cita."],"f":"Si no troba el seu tràmit, l'OMAC ho aclareix al 977 296 258."},"s":{"t":"OMAC — Oficina Municipal d'Atenció Ciutadana","u":"https://www.tarragona.cat/lajuntament/atencio-ciutadana/omac"}}];
+const L2KEY = "ca";
+const T = {"fuera":"Fora d'abast","sinfuente":"Sense font","bloqueo":"No puc donar-li aquesta informació. <b>Els imports de taxes i impostos, les llicències i els ajuts socials estan exclosos d'aquest assistent</b> a propòsit: una resposta aproximada en aquestes matèries causa més perjudici que no respondre.","consulte":"Consulti-ho directament a l'OMAC: <b>977 296 258</b>, o al correu omac@tarragona.cat.","nose":"No he trobat documentació municipal publicada que sustenti una resposta a això, i no me la inventaré.","recomiendo":"Li recomano consultar-ho a l'OMAC: <b>977 296 258</b>."};
 
 // Materias excluidas a proposito: importes, licencias y ayudas sociales.
-const BLOCK = ["tasa","tasas","basura","basuras","ibi","impuesto","impuestos","cuanto cuesta","cuánto cuesta","precio","importe","coste","cuota","recibo","licencia","licencias","obra","apertura","ayuda","ayudas","subvencion","subvención","subvenciones","servicios sociales","emergencia social","plusvalia","plusvalía","circulacion","circulación","taxa","taxes","impost","quant costa","preu","import","llicencia","llicencies","ajuda","ajudes","subvencio","plusvalua","plusvàlua"];
+const BLOCK = ["tasa","tasas","basura","basuras","ibi","impuesto","impuestos","cuanto cuesta","cuánto cuesta","precio","importe","coste","cuota","recibo","licencia","licencias","obra","apertura","ayuda","ayudas","subvencion","subvención","subvenciones","servicios sociales","emergencia social","plusvalia","plusvalía","circulacion","circulación","taxa","taxes","impost","quant costa","preu","import","llicencia","llicencies","ajuda","ajudes","subvencio","plusvalua","plusvàlua","licenzas","axuda","axudas","canto custa"];
 
 const norm = s => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9\s]/g," ").replace(/\s+/g," ").trim();
 
-const L2 = ["que necessito","necessito","empadronar-me","aquest","aquesta","quin","quina","com puc","on puc","aixo","tramit","tramits","seu electronica","atencio","quant","per a","hi ha","cal ","puc ","voldria","m agradaria","gracies","si us plau","padro","volant","certificat","llicencia","ajuda","taxa","adreca","horari","telefon","demanar"];
+const L2 = ["que necessito","necessito","empadronar-me","aquest","aquesta","quin","quina","com puc","on puc","aixo","tramit","tramits","seu electronica","atencio","quant","per a","hi ha","cal","puc","voldria","m agradaria","gracies","si us plau","padro","volant","certificat","llicencia","ajuda","taxa","adreca","horari","telefon","demanar"];
 const is2 = t => { const n=norm(t); return L2.some(w=>(" "+n+" ").includes(" "+norm(w)+" ")); };
 
 // Las claves se buscan por PALABRA COMPLETA, no como subcadena. Con subcadena,
@@ -171,28 +173,24 @@ function render(q, hit, dos){
   if (hit === "BLOCK"){
     a.classList.add("refuse");
     a.innerHTML = dos
-      ? `<div class="rlabel">Fora d'abast</div>
-         <p>No puc donar-li aquesta informació. <b>Els imports de taxes i impostos, les llicències i els ajuts socials estan exclosos d'aquest assistent</b> a propòsit: una resposta aproximada en aquestes matèries causa més perjudici que no respondre.</p>
-         <p>Consulti-ho directament a l'${OFI_SIGLA}: <b>${OFI}</b>, o al correu ${OFI_MAIL}.</p>`
+      ? `<div class="rlabel">${T.fuera}</div><p>${T.bloqueo}</p><p>${T.consulte}</p>`
       : `<div class="rlabel">Fuera de alcance</div>
          <p>No puedo darle esa información. <b>Los importes de tasas e impuestos, las licencias y las ayudas sociales están excluidos de este asistente</b> a propósito: una respuesta aproximada en esas materias causa más perjuicio que no responder.</p>
          <p>Consúltelo directamente en ${OFI_SIGLA}: <b>${OFI}</b>, o en el correo ${OFI_MAIL}.</p>`;
   } else if (!hit){
     a.classList.add("refuse");
     a.innerHTML = dos
-      ? `<div class="rlabel">Sense font</div>
-         <p>No he trobat documentació municipal publicada que sustenti una resposta a això, i no me la inventaré.</p>
-         <p>Li recomano consultar-ho a l'${OFI_SIGLA}: <b>${OFI}</b>.</p>`
+      ? `<div class="rlabel">${T.sinfuente}</div><p>${T.nose}</p><p>${T.recomiendo}</p>`
       : `<div class="rlabel">Sin fuente</div>
          <p>No he encontrado documentación municipal publicada que sustente una respuesta a esto, y no voy a improvisarla.</p>
          <p>Le recomiendo consultarlo en ${OFI_SIGLA}: <b>${OFI}</b>.</p>`;
   } else {
-    const c = (dos && hit.ca) ? hit.ca : hit.es;
+    const c = (dos && hit[L2KEY]) ? hit[L2KEY] : hit.es;
     let html = `<p>${c.h}</p>`;
     if (c.l && c.l.length) html += "<ul>" + c.l.map(x=>`<li>${x}</li>`).join("") + "</ul>";
     if (c.f) html += `<p>${c.f}</p>`;
     html += `<div class="src"><a href="${hit.s.u}" target="_blank" rel="noopener">
-      <span class="k">${dos?"Font":"Fuente"}</span><span>${esc(hit.s.t)}</span></a></div>`;
+      <span class="k">${dos ? (L2KEY==="gl" ? "Fonte" : "Font") : "Fuente"}</span><span>${esc(hit.s.t)}</span></a></div>`;
     a.innerHTML = html;
   }
 

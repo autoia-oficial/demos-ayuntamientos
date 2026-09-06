@@ -129,11 +129,13 @@ footer b{color:var(--ink-2);font-weight:600}
 <script>
 const OFI = "954 91 95 00";
 const OFI_MAIL = "sede@doshermanas.es";
-const OFI_SIGLA = "SAC";
+const OFI_SIGLA = "la Oficina de Atención al Ciudadano";
 const KB = [{"k":["oficina","atencion ciudadana","sac","direccion","horario","telefono","contacto","ayuntamiento"],"es":{"h":"La <b>Oficina de Atención al Ciudadano</b> es el canal presencial del Ayuntamiento.","l":["Plaza de la Constitución, 1 — 41701 Dos Hermanas (Sevilla).","Teléfono: 954 91 95 00.","Horario: de lunes a viernes de 9:00 a 14:00.","Correo: sede@doshermanas.es."],"f":""},"s":{"t":"Oficinas del Ayuntamiento de Dos Hermanas — sede.doshermanas.es","u":"https://sede.doshermanas.es/portal/sede/se_contenedor1.jsp?seccion=s_floc_d4_v1.jsp&contenido=75&tipo=1&nivel=1400&codResi=1&language=es&codMenu=27&codMenuPN=6"}},{"k":["empadronar","empadronarme","empadronamiento","padron","certificado","volante","cambio de domicilio","mudarme"],"es":{"h":"Los trámites del <b>padrón municipal</b> se pueden hacer por internet en la sede electrónica o presencialmente en la Oficina de Atención al Ciudadano.","l":["Empadronamiento, certificados y solicitud de cita previa están disponibles de forma electrónica.","Presencialmente: plaza de la Constitución, 1, de lunes a viernes de 9:00 a 14:00."],"f":"La documentación exacta depende de su caso. Confírmela en el 954 91 95 00 antes de desplazarse."},"s":{"t":"Sede electrónica del Ayuntamiento de Dos Hermanas","u":"https://sede.doshermanas.es/"}},{"k":["sede electronica","tramite","tramites","online","internet","por internet","catalogo","registro"],"es":{"h":"La <b>sede electrónica</b> es la ventanilla del Ayuntamiento en internet, abierta las 24 horas.","l":["Ahí está el catálogo de trámites y las oficinas de asistencia en materia de registro.","Desde ella se piden también las citas previas."],"f":"Dudas sobre la sede: sede@doshermanas.es o 954 91 95 00."},"s":{"t":"Sede electrónica del Ayuntamiento de Dos Hermanas","u":"https://sede.doshermanas.es/"}},{"k":["cita","cita previa","pedir cita","reservar","como pido cita","presencial"],"es":{"h":"La <b>cita previa</b> se solicita a través de la sede electrónica.","l":["También se puede pedir llamando al 954 91 95 00."],"f":"Oficina de Atención al Ciudadano: plaza de la Constitución, 1, de lunes a viernes de 9:00 a 14:00."},"s":{"t":"Sede electrónica del Ayuntamiento de Dos Hermanas","u":"https://sede.doshermanas.es/"}}];
+const L2KEY = null;
+const T = null;
 
 // Materias excluidas a proposito: importes, licencias y ayudas sociales.
-const BLOCK = ["tasa","tasas","basura","basuras","ibi","impuesto","impuestos","cuanto cuesta","cuánto cuesta","precio","importe","coste","cuota","recibo","licencia","licencias","obra","apertura","ayuda","ayudas","subvencion","subvención","subvenciones","servicios sociales","emergencia social","plusvalia","plusvalía","circulacion","circulación","taxa","taxes","impost","quant costa","preu","import","llicencia","llicencies","ajuda","ajudes","subvencio","plusvalua","plusvàlua"];
+const BLOCK = ["tasa","tasas","basura","basuras","ibi","impuesto","impuestos","cuanto cuesta","cuánto cuesta","precio","importe","coste","cuota","recibo","licencia","licencias","obra","apertura","ayuda","ayudas","subvencion","subvención","subvenciones","servicios sociales","emergencia social","plusvalia","plusvalía","circulacion","circulación","taxa","taxes","impost","quant costa","preu","import","llicencia","llicencies","ajuda","ajudes","subvencio","plusvalua","plusvàlua","licenzas","axuda","axudas","canto custa"];
 
 const norm = s => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9\s]/g," ").replace(/\s+/g," ").trim();
 
@@ -170,28 +172,24 @@ function render(q, hit, dos){
   if (hit === "BLOCK"){
     a.classList.add("refuse");
     a.innerHTML = dos
-      ? `<div class="rlabel">Fora d'abast</div>
-         <p>No puc donar-li aquesta informació. <b>Els imports de taxes i impostos, les llicències i els ajuts socials estan exclosos d'aquest assistent</b> a propòsit: una resposta aproximada en aquestes matèries causa més perjudici que no respondre.</p>
-         <p>Consulti-ho directament a l'${OFI_SIGLA}: <b>${OFI}</b>, o al correu ${OFI_MAIL}.</p>`
+      ? `<div class="rlabel">${T.fuera}</div><p>${T.bloqueo}</p><p>${T.consulte}</p>`
       : `<div class="rlabel">Fuera de alcance</div>
          <p>No puedo darle esa información. <b>Los importes de tasas e impuestos, las licencias y las ayudas sociales están excluidos de este asistente</b> a propósito: una respuesta aproximada en esas materias causa más perjuicio que no responder.</p>
          <p>Consúltelo directamente en ${OFI_SIGLA}: <b>${OFI}</b>, o en el correo ${OFI_MAIL}.</p>`;
   } else if (!hit){
     a.classList.add("refuse");
     a.innerHTML = dos
-      ? `<div class="rlabel">Sense font</div>
-         <p>No he trobat documentació municipal publicada que sustenti una resposta a això, i no me la inventaré.</p>
-         <p>Li recomano consultar-ho a l'${OFI_SIGLA}: <b>${OFI}</b>.</p>`
+      ? `<div class="rlabel">${T.sinfuente}</div><p>${T.nose}</p><p>${T.recomiendo}</p>`
       : `<div class="rlabel">Sin fuente</div>
          <p>No he encontrado documentación municipal publicada que sustente una respuesta a esto, y no voy a improvisarla.</p>
          <p>Le recomiendo consultarlo en ${OFI_SIGLA}: <b>${OFI}</b>.</p>`;
   } else {
-    const c = (dos && hit.ca) ? hit.ca : hit.es;
+    const c = (dos && hit[L2KEY]) ? hit[L2KEY] : hit.es;
     let html = `<p>${c.h}</p>`;
     if (c.l && c.l.length) html += "<ul>" + c.l.map(x=>`<li>${x}</li>`).join("") + "</ul>";
     if (c.f) html += `<p>${c.f}</p>`;
     html += `<div class="src"><a href="${hit.s.u}" target="_blank" rel="noopener">
-      <span class="k">${dos?"Font":"Fuente"}</span><span>${esc(hit.s.t)}</span></a></div>`;
+      <span class="k">${dos ? (L2KEY==="gl" ? "Fonte" : "Font") : "Fuente"}</span><span>${esc(hit.s.t)}</span></a></div>`;
     a.innerHTML = html;
   }
 

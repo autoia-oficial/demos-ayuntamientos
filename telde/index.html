@@ -226,12 +226,12 @@ function render(q, hit){
     a.classList.add("refuse");
     a.innerHTML = `<div class="rlabel">Fuera de alcance</div>
       <p>No puedo darle esa información. <b>Los importes de tasas e impuestos, las licencias y las ayudas sociales están excluidos de este asistente</b> a propósito: una respuesta aproximada en esas materias causa más perjuicio que no responder.</p>
-      <p>Consúltelo directamente en el Oficina de Atención a la Ciudadanía: <b>${SAC}</b>, o en el correo info@telde.es.</p>`;
+      <p>Consúltelo directamente en la Oficina de Atención a la Ciudadanía: <b>${SAC}</b>, o en el correo info@telde.es.</p>`;
   } else if (!hit){
     a.classList.add("refuse");
     a.innerHTML = `<div class="rlabel">Sin fuente</div>
       <p>No he encontrado documentación municipal publicada que sustente una respuesta a esto, y no voy a improvisarla.</p>
-      <p>Le recomiendo consultarlo en el Oficina de Atención a la Ciudadanía: <b>${SAC}</b>.</p>`;
+      <p>Le recomiendo consultarlo en la Oficina de Atención a la Ciudadanía: <b>${SAC}</b>.</p>`;
   } else {
     let html = `<p>${hit.h}</p>`;
     if (hit.l && hit.l.length) html += "<ul>"+hit.l.map(x=>`<li>${x}</li>`).join("")+"</ul>";

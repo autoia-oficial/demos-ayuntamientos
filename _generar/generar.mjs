@@ -1,21 +1,31 @@
 // ---------------------------------------------------------------------------
-//  GENERA LAS DEMOS DEL SEGUNDO ENVIO
+//  GENERA LAS DEMOS DE ASISTENTE MUNICIPAL
 //
 //    node _generar/generar.mjs
 //
-//  Reutiliza el CSS de la demo de Elche para que las ocho se vean igual, y
-//  monta el motor de busqueda parametrizado por municipio. El contenido de
-//  cada una sale de municipios.mjs, que es lo unico que hay que tocar.
+//  Reutiliza el CSS de la demo de Elche para que todas se vean igual, y monta
+//  el motor de busqueda parametrizado por municipio. El contenido de cada una
+//  sale de los municipios*.mjs, que es lo unico que hay que tocar.
 //
 //  El motor es deliberadamente tonto: busca palabras clave, y si ninguna ficha
 //  puntua lo suficiente dice que no lo sabe. No hay modelo de lenguaje detras.
 //  Para una demo comercial es lo correcto: lo que se ensena es que el asistente
 //  cita la fuente y se calla cuando no la tiene, no que improvise.
+//
+//  OJO: este script solo escribe las carpetas de los municipios que conoce.
+//  Nunca borrar la carpeta padre entera: ahi viven el repo git, el generador y
+//  las demas tandas. Ya paso una vez.
 // ---------------------------------------------------------------------------
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { MUNICIPIOS } from './municipios.mjs';
+import { MUNICIPIOS as LOTE2 } from './municipios.mjs';
+import { MUNICIPIOS_DIA03 as LOTE3 } from './municipios-dia03.mjs';
+
+// Todas las tandas en un solo array: generar es idempotente, asi que volver a
+// escribir las anteriores no molesta y evita que una quede sin regenerar
+// cuando se toca el motor.
+const MUNICIPIOS = [...LOTE2, ...LOTE3];
 
 const AQUI = dirname(fileURLToPath(import.meta.url));
 const WEB = join(AQUI, '..');
@@ -30,16 +40,61 @@ if (!CSS) throw new Error('No encuentro el bloque <style> en la demo de Elche');
 const esc = s => String(s).replace(/[<>&]/g, c => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;' }[c]));
 const js = o => JSON.stringify(o, null, 0);
 
+// Palabras que delatan en que lengua viene la pregunta. La clave (ca, gl, va)
+// dice ademas en que campo de cada ficha esta escrita la respuesta: hit.ca,
+// hit.gl, hit.va.
+const PISTAS = {
+  ca: ['que necessito', 'necessito', 'empadronar-me', 'aquest', 'aquesta', 'quin', 'quina',
+    'com puc', 'on puc', 'aixo', 'tramit', 'tramits', 'seu electronica', 'atencio', 'quant', 'per a',
+    'hi ha', 'cal', 'puc', 'voldria', 'm agradaria', 'gracies', 'si us plau', 'padro', 'volant',
+    'certificat', 'llicencia', 'ajuda', 'taxa', 'adreca', 'horari', 'telefon', 'demanar'],
+  gl: ['que necesito', 'empadroarme', 'empadroamento', 'concello', 'onde', 'como podo',
+    'canto', 'preciso', 'tramite', 'tramites', 'sede electronica', 'hai', 'podo', 'quixera',
+    'gustariame', 'grazas', 'enderezo', 'cidadan', 'cidadania', 'rexistro', 'axuda'],
+  va: ['que necessite', 'necessite', 'empadronar-me', 'aquest', 'aquesta', 'quin', 'quina',
+    'com puc', 'on puc', 'tramit', 'tramits', 'seu electronica', 'atencio', 'quant',
+    'hi ha', 'cal', 'puc', 'voldria', 'gracies', 'padro', 'volant', 'certificat', 'telefon'],
+};
+
+// Las dos negativas —la de materia excluida y la de "no tengo fuente"— en la
+// segunda lengua. Son las dos respuestas que mas se ensenan en la demo, asi que
+// tienen que sonar nativas, no traducidas a medias.
+//
+// OFI_SIGLA2 trae la oficina CON su preposicion y articulo ya contraidos
+// ("al SAC", "a l'OIAC", "na Oficina de Atencion Cidada"), y por eso estas
+// plantillas NO ponen preposicion delante. Cuando la ponian salia "a l'la OIAC"
+// y "consultalo no la Oficina": el articulo castellano venia dentro de la sigla
+// y la plantilla anadia otro encima.
+const NEGATIVAS = {
+  ca: { fuera: "Fora d'abast", sinfuente: 'Sense font',
+    bloqueo: "No puc donar-li aquesta informació. <b>Els imports de taxes i impostos, les llicències i els ajuts socials estan exclosos d'aquest assistent</b> a propòsit: una resposta aproximada en aquestes matèries causa més perjudici que no respondre.",
+    consulte: 'Consulti-ho directament ${OFI_SIGLA2}: <b>${OFI}</b>, o al correu ${OFI_MAIL}.',
+    nose: "No he trobat documentació municipal publicada que sustenti una resposta a això, i no me la inventaré.",
+    recomiendo: 'Li recomano consultar-ho ${OFI_SIGLA2}: <b>${OFI}</b>.' },
+  gl: { fuera: 'Fóra de alcance', sinfuente: 'Sen fonte',
+    bloqueo: 'Non lle podo dar esa información. <b>Os importes de taxas e impostos, as licenzas e as axudas sociais están excluídos deste asistente</b> a propósito: unha resposta aproximada nesas materias causa máis prexuízo que non responder.',
+    consulte: 'Consúlteo directamente ${OFI_SIGLA2}: <b>${OFI}</b>, ou no correo ${OFI_MAIL}.',
+    nose: 'Non atopei documentación municipal publicada que sustente unha resposta a isto, e non a vou improvisar.',
+    recomiendo: 'Recoméndolle consultalo ${OFI_SIGLA2}: <b>${OFI}</b>.' },
+  va: { fuera: "Fora d'abast", sinfuente: 'Sense font',
+    bloqueo: "No puc donar-li aquesta informació. <b>Els imports de taxes i impostos, les llicències i les ajudes socials estan exclosos d'aquest assistent</b> a propòsit: una resposta aproximada en aquestes matèries causa més perjudici que l'absència de resposta.",
+    consulte: 'Consulte-ho directament ${OFI_SIGLA2}: <b>${OFI}</b>, o al correu ${OFI_MAIL}.',
+    nose: "No he trobat documentació municipal publicada que sustente una resposta a això, i no vaig a improvisar-la.",
+    recomiendo: 'Li recomane consultar-ho ${OFI_SIGLA2}: <b>${OFI}</b>.' },
+};
+
 function pagina(m) {
   const bi = !!m.idioma2;
   const of = m.oficina;
+  const CLAVE2 = bi ? m.idioma2.clave : null;
+  const PISTAS_L2 = bi ? (PISTAS[CLAVE2] || []) : [];
+  const SIGLA2 = bi ? (m.idioma2.sigla || of.sigla) : of.sigla;
 
-  // Palabras que delatan que la pregunta viene en la segunda lengua. Solo se
-  // usan en los municipios bilingues; en los demas el bloque ni se genera.
-  const PISTAS_CA = ['que necessito', 'necessito', 'empadronar-me', 'aquest', 'aquesta', 'quin', 'quina',
-    'com puc', 'on puc', 'aixo', 'tramit', 'tramits', 'seu electronica', 'atencio', 'quant', 'per a',
-    'hi ha', 'cal ', 'puc ', 'voldria', 'm agradaria', 'gracies', 'si us plau', 'padro', 'volant',
-    'certificat', 'llicencia', 'ajuda', 'taxa', 'adreca', 'horari', 'telefon', 'demanar'];
+  // Los ${...} de NEGATIVAS se sustituyen AQUI, al generar, no en el navegador:
+  // viajan dentro de un JSON, donde no interpolan solos.
+  const T = bi ? Object.fromEntries(Object.entries(NEGATIVAS[CLAVE2]).map(([k, v]) => [k,
+    v.replace(/\$\{OFI_SIGLA2\}/g, SIGLA2).replace(/\$\{OFI_MAIL\}/g, of.email)
+      .replace(/\$\{OFI\}/g, of.tel)])) : null;
 
   return `<title>Asistente de ${esc(m.nombre)}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -82,13 +137,15 @@ const OFI = ${js(of.tel)};
 const OFI_MAIL = ${js(of.email)};
 const OFI_SIGLA = ${js(of.sigla)};
 const KB = ${js(m.kb)};
+const L2KEY = ${js(CLAVE2)};
+const T = ${js(T)};
 
 // Materias excluidas a proposito: importes, licencias y ayudas sociales.
-const BLOCK = ["tasa","tasas","basura","basuras","ibi","impuesto","impuestos","cuanto cuesta","cuánto cuesta","precio","importe","coste","cuota","recibo","licencia","licencias","obra","apertura","ayuda","ayudas","subvencion","subvención","subvenciones","servicios sociales","emergencia social","plusvalia","plusvalía","circulacion","circulación","taxa","taxes","impost","quant costa","preu","import","llicencia","llicencies","ajuda","ajudes","subvencio","plusvalua","plusvàlua"];
+const BLOCK = ["tasa","tasas","basura","basuras","ibi","impuesto","impuestos","cuanto cuesta","cuánto cuesta","precio","importe","coste","cuota","recibo","licencia","licencias","obra","apertura","ayuda","ayudas","subvencion","subvención","subvenciones","servicios sociales","emergencia social","plusvalia","plusvalía","circulacion","circulación","taxa","taxes","impost","quant costa","preu","import","llicencia","llicencies","ajuda","ajudes","subvencio","plusvalua","plusvàlua","licenzas","axuda","axudas","canto custa"];
 
 const norm = s => s.toLowerCase().normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").replace(/[^a-z0-9\\s]/g," ").replace(/\\s+/g," ").trim();
 
-${bi ? `const L2 = ${js(PISTAS_CA)};
+${bi ? `const L2 = ${js(PISTAS_L2)};
 const is2 = t => { const n=norm(t); return L2.some(w=>(" "+n+" ").includes(" "+norm(w)+" ")); };`
       : `const is2 = () => false;`}
 
@@ -123,28 +180,24 @@ function render(q, hit, dos){
   if (hit === "BLOCK"){
     a.classList.add("refuse");
     a.innerHTML = dos
-      ? \`<div class="rlabel">Fora d'abast</div>
-         <p>No puc donar-li aquesta informació. <b>Els imports de taxes i impostos, les llicències i els ajuts socials estan exclosos d'aquest assistent</b> a propòsit: una resposta aproximada en aquestes matèries causa més perjudici que no respondre.</p>
-         <p>Consulti-ho directament a l'\${OFI_SIGLA}: <b>\${OFI}</b>, o al correu \${OFI_MAIL}.</p>\`
+      ? \`<div class="rlabel">\${T.fuera}</div><p>\${T.bloqueo}</p><p>\${T.consulte}</p>\`
       : \`<div class="rlabel">Fuera de alcance</div>
          <p>No puedo darle esa información. <b>Los importes de tasas e impuestos, las licencias y las ayudas sociales están excluidos de este asistente</b> a propósito: una respuesta aproximada en esas materias causa más perjuicio que no responder.</p>
          <p>Consúltelo directamente en \${OFI_SIGLA}: <b>\${OFI}</b>, o en el correo \${OFI_MAIL}.</p>\`;
   } else if (!hit){
     a.classList.add("refuse");
     a.innerHTML = dos
-      ? \`<div class="rlabel">Sense font</div>
-         <p>No he trobat documentació municipal publicada que sustenti una resposta a això, i no me la inventaré.</p>
-         <p>Li recomano consultar-ho a l'\${OFI_SIGLA}: <b>\${OFI}</b>.</p>\`
+      ? \`<div class="rlabel">\${T.sinfuente}</div><p>\${T.nose}</p><p>\${T.recomiendo}</p>\`
       : \`<div class="rlabel">Sin fuente</div>
          <p>No he encontrado documentación municipal publicada que sustente una respuesta a esto, y no voy a improvisarla.</p>
          <p>Le recomiendo consultarlo en \${OFI_SIGLA}: <b>\${OFI}</b>.</p>\`;
   } else {
-    const c = (dos && hit.ca) ? hit.ca : hit.es;
+    const c = (dos && hit[L2KEY]) ? hit[L2KEY] : hit.es;
     let html = \`<p>\${c.h}</p>\`;
     if (c.l && c.l.length) html += "<ul>" + c.l.map(x=>\`<li>\${x}</li>\`).join("") + "</ul>";
     if (c.f) html += \`<p>\${c.f}</p>\`;
     html += \`<div class="src"><a href="\${hit.s.u}" target="_blank" rel="noopener">
-      <span class="k">\${dos?"Font":"Fuente"}</span><span>\${esc(hit.s.t)}</span></a></div>\`;
+      <span class="k">\${dos ? (L2KEY==="gl" ? "Fonte" : "Font") : "Fuente"}</span><span>\${esc(hit.s.t)}</span></a></div>\`;
     a.innerHTML = html;
   }
 
@@ -173,8 +226,8 @@ document.getElementById("form").onsubmit = e=>{
 </script>`;
 }
 
-// El esqueleto: los fragmentos de Elche no lo traian y sin charset los acentos
-// salen rotos. Ver el README de la carpeta.
+// El esqueleto: los fragmentos originales no lo traian y sin charset los
+// acentos salen rotos. Ver el README de la carpeta.
 function envolver(cuerpo) {
   return ['<!doctype html>', '<html lang="es">', '<head>', '<meta charset="utf-8">',
     '<meta name="viewport" content="width=device-width, initial-scale=1">',
@@ -185,6 +238,6 @@ for (const m of MUNICIPIOS) {
   mkdirSync(join(WEB, m.slug), { recursive: true });
   const html = envolver(pagina(m));
   writeFileSync(join(WEB, m.slug, 'index.html'), html, 'utf8');
-  console.log(`${m.slug.padEnd(22)} ${String(html.length).padStart(6)} bytes  ${m.kb.length} fichas  ${m.idioma2 ? 'bilingüe ' + m.idioma2.cod : 'castellano'}`);
+  console.log(`${m.slug.padEnd(26)} ${String(html.length).padStart(6)} bytes  ${m.kb.length} fichas  ${m.idioma2 ? 'bilingüe ' + m.idioma2.cod : 'castellano'}`);
 }
 console.log(`\n${MUNICIPIOS.length} demos generadas en ${WEB}`);
