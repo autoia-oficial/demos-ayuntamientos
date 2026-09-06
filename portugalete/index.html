@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Asistente de Tres Cantos</title>
+<title>Asistente de Portugalete</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -105,9 +105,9 @@ footer b{color:var(--ink-2);font-weight:600}
   </header>
 
   <div class="intro">
-    <h1>Asistente de atención ciudadana<br>del Ayuntamiento de Tres Cantos</h1>
-    <p class="sub">Responde con la documentación publicada en trescantos.es, citando en
-    cada respuesta la página de la que procede.</p>
+    <h1>Asistente de atención ciudadana<br>del Ayuntamiento de Portugalete</h1>
+    <p class="sub">Responde con la documentación publicada en portugalete.org, citando en
+    cada respuesta la página de la que procede. Contesta en el idioma de la pregunta.</p>
   </div>
 
   <div class="chips" id="chips"></div>
@@ -119,27 +119,28 @@ footer b{color:var(--ink-2);font-weight:600}
   </form>
 
   <footer>
-    <b>Demostración de AutoIA.</b> No es un servicio oficial del Ayuntamiento de Tres Cantos.
-    Contenido recogido de trescantos.es el 7 de septiembre de 2026.<br>
+    <b>Demostración de AutoIA.</b> No es un servicio oficial del Ayuntamiento de Portugalete.
+    Contenido recogido de portugalete.org el 7 de septiembre de 2026.<br>
     Las tasas, licencias y ayudas sociales están excluidas a propósito: son las materias en las que
     una respuesta aproximada causa más perjuicio que la ausencia de respuesta.
   </footer>
 </div>
 
 <script>
-const OFI = "912 938 000";
-const OFI_MAIL = "atencion.vecino@trescantos.es";
-const OFI_SIGLA = "Atención al Vecino";
-const KB = [{"k":["oficina","atencion al vecino","atencion ciudadana","direccion","horario","hasta que hora","a que hora abren","a que hora cierran","abren","cierran","telefono","contacto","plaza del ayuntamiento","tarde","verano"],"es":{"h":"El Ayuntamiento está en la <b>plaza del Ayuntamiento, 1</b> — 28760 Tres Cantos (Madrid).","l":["Teléfono: 912 938 000.","Correo: atencion.vecino@trescantos.es.","Horario: de lunes a viernes de <b>8:00 a 18:00</b>, salvo festivos locales y el 24 y el 31 de diciembre.","Del 13 de julio al 31 de agosto no hay servicio de tarde."],"f":"Diez horas seguidas al día es de los horarios más amplios de la Comunidad de Madrid."},"s":{"t":"Horarios y servicios de atención ciudadana — trescantos.es","u":"https://web.trescantos.es/tramite/horarios-y-servicios-de-atencion-ciudadana/"}},{"k":["padron","empadronar","empadronarme","empadrono","me mudo","me empadrono","empadronamiento","volante","alta","cambio de domicilio","renovacion","caducidad"],"es":{"h":"El servicio de <b>padrón</b> cubre todos los movimientos del Padrón de Habitantes.","l":["Empadronamientos y emisión de volantes.","Altas y cambios de domicilio.","Cambio de datos padronales.","Renovación de la caducidad en la inscripción del padrón."],"f":"Para el registro y el padrón <b>no hace falta cita previa</b>."},"s":{"t":"Horarios y servicios de atención ciudadana — trescantos.es","u":"https://web.trescantos.es/tramite/horarios-y-servicios-de-atencion-ciudadana/"}},{"k":["cita","cita previa","sin cita","pedir cita","necesaria","obligatoria","reservar"],"es":{"h":"Para acudir a la oficina de <b>registro o de padrón no es necesaria la cita previa</b>.","l":["Otros servicios municipales sí tienen su propio sistema de citas.","Las citas previas se gestionan desde la web municipal."],"f":"Con el horario de 8:00 a 18:00, hay margen de sobra para pasarse sin cita."},"s":{"t":"Citas Previas — trescantos.es","u":"https://web.trescantos.es/tramites/citas-previas/"}},{"k":["sede electronica","tramite","tramites","online","internet","por internet","formularios","impresos"],"es":{"h":"Los <b>trámites</b> municipales están agrupados por áreas en la web.","l":["Hay un buscador de trámites y un fondo documental con los formularios."],"f":"Dudas: 912 938 000 o atencion.vecino@trescantos.es."},"s":{"t":"Trámites — Ayuntamiento de Tres Cantos","u":"https://web.trescantos.es/tramites/"}}];
-const L2KEY = null;
-const T = null;
+const OFI = "94 472 92 00";
+const OFI_MAIL = "alcaldia@portugalete.org";
+const OFI_SIGLA = "la OIAC";
+const KB = [{"k":["oiac","oficina","atencion ciudadana","direccion","horario","hasta que hora","a que hora abren","abren","cierran","telefono","contacto","san roque","sabado","sabados","tarde","bulegoa","ordutegia","telefonoa","helbidea","non dago","larunbata"],"es":{"h":"La <b>Oficina de Información y Atención a la Ciudadanía (OIAC)</b> está en la plaza de San Roque, s/n — 48920 Portugalete (Bizkaia).","l":["Teléfono: 94 472 92 00.","De lunes a viernes: de 14:30 a 20:15.","Sábados: de 9:00 a 13:45."],"f":"Es una oficina de tarde: complementa el horario de mañana del Ayuntamiento."},"eu":{"h":"<b>Herritarrentzako Informazio eta Arreta Bulegoa (OIAC)</b> San Roke plazan dago, z/g — 48920 Portugalete (Bizkaia).","l":["Telefonoa: 94 472 92 00.","Astelehenetik ostiralera: 14:30etik 20:15era.","Larunbatetan: 9:00etatik 13:45era."],"f":"Arratsaldeko bulegoa da: Udalaren goizeko ordutegia osatzen du."},"s":{"t":"OIAC — Ayuntamiento de Portugalete","u":"http://www.portugalete.org/es-ES/VivirenPortugalete/OIAC/Paginas/default.aspx"}},{"k":["padron","empadronar","empadronarme","empadrono","me mudo","me empadrono","empadronamiento","certificado","volante","acreditar residencia","errolda","erroldatu","ziurtagiria","agiria"],"es":{"h":"La OIAC expide los <b>certificados y volantes de empadronamiento</b>.","l":["También registra documentos y tramita solicitudes.","Y permite pagar tasas e impuestos municipales."],"f":"Todo en la misma ventanilla: plaza de San Roque, s/n."},"eu":{"h":"OIACek <b>errolda-ziurtagiriak eta -agiriak</b> ematen ditu.","l":["Dokumentuak ere erregistratzen ditu eta eskaerak izapidetzen.","Eta udal tasak eta zergak ordaintzeko aukera ematen du."],"f":"Dena leiho berean: San Roke plaza, z/g."},"s":{"t":"Atención a la Ciudadanía — Ayuntamiento de Portugalete","u":"https://www.portugalete.org/es-ES/Paginas/atencion-ciudadana.aspx"}},{"k":["cita","cita previa","pedir cita","reservar","personal especializado","especialista","hitzordua","eskatu"],"es":{"h":"En la OIAC se puede <b>concertar cita con personal especializado</b>.","l":["Se pide en el 94 472 92 00, o en la propia oficina."],"f":"Para lo demás —certificados, registro, pagos— se atiende directamente en ventanilla."},"eu":{"h":"OIACen <b>langile espezializatuekin hitzordua</b> har daiteke.","l":["94 472 92 00 telefonoan eskatzen da, edo bulegoan bertan."],"f":"Gainerakorako —ziurtagiriak, erregistroa, ordainketak— leihatilan bertan artatzen dute."},"s":{"t":"OIAC — Ayuntamiento de Portugalete","u":"http://www.portugalete.org/es-ES/VivirenPortugalete/OIAC/Paginas/default.aspx"}},{"k":["tasas","impuestos","pagar","registro","documentos","asesoramiento","informacion","erregistroa","dokumentuak","informazioa"],"es":{"h":"La OIAC informa, asesora y tramita las solicitudes de la ciudadanía.","l":["Registro de documentos.","Pago de tasas e impuestos."],"f":"Si su gestión es una de estas, no hace falta cita: se atiende en ventanilla."},"eu":{"h":"OIACek herritarren eskaerak informatu, aholkatu eta izapidetzen ditu.","l":["Dokumentuen erregistroa.","Tasa eta zergen ordainketa."],"f":"Zure kudeaketa horietako bat bada, ez duzu hitzordurik behar: leihatilan artatzen dute."},"s":{"t":"Atención a la Ciudadanía — Ayuntamiento de Portugalete","u":"https://www.portugalete.org/es-ES/Paginas/atencion-ciudadana.aspx"}}];
+const L2KEY = "eu";
+const T = {"fuera":"Esparrutik kanpo","sinfuente":"Iturririk gabe","bloqueo":"Ezin dizut informazio hori eman. <b>Tasen eta zergen zenbatekoak, lizentziak eta gizarte-laguntzak nahita geratu dira asistente honetatik kanpo</b>: gai horietan gutxi gorabeherako erantzun batek kalte handiagoa egiten du erantzunik ez emateak baino.","consulte":"Galdetu zuzenean hemen: OIAC bulegoa (San Roke plaza) — <b>94 472 92 00</b>, edo alcaldia@portugalete.org.","nose":"Ez dut aurkitu galdera hori oinarritzen duen udal-dokumentaziorik argitaratuta, eta ez dut asmatuko.","recomiendo":"Hona jotzea gomendatzen dizut: OIAC bulegoa (San Roke plaza) — <b>94 472 92 00</b>."};
 
 // Materias excluidas a proposito: importes, licencias y ayudas sociales.
 const BLOCK = ["tasa","tasas","basura","basuras","ibi","impuesto","impuestos","cuanto cuesta","cuánto cuesta","precio","importe","coste","cuota","recibo","licencia","licencias","obra","apertura","ayuda","ayudas","subvencion","subvención","subvenciones","servicios sociales","emergencia social","plusvalia","plusvalía","circulacion","circulación","taxa","taxes","impost","quant costa","preu","import","llicencia","llicencies","ajuda","ajudes","subvencio","plusvalua","plusvàlua","licenzas","axuda","axudas","canto custa"];
 
 const norm = s => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9\s]/g," ").replace(/\s+/g," ").trim();
 
-const is2 = () => false;
+const L2 = ["zer","nola","non","noiz","zenbat","behar dut","nahi dut","dago","daude","ordutegia","telefonoa","helbidea","erroldatu","errolda","ziurtagiria","agiria","udala","udaletxea","bulegoa","hitzordua","eskatu","mesedez","eskerrik asko","zein","dizut","dezaket","daukat"];
+const is2 = t => { const n=norm(t); return L2.some(w=>(" "+n+" ").includes(" "+norm(w)+" ")); };
 
 // Las claves se buscan por PALABRA COMPLETA, no como subcadena. Con subcadena,
 // la clave catalana "on" casaba dentro de "Girona" y el asistente contestaba la
@@ -200,7 +201,7 @@ function render(q, hit, dos){
 
 function ask(t){ t = t.trim(); if(!t) return; render(t, match(t), is2(t)); }
 
-const SUG = [{"lang":"ES","t":"¿Hace falta cita previa para el padrón?"},{"lang":"ES","t":"¿Cuánto cuesta exactamente el IBI?"},{"lang":"ES","t":"¿Hasta qué hora abren?"},{"lang":"ES","t":"¿Qué trámites de padrón puedo hacer?"}];
+const SUG = [{"lang":"ES","t":"¿Qué horario tiene la OIAC?"},{"lang":"ES","t":"¿Cuánto cuesta exactamente el IBI?"},{"lang":"EU","t":"Non dago OIAC bulegoa?"},{"lang":"EU","t":"Nola eskatzen da errolda-ziurtagiria?"}];
 const chips = document.getElementById("chips");
 SUG.forEach(s=>{
   const b=document.createElement("button");

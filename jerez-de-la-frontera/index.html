@@ -189,7 +189,7 @@ function render(q, hit, dos){
     if (c.l && c.l.length) html += "<ul>" + c.l.map(x=>`<li>${x}</li>`).join("") + "</ul>";
     if (c.f) html += `<p>${c.f}</p>`;
     html += `<div class="src"><a href="${hit.s.u}" target="_blank" rel="noopener">
-      <span class="k">${dos ? (L2KEY==="gl" ? "Fonte" : "Font") : "Fuente"}</span><span>${esc(hit.s.t)}</span></a></div>`;
+      <span class="k">${dos ? ({gl:"Fonte", eu:"Iturria"}[L2KEY] || "Font") : "Fuente"}</span><span>${esc(hit.s.t)}</span></a></div>`;
     a.innerHTML = html;
   }
 

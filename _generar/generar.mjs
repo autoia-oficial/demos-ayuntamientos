@@ -24,11 +24,12 @@ import { MUNICIPIOS_DIA03 as LOTE3 } from './municipios-dia03.mjs';
 import { MUNICIPIOS_DIA04 as LOTE4 } from './municipios-dia04.mjs';
 import { MUNICIPIOS_DIA05 as LOTE5 } from './municipios-dia05.mjs';
 import { MUNICIPIOS_DIA06 as LOTE6 } from './municipios-dia06.mjs';
+import { MUNICIPIOS_DIA07 as LOTE7 } from './municipios-dia07.mjs';
 
 // Todas las tandas en un solo array: generar es idempotente, asi que volver a
 // escribir las anteriores no molesta y evita que una quede sin regenerar
 // cuando se toca el motor.
-const MUNICIPIOS = [...LOTE2, ...LOTE3, ...LOTE4, ...LOTE5, ...LOTE6];
+const MUNICIPIOS = [...LOTE2, ...LOTE3, ...LOTE4, ...LOTE5, ...LOTE6, ...LOTE7];
 
 const AQUI = dirname(fileURLToPath(import.meta.url));
 const WEB = join(AQUI, '..');
@@ -57,6 +58,10 @@ const PISTAS = {
   va: ['que necessite', 'necessite', 'empadronar-me', 'aquest', 'aquesta', 'quin', 'quina',
     'com puc', 'on puc', 'tramit', 'tramits', 'seu electronica', 'atencio', 'quant',
     'hi ha', 'cal', 'puc', 'voldria', 'gracies', 'padro', 'volant', 'certificat', 'telefon'],
+  eu: ['zer', 'nola', 'non', 'noiz', 'zenbat', 'behar dut', 'nahi dut', 'dago', 'daude',
+    'ordutegia', 'telefonoa', 'helbidea', 'erroldatu', 'errolda', 'ziurtagiria', 'agiria',
+    'udala', 'udaletxea', 'bulegoa', 'hitzordua', 'eskatu', 'mesedez', 'eskerrik asko',
+    'zein', 'dizut', 'dezaket', 'daukat'],
 };
 
 // Las dos negativas —la de materia excluida y la de "no tengo fuente"— en la
@@ -79,6 +84,14 @@ const NEGATIVAS = {
     consulte: 'Consúlteo directamente ${OFI_SIGLA2}: <b>${OFI}</b>, ou no correo ${OFI_MAIL}.',
     nose: 'Non atopei documentación municipal publicada que sustente unha resposta a isto, e non a vou improvisar.',
     recomiendo: 'Recoméndolle consultalo ${OFI_SIGLA2}: <b>${OFI}</b>.' },
+  // El euskera declina el nombre segun el caso, asi que aqui se evita meter la
+  // oficina dentro de una frase declinada: se anuncia con dos puntos y va
+  // suelta. Es la forma segura de no escribir algo que suene mal a un nativo.
+  eu: { fuera: 'Esparrutik kanpo', sinfuente: 'Iturririk gabe',
+    bloqueo: 'Ezin dizut informazio hori eman. <b>Tasen eta zergen zenbatekoak, lizentziak eta gizarte-laguntzak nahita geratu dira asistente honetatik kanpo</b>: gai horietan gutxi gorabeherako erantzun batek kalte handiagoa egiten du erantzunik ez emateak baino.',
+    consulte: 'Galdetu zuzenean hemen: ${OFI_SIGLA2} — <b>${OFI}</b>, edo ${OFI_MAIL}.',
+    nose: 'Ez dut aurkitu galdera hori oinarritzen duen udal-dokumentaziorik argitaratuta, eta ez dut asmatuko.',
+    recomiendo: 'Hona jotzea gomendatzen dizut: ${OFI_SIGLA2} — <b>${OFI}</b>.' },
   va: { fuera: "Fora d'abast", sinfuente: 'Sense font',
     bloqueo: "No puc donar-li aquesta informació. <b>Els imports de taxes i impostos, les llicències i les ajudes socials estan exclosos d'aquest assistent</b> a propòsit: una resposta aproximada en aquestes matèries causa més perjudici que l'absència de resposta.",
     consulte: 'Consulte-ho directament ${OFI_SIGLA2}: <b>${OFI}</b>, o al correu ${OFI_MAIL}.',
@@ -200,7 +213,7 @@ function render(q, hit, dos){
     if (c.l && c.l.length) html += "<ul>" + c.l.map(x=>\`<li>\${x}</li>\`).join("") + "</ul>";
     if (c.f) html += \`<p>\${c.f}</p>\`;
     html += \`<div class="src"><a href="\${hit.s.u}" target="_blank" rel="noopener">
-      <span class="k">\${dos ? (L2KEY==="gl" ? "Fonte" : "Font") : "Fuente"}</span><span>\${esc(hit.s.t)}</span></a></div>\`;
+      <span class="k">\${dos ? ({gl:"Fonte", eu:"Iturria"}[L2KEY] || "Font") : "Fuente"}</span><span>\${esc(hit.s.t)}</span></a></div>\`;
     a.innerHTML = html;
   }
 
