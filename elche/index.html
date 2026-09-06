@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Asistente de Elche</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#f6f4ef; --card:#fff; --ink:#16211c; --ink-2:#4a5751; --ink-3:#8b958f;
+  --line:#e2ded4; --line-2:#efece4;
+  --green:#2f6b4f; --green-soft:#eef3ef;
+  --amber:#a8681f; --amber-soft:#fbf3e7;
+  --ui:'Instrument Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0f1512; --card:#161d19; --ink:#e8eae7; --ink-2:#a3aca7; --ink-3:#6e7873;
+  --line:#26302b; --line-2:#1e2622;
+  --green:#7fc09c; --green-soft:#17241d; --amber:#e0a460; --amber-soft:#231a0f;
+}}
+:root[data-theme="dark"]{
+  --paper:#0f1512; --card:#161d19; --ink:#e8eae7; --ink-2:#a3aca7; --ink-3:#6e7873;
+  --line:#26302b; --line-2:#1e2622;
+  --green:#7fc09c; --green-soft:#17241d; --amber:#e0a460; --amber-soft:#231a0f;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--ui);
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:0 18px 40px}
+
+header{display:flex;align-items:center;gap:11px;padding:22px 0 18px;border-bottom:1px solid var(--line)}
+.mark{width:28px;height:28px;border-radius:50%;background:var(--ink);display:grid;place-items:center;flex:none}
+.mark i{width:9px;height:9px;border-radius:50%;background:var(--paper);display:block}
+.brand{font-weight:700;letter-spacing:-.02em;font-size:17px}
+.badge{margin-left:auto;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-3);border:1px solid var(--line);
+  padding:4px 9px;border-radius:999px;white-space:nowrap}
+
+.intro{padding:26px 0 20px}
+h1{margin:0 0 8px;font-size:clamp(23px,4.4vw,30px);font-weight:700;letter-spacing:-.03em;
+  line-height:1.15;text-wrap:balance}
+.sub{margin:0;color:var(--ink-2);font-size:15px;max-width:60ch}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:6px 0 22px}
+.chip{font:500 13.5px/1 var(--ui);color:var(--ink);background:var(--card);
+  border:1px solid var(--line);border-radius:999px;padding:9px 14px;cursor:pointer;
+  transition:border-color .15s,transform .1s;text-align:left}
+.chip:hover{border-color:var(--ink-3)}
+.chip:active{transform:translateY(1px)}
+.chip:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+.chip b{font-weight:600}
+.chip .lang{font-family:var(--mono);font-size:10px;color:var(--ink-3);
+  border:1px solid var(--line);border-radius:3px;padding:1px 4px;margin-right:7px}
+
+#log{display:flex;flex-direction:column;gap:16px;min-height:80px}
+.turn{display:flex;flex-direction:column;gap:4px}
+.q{align-self:flex-end;max-width:85%;background:var(--ink);color:var(--paper);
+  padding:11px 15px;border-radius:15px 15px 4px 15px;font-size:15px;font-weight:500}
+.a{align-self:flex-start;max-width:92%;background:var(--card);border:1px solid var(--line);
+  border-left:3px solid var(--green);padding:15px 17px;border-radius:4px 15px 15px 15px}
+.a.refuse{border-left-color:var(--amber);background:var(--amber-soft)}
+.a p{margin:0 0 9px;font-size:15px}
+.a p:last-child{margin-bottom:0}
+.a ul{margin:6px 0 10px;padding-left:19px;font-size:14.5px}
+.a li{margin-bottom:4px}
+.rlabel{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--amber);
+  margin-bottom:8px;font-weight:500}
+.rlabel::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--amber)}
+.src{margin-top:11px;padding-top:10px;border-top:1px solid var(--line-2)}
+.src a{display:inline-flex;align-items:baseline;gap:7px;font-family:var(--mono);
+  font-size:11.5px;color:var(--green);text-decoration:none;word-break:break-all}
+.src a:hover{text-decoration:underline}
+.src .k{color:var(--ink-3);flex:none}
+
+.ask{display:flex;gap:9px;margin-top:22px;position:sticky;bottom:14px}
+input{flex:1;font:400 15px/1 var(--ui);color:var(--ink);background:var(--card);
+  border:1px solid var(--line);border-radius:11px;padding:14px 16px}
+input:focus{outline:none;border-color:var(--green)}
+input::placeholder{color:var(--ink-3)}
+button.send{font:600 14.5px/1 var(--ui);color:var(--paper);background:var(--ink);
+  border:0;border-radius:11px;padding:0 20px;cursor:pointer}
+button.send:hover{opacity:.88}
+button.send:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+
+footer{margin-top:30px;padding-top:16px;border-top:1px solid var(--line);
+  font-size:12.5px;color:var(--ink-3);line-height:1.65}
+footer b{color:var(--ink-2);font-weight:600}
+@media (prefers-reduced-motion:no-preference){
+  .turn{animation:in .22s ease-out}
+  @keyframes in{from{opacity:0;transform:translateY(5px)}}
+}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="mark"><i></i></div>
+    <div class="brand">AutoIA</div>
+    <div class="badge">Demostración</div>
+  </header>
+
+  <div class="intro">
+    <h1>Asistente de atención ciudadana<br>del Ayuntamiento de Elche</h1>
+    <p class="sub">Responde con la documentación publicada en elche.es y sede.elche.es, citando en
+    cada respuesta la página de la que procede. Contesta en el idioma de la pregunta.</p>
+  </div>
+
+  <div class="chips" id="chips"></div>
+  <div id="log"></div>
+
+  <form class="ask" id="form" autocomplete="off">
+    <input id="q" placeholder="Escriba su consulta…" aria-label="Consulta">
+    <button class="send" type="submit">Enviar</button>
+  </form>
+
+  <footer>
+    <b>Demostración de AutoIA.</b> No es un servicio oficial del Ayuntamiento de Elche.
+    Contenido recogido de elche.es y sede.elche.es el 28 de agosto de 2026.<br>
+    Las tasas, licencias y ayudas sociales están excluidas a propósito: son las materias en las que
+    una respuesta aproximada causa más perjuicio que la ausencia de respuesta.
+  </footer>
+</div>
+
+<script>
+const OMAC = "010 o 966 65 80 50";
+
+// Contenido real recogido de elche.es y sede.elche.es el 28/08/2026
+const KB = [
+{
+  id:"alta-padron",
+  k:["empadronar","empadronarme","empadronarse","empadronamiento","alta padron","alta en el padron","darme de alta","inscripcion padronal","a235","mudar","mudado","acabo de mudarme","nuevo vecino","registrarme","censarme","empadronar-me","empadronament","alta padro","full inscripcio","mudat","acabe de mudar"],
+  es:{h:"Para darse de alta en el padrón municipal de Elche hay que presentar la <b>hoja de inscripción padronal (modelo A235)</b> en cualquiera de las oficinas de la OMAC.",
+      l:["El impreso A235 está disponible para descarga en la web municipal, en castellano y en valenciano.","Hay que aportar DNI, NIE o pasaporte en vigor.","Se presenta en cualquiera de las 14 oficinas de atención ciudadana, con cita previa."],
+      f:"Para pedir cita: "+OMAC+", o por WhatsApp en el 966 65 80 50."},
+  va:{h:"Per donar-se d'alta al padró municipal d'Elx cal presentar el <b>full d'inscripció padronal (model A235)</b> en qualsevol de les oficines de l'OMAC.",
+      l:["L'imprés A235 es pot descarregar de la web municipal, en castellà i en valencià.","Cal aportar DNI, NIE o passaport en vigor.","Es presenta en qualsevol de les 14 oficines d'atenció ciutadana, amb cita prèvia."],
+      f:"Per demanar cita: "+OMAC+", o per WhatsApp al 966 65 80 50."},
+  s:{t:"Hoja de inscripción padronal (A235) — elche.es",u:"https://www.elche.es/download/hoja-de-inscripcion-padronal/"}
+},
+{
+  id:"certificado-padron",
+  k:["certificado de empadronamiento","certificado empadronamiento","certificado de padron","certificado padron","volante de empadronamiento","volante","acreditar residencia","certificado de residencia","certificado residencia","historico","colectivo","individual","certificat d empadronament","certificat empadronament","volant","acreditar residencia","historic","col lectiu"],
+  es:{h:"El <b>certificado de empadronamiento</b> acredita la residencia en el municipio. Puede ser individual, colectivo o histórico.",
+      l:["Documentación: formulario A119 (instancia general), DNI, NIE o pasaporte en vigor.","Si actúa un representante: formulario A497 de autorización y DNI del representado.","Presentación: sede electrónica, oficinas OMAC o por cualquiera de las vías del artículo 16 de la Ley 39/2015.","Se puede solicitar todo el año. Plazo de resolución: tres meses.","Gratuito, salvo los certificados históricos anteriores a 1996, que tienen una tasa de 23,57 €."],
+      f:"Órgano gestor: Departamento de Estadística (estadistica@elche.es)."},
+  va:{h:"El <b>certificat d'empadronament</b> acredita la residència al municipi. Pot ser individual, col·lectiu o històric.",
+      l:["Documentació: formulari A119 (instància general), DNI, NIE o passaport en vigor.","Si actua un representant: formulari A497 d'autorització i DNI del representat.","Presentació: seu electrònica, oficines OMAC o per qualsevol de les vies de l'article 16 de la Llei 39/2015.","Es pot sol·licitar tot l'any. Termini de resolució: tres mesos.","Gratuït, excepte els certificats històrics anteriors a 1996, amb una taxa de 23,57 €."],
+      f:"Òrgan gestor: Departament d'Estadística (estadistica@elche.es)."},
+  s:{t:"Certificado de empadronamiento — sede.elche.es",u:"https://sede.elche.es/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=CATALOGO&DETALLE=6269000000564050399500"}
+},
+{
+  id:"omac",
+  k:["omac","oficina","atencion ciudadana","horario","donde","direccion","cita previa","cita","telefono","contacto","abierto","agosto","atencio ciutadana","horari","on","adreca","cita previa","telefon"],
+  es:{h:"La <b>Oficina Municipal de Atención Ciudadana (OMAC)</b> es el canal de atención presencial del Ayuntamiento. Hay 14 oficinas repartidas por el municipio.",
+      l:["Oficina principal: Alfonso XII, 16-1 y 16-2 · 03202 Elx.","Centralita: 966 65 80 00. OMAC: 010 o 966 65 80 50.","Correo: omac@elche.es · WhatsApp: 966 65 80 50.","Cita previa por internet, por teléfono o por WhatsApp. Cada cita es para un único servicio.","En agosto permanecen cerradas la OMAC Universidad y la OMAC Plaza Crevillente."],
+      f:""},
+  va:{h:"L'<b>Oficina Municipal d'Atenció Ciutadana (OMAC)</b> és el canal d'atenció presencial de l'Ajuntament. Hi ha 14 oficines repartides pel municipi.",
+      l:["Oficina principal: Alfons XII, 16-1 i 16-2 · 03202 Elx.","Centraleta: 966 65 80 00. OMAC: 010 o 966 65 80 50.","Correu: omac@elche.es · WhatsApp: 966 65 80 50.","Cita prèvia per internet, per telèfon o per WhatsApp. Cada cita és per a un únic servei.","A l'agost estan tancades l'OMAC Universitat i l'OMAC Plaça Crevillent."],
+      f:""},
+  s:{t:"Oficina Municipal de Atención Ciudadana — elche.es",u:"https://www.elche.es/oficina-municipal-de-atencion-ciudadana-omac/"}
+},
+{
+  id:"sede",
+  k:["sede electronica","tramite","tramites","online","internet","catalogo","procedimiento","gestion","seu electronica","tramit","tramits","cataleg"],
+  es:{h:"Los trámites municipales se gestionan en la <b>sede electrónica</b>, donde está publicado el catálogo completo de procedimientos.",
+      l:["Catálogo de procedimientos, trámites destacados y reglamentos y ordenanzas municipales.","Presentación conforme al artículo 16 de la Ley 39/2015."],
+      f:"Si prefiere hacerlo presencialmente, puede pedir cita en la OMAC: "+OMAC+"."},
+  va:{h:"Els tràmits municipals es gestionen a la <b>seu electrònica</b>, on està publicat el catàleg complet de procediments.",
+      l:["Catàleg de procediments, tràmits destacats i reglaments i ordenances municipals.","Presentació d'acord amb l'article 16 de la Llei 39/2015."],
+      f:"Si ho prefereix presencialment, pot demanar cita a l'OMAC: "+OMAC+"."},
+  s:{t:"Sede electrónica — sede.elche.es",u:"https://sede.elche.es/"}
+},
+{
+  id:"modificar-padron",
+  k:["modificar datos","cambiar datos","corregir","corrijo","error en el padron","error datos","error en mi nombre","rectificar","actualizar datos","cambio de nombre","esta mal","equivocado","modificacio dades","canviar dades","corregir","error dades","rectificar","esta malament","equivocat"],
+  es:{h:"Para <b>corregir errores en los datos personales del padrón</b> hay que solicitar la modificación. Puede pedirla el interesado o una persona autorizada.",
+      l:["Documentación: formulario A119 (instancia general) y DNI, NIE o pasaporte en vigor, o certificado de nacimiento.","Además, un documento que acredite el error en los datos.","Si actúa un representante: documento acreditativo de la representación y DNI/NIF del representado.","Se puede solicitar todo el año. Plazo de resolución: tres meses. Sin coste."],
+      f:"Presentación: sede electrónica, cualquier OMAC, o cualquiera de las vías previstas en la Ley 39/2015."},
+  va:{h:"Per a <b>corregir errors en les dades personals del padró</b> cal sol·licitar-ne la modificació. Pot demanar-la la persona interessada o una persona autoritzada.",
+      l:["Documentació: formulari A119 (instància general) i DNI, NIE o passaport en vigor, o certificat de naixement.","A més, un document que acredite l'error en les dades.","Si actua un representant: document acreditatiu de la representació i DNI/NIF del representat.","Es pot sol·licitar tot l'any. Termini de resolució: tres mesos. Sense cost."],
+      f:"Presentació: seu electrònica, qualsevol OMAC, o qualsevol de les vies previstes a la Llei 39/2015."},
+  s:{t:"Modificación de datos personales en el Padrón — sede.elche.es",u:"https://sede.elche.es/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=CATALOGO&DETALLE=6269000000563712099500"}
+},
+{
+  id:"sugerencias",
+  k:["queja","quejas","reclamacion","reclamaciones","sugerencia","sugerencias","protesta","reclamar","denuncia servicio","funciona mal","buzon","queixa","queixes","reclamacio","suggeriment","suggeriments","protesta","bustia"],
+  es:{h:"Las <b>sugerencias y reclamaciones</b> sobre el funcionamiento de los servicios municipales tienen su propio procedimiento. Todos los ciudadanos tienen derecho a presentarlas.",
+      l:["Sugerencias: propuestas o iniciativas para mejorar los servicios públicos del Ayuntamiento.","Reclamaciones: peticiones o protestas sobre el funcionamiento normal o anormal de los servicios municipales.","Documentación: formulario A136 cumplimentado con los datos de identificación y la descripción.","Se pueden presentar en cualquier momento. Plazo recomendable de respuesta: un mes; máximo tres meses."],
+      f:"Vías: registro general en la OMAC, teléfono 010, sede electrónica con firma digital, o la red de buzones de la ciudadanía."},
+  va:{h:"Els <b>suggeriments i reclamacions</b> sobre el funcionament dels serveis municipals tenen un procediment propi. Tots els ciutadans tenen dret a presentar-los.",
+      l:["Suggeriments: propostes o iniciatives per a millorar els serveis públics de l'Ajuntament.","Reclamacions: peticions o protestes sobre el funcionament normal o anormal dels serveis municipals.","Documentació: formulari A136 omplit amb les dades d'identificació i la descripció.","Es poden presentar en qualsevol moment. Termini recomanable de resposta: un mes; màxim tres mesos."],
+      f:"Vies: registre general a l'OMAC, telèfon 010, seu electrònica amb signatura digital, o la xarxa de bústies de la ciutadania."},
+  s:{t:"Sugerencias y reclamaciones — sede.elche.es",u:"https://sede.elche.es/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=CATALOGO&DETALLE=6269000049467365607922"}
+},
+{
+  id:"aportar-doc",
+  k:["aportar documentacion","aportar documento","expediente","requerimiento","adjuntar","subsanar","enviar documentacion","aportar documentacio","expedient","requeriment","adjuntar","esmenar"],
+  es:{h:"Para <b>aportar documentación a un expediente ya iniciado</b> existe un trámite específico. Puede usarlo cualquier persona que conste como interesada en el expediente.",
+      l:["En la solicitud hay que indicar los datos del expediente, el motivo de la aportación y qué documentación se aporta.","Se puede aportar en cualquier momento mientras el expediente esté en tramitación.","Si responde a un requerimiento, dentro del plazo indicado en la notificación recibida."],
+      f:"Presentación: sede electrónica; presencialmente en cualquier OMAC para personas físicas no obligadas; o por las vías del artículo 16.4 de la Ley 39/2015."},
+  va:{h:"Per a <b>aportar documentació a un expedient ja iniciat</b> hi ha un tràmit específic. Pot usar-lo qualsevol persona que conste com a interessada en l'expedient.",
+      l:["A la sol·licitud cal indicar les dades de l'expedient, el motiu de l'aportació i quina documentació s'aporta.","Es pot aportar en qualsevol moment mentre l'expedient estiga en tramitació.","Si respon a un requeriment, dins del termini indicat a la notificació rebuda."],
+      f:"Presentació: seu electrònica; presencialment a qualsevol OMAC per a persones físiques no obligades; o per les vies de l'article 16.4 de la Llei 39/2015."},
+  s:{t:"Aportación de documentación a expedientes — sede.elche.es",u:"https://sede.elche.es/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=CATALOGO&DETALLE=6269000000003476607922"}
+}
+];
+
+// Materias excluidas a propósito
+const BLOCK = ["tasa","tasas","basura","basuras","ibi","impuesto","impuestos","cuanto cuesta","cuánto cuesta","precio","importe","coste","cuota","recibo","licencia","licencias","obra","apertura","ayuda","ayudas","subvencion","subvención","subvenciones","social","servicios sociales","emergencia social","taxa","taxes","fem","impost","quant costa","preu","import","llicencia","llicencies","ajuda","ajudes","subvencio"];
+
+const norm = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9\s]/g," ").replace(/\s+/g," ").trim();
+
+// Detección de valenciano
+const VA = ["que necessite","necessite","empadronar-me","aquest","aquesta","quin","quina","com puc","on puc","aixo","aixi","aquest","aquests","aquestes","aixo","tramit","tramits","seu electronica","atencio","oficina d","l omac","aixo","quant","aixo","per a","aixo","hi ha","cal ","puc ","voldria","m agradaria","gracies","si us plau","padro","full","llicencia","ajuda","taxa","fem"];
+const isVA = t => { const n=" "+norm(t)+" "; return VA.some(w=>n.includes(" "+norm(w))||n.includes(norm(w)+" ")); };
+
+function match(t){
+  const n = norm(t);
+  if (BLOCK.some(b => n.includes(norm(b)))) return "BLOCK";
+  let best=null, bs=0;
+  for (const e of KB){
+    let sc=0;
+    for (const k of e.k){ const nk=norm(k); if(nk && n.includes(nk)) sc += nk.split(" ").length*2 + nk.length/12; }
+    if (sc>bs){ bs=sc; best=e; }
+  }
+  return bs>=2 ? best : null;
+}
+
+const log = document.getElementById("log");
+
+function esc(s){ return s.replace(/[<>&]/g,c=>({"<":"&lt;",">":"&gt;","&":"&amp;"}[c])); }
+
+function render(q, hit, va){
+  const turn = document.createElement("div");
+  turn.className = "turn";
+
+  const qq = document.createElement("div");
+  qq.className = "q"; qq.textContent = q;
+  turn.appendChild(qq);
+
+  const a = document.createElement("div");
+  a.className = "a";
+
+  if (hit === "BLOCK"){
+    a.classList.add("refuse");
+    a.innerHTML = va
+      ? `<div class="rlabel">Fora d'abast</div>
+         <p>No puc donar-li aquesta informació. <b>Els imports de taxes i impostos, les llicències i les ajudes socials estan exclosos d'aquest assistent</b> a propòsit: una resposta aproximada en aquestes matèries causa més perjudici que no respondre.</p>
+         <p>Consulte-ho directament a l'OMAC: <b>${OMAC}</b>, o al correu omac@elche.es.</p>`
+      : `<div class="rlabel">Fuera de alcance</div>
+         <p>No puedo darle esa información. <b>Los importes de tasas e impuestos, las licencias y las ayudas sociales están excluidos de este asistente</b> a propósito: una respuesta aproximada en esas materias causa más perjuicio que no responder.</p>
+         <p>Consúltelo directamente en la OMAC: <b>${OMAC}</b>, o en el correo omac@elche.es.</p>`;
+  } else if (!hit){
+    a.classList.add("refuse");
+    a.innerHTML = va
+      ? `<div class="rlabel">Sense font</div>
+         <p>No he trobat documentació municipal publicada que sustente una resposta a això, i no vaig a improvisar-la.</p>
+         <p>Li recomane consultar-ho a l'OMAC: <b>${OMAC}</b>.</p>`
+      : `<div class="rlabel">Sin fuente</div>
+         <p>No he encontrado documentación municipal publicada que sustente una respuesta a esto, y no voy a improvisarla.</p>
+         <p>Le recomiendo consultarlo en la OMAC: <b>${OMAC}</b>.</p>`;
+  } else {
+    const c = va ? hit.va : hit.es;
+    let html = `<p>${c.h}</p>`;
+    if (c.l && c.l.length) html += "<ul>" + c.l.map(x=>`<li>${x}</li>`).join("") + "</ul>";
+    if (c.f) html += `<p>${c.f}</p>`;
+    html += `<div class="src"><a href="${hit.s.u}" target="_blank" rel="noopener">
+      <span class="k">${va?"Font":"Fuente"}</span><span>${esc(hit.s.t)}</span></a></div>`;
+    a.innerHTML = html;
+  }
+
+  turn.appendChild(a);
+  log.appendChild(turn);
+  a.scrollIntoView({behavior:"smooth", block:"nearest"});
+}
+
+function ask(t){
+  t = t.trim(); if(!t) return;
+  render(t, match(t), isVA(t));
+}
+
+const SUG = [
+  {lang:"ES", t:"¿Qué necesito para empadronarme en Elche?"},
+  {lang:"ES", t:"¿Cuánto cuesta exactamente la tasa de basuras?"},
+  {lang:"VA", t:"Què necessite per a empadronar-me a Elx?"},
+  {lang:"ES", t:"¿Dónde está la OMAC y cómo pido cita?"}
+];
+const chips = document.getElementById("chips");
+SUG.forEach(s=>{
+  const b=document.createElement("button");
+  b.className="chip"; b.type="button";
+  b.innerHTML = `<span class="lang">${s.lang}</span><b>${esc(s.t)}</b>`;
+  b.onclick = ()=>ask(s.t);
+  chips.appendChild(b);
+});
+
+document.getElementById("form").onsubmit = e=>{
+  e.preventDefault();
+  const i=document.getElementById("q");
+  ask(i.value); i.value="";
+};
+</script>
+</html>

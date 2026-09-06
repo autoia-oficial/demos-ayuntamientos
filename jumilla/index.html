@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Asistente de Jumilla</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#f6f4ef; --card:#fff; --ink:#16211c; --ink-2:#4a5751; --ink-3:#8b958f;
+  --line:#e2ded4; --line-2:#efece4;
+  --green:#2f6b4f; --amber:#a8681f; --amber-soft:#fbf3e7;
+  --ui:'Instrument Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0f1512; --card:#161d19; --ink:#e8eae7; --ink-2:#a3aca7; --ink-3:#6e7873;
+  --line:#26302b; --line-2:#1e2622; --green:#7fc09c; --amber:#e0a460; --amber-soft:#231a0f;
+}}
+:root[data-theme="dark"]{
+  --paper:#0f1512; --card:#161d19; --ink:#e8eae7; --ink-2:#a3aca7; --ink-3:#6e7873;
+  --line:#26302b; --line-2:#1e2622; --green:#7fc09c; --amber:#e0a460; --amber-soft:#231a0f;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--ui);
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:0 18px 40px}
+header{display:flex;align-items:center;gap:11px;padding:22px 0 18px;border-bottom:1px solid var(--line)}
+.mark{width:28px;height:28px;border-radius:50%;background:var(--ink);display:grid;place-items:center;flex:none}
+.mark i{width:9px;height:9px;border-radius:50%;background:var(--paper);display:block}
+.brand{font-weight:700;letter-spacing:-.02em;font-size:17px}
+.badge{margin-left:auto;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-3);border:1px solid var(--line);
+  padding:4px 9px;border-radius:999px;white-space:nowrap}
+.intro{padding:26px 0 20px}
+h1{margin:0 0 8px;font-size:clamp(23px,4.4vw,30px);font-weight:700;letter-spacing:-.03em;
+  line-height:1.15;text-wrap:balance}
+.sub{margin:0;color:var(--ink-2);font-size:15px;max-width:60ch}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:6px 0 22px}
+.chip{font:500 13.5px/1 var(--ui);color:var(--ink);background:var(--card);
+  border:1px solid var(--line);border-radius:999px;padding:9px 14px;cursor:pointer;
+  transition:border-color .15s,transform .1s;text-align:left}
+.chip:hover{border-color:var(--ink-3)}
+.chip:active{transform:translateY(1px)}
+.chip:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+#log{display:flex;flex-direction:column;gap:16px;min-height:80px}
+.turn{display:flex;flex-direction:column;gap:4px}
+.q{align-self:flex-end;max-width:85%;background:var(--ink);color:var(--paper);
+  padding:11px 15px;border-radius:15px 15px 4px 15px;font-size:15px;font-weight:500}
+.a{align-self:flex-start;max-width:92%;background:var(--card);border:1px solid var(--line);
+  border-left:3px solid var(--green);padding:15px 17px;border-radius:4px 15px 15px 15px}
+.a.refuse{border-left-color:var(--amber);background:var(--amber-soft)}
+.a p{margin:0 0 9px;font-size:15px}
+.a p:last-child{margin-bottom:0}
+.a ul{margin:6px 0 10px;padding-left:19px;font-size:14.5px}
+.a li{margin-bottom:4px}
+.rlabel{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--amber);
+  margin-bottom:8px;font-weight:500}
+.rlabel::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--amber)}
+.src{margin-top:11px;padding-top:10px;border-top:1px solid var(--line-2)}
+.src a{display:inline-flex;align-items:baseline;gap:7px;font-family:var(--mono);
+  font-size:11.5px;color:var(--green);text-decoration:none;word-break:break-all}
+.src a:hover{text-decoration:underline}
+.src .k{color:var(--ink-3);flex:none}
+.ask{display:flex;gap:9px;margin-top:22px;position:sticky;bottom:14px}
+input{flex:1;font:400 15px/1 var(--ui);color:var(--ink);background:var(--card);
+  border:1px solid var(--line);border-radius:11px;padding:14px 16px}
+input:focus{outline:none;border-color:var(--green)}
+input::placeholder{color:var(--ink-3)}
+button.send{font:600 14.5px/1 var(--ui);color:var(--paper);background:var(--ink);
+  border:0;border-radius:11px;padding:0 20px;cursor:pointer}
+button.send:hover{opacity:.88}
+button.send:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+footer{margin-top:30px;padding-top:16px;border-top:1px solid var(--line);
+  font-size:12.5px;color:var(--ink-3);line-height:1.65}
+footer b{color:var(--ink-2);font-weight:600}
+@media (prefers-reduced-motion:no-preference){
+  .turn{animation:in .22s ease-out}
+  @keyframes in{from{opacity:0;transform:translateY(5px)}}
+}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="mark"><i></i></div>
+    <div class="brand">AutoIA</div>
+    <div class="badge">Demostración</div>
+  </header>
+
+  <div class="intro">
+    <h1>Asistente de atención ciudadana<br>del Ayuntamiento de Jumilla</h1>
+    <p class="sub">Responde con la documentación publicada en jumilla.org y en su sede electrónica, citando en cada respuesta la página de la que procede.</p>
+  </div>
+
+  <div class="chips" id="chips"></div>
+  <div id="log"></div>
+
+  <form class="ask" id="form" autocomplete="off">
+    <input id="q" placeholder="Escriba su consulta…" aria-label="Consulta">
+    <button class="send" type="submit">Enviar</button>
+  </form>
+
+  <footer>
+    <b>Demostración de AutoIA.</b> No es un servicio oficial del Ayuntamiento de Jumilla.
+    Contenido recogido de jumilla.org y jumilla.sedipualba.es el 28 de agosto de 2026.<br>
+    Las tasas, licencias y ayudas sociales están excluidas a propósito: son las materias en las que
+    una respuesta aproximada causa más perjuicio que la ausencia de respuesta.
+  </footer>
+</div>
+
+<script>
+const SAC = "968 78 20 20";
+
+// Contenido real recogido el 28/08/2026
+const KB = [
+{
+  id:"padron",
+  k:["empadronar","empadronarme","empadronarse","alta en el padron","alta padron","darme de alta","padron","empadronamiento","horario del padron","horario padron","horario tiene el padron","donde esta el padron","cambio de domicilio","modificacion","modificar datos","mudar","mudado","acabo de mudarme","nuevo vecino","registrarme","censarme","baja en el padron","darme de baja"],
+  h:"El <b>Padrón Municipal de Habitantes</b> gestiona las altas, las bajas y las modificaciones, y expide los certificados de residencia y convivencia.",
+  l:["<b>Ojo con la dirección:</b> no está en la Casa Consistorial de Cánovas del Castillo, sino en el <b>Edificio Nuevo Casa Consistorial, calle Ramón y Cajal, 2ª planta</b>.",
+     "<b>Horario reducido:</b> de lunes a viernes, de 8:00 a 10:30. Solo por la mañana temprano.",
+     "Para el alta hay que presentar la solicitud de inscripción padronal cumplimentada y firmada por todos los mayores de edad que se incluyan, junto con la documentación que acredite la identidad y la residencia.",
+     "El servicio elabora también informes."],
+  f:"Teléfono: 968 78 20 20. Correo: info@jumilla.org",
+  s:{t:"Padrón de Habitantes — jumilla.org",u:"https://jumilla.org/ayuntamiento/Padron.asp"}
+},
+{
+  id:"certificados",
+  k:["certificado","volante","certificado de residencia","certificado de convivencia","convivencia","acreditar residencia","justificante","informe"],
+  h:"Los <b>certificados de residencia y de convivencia</b> los expide el servicio de Padrón.",
+  l:["Presencialmente: Edificio Nuevo Casa Consistorial, calle Ramón y Cajal, 2ª planta, de 8:00 a 10:30.",
+     "Por internet: desde la sede electrónica se pueden obtener certificados telemáticos en tiempo real, individuales o colectivos.",
+     "Para el trámite electrónico hay que identificarse con un certificado digital de una de las autoridades de certificación admitidas por la plataforma."],
+  f:"",
+  s:{t:"Padrón de Habitantes — jumilla.org",u:"https://jumilla.org/ayuntamiento/Padron.asp"}
+},
+{
+  id:"registro",
+  k:["registro","registro general","ventanilla unica","ocag","presentar documentos","registrar","instancia","instancias","entregar documentacion","recoger documentos","centralita","comunidad autonoma","otras administraciones"],
+  h:"El <b>Registro General</b> y la <b>OCAG</b> (antes Ventanilla Única) están en el Edificio Nuevo Casa Consistorial, calle Ramón y Cajal, planta baja.",
+  l:["Registro General: trámites e instancias municipales, y recogida de documentos expedidos por las dependencias municipales. De lunes a viernes de 8:00 a 13:00.",
+     "OCAG: trámites y solicitudes de la Comunidad Autónoma de la Región de Murcia y de otras administraciones con las que haya convenio suscrito. De lunes a viernes de 8:00 a 11:30.",
+     "Teléfono: 968 78 20 20. Extensiones: administrativas 206 y 232, auxiliar 243."],
+  f:"En el Registro General está también la centralita del Ayuntamiento.",
+  s:{t:"Ventanilla Única y Registro General — jumilla.org",u:"https://jumilla.org/ayuntamiento/registro.asp"}
+},
+{
+  id:"cementerio",
+  k:["cementerio","inhumacion","exhumacion","nicho","sepultura","derecho funerario","titularidad","escritura","funeraria","enterramiento"],
+  h:"La documentación de <b>cementerio</b> la tramita el mismo departamento que el padrón.",
+  l:["Inhumaciones y exhumaciones.",
+     "Cambios de titularidad de derechos funerarios.",
+     "Duplicados de escrituras e informes.",
+     "Edificio Nuevo Casa Consistorial, calle Ramón y Cajal, 2ª planta, de 8:00 a 10:30."],
+  f:"Teléfono: 968 78 20 20.",
+  s:{t:"Padrón de Habitantes — jumilla.org",u:"https://jumilla.org/ayuntamiento/Padron.asp"}
+},
+{
+  id:"sede",
+  k:["sede electronica","tramite","tramites","online","internet","telematico","por internet","desde casa","certificado digital","sedipualba","carpeta tributaria","cita previa","gestiones on line"],
+  h:"La <b>sede electrónica</b> del Ayuntamiento está en jumilla.sedipualba.es.",
+  l:["Permite consultar los datos del padrón y de la hoja familiar, y obtener certificados telemáticos en tiempo real.",
+     "Hace falta identificarse con un certificado digital admitido por la plataforma.",
+     "El Ayuntamiento ofrece además cita previa, carpeta tributaria, tablón de anuncios, perfil de contratante y portal de transparencia.",
+     "Para propuestas y quejas está el Buzón Ciudadano, en el apartado «Participa en tu Ciudad»."],
+  f:"",
+  s:{t:"Sede Electrónica — jumilla.sedipualba.es",u:"https://jumilla.sedipualba.es/"}
+},
+{
+  id:"contacto",
+  k:["contacto","telefono","donde","direccion","horario","ayuntamiento donde","llamar","correo","atencion"],
+  h:"El Ayuntamiento de Jumilla está en la <b>calle Cánovas del Castillo, 31</b>, 30520 Jumilla (Murcia).",
+  l:["Teléfono: 968 78 20 20. Correo: info@jumilla.org",
+     "Pero atención: el Padrón, el Registro General y la OCAG no están ahí, sino en el <b>Edificio Nuevo Casa Consistorial, calle Ramón y Cajal</b>.",
+     "Padrón: 2ª planta, de 8:00 a 10:30.",
+     "Registro General: planta baja, de 8:00 a 13:00. OCAG: planta baja, de 8:00 a 11:30."],
+  f:"Antes de desplazarse conviene comprobar a qué edificio hay que ir.",
+  s:{t:"Ayuntamiento de Jumilla — jumilla.org",u:"https://jumilla.org"}
+}
+];
+
+const BLOCK = ["tasa","tasas","basura","basuras","ibi","impuesto","impuestos","cuanto cuesta","cuánto cuesta","precio","importe","coste","cuota","recibo","multa","licencia","licencias","obra","apertura","terraza","vado","ayuda","ayudas","subvencion","subvención","subvenciones","servicios sociales","emergencia social"];
+
+const norm = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9\s]/g," ").replace(/\s+/g," ").trim();
+
+function match(t){
+  const n = norm(t);
+  if (BLOCK.some(b => n.includes(norm(b)))) return "BLOCK";
+  let best=null, bs=0;
+  for (const e of KB){
+    let sc=0;
+    for (const k of e.k){ const nk=norm(k); if(nk && n.includes(nk)) sc += nk.split(" ").length*2 + nk.length/12; }
+    if (sc>bs){ bs=sc; best=e; }
+  }
+  return bs>=2 ? best : null;
+}
+
+const log = document.getElementById("log");
+const esc = s => s.replace(/[<>&]/g,c=>({"<":"&lt;",">":"&gt;","&":"&amp;"}[c]));
+
+function render(q, hit){
+  const turn=document.createElement("div"); turn.className="turn";
+  const qq=document.createElement("div"); qq.className="q"; qq.textContent=q;
+  turn.appendChild(qq);
+  const a=document.createElement("div"); a.className="a";
+
+  if (hit==="BLOCK"){
+    a.classList.add("refuse");
+    a.innerHTML = `<div class="rlabel">Fuera de alcance</div>
+      <p>No puedo darle esa información. <b>Los importes de tasas e impuestos, las licencias y las ayudas sociales están excluidos de este asistente</b> a propósito: una respuesta aproximada en esas materias causa más perjuicio que no responder.</p>
+      <p>Consúltelo directamente en el Ayuntamiento: <b>${SAC}</b>, o en el correo info@jumilla.org.</p>`;
+  } else if (!hit){
+    a.classList.add("refuse");
+    a.innerHTML = `<div class="rlabel">Sin fuente</div>
+      <p>No he encontrado documentación municipal publicada que sustente una respuesta a esto, y no voy a improvisarla.</p>
+      <p>Le recomiendo consultarlo en el Ayuntamiento: <b>${SAC}</b>.</p>`;
+  } else {
+    let html = `<p>${hit.h}</p>`;
+    if (hit.l && hit.l.length) html += "<ul>"+hit.l.map(x=>`<li>${x}</li>`).join("")+"</ul>";
+    if (hit.f) html += `<p>${hit.f}</p>`;
+    html += `<div class="src"><a href="${hit.s.u}" target="_blank" rel="noopener">
+      <span class="k">Fuente</span><span>${esc(hit.s.t)}</span></a></div>`;
+    a.innerHTML = html;
+  }
+  turn.appendChild(a); log.appendChild(turn);
+  a.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+
+function ask(t){ t=t.trim(); if(!t) return; render(t, match(t)); }
+
+const SUG = [
+  "¿Qué necesito para empadronarme en Jumilla?",
+  "¿Cuánto cuesta exactamente la tasa de basuras?",
+  "¿Qué horario tiene el padrón?",
+  "¿Dónde está el registro general?"
+];
+const chips=document.getElementById("chips");
+SUG.forEach(s=>{
+  const b=document.createElement("button");
+  b.className="chip"; b.type="button"; b.textContent=s;
+  b.onclick=()=>ask(s); chips.appendChild(b);
+});
+document.getElementById("form").onsubmit=e=>{
+  e.preventDefault();
+  const i=document.getElementById("q"); ask(i.value); i.value="";
+};
+</script>
+</html>
