@@ -21,11 +21,12 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { MUNICIPIOS as LOTE2 } from './municipios.mjs';
 import { MUNICIPIOS_DIA03 as LOTE3 } from './municipios-dia03.mjs';
+import { MUNICIPIOS_DIA04 as LOTE4 } from './municipios-dia04.mjs';
 
 // Todas las tandas en un solo array: generar es idempotente, asi que volver a
 // escribir las anteriores no molesta y evita que una quede sin regenerar
 // cuando se toca el motor.
-const MUNICIPIOS = [...LOTE2, ...LOTE3];
+const MUNICIPIOS = [...LOTE2, ...LOTE3, ...LOTE4];
 
 const AQUI = dirname(fileURLToPath(import.meta.url));
 const WEB = join(AQUI, '..');
