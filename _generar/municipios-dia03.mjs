@@ -330,7 +330,7 @@ export const MUNICIPIOS_DIA03 = [
       s: { t: 'Censo y Estadística — torrevieja.es', u: 'https://torrevieja.es/en/ciudad/census-and-statistics' },
     },
     {
-      k: ['registro', 'prop', 'oficina de registro', 'plaza de la constitucion', 'temprano', 'a que hora abre', 'hasta que hora', 'a que hora abren', 'a que hora cierran', 'abren', 'cierran'],
+      k: ['registro', 'prop', 'oficina de registro', 'plaza de la constitucion', 'temprano', 'hasta que hora', 'a que hora abren', 'a que hora cierran', 'abren', 'cierran'],
       es: { h: 'La oficina de <b>Registro / PROP</b> está en la plaza de la Constitución, 5.',
             l: ['Recomiendan acudir temprano, antes de las 9:00 de la mañana.'],
             f: 'Muchos trámites se pueden evitar haciéndolos por la sede electrónica, disponible las 24 horas.' },

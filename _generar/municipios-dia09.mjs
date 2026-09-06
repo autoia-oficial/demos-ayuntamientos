@@ -27,7 +27,7 @@ export const MUNICIPIOS_DIA09 = [
   kb: [
     {
       k: ['sac', 'haz', 'oficina', 'oficinas', 'atencion ciudadana', 'direccion', 'telefono', 'contacto', 'herriko plaza', 'cruces', 'san vicente',
-          'bulegoa', 'telefonoa', 'helbidea', 'non dago'],
+          'bulegoa', 'telefonoa', 'helbidea'],
       es: { h: 'El <b>Servicio de Atención Ciudadana (SAC)</b> está en Herriko Plaza, 1 — 48901 Barakaldo.',
             l: ['Teléfonos: el <b>010</b> desde Barakaldo, o el 944 789 200.',
                 'Hay atención presencial en dos puntos: el centro de Barakaldo, en el barrio de San Vicente, y el barrio de Cruces.'],
@@ -98,7 +98,7 @@ export const MUNICIPIOS_DIA09 = [
   kb: [
     {
       k: ['sac', 'oficina', 'atencion ciudadana', 'direccion', 'horario', 'hasta que hora', 'a que hora abren', 'abren', 'cierran', 'telefono', 'contacto', 'murrieta',
-          'bulegoa', 'ordutegia', 'telefonoa', 'helbidea', 'non dago'],
+          'bulegoa', 'ordutegia', 'telefonoa', 'helbidea'],
       es: { h: 'El <b>Servicio de Atención Ciudadana (SAC)</b> está en la avenida Murrieta, 6 — 48980 Santurtzi (Bizkaia).',
             l: ['Teléfonos: el <b>010</b> desde Santurtzi, o el 94 420 58 00 desde fuera.',
                 'Horario de atención al público: de 9:00 a 14:00.'],
@@ -165,7 +165,7 @@ export const MUNICIPIOS_DIA09 = [
   kb: [
     {
       k: ['sac', 'haz', 'oficina', 'atencion ciudadana', 'direccion', 'telefono', 'contacto', 'kareaga', 'whatsapp',
-          'bulegoa', 'telefonoa', 'helbidea', 'non dago'],
+          'bulegoa', 'telefonoa', 'helbidea'],
       es: { h: 'El <b>Servicio de Atención Ciudadana (SAC / HAZ)</b> está en la calle Kareaga Goikoa, 52 — 48970 Basauri.',
             l: ['Teléfono principal: 94 466 63 00.',
                 'Mensajes 24 horas: 900 840 841.',
@@ -238,7 +238,7 @@ export const MUNICIPIOS_DIA09 = [
   kb: [
     {
       k: ['haz', 'sac', 'oficina', 'oficinas', 'atencion ciudadana', 'direccion', 'horario', 'hasta que hora', 'a que hora abren', 'abren', 'cierran', 'telefono', 'contacto', 'altzaga', 'astrabudua',
-          'bulegoa', 'ordutegia', 'telefonoa', 'helbidea', 'non dago'],
+          'bulegoa', 'ordutegia', 'telefonoa', 'helbidea'],
       es: { h: 'El <b>HAZ-SAC</b> tiene <b>dos sedes</b>.',
             l: ['Altzaga: Antonio Trueba zeharkalea, 2.',
                 'Astrabudua: Meso kalea, 20.',
@@ -311,7 +311,7 @@ export const MUNICIPIOS_DIA09 = [
   kb: [
     {
       k: ['haz', 'sac', 'oficina', 'atencion ciudadana', 'direccion', 'horario', 'hasta que hora', 'a que hora abren', 'abren', 'cierran', 'telefono', 'contacto', 'urgoitia', 'verano',
-          'bulegoa', 'ordutegia', 'telefonoa', 'helbidea', 'non dago', 'uda'],
+          'bulegoa', 'ordutegia', 'telefonoa', 'helbidea', 'uda'],
       es: { h: 'El <b>HAZ-SAC</b> está en Urgoitia pasealekua, 57 — 48480 Arrigorriaga.',
             l: ['Teléfono: 944 020 200.',
                 'Horario: de lunes a viernes de 8:00 a 14:45.',
@@ -371,7 +371,7 @@ export const MUNICIPIOS_DIA09 = [
   kb: [
     {
       k: ['sac', 'oficina', 'atencion ciudadana', 'atencion al publico', 'direccion', 'telefono', 'contacto', 'sabino arana',
-          'bulegoa', 'telefonoa', 'helbidea', 'non dago'],
+          'bulegoa', 'telefonoa', 'helbidea'],
       es: { h: 'El <b>Servicio de Atención Ciudadana (SAC)</b> está en la calle Sabino Arana, 1A, 1ª planta — 48450 Etxebarri.',
             l: ['Teléfono: 94 426 70 00.',
                 'Correo: sac@etxebarri.eus.'],

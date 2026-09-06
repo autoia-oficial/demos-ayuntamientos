@@ -129,7 +129,7 @@ export const MUNICIPIOS_DIA07 = [
   kb: [
     {
       k: ['oiac', 'oficina', 'atencion ciudadana', 'direccion', 'horario', 'hasta que hora', 'a que hora abren', 'abren', 'cierran', 'telefono', 'contacto', 'san roque', 'sabado', 'sabados', 'tarde',
-          'bulegoa', 'ordutegia', 'telefonoa', 'helbidea', 'non dago', 'larunbata'],
+          'bulegoa', 'ordutegia', 'telefonoa', 'helbidea', 'larunbata'],
       es: { h: 'La <b>Oficina de Información y Atención a la Ciudadanía (OIAC)</b> está en la plaza de San Roque, s/n — 48920 Portugalete (Bizkaia).',
             l: ['Teléfono: 94 472 92 00.',
                 'De lunes a viernes: de 14:30 a 20:15.',
@@ -253,7 +253,7 @@ export const MUNICIPIOS_DIA07 = [
   idioma2: null,
   kb: [
     {
-      k: ['oficina', 'ayuntamiento', 'direccion', 'telefono', 'contacto', 'don gonzalo', 'donde esta el ayuntamiento'],
+      k: ['oficina', 'ayuntamiento', 'direccion', 'telefono', 'contacto', 'don gonzalo'],
       es: { h: 'El Ayuntamiento está en la <b>calle Don Gonzalo, 2</b> — 14500 Puente Genil (Córdoba).',
             l: ['Teléfono: 957 605 034.'],
             f: 'El directorio completo de teléfonos por departamento está en puentegenil.es.' },
