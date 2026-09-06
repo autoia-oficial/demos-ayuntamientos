@@ -73,7 +73,7 @@ export const MUNICIPIOS_DIA04 = [
   idioma2: { cod: 'CA', clave: 'ca', sigla: "a l'OAC", nombre: 'catalán' },
   kb: [
     {
-      k: ['oac', 'oficina', 'atencion ciudadana', 'direccion', 'horario', 'telefono', 'contacto', 'iglesia', 'verano', 'tarde',
+      k: ['oac', 'oficina', 'atencion ciudadana', 'direccion', 'horario', 'hasta que hora', 'a que hora abren', 'a que hora cierran', 'abren', 'cierran', 'telefono', 'contacto', 'iglesia', 'verano', 'tarde',
           'atencio ciutadana', 'adreca', 'horari', 'telefon', 'esglesia', 'estiu', 'tarda'],
       es: { h: 'La <b>Oficina d\'Atenció Ciutadana (OAC)</b> está en la plaça de l\'Església, 1 — 08940 Cornellà de Llobregat.',
             l: ['Teléfonos: 93 377 02 12 y 93 377 25 14.',
@@ -146,7 +146,7 @@ export const MUNICIPIOS_DIA04 = [
   idioma2: null,
   kb: [
     {
-      k: ['padron', 'empadronar', 'empadronarme', 'empadrono', 'me mudo', 'me empadrono', 'empadronamiento', 'estadistica', 'poeta del pueblo', 'ruiz capdepon', 'horario', 'jueves'],
+      k: ['padron', 'empadronar', 'empadronarme', 'empadrono', 'me mudo', 'me empadrono', 'empadronamiento', 'estadistica', 'poeta del pueblo', 'ruiz capdepon', 'horario', 'hasta que hora', 'a que hora abren', 'a que hora cierran', 'abren', 'cierran', 'jueves'],
       es: { h: 'El <b>Padrón Municipal</b> está en el edificio <b>«Poeta del Pueblo»</b>, calle Ruiz Capdepón, 7 — 03300 Orihuela.',
             l: ['Teléfono: 966 340 347.',
                 'Horario del padrón: de lunes a viernes de 9:00 a 13:30.',
@@ -201,7 +201,7 @@ export const MUNICIPIOS_DIA04 = [
   idioma2: { cod: 'GL', clave: 'gl', sigla: 'no Rexistro Xeral', nombre: 'gallego' },
   kb: [
     {
-      k: ['padron', 'empadronar', 'empadronarme', 'empadrono', 'me mudo', 'me empadrono', 'empadronamiento', 'registro', 'michelena', 'oficina', 'direccion', 'telefono',
+      k: ['padron', 'empadronar', 'empadronarme', 'empadrono', 'me mudo', 'me empadrono', 'empadronamiento', 'registro', 'michelena', 'oficina', 'direccion', 'telefono', 'hasta que hora', 'a que hora abren', 'a que hora cierran', 'abren', 'cierran',
           'empadroarme', 'empadroamento', 'rexistro', 'enderezo'],
       es: { h: 'El <b>Padrón</b> y el <b>Registro General</b> están en la rúa Michelena, 30, planta baja.',
             l: ['Teléfono: 986 804 300.',
@@ -272,7 +272,7 @@ export const MUNICIPIOS_DIA04 = [
   idioma2: { cod: 'CA', clave: 'ca', sigla: "a l'eMAP", nombre: 'catalán' },
   kb: [
     {
-      k: ['emap', 'oac', 'oficina', 'atencion ciudadana', 'direccion', 'horario', 'telefono', 'contacto', 'tarde', 'ayuntamiento',
+      k: ['emap', 'oac', 'oficina', 'atencion ciudadana', 'direccion', 'horario', 'hasta que hora', 'a que hora abren', 'a que hora cierran', 'abren', 'cierran', 'telefono', 'contacto', 'tarde', 'ayuntamiento',
           'atencio ciutadana', 'adreca', 'horari', 'telefon', 'tarda', 'ajuntament'],
       es: { h: 'El <b>Espai Municipal d\'Atenció a les Persones (eMAP)</b> está en la plaça de l\'Ajuntament, 1 — 08830 Sant Boi de Llobregat.',
             l: ['Teléfonos: 93 654 12 00 y 93 635 12 12.',
@@ -345,7 +345,7 @@ export const MUNICIPIOS_DIA04 = [
   idioma2: { cod: 'CA', clave: 'ca', sigla: "a l'OAC", nombre: 'catalán' },
   kb: [
     {
-      k: ['oac', 'oficina', 'atencion ciudadana', 'direccion', 'horario', 'telefono', 'contacto', 'plaza mayor', 'lunes', 'verano', 'whatsapp',
+      k: ['oac', 'oficina', 'atencion ciudadana', 'direccion', 'horario', 'hasta que hora', 'a que hora abren', 'a que hora cierran', 'abren', 'cierran', 'telefono', 'contacto', 'plaza mayor', 'lunes', 'verano', 'whatsapp',
           'atencio ciutadana', 'adreca', 'horari', 'telefon', 'placa major', 'dilluns', 'estiu'],
       es: { h: 'La <b>Oficina d\'Atenció Ciutadana (OAC)</b> está en la plaça Major, 1, bajos.',
             l: ['Teléfono: 938 782 301, o el 010 (con coste según operadora).',
@@ -420,7 +420,7 @@ export const MUNICIPIOS_DIA04 = [
   idioma2: null,
   kb: [
     {
-      k: ['oficina', 'registro', 'padron', 'informacion', 'direccion', 'horario', 'telefono', 'contacto', 'constitucion'],
+      k: ['oficina', 'registro', 'padron', 'informacion', 'direccion', 'horario', 'hasta que hora', 'a que hora abren', 'a que hora cierran', 'abren', 'cierran', 'telefono', 'contacto', 'constitucion'],
       es: { h: 'La oficina de <b>Registro, Padrón e Información</b> está en la avenida de la Constitución, 47, 1ª planta (planta calle) — 28821 Coslada.',
             l: ['Teléfono: 91 627 82 00, extensión 3000.',
                 'Del 16 de septiembre al 9 de junio: de 8:30 a 14:00.',
@@ -473,7 +473,7 @@ export const MUNICIPIOS_DIA04 = [
   idioma2: null,
   kb: [
     {
-      k: ['oficina', 'oficinas', 'atencion al ciudadano', 'direccion', 'horario', 'telefono', 'contacto', 'blas infante', 'puertosol', 'cancelada'],
+      k: ['oficina', 'oficinas', 'atencion al ciudadano', 'direccion', 'horario', 'hasta que hora', 'a que hora abren', 'a que hora cierran', 'abren', 'cierran', 'telefono', 'contacto', 'blas infante', 'puertosol', 'cancelada'],
       es: { h: 'La <b>Oficina de Atención al Ciudadano</b> principal está en el edificio del antiguo Ayuntamiento, plaza Blas Infante.',
             l: ['Hay otras dos: en el edificio Puertosol y en Cancelada.',
                 'Horario de atención: de 9:00 a 14:00, mediante <b>cita previa</b>.',

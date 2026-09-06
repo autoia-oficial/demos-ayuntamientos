@@ -62,7 +62,7 @@ export const MUNICIPIOS = [
            u: 'https://seu.badalona.cat/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS_CATSERV&DETALLE=6269000171155618099500&lang=ca' },
     },
     {
-      k: ['sac', 'oficina', 'atencion ciudadana', 'direccion', 'horario', 'cita previa', 'cita', 'telefono', 'contacto',
+      k: ['sac', 'oficina', 'atencion ciudadana', 'direccion', 'horario', 'hasta que hora', 'a que hora abren', 'a que hora cierran', 'abren', 'cierran', 'cita previa', 'cita', 'telefono', 'contacto',
           'atencio ciutadana', 'adreca', 'horari', 'cita previa', 'telefon'],
       es: { h: 'El <b>Servei d\'Atenció al Ciutadà (SAC)</b> es la oficina de atención presencial del Ayuntamiento.',
             l: ['Edificio El Viver, plaza de la Assemblea de Catalunya, 9-12, planta baja — 08911 Badalona.',
@@ -155,7 +155,7 @@ export const MUNICIPIOS = [
       s: { t: 'Alta al Padró Municipal d\'Habitants — aoberta.terrassa.cat', u: 'https://aoberta.terrassa.cat/tramits/fitxa.jsp?id=141' },
     },
     {
-      k: ['oac', 'oficina', 'atencion ciudadana', 'direccion', 'horario', 'cita previa', 'cita', 'telefono', 'contacto',
+      k: ['oac', 'oficina', 'atencion ciudadana', 'direccion', 'horario', 'hasta que hora', 'a que hora abren', 'a que hora cierran', 'abren', 'cierran', 'cita previa', 'cita', 'telefono', 'contacto',
           'atencio ciutadana', 'adreca', 'horari', 'telefon'],
       es: { h: 'Terrassa tiene <b>siete OAC</b> repartidas por la ciudad. Teléfono único: <b>937 397 000</b>.',
             l: ['Plaça Didó, 5 — abre también tardes: lunes y miércoles de 16:00 a 18:00.',
@@ -193,7 +193,7 @@ export const MUNICIPIOS = [
   idioma2: null,
   kb: [
     {
-      k: ['oac', 'oficina', 'atencion ciudadana', 'direccion', 'horario', 'telefono', 'contacto', 'consistorio'],
+      k: ['oac', 'oficina', 'atencion ciudadana', 'direccion', 'horario', 'hasta que hora', 'a que hora abren', 'a que hora cierran', 'abren', 'cierran', 'telefono', 'contacto', 'consistorio'],
       es: { h: 'La <b>Oficina de Atención a la Ciudadanía (OAC)</b> es el canal presencial del Ayuntamiento.',
             l: ['Sede central: calle Consistorio, 15.',
                 'Horario: de 9:00 a 14:00 de lunes a viernes, y de 17:00 a 18:30 de lunes a jueves.',
@@ -245,7 +245,7 @@ export const MUNICIPIOS = [
   idioma2: null,
   kb: [
     {
-      k: ['sac', 'oficina', 'atencion ciudadana', 'direccion', 'horario', 'telefono', 'contacto', 'casa del reloj', '010'],
+      k: ['sac', 'oficina', 'atencion ciudadana', 'direccion', 'horario', 'hasta que hora', 'a que hora abren', 'a que hora cierran', 'abren', 'cierran', 'telefono', 'contacto', 'casa del reloj', '010'],
       es: { h: 'El <b>Servicio de Atención al Ciudadano (010)</b> es el canal de atención del Ayuntamiento, presencial y telefónico.',
             l: ['Casa del Reloj: avenida de Gibraltar, 2.',
                 'Horario presencial: de lunes a viernes de 8:30 a 14:30 y de 17:00 a 19:00; sábados de 9:00 a 13:00.',
@@ -316,7 +316,7 @@ export const MUNICIPIOS = [
            u: 'https://sede.santander.es/tramites/solicitud-certificado-empadronamiento' },
     },
     {
-      k: ['cita', 'cita previa', 'pedir cita', 'reservar', 'como pido cita', 'presencial', 'oficina', 'horario'],
+      k: ['cita', 'cita previa', 'pedir cita', 'reservar', 'como pido cita', 'presencial', 'oficina', 'horario', 'hasta que hora', 'a que hora abren', 'a que hora cierran', 'abren', 'cierran'],
       es: { h: 'Para ser atendido presencialmente en las oficinas municipales hay que <b>pedir cita previa</b>.',
             l: ['El sistema de cita previa está en citaprevia.santander.es.',
                 'Permite elegir día y hora concretos en el centro municipal correspondiente.'],
@@ -350,7 +350,7 @@ export const MUNICIPIOS = [
   idioma2: null,
   kb: [
     {
-      k: ['oficina', 'atencion ciudadana', 'sac', 'direccion', 'horario', 'telefono', 'contacto', 'ayuntamiento'],
+      k: ['oficina', 'atencion ciudadana', 'sac', 'direccion', 'horario', 'hasta que hora', 'a que hora abren', 'a que hora cierran', 'abren', 'cierran', 'telefono', 'contacto', 'ayuntamiento'],
       es: { h: 'La <b>Oficina de Atención al Ciudadano</b> es el canal presencial del Ayuntamiento.',
             l: ['Plaza de la Constitución, 1 — 41701 Dos Hermanas (Sevilla).',
                 'Teléfono: 954 91 95 00.',
@@ -403,7 +403,7 @@ export const MUNICIPIOS = [
   idioma2: null,
   kb: [
     {
-      k: ['sac', 'oficina', 'atencion ciudadana', 'direccion', 'horario', 'telefono', 'contacto', '010', 'dulce chacon', 'parla este'],
+      k: ['sac', 'oficina', 'atencion ciudadana', 'direccion', 'horario', 'hasta que hora', 'a que hora abren', 'a que hora cierran', 'abren', 'cierran', 'telefono', 'contacto', '010', 'dulce chacon', 'parla este'],
       es: { h: 'El <b>Servicio de Atención al Ciudadano (SAC)</b> funciona por tres vías: presencial, telefónica e internet.',
             l: ['Bajos del Ayuntamiento.',
                 'Centro cultural Dulce Chacón.',

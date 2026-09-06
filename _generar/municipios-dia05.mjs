@@ -20,7 +20,7 @@ export const MUNICIPIOS_DIA05 = [
   idioma2: null,
   kb: [
     {
-      k: ['oficina', 'oficinas', 'atencion al ciudadano', 'direccion', 'horario', 'telefono', 'contacto', 'compania', 'altorreal', 'sabado', 'sabados'],
+      k: ['oficina', 'oficinas', 'atencion al ciudadano', 'direccion', 'horario', 'hasta que hora', 'a que hora abren', 'a que hora cierran', 'abren', 'cierran', 'telefono', 'contacto', 'compania', 'altorreal', 'sabado', 'sabados'],
       es: { h: 'La oficina de <b>Atención al Ciudadano</b> está en el Parque de la Compañía, s/n.',
             l: ['Teléfono: 968 388 500.',
                 'Horario de verano: de lunes a viernes de 8:00 a 14:30, y sábados de 9:00 a 13:00.',
@@ -73,7 +73,7 @@ export const MUNICIPIOS_DIA05 = [
   idioma2: null,
   kb: [
     {
-      k: ['oac', 'oficina', 'atencion ciudadana', 'direccion', 'horario', 'telefono', 'contacto', 'santa lucia'],
+      k: ['oac', 'oficina', 'atencion ciudadana', 'direccion', 'horario', 'hasta que hora', 'a que hora abren', 'a que hora cierran', 'abren', 'cierran', 'telefono', 'contacto', 'santa lucia'],
       es: { h: 'La <b>Oficina de Atención Ciudadana (OAC)</b> está en la calle Santa Lucía, s/n — 41500 Alcalá de Guadaíra.',
             l: ['Teléfono: 955 796 420.',
                 'Horario: de 9:00 a 13:00.'],
@@ -123,7 +123,7 @@ export const MUNICIPIOS_DIA05 = [
   idioma2: null,
   kb: [
     {
-      k: ['oac', 'oficina', 'atencion al ciudadano', 'direccion', 'horario', 'telefono', 'contacto', 'tirajanas', 'martes', 'jueves', 'tarde', 'agosto'],
+      k: ['oac', 'oficina', 'atencion al ciudadano', 'direccion', 'horario', 'hasta que hora', 'a que hora abren', 'a que hora cierran', 'abren', 'cierran', 'telefono', 'contacto', 'tirajanas', 'martes', 'jueves', 'tarde', 'agosto'],
       es: { h: 'La <b>Oficina de Atención al Ciudadano (OAC)</b> está en la avenida de las Tirajanas, 151, Edificio Anexo.',
             l: ['Lunes, miércoles y viernes: de 9:00 a 14:00.',
                 'Martes y jueves: de 9:00 a <b>19:00</b>.',
@@ -176,7 +176,7 @@ export const MUNICIPIOS_DIA05 = [
   idioma2: { cod: 'VA', clave: 'va', sigla: "a l'oficina CIVIC", nombre: 'valenciano' },
   kb: [
     {
-      k: ['civic', 'oficina', 'atencion al ciudadano', 'direccion', 'horario', 'telefono', 'contacto', 'comunitat valenciana', 'invierno', 'verano',
+      k: ['civic', 'oficina', 'atencion al ciudadano', 'direccion', 'horario', 'hasta que hora', 'a que hora abren', 'a que hora cierran', 'abren', 'cierran', 'telefono', 'contacto', 'comunitat valenciana', 'invierno', 'verano',
           'atencio', 'adreca', 'horari', 'telefon', 'hivern', 'estiu'],
       es: { h: 'La oficina <b>CIVIC</b> está en la plaça de la Comunitat Valenciana, 1.',
             l: ['Teléfono: el <b>010</b> desde el término municipal, o el 965 67 50 65.',
@@ -245,7 +245,7 @@ export const MUNICIPIOS_DIA05 = [
   idioma2: { cod: 'CA', clave: 'ca', sigla: "a l'OAC", nombre: 'catalán' },
   kb: [
     {
-      k: ['oac', 'oficina', 'atencion ciudadana', 'direccion', 'horario', 'telefono', 'contacto', 'sant josep', 'sin cita', 'con cita', 'verano',
+      k: ['oac', 'oficina', 'atencion ciudadana', 'direccion', 'horario', 'hasta que hora', 'a que hora abren', 'a que hora cierran', 'abren', 'cierran', 'telefono', 'contacto', 'sant josep', 'sin cita', 'con cita', 'verano',
           'atencio ciutadana', 'adreca', 'horari', 'telefon', 'sense cita', 'amb cita', 'estiu'],
       es: { h: 'La <b>Oficina d\'Atenció a la Ciutadania (OAC)</b> está en el carrer de Sant Josep, 7 — 08401 Granollers.',
             l: ['Teléfono: el <b>010</b>, o el 93 842 66 10 desde fuera de Granollers.',
@@ -324,7 +324,7 @@ export const MUNICIPIOS_DIA05 = [
   idioma2: null,
   kb: [
     {
-      k: ['oficina', 'registro', 'atencion ciudadana', 'direccion', 'horario', 'telefono', 'contacto', 'cardenal belluga'],
+      k: ['oficina', 'registro', 'atencion ciudadana', 'direccion', 'horario', 'hasta que hora', 'a que hora abren', 'a que hora cierran', 'abren', 'cierran', 'telefono', 'contacto', 'cardenal belluga'],
       es: { h: 'La oficina de <b>Registro y Atención Ciudadana</b> está en la calle Cardenal Belluga, 1 — 18600 Motril (Granada).',
             l: ['Teléfonos: 958 83 83 00, 958 83 83 02, 958 83 83 03 y 958 83 83 04.',
                 'Horario: de lunes a viernes de 9:00 a 13:30.'],
@@ -377,7 +377,7 @@ export const MUNICIPIOS_DIA05 = [
   idioma2: null,
   kb: [
     {
-      k: ['oficina', 'padron', 'estadistica', 'direccion', 'horario', 'telefono', 'contacto', 'santa ana', 'san torcuato'],
+      k: ['oficina', 'padron', 'estadistica', 'direccion', 'horario', 'hasta que hora', 'a que hora abren', 'a que hora cierran', 'abren', 'cierran', 'telefono', 'contacto', 'santa ana', 'san torcuato'],
       es: { h: 'El departamento de <b>Padrón y Estadística</b> está en la calle Santa Ana, 5, esquina con la Ronda de San Torcuato, planta baja.',
             l: ['Teléfono: 980 54 87 00, extensiones 170, 171 y 173.',
                 'Horario: de 9:00 a 13:30.'],
@@ -429,7 +429,7 @@ export const MUNICIPIOS_DIA05 = [
   idioma2: null,
   kb: [
     {
-      k: ['oficina', 'atencion al ciudadano', 'direccion', 'horario', 'telefono', 'contacto', 'plaza del pueblo', 'lunes', 'tarde'],
+      k: ['oficina', 'atencion al ciudadano', 'direccion', 'horario', 'hasta que hora', 'a que hora abren', 'a que hora cierran', 'abren', 'cierran', 'telefono', 'contacto', 'plaza del pueblo', 'lunes', 'tarde'],
       es: { h: 'La oficina de <b>Atención al Ciudadano</b> está en la plaza del Pueblo, 1.',
             l: ['Teléfono: 91 845 00 53.',
                 'Horario: de lunes a viernes de 9:00 a 14:00.',

@@ -27,7 +27,7 @@ export const MUNICIPIOS_DIA03 = [
   idioma2: null,
   kb: [
     {
-      k: ['padron', 'empadronar', 'empadronarme', 'empadrono', 'me mudo', 'me empadrono', 'empadronamiento', 'estadistica', 'certificado', 'volante', 'cambio de domicilio', 'mudarme'],
+      k: ['padron', 'empadronar', 'empadronarme', 'empadrono', 'me mudo', 'me empadrono', 'empadronamiento', 'estadistica', 'certificado', 'volante', 'cambio de domicilio', 'mudarme', 'hasta que hora', 'a que hora abren', 'a que hora cierran', 'abren', 'cierran'],
       es: { h: 'El <b>padrón</b> lo lleva la <b>Delegación de Estadística</b>, que es quien lo mantiene y lo custodia.',
             l: ['Dirección: Regino Martínez, 16.',
                 'Teléfono: 956 672 709.',
@@ -79,7 +79,7 @@ export const MUNICIPIOS_DIA03 = [
   idioma2: { cod: 'CA', clave: 'ca', sigla: "a l'OIAC", nombre: 'catalán' },
   kb: [
     {
-      k: ['oiac', 'oficina', 'atencion ciudadana', 'direccion', 'horario', 'telefono', 'contacto', 'plaza de la vila', 'miercoles',
+      k: ['oiac', 'oficina', 'atencion ciudadana', 'direccion', 'horario', 'hasta que hora', 'a que hora abren', 'a que hora cierran', 'abren', 'cierran', 'telefono', 'contacto', 'plaza de la vila', 'miercoles',
           'atencio ciutadana', 'adreca', 'horari', 'telefon', 'placa de la vila', 'dimecres'],
       es: { h: 'La <b>Oficina d\'Informació i Atenció a la Ciutadania (OIAC)</b> es el canal presencial del Ayuntamiento.',
             l: ['Plaça de la Vila, 1 — 08921 Santa Coloma de Gramenet.',
@@ -158,7 +158,7 @@ export const MUNICIPIOS_DIA03 = [
   idioma2: null,
   kb: [
     {
-      k: ['oficina', 'atencion ciudadana', 'direccion', 'horario', 'telefono', 'contacto', 'ayuntamiento', 'plaza de la constitucion', 'sabado', 'sabados'],
+      k: ['oficina', 'atencion ciudadana', 'direccion', 'horario', 'hasta que hora', 'a que hora abren', 'a que hora cierran', 'abren', 'cierran', 'telefono', 'contacto', 'ayuntamiento', 'plaza de la constitucion', 'sabado', 'sabados'],
       es: { h: 'La atención al ciudadano está en la <b>plaza de la Constitución, 1</b> — 04740 Roquetas de Mar (Almería).',
             l: ['Teléfono: 950 33 85 85.',
                 'Horario: de lunes a viernes de <b>8:00 a 21:00</b>, y los sábados de 10:00 a 14:00.'],
@@ -330,7 +330,7 @@ export const MUNICIPIOS_DIA03 = [
       s: { t: 'Censo y Estadística — torrevieja.es', u: 'https://torrevieja.es/en/ciudad/census-and-statistics' },
     },
     {
-      k: ['registro', 'prop', 'oficina de registro', 'plaza de la constitucion', 'temprano', 'a que hora abre'],
+      k: ['registro', 'prop', 'oficina de registro', 'plaza de la constitucion', 'temprano', 'a que hora abre', 'hasta que hora', 'a que hora abren', 'a que hora cierran', 'abren', 'cierran'],
       es: { h: 'La oficina de <b>Registro / PROP</b> está en la plaza de la Constitución, 5.',
             l: ['Recomiendan acudir temprano, antes de las 9:00 de la mañana.'],
             f: 'Muchos trámites se pueden evitar haciéndolos por la sede electrónica, disponible las 24 horas.' },
@@ -363,7 +363,7 @@ export const MUNICIPIOS_DIA03 = [
   idioma2: null,
   kb: [
     {
-      k: ['oficina', 'atencion ciudadania', 'direccion', 'horario', 'telefono', 'contacto', 'ayuntamiento', 'constitucion', 'sabado', 'sabados'],
+      k: ['oficina', 'atencion ciudadania', 'direccion', 'horario', 'hasta que hora', 'a que hora abren', 'a que hora cierran', 'abren', 'cierran', 'telefono', 'contacto', 'ayuntamiento', 'constitucion', 'sabado', 'sabados'],
       es: { h: 'El Ayuntamiento está en la <b>calle Constitución, 1</b> — 11130 Chiclana de la Frontera (Cádiz).',
             l: ['Teléfono: 956 100 800.',
                 'Servicio de atención a la ciudadanía: de lunes a viernes de <b>8:00 a 20:00</b>, y los sábados de 9:00 a 14:00.'],
@@ -415,7 +415,7 @@ export const MUNICIPIOS_DIA03 = [
   idioma2: { cod: 'CA', clave: 'ca', sigla: "a l'OAC", nombre: 'catalán' },
   kb: [
     {
-      k: ['oac', 'oficina', 'atencion ciudadana', 'direccion', 'horario', 'telefono', 'contacto', 'plaza de la vila', 'mira-sol', 'mira sol',
+      k: ['oac', 'oficina', 'atencion ciudadana', 'direccion', 'horario', 'hasta que hora', 'a que hora abren', 'a que hora cierran', 'abren', 'cierran', 'telefono', 'contacto', 'plaza de la vila', 'mira-sol', 'mira sol',
           'atencio ciutadana', 'adreca', 'horari', 'telefon', 'placa de la vila'],
       es: { h: 'La <b>Oficina d\'Atenció Ciutadana (OAC)</b> principal está en la plaça de la Vila, 1.',
             l: ['Horario: de lunes a viernes de 10:00 a 14:00.',

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Asistente de Badalona</title>
+<title>Asistente de Mieres</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -105,9 +105,9 @@ footer b{color:var(--ink-2);font-weight:600}
   </header>
 
   <div class="intro">
-    <h1>Asistente de atención ciudadana<br>del Ayuntamiento de Badalona</h1>
-    <p class="sub">Responde con la documentación publicada en badalona.cat y seu.badalona.cat, citando en
-    cada respuesta la página de la que procede. Contesta en el idioma de la pregunta.</p>
+    <h1>Asistente de atención ciudadana<br>del Ayuntamiento de Mieres</h1>
+    <p class="sub">Responde con la documentación publicada en mieres.es y sedeelectronica.ayto-mieres.es, citando en
+    cada respuesta la página de la que procede.</p>
   </div>
 
   <div class="chips" id="chips"></div>
@@ -119,28 +119,27 @@ footer b{color:var(--ink-2);font-weight:600}
   </form>
 
   <footer>
-    <b>Demostración de AutoIA.</b> No es un servicio oficial del Ayuntamiento de Badalona.
-    Contenido recogido de badalona.cat y seu.badalona.cat el 6 de septiembre de 2026.<br>
+    <b>Demostración de AutoIA.</b> No es un servicio oficial del Ayuntamiento de Mieres.
+    Contenido recogido de mieres.es y sedeelectronica.ayto-mieres.es el 7 de septiembre de 2026.<br>
     Las tasas, licencias y ayudas sociales están excluidas a propósito: son las materias en las que
     una respuesta aproximada causa más perjuicio que la ausencia de respuesta.
   </footer>
 </div>
 
 <script>
-const OFI = "93 483 26 00";
-const OFI_MAIL = "sac@badalona.cat";
-const OFI_SIGLA = "el SAC";
-const KB = [{"k":["empadronar","empadronarme","empadrono","me mudo","me empadrono","empadronamiento","alta padron","darme de alta","cambio de domicilio","mudarme","nuevo vecino","empadronar-me","empadronament","alta padro","canvi de domicili","mudar-me","donar-me d alta"],"es":{"h":"El alta y el cambio de domicilio en el <b>padró municipal d'habitants</b> se tramitan en el SAC o en la sede electrónica.","l":["Hay que acreditar la titularidad de la vivienda. Si no se puede, se presenta una solicitud de comprobación de residencia.","En vivienda de alquiler: contrato a nombre de quien se empadrona, más un recibo que acredite el pago de un suministro (agua, luz, gas, teléfono), del alquiler o de la fianza.","Esos recibos tienen que tener <b>menos de 3 meses</b>.","Si autoriza a otra persona: impreso <b>F0212</b>, original del documento de identidad de la persona autorizada y fotocopia del de quien autoriza."],"f":"Cita previa en el 93 483 29 25 o en badalona.cat > cita previa."},"ca":{"h":"L'alta i el canvi de domicili al <b>padró municipal d'habitants</b> es tramiten al SAC o a la seu electrònica.","l":["Cal acreditar la titularitat de l'habitatge. Si no es pot, es presenta una sol·licitud de comprovació de residència.","En habitatge de lloguer: contracte a nom de qui s'empadrona, més un rebut que acrediti el pagament d'un subministrament (aigua, llum, gas, telèfon), del lloguer o de la fiança.","Aquests rebuts han de tenir <b>menys de 3 mesos</b>.","Si autoritza una altra persona: imprès <b>F0212</b>, original del document d'identitat de la persona autoritzada i fotocòpia del de qui autoritza."],"f":"Cita prèvia al 93 483 29 25 o a badalona.cat > cita prèvia."},"s":{"t":"Alta o canvi de domicili al padró municipal d'habitants — seu.badalona.cat","u":"https://seu.badalona.cat/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS_CATSERV&DETALLE=6269000171155610099500"}},{"k":["certificado","certificado de empadronamiento","certificado padron","volante","acreditar residencia","historico","certificat","certificat d empadronament","volant","acreditar residencia","historic"],"es":{"h":"El <b>certificat del padró municipal d'habitants</b> acredita que una persona está o estuvo empadronada. Lo hay individual, individual histórico, colectivo y colectivo histórico.","l":["Individual: impreso <b>F0210</b> o <b>F0211</b>, más documento de identidad en vigor.","Colectivo: impreso de autorización <b>F0206</b> o <b>F0207</b>, original del documento de la persona autorizada y fotocopia del de todas las que autorizan.","Para autorizar a un tercero: impreso <b>F0205</b>.","Los mayores de 16 años solo pueden pedir el suyo individual o individual histórico. De los menores de 16 lo pide el padre, la madre o el tutor.","<b>Gratuito</b>, excepto los certificados anteriores al 01/03/1991."],"f":"Plazo: inmediato si se saca por internet con certificado digital o idCAT Mòbil; de 10 a 15 días hábiles si se pide presencialmente."},"ca":{"h":"El <b>certificat del padró municipal d'habitants</b> acredita que una persona està o va estar empadronada. N'hi ha d'individual, individual històric, col·lectiu i col·lectiu històric.","l":["Individual: imprès <b>F0210</b> o <b>F0211</b>, més document d'identitat en vigor.","Col·lectiu: imprès d'autorització <b>F0206</b> o <b>F0207</b>, original del document de la persona autoritzada i fotocòpia del de totes les que autoritzen.","Per autoritzar una tercera persona: imprès <b>F0205</b>.","Els majors de 16 anys només poden demanar el seu individual o individual històric. Dels menors de 16 el demana el pare, la mare o el tutor.","<b>Gratuït</b>, excepte els certificats anteriors a l'01/03/1991."],"f":"Termini: immediat si es treu per internet amb certificat digital o idCAT Mòbil; de 10 a 15 dies hàbils si es demana presencialment."},"s":{"t":"Certificat del Padró Municipal d'Habitants — seu.badalona.cat","u":"https://seu.badalona.cat/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS_CATSERV&DETALLE=6269000171155618099500&lang=ca"}},{"k":["sac","oficina","atencion ciudadana","direccion","horario","hasta que hora","a que hora abren","a que hora cierran","abren","cierran","cita previa","cita","telefono","contacto","atencio ciutadana","adreca","horari","cita previa","telefon"],"es":{"h":"El <b>Servei d'Atenció al Ciutadà (SAC)</b> es la oficina de atención presencial del Ayuntamiento.","l":["Edificio El Viver, plaza de la Assemblea de Catalunya, 9-12, planta baja — 08911 Badalona.","Centralita: 93 483 26 00. Cita previa del SAC: 93 483 29 25.","Correo: sac@badalona.cat.","Horario: de lunes a viernes de 8:30 a 13:30. Los jueves también de 16:00 a 18:00.","Las tardes de jueves están cerradas todo agosto y algunos días sueltos del año."],"f":"La cita previa se pide preferentemente en badalona.cat > cita previa."},"ca":{"h":"El <b>Servei d'Atenció al Ciutadà (SAC)</b> és l'oficina d'atenció presencial de l'Ajuntament.","l":["Edifici El Viver, plaça de l'Assemblea de Catalunya, 9-12, planta baixa — 08911 Badalona.","Centraleta: 93 483 26 00. Cita prèvia del SAC: 93 483 29 25.","Correu: sac@badalona.cat.","Horari: de dilluns a divendres de 8:30 a 13:30. Els dijous també de 16:00 a 18:00.","Les tardes de dijous estan tancades tot l'agost i alguns dies solts de l'any."],"f":"La cita prèvia es demana preferentment a badalona.cat > cita prèvia."},"s":{"t":"Què és el Servei d'Atenció al Ciutadà — badalona.cat","u":"https://www.badalona.cat/ca/ajuntament/atencio-a-la-ciutadania/que-es-el-servei-dantencio-al-ciutada"}},{"k":["sede electronica","tramite","tramites","online","internet","catalogo","por internet","seu electronica","tramit","tramits","cataleg","per internet"],"es":{"h":"Los trámites municipales se gestionan en la <b>seu electrònica</b>, donde está el catálogo completo de procedimientos.","l":["Se accede con certificado digital o idCAT Mòbil.","Desde ahí se puede sacar el certificado de padrón al momento."],"f":"Si lo prefiere presencialmente, pida cita en el SAC: 93 483 29 25."},"ca":{"h":"Els tràmits municipals es gestionen a la <b>seu electrònica</b>, on hi ha el catàleg complet de procediments.","l":["S'hi accedeix amb certificat digital o idCAT Mòbil.","Des d'allà es pot treure el certificat de padró a l'instant."],"f":"Si ho prefereix presencialment, demani cita al SAC: 93 483 29 25."},"s":{"t":"Seu electrònica — seu.badalona.cat","u":"https://seu.badalona.cat/"}}];
-const L2KEY = "ca";
-const T = {"fuera":"Fora d'abast","sinfuente":"Sense font","bloqueo":"No puc donar-li aquesta informació. <b>Els imports de taxes i impostos, les llicències i els ajuts socials estan exclosos d'aquest assistent</b> a propòsit: una resposta aproximada en aquestes matèries causa més perjudici que no respondre.","consulte":"Consulti-ho directament al SAC: <b>93 483 26 00</b>, o al correu sac@badalona.cat.","nose":"No he trobat documentació municipal publicada que sustenti una resposta a això, i no me la inventaré.","recomiendo":"Li recomano consultar-ho al SAC: <b>93 483 26 00</b>."};
+const OFI = "985 46 61 11";
+const OFI_MAIL = "info@ayto-mieres.es";
+const OFI_SIGLA = "el Registro General";
+const KB = [{"k":["oficina","registro","registro general","direccion","horario","hasta que hora","a que hora abren","a que hora cierran","abren","cierran","telefono","contacto","plaza de la constitucion"],"es":{"h":"El <b>Registro General</b> está en la plaza de la Constitución, s/n — 33600 Mieres (Asturias).","l":["Teléfonos: 985 46 61 11 y 985 46 62 62.","Horario: de lunes a viernes de 9:00 a 14:00."],"f":"<b>No es necesario pedir cita previa.</b>"},"s":{"t":"Registro General (presencial) — mieres.es","u":"https://www.mieres.es/ayuntamiento/registro-general-presencial/"}},{"k":["cita","cita previa","sin cita","turno","ticket","letra","letra a","letra b","cola","colas"],"es":{"h":"En el Registro <b>no hace falta cita previa</b>: el acceso se organiza con una máquina de turnos a la entrada.","l":["Pida la <b>letra A</b> para presentar solicitudes.","Pida la <b>letra B</b> para recoger instancias o informarse sobre un trámite.","Conviene llevar la documentación preparada para digitalizar antes de que le toque el turno."],"f":"Saber qué letra le corresponde ahorra una cola entera."},"s":{"t":"Registro General (presencial) — mieres.es","u":"https://www.mieres.es/ayuntamiento/registro-general-presencial/"}},{"k":["padron","empadronar","empadronarme","empadrono","me mudo","me empadrono","empadronamiento","volante","certificado","cambio de domicilio","alta"],"es":{"h":"Los trámites del <b>padrón municipal</b> tienen su ficha en la sede electrónica.","l":["Alta en padrón municipal.","Cambio de domicilio en padrón municipal.","Los volantes de empadronamiento se pueden obtener por la sede, sin ir a la oficina."],"f":"Si prefiere ir en persona: plaza de la Constitución, s/n, de 9:00 a 14:00, sin cita."},"s":{"t":"Alta en padrón municipal — sedeelectronica.ayto-mieres.es","u":"https://sedeelectronica.ayto-mieres.es/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=CATALOGO&DETALLE=6269001222877699999500"}},{"k":["sede electronica","tramite","tramites","online","internet","por internet","catalogo","destacados"],"es":{"h":"La <b>sede electrónica</b> está en sedeelectronica.ayto-mieres.es.","l":["Tiene catálogo de procedimientos y una sección de trámites destacados.","Ahí figuran también las oficinas de asistencia en materia de registro."],"f":"Dudas: 985 46 61 11."},"s":{"t":"Sede electrónica — Ayuntamiento de Mieres","u":"https://sedeelectronica.ayto-mieres.es/"}}];
+const L2KEY = null;
+const T = null;
 
 // Materias excluidas a proposito: importes, licencias y ayudas sociales.
 const BLOCK = ["tasa","tasas","basura","basuras","ibi","impuesto","impuestos","cuanto cuesta","cuánto cuesta","precio","importe","coste","cuota","recibo","licencia","licencias","obra","apertura","ayuda","ayudas","subvencion","subvención","subvenciones","servicios sociales","emergencia social","plusvalia","plusvalía","circulacion","circulación","taxa","taxes","impost","quant costa","preu","import","llicencia","llicencies","ajuda","ajudes","subvencio","plusvalua","plusvàlua","licenzas","axuda","axudas","canto custa"];
 
 const norm = s => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9\s]/g," ").replace(/\s+/g," ").trim();
 
-const L2 = ["que necessito","necessito","empadronar-me","aquest","aquesta","quin","quina","com puc","on puc","aixo","tramit","tramits","seu electronica","atencio","quant","per a","hi ha","cal","puc","voldria","m agradaria","gracies","si us plau","padro","volant","certificat","llicencia","ajuda","taxa","adreca","horari","telefon","demanar"];
-const is2 = t => { const n=norm(t); return L2.some(w=>(" "+n+" ").includes(" "+norm(w)+" ")); };
+const is2 = () => false;
 
 // Las claves se buscan por PALABRA COMPLETA, no como subcadena. Con subcadena,
 // la clave catalana "on" casaba dentro de "Girona" y el asistente contestaba la
@@ -201,7 +200,7 @@ function render(q, hit, dos){
 
 function ask(t){ t = t.trim(); if(!t) return; render(t, match(t), is2(t)); }
 
-const SUG = [{"lang":"ES","t":"¿Qué necesito para empadronarme en Badalona?"},{"lang":"ES","t":"¿Cuánto cuesta exactamente el IBI?"},{"lang":"CA","t":"Què necessito per empadronar-me a Badalona?"},{"lang":"ES","t":"¿Dónde está el SAC y cómo pido cita?"}];
+const SUG = [{"lang":"ES","t":"¿Hace falta cita previa en el registro?"},{"lang":"ES","t":"¿Cuánto cuesta exactamente el IBI?"},{"lang":"ES","t":"¿Qué letra tengo que coger en la máquina?"},{"lang":"ES","t":"¿Puedo darme de alta en el padrón por internet?"}];
 const chips = document.getElementById("chips");
 SUG.forEach(s=>{
   const b=document.createElement("button");
