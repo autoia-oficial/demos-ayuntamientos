@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Asistente de Badalona</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#f6f4ef; --card:#fff; --ink:#16211c; --ink-2:#4a5751; --ink-3:#8b958f;
+  --line:#e2ded4; --line-2:#efece4;
+  --green:#2f6b4f; --green-soft:#eef3ef;
+  --amber:#a8681f; --amber-soft:#fbf3e7;
+  --ui:'Instrument Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0f1512; --card:#161d19; --ink:#e8eae7; --ink-2:#a3aca7; --ink-3:#6e7873;
+  --line:#26302b; --line-2:#1e2622;
+  --green:#7fc09c; --green-soft:#17241d; --amber:#e0a460; --amber-soft:#231a0f;
+}}
+:root[data-theme="dark"]{
+  --paper:#0f1512; --card:#161d19; --ink:#e8eae7; --ink-2:#a3aca7; --ink-3:#6e7873;
+  --line:#26302b; --line-2:#1e2622;
+  --green:#7fc09c; --green-soft:#17241d; --amber:#e0a460; --amber-soft:#231a0f;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--ui);
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:0 18px 40px}
+
+header{display:flex;align-items:center;gap:11px;padding:22px 0 18px;border-bottom:1px solid var(--line)}
+.mark{width:28px;height:28px;border-radius:50%;background:var(--ink);display:grid;place-items:center;flex:none}
+.mark i{width:9px;height:9px;border-radius:50%;background:var(--paper);display:block}
+.brand{font-weight:700;letter-spacing:-.02em;font-size:17px}
+.badge{margin-left:auto;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-3);border:1px solid var(--line);
+  padding:4px 9px;border-radius:999px;white-space:nowrap}
+
+.intro{padding:26px 0 20px}
+h1{margin:0 0 8px;font-size:clamp(23px,4.4vw,30px);font-weight:700;letter-spacing:-.03em;
+  line-height:1.15;text-wrap:balance}
+.sub{margin:0;color:var(--ink-2);font-size:15px;max-width:60ch}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:6px 0 22px}
+.chip{font:500 13.5px/1 var(--ui);color:var(--ink);background:var(--card);
+  border:1px solid var(--line);border-radius:999px;padding:9px 14px;cursor:pointer;
+  transition:border-color .15s,transform .1s;text-align:left}
+.chip:hover{border-color:var(--ink-3)}
+.chip:active{transform:translateY(1px)}
+.chip:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+.chip b{font-weight:600}
+.chip .lang{font-family:var(--mono);font-size:10px;color:var(--ink-3);
+  border:1px solid var(--line);border-radius:3px;padding:1px 4px;margin-right:7px}
+
+#log{display:flex;flex-direction:column;gap:16px;min-height:80px}
+.turn{display:flex;flex-direction:column;gap:4px}
+.q{align-self:flex-end;max-width:85%;background:var(--ink);color:var(--paper);
+  padding:11px 15px;border-radius:15px 15px 4px 15px;font-size:15px;font-weight:500}
+.a{align-self:flex-start;max-width:92%;background:var(--card);border:1px solid var(--line);
+  border-left:3px solid var(--green);padding:15px 17px;border-radius:4px 15px 15px 15px}
+.a.refuse{border-left-color:var(--amber);background:var(--amber-soft)}
+.a p{margin:0 0 9px;font-size:15px}
+.a p:last-child{margin-bottom:0}
+.a ul{margin:6px 0 10px;padding-left:19px;font-size:14.5px}
+.a li{margin-bottom:4px}
+.rlabel{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--amber);
+  margin-bottom:8px;font-weight:500}
+.rlabel::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--amber)}
+.src{margin-top:11px;padding-top:10px;border-top:1px solid var(--line-2)}
+.src a{display:inline-flex;align-items:baseline;gap:7px;font-family:var(--mono);
+  font-size:11.5px;color:var(--green);text-decoration:none;word-break:break-all}
+.src a:hover{text-decoration:underline}
+.src .k{color:var(--ink-3);flex:none}
+
+.ask{display:flex;gap:9px;margin-top:22px;position:sticky;bottom:14px}
+input{flex:1;font:400 15px/1 var(--ui);color:var(--ink);background:var(--card);
+  border:1px solid var(--line);border-radius:11px;padding:14px 16px}
+input:focus{outline:none;border-color:var(--green)}
+input::placeholder{color:var(--ink-3)}
+button.send{font:600 14.5px/1 var(--ui);color:var(--paper);background:var(--ink);
+  border:0;border-radius:11px;padding:0 20px;cursor:pointer}
+button.send:hover{opacity:.88}
+button.send:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+
+footer{margin-top:30px;padding-top:16px;border-top:1px solid var(--line);
+  font-size:12.5px;color:var(--ink-3);line-height:1.65}
+footer b{color:var(--ink-2);font-weight:600}
+@media (prefers-reduced-motion:no-preference){
+  .turn{animation:in .22s ease-out}
+  @keyframes in{from{opacity:0;transform:translateY(5px)}}
+}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="mark"><i></i></div>
+    <div class="brand">AutoIA</div>
+    <div class="badge">Demostración</div>
+  </header>
+
+  <div class="intro">
+    <h1>Asistente de atención ciudadana<br>del Ayuntamiento de Badalona</h1>
+    <p class="sub">Responde con la documentación publicada en badalona.cat y seu.badalona.cat, citando en
+    cada respuesta la página de la que procede. Contesta en el idioma de la pregunta.</p>
+  </div>
+
+  <div class="chips" id="chips"></div>
+  <div id="log"></div>
+
+  <form class="ask" id="form" autocomplete="off">
+    <input id="q" placeholder="Escriba su consulta…" aria-label="Consulta">
+    <button class="send" type="submit">Enviar</button>
+  </form>
+
+  <footer>
+    <b>Demostración de AutoIA.</b> No es un servicio oficial del Ayuntamiento de Badalona.
+    Contenido recogido de badalona.cat y seu.badalona.cat el 6 de septiembre de 2026.<br>
+    Las tasas, licencias y ayudas sociales están excluidas a propósito: son las materias en las que
+    una respuesta aproximada causa más perjuicio que la ausencia de respuesta.
+  </footer>
+</div>
+
+<script>
+const OFI = "93 483 26 00";
+const OFI_MAIL = "sac@badalona.cat";
+const OFI_SIGLA = "SAC";
+const KB = [{"k":["empadronar","empadronarme","empadronamiento","alta padron","darme de alta","cambio de domicilio","mudarme","nuevo vecino","empadronar-me","empadronament","alta padro","canvi de domicili","mudar-me","donar-me d alta"],"es":{"h":"El alta y el cambio de domicilio en el <b>padró municipal d'habitants</b> se tramitan en el SAC o en la sede electrónica.","l":["Hay que acreditar la titularidad de la vivienda. Si no se puede, se presenta una solicitud de comprobación de residencia.","En vivienda de alquiler: contrato a nombre de quien se empadrona, más un recibo que acredite el pago de un suministro (agua, luz, gas, teléfono), del alquiler o de la fianza.","Esos recibos tienen que tener <b>menos de 3 meses</b>.","Si autoriza a otra persona: impreso <b>F0212</b>, original del documento de identidad de la persona autorizada y fotocopia del de quien autoriza."],"f":"Cita previa en el 93 483 29 25 o en badalona.cat > cita previa."},"ca":{"h":"L'alta i el canvi de domicili al <b>padró municipal d'habitants</b> es tramiten al SAC o a la seu electrònica.","l":["Cal acreditar la titularitat de l'habitatge. Si no es pot, es presenta una sol·licitud de comprovació de residència.","En habitatge de lloguer: contracte a nom de qui s'empadrona, més un rebut que acrediti el pagament d'un subministrament (aigua, llum, gas, telèfon), del lloguer o de la fiança.","Aquests rebuts han de tenir <b>menys de 3 mesos</b>.","Si autoritza una altra persona: imprès <b>F0212</b>, original del document d'identitat de la persona autoritzada i fotocòpia del de qui autoritza."],"f":"Cita prèvia al 93 483 29 25 o a badalona.cat > cita prèvia."},"s":{"t":"Alta o canvi de domicili al padró municipal d'habitants — seu.badalona.cat","u":"https://seu.badalona.cat/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS_CATSERV&DETALLE=6269000171155610099500"}},{"k":["certificado","certificado de empadronamiento","certificado padron","volante","acreditar residencia","historico","certificat","certificat d empadronament","volant","acreditar residencia","historic"],"es":{"h":"El <b>certificat del padró municipal d'habitants</b> acredita que una persona está o estuvo empadronada. Lo hay individual, individual histórico, colectivo y colectivo histórico.","l":["Individual: impreso <b>F0210</b> o <b>F0211</b>, más documento de identidad en vigor.","Colectivo: impreso de autorización <b>F0206</b> o <b>F0207</b>, original del documento de la persona autorizada y fotocopia del de todas las que autorizan.","Para autorizar a un tercero: impreso <b>F0205</b>.","Los mayores de 16 años solo pueden pedir el suyo individual o individual histórico. De los menores de 16 lo pide el padre, la madre o el tutor.","<b>Gratuito</b>, excepto los certificados anteriores al 01/03/1991."],"f":"Plazo: inmediato si se saca por internet con certificado digital o idCAT Mòbil; de 10 a 15 días hábiles si se pide presencialmente."},"ca":{"h":"El <b>certificat del padró municipal d'habitants</b> acredita que una persona està o va estar empadronada. N'hi ha d'individual, individual històric, col·lectiu i col·lectiu històric.","l":["Individual: imprès <b>F0210</b> o <b>F0211</b>, més document d'identitat en vigor.","Col·lectiu: imprès d'autorització <b>F0206</b> o <b>F0207</b>, original del document de la persona autoritzada i fotocòpia del de totes les que autoritzen.","Per autoritzar una tercera persona: imprès <b>F0205</b>.","Els majors de 16 anys només poden demanar el seu individual o individual històric. Dels menors de 16 el demana el pare, la mare o el tutor.","<b>Gratuït</b>, excepte els certificats anteriors a l'01/03/1991."],"f":"Termini: immediat si es treu per internet amb certificat digital o idCAT Mòbil; de 10 a 15 dies hàbils si es demana presencialment."},"s":{"t":"Certificat del Padró Municipal d'Habitants — seu.badalona.cat","u":"https://seu.badalona.cat/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS_CATSERV&DETALLE=6269000171155618099500&lang=ca"}},{"k":["sac","oficina","atencion ciudadana","direccion","horario","cita previa","cita","telefono","contacto","atencio ciutadana","adreca","horari","cita previa","telefon"],"es":{"h":"El <b>Servei d'Atenció al Ciutadà (SAC)</b> es la oficina de atención presencial del Ayuntamiento.","l":["Edificio El Viver, plaza de la Assemblea de Catalunya, 9-12, planta baja — 08911 Badalona.","Centralita: 93 483 26 00. Cita previa del SAC: 93 483 29 25.","Correo: sac@badalona.cat.","Horario: de lunes a viernes de 8:30 a 13:30. Los jueves también de 16:00 a 18:00.","Las tardes de jueves están cerradas todo agosto y algunos días sueltos del año."],"f":"La cita previa se pide preferentemente en badalona.cat > cita previa."},"ca":{"h":"El <b>Servei d'Atenció al Ciutadà (SAC)</b> és l'oficina d'atenció presencial de l'Ajuntament.","l":["Edifici El Viver, plaça de l'Assemblea de Catalunya, 9-12, planta baixa — 08911 Badalona.","Centraleta: 93 483 26 00. Cita prèvia del SAC: 93 483 29 25.","Correu: sac@badalona.cat.","Horari: de dilluns a divendres de 8:30 a 13:30. Els dijous també de 16:00 a 18:00.","Les tardes de dijous estan tancades tot l'agost i alguns dies solts de l'any."],"f":"La cita prèvia es demana preferentment a badalona.cat > cita prèvia."},"s":{"t":"Què és el Servei d'Atenció al Ciutadà — badalona.cat","u":"https://www.badalona.cat/ca/ajuntament/atencio-a-la-ciutadania/que-es-el-servei-dantencio-al-ciutada"}},{"k":["sede electronica","tramite","tramites","online","internet","catalogo","por internet","seu electronica","tramit","tramits","cataleg","per internet"],"es":{"h":"Los trámites municipales se gestionan en la <b>seu electrònica</b>, donde está el catálogo completo de procedimientos.","l":["Se accede con certificado digital o idCAT Mòbil.","Desde ahí se puede sacar el certificado de padrón al momento."],"f":"Si lo prefiere presencialmente, pida cita en el SAC: 93 483 29 25."},"ca":{"h":"Els tràmits municipals es gestionen a la <b>seu electrònica</b>, on hi ha el catàleg complet de procediments.","l":["S'hi accedeix amb certificat digital o idCAT Mòbil.","Des d'allà es pot treure el certificat de padró a l'instant."],"f":"Si ho prefereix presencialment, demani cita al SAC: 93 483 29 25."},"s":{"t":"Seu electrònica — seu.badalona.cat","u":"https://seu.badalona.cat/"}}];
+
+// Materias excluidas a proposito: importes, licencias y ayudas sociales.
+const BLOCK = ["tasa","tasas","basura","basuras","ibi","impuesto","impuestos","cuanto cuesta","cuánto cuesta","precio","importe","coste","cuota","recibo","licencia","licencias","obra","apertura","ayuda","ayudas","subvencion","subvención","subvenciones","servicios sociales","emergencia social","plusvalia","plusvalía","circulacion","circulación","taxa","taxes","impost","quant costa","preu","import","llicencia","llicencies","ajuda","ajudes","subvencio","plusvalua","plusvàlua"];
+
+const norm = s => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9\s]/g," ").replace(/\s+/g," ").trim();
+
+const L2 = ["que necessito","necessito","empadronar-me","aquest","aquesta","quin","quina","com puc","on puc","aixo","tramit","tramits","seu electronica","atencio","quant","per a","hi ha","cal ","puc ","voldria","m agradaria","gracies","si us plau","padro","volant","certificat","llicencia","ajuda","taxa","adreca","horari","telefon","demanar"];
+const is2 = t => { const n=norm(t); return L2.some(w=>(" "+n+" ").includes(" "+norm(w)+" ")); };
+
+// Las claves se buscan por PALABRA COMPLETA, no como subcadena. Con subcadena,
+// la clave catalana "on" casaba dentro de "Girona" y el asistente contestaba la
+// ficha de la oficina a quien preguntaba por un tren. En una demo comercial ese
+// fallo es el peor de todos: el ayuntamiento no ve un buscador flojo, ve un
+// sistema que responde con seguridad a algo que no le han preguntado.
+const tiene = (n, k) => (" " + n + " ").includes(" " + k + " ");
+
+function match(t){
+  const n = norm(t);
+  if (BLOCK.some(b => tiene(n, norm(b)))) return "BLOCK";
+  let best=null, bs=0;
+  for (const e of KB){
+    let sc=0;
+    for (const k of e.k){ const nk=norm(k); if(nk && tiene(n, nk)) sc += nk.split(" ").length*2 + nk.length/12; }
+    if (sc>bs){ bs=sc; best=e; }
+  }
+  return bs>=2 ? best : null;
+}
+
+const log = document.getElementById("log");
+function esc(s){ return String(s).replace(/[<>&]/g,c=>({"<":"&lt;",">":"&gt;","&":"&amp;"}[c])); }
+
+function render(q, hit, dos){
+  const turn = document.createElement("div"); turn.className = "turn";
+  const qq = document.createElement("div"); qq.className = "q"; qq.textContent = q;
+  turn.appendChild(qq);
+  const a = document.createElement("div"); a.className = "a";
+
+  if (hit === "BLOCK"){
+    a.classList.add("refuse");
+    a.innerHTML = dos
+      ? `<div class="rlabel">Fora d'abast</div>
+         <p>No puc donar-li aquesta informació. <b>Els imports de taxes i impostos, les llicències i els ajuts socials estan exclosos d'aquest assistent</b> a propòsit: una resposta aproximada en aquestes matèries causa més perjudici que no respondre.</p>
+         <p>Consulti-ho directament a l'${OFI_SIGLA}: <b>${OFI}</b>, o al correu ${OFI_MAIL}.</p>`
+      : `<div class="rlabel">Fuera de alcance</div>
+         <p>No puedo darle esa información. <b>Los importes de tasas e impuestos, las licencias y las ayudas sociales están excluidos de este asistente</b> a propósito: una respuesta aproximada en esas materias causa más perjuicio que no responder.</p>
+         <p>Consúltelo directamente en ${OFI_SIGLA}: <b>${OFI}</b>, o en el correo ${OFI_MAIL}.</p>`;
+  } else if (!hit){
+    a.classList.add("refuse");
+    a.innerHTML = dos
+      ? `<div class="rlabel">Sense font</div>
+         <p>No he trobat documentació municipal publicada que sustenti una resposta a això, i no me la inventaré.</p>
+         <p>Li recomano consultar-ho a l'${OFI_SIGLA}: <b>${OFI}</b>.</p>`
+      : `<div class="rlabel">Sin fuente</div>
+         <p>No he encontrado documentación municipal publicada que sustente una respuesta a esto, y no voy a improvisarla.</p>
+         <p>Le recomiendo consultarlo en ${OFI_SIGLA}: <b>${OFI}</b>.</p>`;
+  } else {
+    const c = (dos && hit.ca) ? hit.ca : hit.es;
+    let html = `<p>${c.h}</p>`;
+    if (c.l && c.l.length) html += "<ul>" + c.l.map(x=>`<li>${x}</li>`).join("") + "</ul>";
+    if (c.f) html += `<p>${c.f}</p>`;
+    html += `<div class="src"><a href="${hit.s.u}" target="_blank" rel="noopener">
+      <span class="k">${dos?"Font":"Fuente"}</span><span>${esc(hit.s.t)}</span></a></div>`;
+    a.innerHTML = html;
+  }
+
+  turn.appendChild(a);
+  log.appendChild(turn);
+  a.scrollIntoView({behavior:"smooth", block:"nearest"});
+}
+
+function ask(t){ t = t.trim(); if(!t) return; render(t, match(t), is2(t)); }
+
+const SUG = [{"lang":"ES","t":"¿Qué necesito para empadronarme en Badalona?"},{"lang":"ES","t":"¿Cuánto cuesta exactamente el IBI?"},{"lang":"CA","t":"Què necessito per empadronar-me a Badalona?"},{"lang":"ES","t":"¿Dónde está el SAC y cómo pido cita?"}];
+const chips = document.getElementById("chips");
+SUG.forEach(s=>{
+  const b=document.createElement("button");
+  b.className="chip"; b.type="button";
+  b.innerHTML = `<span class="lang">${s.lang}</span><b>${esc(s.t)}</b>`;
+  b.onclick = ()=>ask(s.t);
+  chips.appendChild(b);
+});
+
+document.getElementById("form").onsubmit = e=>{
+  e.preventDefault();
+  const i=document.getElementById("q");
+  ask(i.value); i.value="";
+};
+</script>
+</html>
