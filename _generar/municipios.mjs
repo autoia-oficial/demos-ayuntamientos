@@ -24,7 +24,7 @@ export const MUNICIPIOS = [
   idioma2: { cod: 'CA', clave: 'ca', sigla: "al SAC", nombre: 'catalán', sufijo: 'ca', oficinaLargo: 'Servei d\'Atenció al Ciutadà' },
   kb: [
     {
-      k: ['empadronar', 'empadronarme', 'empadronamiento', 'alta padron', 'darme de alta', 'cambio de domicilio', 'mudarme', 'nuevo vecino',
+      k: ['empadronar', 'empadronarme', 'empadrono', 'me mudo', 'me empadrono', 'empadronamiento', 'alta padron', 'darme de alta', 'cambio de domicilio', 'mudarme', 'nuevo vecino',
           'empadronar-me', 'empadronament', 'alta padro', 'canvi de domicili', 'mudar-me', 'donar-me d alta'],
       es: { h: 'El alta y el cambio de domicilio en el <b>padró municipal d\'habitants</b> se tramitan en el SAC o en la sede electrónica.',
             l: ['Hay que acreditar la titularidad de la vivienda. Si no se puede, se presenta una solicitud de comprobación de residencia.',
@@ -140,7 +140,7 @@ export const MUNICIPIOS = [
       s: { t: 'Certificat del Padró Municipal d\'Habitants — aoberta.terrassa.cat', u: 'https://aoberta.terrassa.cat/tramits/fitxa.jsp?id=801' },
     },
     {
-      k: ['empadronar', 'empadronarme', 'alta padron', 'darme de alta', 'cambio de domicilio', 'mudarme',
+      k: ['empadronar', 'empadronarme', 'empadrono', 'me mudo', 'me empadrono', 'alta padron', 'darme de alta', 'cambio de domicilio', 'mudarme',
           'empadronar-me', 'alta padro', 'canvi de domicili', 'donar-me d alta'],
       es: { h: 'El <b>alta al padró</b> y el <b>canvi de domicili</b> son dos trámites distintos, cada uno con su ficha en la sede.',
             l: ['Alta: para quien se empadrona en Terrassa por primera vez.',
@@ -210,7 +210,7 @@ export const MUNICIPIOS = [
       s: { t: 'Cita Previa OAC — jerez.es', u: 'https://www.jerez.es/webs-municipales/participacion/atencion-a-la-ciudadania/cita-previa-oac' },
     },
     {
-      k: ['empadronar', 'empadronarme', 'empadronamiento', 'padron', 'certificado', 'volante', 'cambio de domicilio', 'mudarme'],
+      k: ['empadronar', 'empadronarme', 'empadrono', 'me mudo', 'me empadrono', 'empadronamiento', 'padron', 'certificado', 'volante', 'cambio de domicilio', 'mudarme'],
       es: { h: 'La OAC gestiona todo lo relativo al <b>Padrón Municipal de Habitantes</b>.',
             l: ['Certificados de empadronamiento y volantes de empadronamiento.',
                 'Movimientos en el padrón: altas, bajas y modificaciones.'],
@@ -262,7 +262,7 @@ export const MUNICIPIOS = [
       s: { t: 'Atención a la Ciudadanía — leganes.org', u: 'https://www.leganes.org/atencion-a-la-ciudadania' },
     },
     {
-      k: ['empadronar', 'empadronarme', 'empadronamiento', 'padron', 'certificado', 'volante', 'cambio de domicilio', 'mudarme'],
+      k: ['empadronar', 'empadronarme', 'empadrono', 'me mudo', 'me empadrono', 'empadronamiento', 'padron', 'certificado', 'volante', 'cambio de domicilio', 'mudarme'],
       es: { h: 'Los trámites del <b>Padrón Municipal de Habitantes</b> —altas, cambios de domicilio, volantes y certificados— se atienden en el SAC.',
             l: ['Presencialmente en la Casa del Reloj, con cita previa.',
                 'Por teléfono en el 010 para consultar los requisitos de su caso antes de desplazarse.'],
@@ -296,7 +296,7 @@ export const MUNICIPIOS = [
   idioma2: null,
   kb: [
     {
-      k: ['padron', 'empadronar', 'empadronarme', 'empadronamiento', 'estadistica', 'modificacion', 'cambio de domicilio', 'mudarme'],
+      k: ['padron', 'empadronar', 'empadronarme', 'empadrono', 'me mudo', 'me empadrono', 'empadronamiento', 'estadistica', 'modificacion', 'cambio de domicilio', 'mudarme'],
       es: { h: 'El <b>Padrón de Habitantes</b> lo lleva el <b>Servicio de Estadística</b> del Ayuntamiento.',
             l: ['Calle Los Escalantes, 3, 2ª planta.',
                 'Horario de atención al público: de lunes a viernes de 8:30 a 13:00.',
@@ -361,7 +361,7 @@ export const MUNICIPIOS = [
            u: 'https://sede.doshermanas.es/portal/sede/se_contenedor1.jsp?seccion=s_floc_d4_v1.jsp&contenido=75&tipo=1&nivel=1400&codResi=1&language=es&codMenu=27&codMenuPN=6' },
     },
     {
-      k: ['empadronar', 'empadronarme', 'empadronamiento', 'padron', 'certificado', 'volante', 'cambio de domicilio', 'mudarme'],
+      k: ['empadronar', 'empadronarme', 'empadrono', 'me mudo', 'me empadrono', 'empadronamiento', 'padron', 'certificado', 'volante', 'cambio de domicilio', 'mudarme'],
       es: { h: 'Los trámites del <b>padrón municipal</b> se pueden hacer por internet en la sede electrónica o presencialmente en la Oficina de Atención al Ciudadano.',
             l: ['Empadronamiento, certificados y solicitud de cita previa están disponibles de forma electrónica.',
                 'Presencialmente: plaza de la Constitución, 1, de lunes a viernes de 9:00 a 14:00.'],
@@ -423,7 +423,7 @@ export const MUNICIPIOS = [
            u: 'https://www.ayuntamientoparla.es/noticias/el-servicio-de-atencion-a-la-ciudadania-de-parla-vuelve-a-realizar-tramites-presenciales-solo-con-cita-previa-desde-el-8-de-junio' },
     },
     {
-      k: ['empadronar', 'empadronarme', 'empadronamiento', 'padron', 'certificado', 'volante', 'cambio de domicilio', 'mudarme', 'censo'],
+      k: ['empadronar', 'empadronarme', 'empadrono', 'me mudo', 'me empadrono', 'empadronamiento', 'padron', 'certificado', 'volante', 'cambio de domicilio', 'mudarme', 'censo'],
       es: { h: 'El SAC gestiona los trámites de <b>padrón</b>, además del censo electoral, los certificados digitales y la firma electrónica.',
             l: ['Presencialmente en cualquiera de las tres oficinas, con cita previa.',
                 'Por teléfono en el 010 para consultar requisitos antes de ir.'],
@@ -489,7 +489,7 @@ export const MUNICIPIOS = [
       s: { t: 'Cita prèvia — Ajuntament de Tarragona', u: 'https://citaprevia.tarragona.cat/' },
     },
     {
-      k: ['empadronar', 'empadronarme', 'empadronamiento', 'padron', 'poblacion', 'certificado', 'volante', 'cambio de domicilio',
+      k: ['empadronar', 'empadronarme', 'empadrono', 'me mudo', 'me empadrono', 'empadronamiento', 'padron', 'poblacion', 'certificado', 'volante', 'cambio de domicilio',
           'empadronar-me', 'empadronament', 'padro', 'poblacio', 'certificat', 'volant', 'canvi de domicili'],
       es: { h: 'Los trámites de <b>población</b> —el padrón— son una de las materias que atiende la OMAC.',
             l: ['Presencialmente en Rambla Nova, 59, con cita preferente pero no obligatoria.',

@@ -39,7 +39,7 @@ export const MUNICIPIOS_DIA04 = [
       s: { t: 'Atención Ciudadana — arona.org', u: 'https://www.arona.org/Areas-Municipales/Atencion-Ciudadana' },
     },
     {
-      k: ['padron', 'empadronar', 'empadronarme', 'empadronamiento', 'certificado', 'volante', 'cambio de domicilio', 'mudarme'],
+      k: ['padron', 'empadronar', 'empadronarme', 'empadrono', 'me mudo', 'me empadrono', 'empadronamiento', 'certificado', 'volante', 'cambio de domicilio', 'mudarme'],
       es: { h: 'Los trámites de <b>padrón</b> se atienden en cualquiera de las tres oficinas del SAC, siempre con cita previa.',
             l: ['También hay atención telemática, sin desplazamiento.',
                 'La sede electrónica está en sta.arona.org.'],
@@ -103,7 +103,7 @@ export const MUNICIPIOS_DIA04 = [
       s: { t: 'Cita Prèvia — Ajuntament de Cornellà', u: 'https://citaprevia.cornella.cat/' },
     },
     {
-      k: ['padron', 'empadronar', 'empadronarme', 'empadronamiento', 'nacimiento', 'videollamada', 'certificado', 'cambio de domicilio',
+      k: ['padron', 'empadronar', 'empadronarme', 'empadrono', 'me mudo', 'me empadrono', 'empadronamiento', 'nacimiento', 'videollamada', 'certificado', 'cambio de domicilio',
           'padro', 'empadronar-me', 'empadronament', 'naixement', 'videotrucada', 'certificat', 'canvi de domicili'],
       es: { h: 'Parte de los trámites del <b>padró municipal d\'habitants</b> se pueden hacer por <b>videollamada</b>.',
             l: ['El alta al padrón por nacimiento está entre los disponibles en esa modalidad.',
@@ -146,7 +146,7 @@ export const MUNICIPIOS_DIA04 = [
   idioma2: null,
   kb: [
     {
-      k: ['padron', 'empadronar', 'empadronarme', 'empadronamiento', 'estadistica', 'poeta del pueblo', 'ruiz capdepon', 'horario', 'jueves'],
+      k: ['padron', 'empadronar', 'empadronarme', 'empadrono', 'me mudo', 'me empadrono', 'empadronamiento', 'estadistica', 'poeta del pueblo', 'ruiz capdepon', 'horario', 'jueves'],
       es: { h: 'El <b>Padrón Municipal</b> está en el edificio <b>«Poeta del Pueblo»</b>, calle Ruiz Capdepón, 7 — 03300 Orihuela.',
             l: ['Teléfono: 966 340 347.',
                 'Horario del padrón: de lunes a viernes de 9:00 a 13:30.',
@@ -201,7 +201,7 @@ export const MUNICIPIOS_DIA04 = [
   idioma2: { cod: 'GL', clave: 'gl', sigla: 'no Rexistro Xeral', nombre: 'gallego' },
   kb: [
     {
-      k: ['padron', 'empadronar', 'empadronarme', 'empadronamiento', 'registro', 'michelena', 'oficina', 'direccion', 'telefono',
+      k: ['padron', 'empadronar', 'empadronarme', 'empadrono', 'me mudo', 'me empadrono', 'empadronamiento', 'registro', 'michelena', 'oficina', 'direccion', 'telefono',
           'empadroarme', 'empadroamento', 'rexistro', 'enderezo'],
       es: { h: 'El <b>Padrón</b> y el <b>Registro General</b> están en la rúa Michelena, 30, planta baja.',
             l: ['Teléfono: 986 804 300.',
@@ -302,7 +302,7 @@ export const MUNICIPIOS_DIA04 = [
       s: { t: 'Cita prèvia — seuelectronica.santboi.cat', u: 'https://seuelectronica.santboi.cat/PaginesW.nsf/Web/Planes/A76EE896547F51A6C12583AE00292720?OpenDocument=&Clau=citaprevia&Idioma=ca&Seu=S' },
     },
     {
-      k: ['padron', 'empadronar', 'empadronarme', 'empadronamiento', 'certificado', 'volante', 'cambio de domicilio', 'mudarme',
+      k: ['padron', 'empadronar', 'empadronarme', 'empadrono', 'me mudo', 'me empadrono', 'empadronamiento', 'certificado', 'volante', 'cambio de domicilio', 'mudarme',
           'padro', 'empadronar-me', 'empadronament', 'certificat', 'volant', 'canvi de domicili'],
       es: { h: 'Los trámites del <b>padró municipal</b> se atienden en el eMAP.',
             l: ['Presencialmente en la plaça de l\'Ajuntament, 1.',
@@ -362,7 +362,7 @@ export const MUNICIPIOS_DIA04 = [
       s: { t: 'Adreces i telèfons municipals — manresa.cat', u: 'https://web.manresa.cat/web/menu/4116-adreces-i-telefons-municipals' },
     },
     {
-      k: ['padron', 'empadronar', 'empadronarme', 'empadronamiento', 'certificado', 'volante', 'cambio de domicilio', 'mudarme',
+      k: ['padron', 'empadronar', 'empadronarme', 'empadrono', 'me mudo', 'me empadrono', 'empadronamiento', 'certificado', 'volante', 'cambio de domicilio', 'mudarme',
           'padro', 'empadronar-me', 'empadronament', 'certificat', 'volant', 'canvi de domicili'],
       es: { h: 'Los trámites del <b>padró municipal</b> se atienden en la OAC de la plaça Major.',
             l: ['El lunes es el día con horario más amplio: hasta las 18:00.',
@@ -430,7 +430,7 @@ export const MUNICIPIOS_DIA04 = [
       s: { t: 'Registro, Padrón e Información — coslada.es', u: 'https://coslada.es/alcaldia/secretaria-general/registro-padron-e-informacion/' },
     },
     {
-      k: ['volante', 'certificado', 'empadronamiento', 'empadronar', 'empadronarme', 'por telefono', 'por correo', 'sin ir'],
+      k: ['volante', 'certificado', 'empadronamiento', 'empadronar', 'empadronarme', 'empadrono', 'me mudo', 'me empadrono', 'por telefono', 'por correo', 'sin ir'],
       es: { h: 'Los <b>volantes de empadronamiento</b> se pueden pedir <b>por teléfono y por correo electrónico</b>, sin ir a la oficina.',
             l: ['Teléfono: 91 627 82 00.',
                 'Correo: registro@ayto-coslada.es.'],
@@ -491,7 +491,7 @@ export const MUNICIPIOS_DIA04 = [
       s: { t: 'Cita Previa y Gestión de Colas — citaprevia.estepona.es', u: 'https://citaprevia.estepona.es/' },
     },
     {
-      k: ['padron', 'empadronar', 'empadronarme', 'empadronamiento', 'certificado', 'volante', 'fe de vida', 'inscripcion padronal'],
+      k: ['padron', 'empadronar', 'empadronarme', 'empadrono', 'me mudo', 'me empadrono', 'empadronamiento', 'certificado', 'volante', 'fe de vida', 'inscripcion padronal'],
       es: { h: 'Con <b>certificado digital</b> se puede hacer la inscripción padronal y obtener los certificados de empadronamiento <b>en línea</b>.',
             l: ['Sin certificado digital: los volantes de empadronamiento y la fe de vida se tramitan en la oficina del antiguo Ayuntamiento, plaza Blas Infante.',
                 'Hay un portal específico del padrón en padron.estepona.es.'],

@@ -27,7 +27,7 @@ export const MUNICIPIOS_DIA03 = [
   idioma2: null,
   kb: [
     {
-      k: ['padron', 'empadronar', 'empadronarme', 'empadronamiento', 'estadistica', 'certificado', 'volante', 'cambio de domicilio', 'mudarme'],
+      k: ['padron', 'empadronar', 'empadronarme', 'empadrono', 'me mudo', 'me empadrono', 'empadronamiento', 'estadistica', 'certificado', 'volante', 'cambio de domicilio', 'mudarme'],
       es: { h: 'El <b>padrón</b> lo lleva la <b>Delegación de Estadística</b>, que es quien lo mantiene y lo custodia.',
             l: ['Dirección: Regino Martínez, 16.',
                 'Teléfono: 956 672 709.',
@@ -96,7 +96,7 @@ export const MUNICIPIOS_DIA03 = [
       s: { t: 'Oficina d\'Informació i Atenció a la Ciutadania — gramenet.cat', u: 'https://www.gramenet.cat/ajuntament/oficina-dinformacio-i-atencio-a-la-ciutadania/' },
     },
     {
-      k: ['padron', 'empadronar', 'empadronarme', 'empadronamiento', 'nacimiento', 'cambio de domicilio', 'certificado', 'copia literal',
+      k: ['padron', 'empadronar', 'empadronarme', 'empadrono', 'me mudo', 'me empadrono', 'empadronamiento', 'nacimiento', 'cambio de domicilio', 'certificado', 'copia literal',
           'padro', 'empadronar-me', 'empadronament', 'naixement', 'canvi de domicili', 'certificat'],
       es: { h: 'La OIAC gestiona los trámites del <b>padró municipal d\'habitants</b>.',
             l: ['Alta en el padrón.',
@@ -166,7 +166,7 @@ export const MUNICIPIOS_DIA03 = [
       s: { t: 'Oficinas del Ayuntamiento de Roquetas de Mar', u: 'https://portaltributario.aytoroquetas.org/oficinas' },
     },
     {
-      k: ['padron', 'empadronar', 'empadronarme', 'empadronamiento', 'volante', 'certificado', 'cambio de domicilio', 'mudarme'],
+      k: ['padron', 'empadronar', 'empadronarme', 'empadrono', 'me mudo', 'me empadrono', 'empadronamiento', 'volante', 'certificado', 'cambio de domicilio', 'mudarme'],
       es: { h: 'Los trámites de <b>padrón</b> se pueden hacer enteros por la sede electrónica.',
             l: ['Solicitud del <b>volante</b> de empadronamiento.',
                 'Solicitud del <b>certificado</b> de empadronamiento.',
@@ -211,7 +211,7 @@ export const MUNICIPIOS_DIA03 = [
       s: { t: 'Cita previa en la Oficina del Padrón — transparencia.cadiz.es', u: 'https://transparencia.cadiz.es/el-ayuntamiento-de-cadiz-implanta-el-sistema-de-cita-previa-en-la-oficina-del-padron-para-reducir-a-cero-las-esperas/' },
     },
     {
-      k: ['padron', 'empadronar', 'empadronarme', 'empadronamiento', 'estadistica', 'certificado', 'volante', 'cambio de domicilio', 'mudarme'],
+      k: ['padron', 'empadronar', 'empadronarme', 'empadrono', 'me mudo', 'me empadrono', 'empadronamiento', 'estadistica', 'certificado', 'volante', 'cambio de domicilio', 'mudarme'],
       es: { h: 'La <b>Oficina de Estadística</b> está en la planta baja de la Casa Consistorial, plaza de San Juan de Dios, s/n.',
             l: ['Se pueden solicitar certificados y volantes de empadronamiento.',
                 'También comunicar cambios de domicilio.',
@@ -256,7 +256,7 @@ export const MUNICIPIOS_DIA03 = [
   idioma2: { cod: 'GL', clave: 'gl', sigla: 'na Oficina de Atención Cidadá', nombre: 'gallego' },
   kb: [
     {
-      k: ['padron', 'empadronar', 'empadronarme', 'empadronamiento', 'certificado', 'volante', 'habitantes',
+      k: ['padron', 'empadronar', 'empadronarme', 'empadrono', 'me mudo', 'me empadrono', 'empadronamiento', 'certificado', 'volante', 'habitantes',
           'empadroarme', 'empadroamento'],
       es: { h: 'La Oficina de Atención Ciudadana emite los documentos del <b>padrón de habitantes</b>.',
             l: ['Certificados de empadronamiento.',
@@ -322,7 +322,7 @@ export const MUNICIPIOS_DIA03 = [
       s: { t: 'Punto de Atención Ciudadano (PAC) — torrevieja.es', u: 'https://torrevieja.es/en/node/9355' },
     },
     {
-      k: ['padron', 'empadronar', 'empadronarme', 'empadronamiento', 'certificado', 'volante', 'censo', 'estadistica'],
+      k: ['padron', 'empadronar', 'empadronarme', 'empadrono', 'me mudo', 'me empadrono', 'empadronamiento', 'certificado', 'volante', 'censo', 'estadistica'],
       es: { h: 'El <b>certificado de empadronamiento</b> se puede obtener en el PAC sin hacer cola ni pedir cita.',
             l: ['Padrón, censo y estadística son las consultas de mayor volumen que atiende el PAC.',
                 'También se puede tramitar por la sede electrónica, sin ir a las oficinas.'],
@@ -379,7 +379,7 @@ export const MUNICIPIOS_DIA03 = [
       s: { t: 'Pedir cita previa presencial (no obligatoria) — chiclana.es', u: 'https://www.chiclana.es/gestiones-y-tramites/cita-previa-presencial-ayuntamiento-de-chiclana' },
     },
     {
-      k: ['padron', 'empadronar', 'empadronarme', 'empadronamiento', 'volante', 'certificado', 'cambio de domicilio', 'mudarme'],
+      k: ['padron', 'empadronar', 'empadronarme', 'empadrono', 'me mudo', 'me empadrono', 'empadronamiento', 'volante', 'certificado', 'cambio de domicilio', 'mudarme'],
       es: { h: 'Los <b>volantes de empadronamiento</b> se obtienen por la sede electrónica sin desplazarse.',
             l: ['Disponible <b>24 horas al día, los 365 días del año</b>.',
                 'Los trámites de padrón los lleva la Delegación de Estadística.',
@@ -443,7 +443,7 @@ export const MUNICIPIOS_DIA03 = [
       s: { t: 'Visites concertades a l\'OAC — santcugat.cat', u: 'https://www.santcugat.cat/servei/visites-concertades-a-loac' },
     },
     {
-      k: ['padron', 'empadronar', 'empadronarme', 'empadronamiento', 'certificado', 'volante', 'cambio de domicilio', 'mudarme',
+      k: ['padron', 'empadronar', 'empadronarme', 'empadrono', 'me mudo', 'me empadrono', 'empadronamiento', 'certificado', 'volante', 'cambio de domicilio', 'mudarme',
           'padro', 'empadronar-me', 'empadronament', 'certificat', 'volant', 'canvi de domicili'],
       es: { h: 'La OAC gestiona el <b>padró municipal</b> como parte de sus trámites administrativos generales.',
             l: ['Presencialmente en plaça de la Vila, 1, o en la OAC de Mira-sol.',
