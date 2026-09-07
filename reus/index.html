@@ -95,6 +95,18 @@ footer b{color:var(--ink-2);font-weight:600}
   .turn{animation:in .22s ease-out}
   @keyframes in{from{opacity:0;transform:translateY(5px)}}
 }
+
+  .a.pensar{display:flex;align-items:center;gap:9px;color:var(--ink-3);
+    border-left-color:var(--line-2);font-size:14.5px}
+  .dots{display:inline-flex;gap:4px}
+  .dots i{width:5px;height:5px;border-radius:50%;background:var(--ink-3);
+    animation:pens 1.15s ease-in-out infinite}
+  .dots i:nth-child(2){animation-delay:.16s}
+  .dots i:nth-child(3){animation-delay:.32s}
+  @keyframes pens{0%,65%,100%{opacity:.3;transform:translateY(0)}
+                  32%{opacity:1;transform:translateY(-3px)}}
+  .send:disabled{opacity:.4;cursor:default}
+  @media (prefers-reduced-motion:reduce){.dots i{animation:none;opacity:.55}}
 </style>
 
 <div class="wrap">
@@ -210,7 +222,30 @@ function render(q, hit, dos){
   a.scrollIntoView({behavior:"smooth", block:"nearest"});
 }
 
-function ask(t){ t = t.trim(); if(!t) return; render(t, match(t), is2(t)); }
+let __ocupado = false;
+const __envio = document.querySelector(".send");
+
+// La pregunta se pinta al momento; la respuesta, despues de pensarla. Mientras
+// piensa, el boton se bloquea: sin eso se pueden encadenar cinco preguntas y
+// las respuestas llegan todas de golpe y desordenadas.
+function ask(t){
+  t = t.trim(); if(!t || __ocupado) return;
+  __ocupado = true; if(__envio) __envio.disabled = true;
+
+  const __t = document.createElement("div"); __t.className = "turn";
+  const __q = document.createElement("div"); __q.className = "q"; __q.textContent = t;
+  const __p = document.createElement("div"); __p.className = "a pensar";
+  __p.innerHTML = '<span class="dots"><i></i><i></i><i></i></span>' + (is2(t) ? "Pensant…" : "Pensando…");
+  __t.appendChild(__q); __t.appendChild(__p);
+  log.appendChild(__t);
+  __p.scrollIntoView({behavior:"smooth", block:"nearest"});
+
+  setTimeout(function(){
+    __t.remove();
+    render(t, match(t), is2(t));
+    __ocupado = false; if(__envio) __envio.disabled = false;
+  }, 700 + Math.random()*450);
+}
 
 const SUG = [{"lang":"ES","t":"¿Hace falta cita previa en la OAC?"},{"lang":"ES","t":"¿Cuánto cuesta exactamente el IBI?"},{"lang":"CA","t":"On és l'OAC?"},{"lang":"ES","t":"¿Qué diferencia hay entre la OAC y el SAIC?"}];
 const chips = document.getElementById("chips");
@@ -218,7 +253,7 @@ SUG.forEach(s=>{
   const b=document.createElement("button");
   b.className="chip"; b.type="button";
   b.innerHTML = `<span class="lang">${s.lang}</span><b>${esc(s.t)}</b>`;
-  b.onclick = ()=>ask(s.t);
+  b.onclick = ()=>{ const c=document.getElementById("q"); c.value=s.t; c.focus(); };
   chips.appendChild(b);
 });
 

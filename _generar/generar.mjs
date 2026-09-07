@@ -285,3 +285,23 @@ for (const m of MUNICIPIOS) {
   console.log(`${m.slug.padEnd(26)} ${String(html.length).padStart(6)} bytes  ${m.kb.length} fichas  ${m.idioma2 ? 'bilingüe ' + m.idioma2.cod : 'castellano'}`);
 }
 console.log(`\n${MUNICIPIOS.length} demos generadas en ${WEB}`);
+
+// --- Las pasadas de despues -------------------------------------------------
+//
+//  Se lanzan desde aqui, y no a mano, porque ya ha fallado dos veces:
+//
+//   - Se arreglo la lista de materias excluidas en este archivo y las ocho
+//     demos escritas a mano se quedaron con la vieja: cada una lleva la suya
+//     dentro del HTML y este script no las genera.
+//   - Se hizo que el asistente "piense" antes de responder parcheando las 109,
+//     y una regeneracion lo habria deshecho en las 101 que salen de aqui.
+//
+//  Ninguna de las dos cosas puede vivir solo en un sitio: hay que generar
+//  primero y parchear despues, SIEMPRE. Encadenandolo aqui no hay forma de
+//  olvidarse. Si un parche falla, revienta la generacion entera, que es lo que
+//  se quiere: mejor eso que 109 demos a medio arreglar sin que nadie lo note.
+const { execFileSync } = await import('node:child_process');
+for (const paso of ['unificar-bloqueo.mjs', 'pensar-antes-de-responder.mjs']) {
+  console.log(`\n--- ${paso} ---`);
+  execFileSync(process.execPath, [join(AQUI, paso)], { stdio: 'inherit' });
+}
