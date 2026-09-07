@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Asistente de La Rinconada</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#f6f4ef; --card:#fff; --ink:#16211c; --ink-2:#4a5751; --ink-3:#8b958f;
+  --line:#e2ded4; --line-2:#efece4;
+  --green:#2f6b4f; --green-soft:#eef3ef;
+  --amber:#a8681f; --amber-soft:#fbf3e7;
+  --ui:'Instrument Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0f1512; --card:#161d19; --ink:#e8eae7; --ink-2:#a3aca7; --ink-3:#6e7873;
+  --line:#26302b; --line-2:#1e2622;
+  --green:#7fc09c; --green-soft:#17241d; --amber:#e0a460; --amber-soft:#231a0f;
+}}
+:root[data-theme="dark"]{
+  --paper:#0f1512; --card:#161d19; --ink:#e8eae7; --ink-2:#a3aca7; --ink-3:#6e7873;
+  --line:#26302b; --line-2:#1e2622;
+  --green:#7fc09c; --green-soft:#17241d; --amber:#e0a460; --amber-soft:#231a0f;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--ui);
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:0 18px 40px}
+
+header{display:flex;align-items:center;gap:11px;padding:22px 0 18px;border-bottom:1px solid var(--line)}
+.mark{width:28px;height:28px;border-radius:50%;background:var(--ink);display:grid;place-items:center;flex:none}
+.mark i{width:9px;height:9px;border-radius:50%;background:var(--paper);display:block}
+.brand{font-weight:700;letter-spacing:-.02em;font-size:17px}
+.badge{margin-left:auto;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-3);border:1px solid var(--line);
+  padding:4px 9px;border-radius:999px;white-space:nowrap}
+
+.intro{padding:26px 0 20px}
+h1{margin:0 0 8px;font-size:clamp(23px,4.4vw,30px);font-weight:700;letter-spacing:-.03em;
+  line-height:1.15;text-wrap:balance}
+.sub{margin:0;color:var(--ink-2);font-size:15px;max-width:60ch}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:6px 0 22px}
+.chip{font:500 13.5px/1 var(--ui);color:var(--ink);background:var(--card);
+  border:1px solid var(--line);border-radius:999px;padding:9px 14px;cursor:pointer;
+  transition:border-color .15s,transform .1s;text-align:left}
+.chip:hover{border-color:var(--ink-3)}
+.chip:active{transform:translateY(1px)}
+.chip:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+.chip b{font-weight:600}
+.chip .lang{font-family:var(--mono);font-size:10px;color:var(--ink-3);
+  border:1px solid var(--line);border-radius:3px;padding:1px 4px;margin-right:7px}
+
+#log{display:flex;flex-direction:column;gap:16px;min-height:80px}
+.turn{display:flex;flex-direction:column;gap:4px}
+.q{align-self:flex-end;max-width:85%;background:var(--ink);color:var(--paper);
+  padding:11px 15px;border-radius:15px 15px 4px 15px;font-size:15px;font-weight:500}
+.a{align-self:flex-start;max-width:92%;background:var(--card);border:1px solid var(--line);
+  border-left:3px solid var(--green);padding:15px 17px;border-radius:4px 15px 15px 15px}
+.a.refuse{border-left-color:var(--amber);background:var(--amber-soft)}
+.a p{margin:0 0 9px;font-size:15px}
+.a p:last-child{margin-bottom:0}
+.a ul{margin:6px 0 10px;padding-left:19px;font-size:14.5px}
+.a li{margin-bottom:4px}
+.rlabel{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--amber);
+  margin-bottom:8px;font-weight:500}
+.rlabel::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--amber)}
+.src{margin-top:11px;padding-top:10px;border-top:1px solid var(--line-2)}
+.src a{display:inline-flex;align-items:baseline;gap:7px;font-family:var(--mono);
+  font-size:11.5px;color:var(--green);text-decoration:none;word-break:break-all}
+.src a:hover{text-decoration:underline}
+.src .k{color:var(--ink-3);flex:none}
+
+.ask{display:flex;gap:9px;margin-top:22px;position:sticky;bottom:14px}
+input{flex:1;font:400 15px/1 var(--ui);color:var(--ink);background:var(--card);
+  border:1px solid var(--line);border-radius:11px;padding:14px 16px}
+input:focus{outline:none;border-color:var(--green)}
+input::placeholder{color:var(--ink-3)}
+button.send{font:600 14.5px/1 var(--ui);color:var(--paper);background:var(--ink);
+  border:0;border-radius:11px;padding:0 20px;cursor:pointer}
+button.send:hover{opacity:.88}
+button.send:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+
+footer{margin-top:30px;padding-top:16px;border-top:1px solid var(--line);
+  font-size:12.5px;color:var(--ink-3);line-height:1.65}
+footer b{color:var(--ink-2);font-weight:600}
+@media (prefers-reduced-motion:no-preference){
+  .turn{animation:in .22s ease-out}
+  @keyframes in{from{opacity:0;transform:translateY(5px)}}
+}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="mark"><i></i></div>
+    <div class="brand">AutoIA</div>
+    <div class="badge">Demostración</div>
+  </header>
+
+  <div class="intro">
+    <h1>Asistente de atención ciudadana<br>del Ayuntamiento de La Rinconada</h1>
+    <p class="sub">Responde con la documentación publicada en larinconada.es y larinconada.sedelectronica.es, citando en
+    cada respuesta la página de la que procede.</p>
+  </div>
+
+  <div class="chips" id="chips"></div>
+  <div id="log"></div>
+
+  <form class="ask" id="form" autocomplete="off">
+    <input id="q" placeholder="Escriba su consulta…" aria-label="Consulta">
+    <button class="send" type="submit">Enviar</button>
+  </form>
+
+  <footer>
+    <b>Demostración de AutoIA.</b> No es un servicio oficial del Ayuntamiento de La Rinconada.
+    Contenido recogido de larinconada.es y larinconada.sedelectronica.es el 7 de septiembre de 2026.<br>
+    Las tasas, licencias y ayudas sociales están excluidas a propósito: son las materias en las que
+    una respuesta aproximada causa más perjuicio que la ausencia de respuesta.
+  </footer>
+</div>
+
+<script>
+const OFI = "954 79 24 13";
+const OFI_MAIL = "participacion@aytolarinconada.es";
+const OFI_SIGLA = "el SAC";
+const KB = [{"k":["sac","oficina","atencion al ciudadano","atencion ciudadana","direccion","horario","hasta que hora","a que hora abren","abren","cierran","telefono","contacto","pepe iglesias"],"es":{"h":"El <b>Servicio de Atención al Ciudadano (SAC)</b> está en la calle Alcalde Pepe Iglesias.","l":["Teléfono: 954 79 24 13. Correo: participacion@aytolarinconada.es.","Horario: de <b>lunes a viernes de 10:00 a 14:00</b>, tanto en la oficina como por teléfono."],"f":"El SAC canaliza quejas, sugerencias y peticiones de información, y las traslada a la delegación municipal que corresponda."},"s":{"t":"SAC — larinconada.es","u":"https://www.larinconada.es/es/servicios/sac"}},{"k":["queja","quejas","sugerencia","sugerencias","reclamacion","reclamar","protesta","buzon","peticion"],"es":{"h":"Las <b>quejas y sugerencias</b> se presentan en el SAC, que las traslada a la delegación municipal competente.","l":["También canaliza demandas de información o de servicios."],"f":"Calle Alcalde Pepe Iglesias, de 10:00 a 14:00, o en el 954 79 24 13."},"s":{"t":"SAC — larinconada.es","u":"https://www.larinconada.es/es/servicios/sac"}},{"k":["padron","empadronar","empadronarme","empadrono","me mudo","me empadrono","empadronamiento","alta padron","cambio de domicilio","mudarme","nuevo vecino","certificado","volante"],"es":{"h":"Los trámites de <b>padrón</b> se presentan por la sede electrónica, en larinconada.sedelectronica.es, o preguntando en el SAC.","l":["El SAC atiende de lunes a viernes de 10:00 a 14:00 en el 954 79 24 13."],"f":"La documentación concreta no está publicada en la ficha del SAC: confírmela en el 954 79 24 13 antes de desplazarse."},"s":{"t":"Sede electrónica — Ayuntamiento de La Rinconada","u":"https://larinconada.sedelectronica.es/info.2"}},{"k":["sede electronica","tramite","tramites","online","internet","por internet","catalogo","registro","instancia"],"es":{"h":"La <b>sede electrónica</b> está en larinconada.sedelectronica.es.","l":["Desde ahí se presentan instancias y se consulta el estado de los expedientes."],"f":"Dudas: 954 79 24 13 o participacion@aytolarinconada.es."},"s":{"t":"Sede electrónica — Ayuntamiento de La Rinconada","u":"https://larinconada.sedelectronica.es/info.2"}}];
+const L2KEY = null;
+const T = null;
+
+// Materias excluidas a proposito: importes, licencias y ayudas sociales.
+const BLOCK = ["tasa","tasas","basura","basuras","ibi","impuesto","impuestos","cuanto cuesta","cuánto cuesta","precio","importe","coste","cuota","recibo","licencia","licencias","obra","apertura","ayuda","ayudas","subvencion","subvención","subvenciones","servicios sociales","emergencia social","plusvalia","plusvalía","circulacion","circulación","taxa","taxes","impost","quant costa","preu","import","llicencia","llicencies","ajuda","ajudes","subvencio","plusvalua","plusvàlua","licenzas","axuda","axudas","canto custa"];
+
+const norm = s => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9\s]/g," ").replace(/\s+/g," ").trim();
+
+const is2 = () => false;
+
+// Las claves se buscan por PALABRA COMPLETA, no como subcadena. Con subcadena,
+// la clave catalana "on" casaba dentro de "Girona" y el asistente contestaba la
+// ficha de la oficina a quien preguntaba por un tren. En una demo comercial ese
+// fallo es el peor de todos: el ayuntamiento no ve un buscador flojo, ve un
+// sistema que responde con seguridad a algo que no le han preguntado.
+const tiene = (n, k) => (" " + n + " ").includes(" " + k + " ");
+
+function match(t){
+  const n = norm(t);
+  if (BLOCK.some(b => tiene(n, norm(b)))) return "BLOCK";
+  let best=null, bs=0;
+  for (const e of KB){
+    let sc=0;
+    for (const k of e.k){ const nk=norm(k); if(nk && tiene(n, nk)) sc += nk.split(" ").length*2 + nk.length/12; }
+    if (sc>bs){ bs=sc; best=e; }
+  }
+  return bs>=2 ? best : null;
+}
+
+const log = document.getElementById("log");
+function esc(s){ return String(s).replace(/[<>&]/g,c=>({"<":"&lt;",">":"&gt;","&":"&amp;"}[c])); }
+
+function render(q, hit, dos){
+  const turn = document.createElement("div"); turn.className = "turn";
+  const qq = document.createElement("div"); qq.className = "q"; qq.textContent = q;
+  turn.appendChild(qq);
+  const a = document.createElement("div"); a.className = "a";
+
+  if (hit === "BLOCK"){
+    a.classList.add("refuse");
+    a.innerHTML = dos
+      ? `<div class="rlabel">${T.fuera}</div><p>${T.bloqueo}</p><p>${T.consulte}</p>`
+      : `<div class="rlabel">Fuera de alcance</div>
+         <p>No puedo darle esa información. <b>Los importes de tasas e impuestos, las licencias y las ayudas sociales están excluidos de este asistente</b> a propósito: una respuesta aproximada en esas materias causa más perjuicio que no responder.</p>
+         <p>Consúltelo directamente en ${OFI_SIGLA}: <b>${OFI}</b>, o en el correo ${OFI_MAIL}.</p>`;
+  } else if (!hit){
+    a.classList.add("refuse");
+    a.innerHTML = dos
+      ? `<div class="rlabel">${T.sinfuente}</div><p>${T.nose}</p><p>${T.recomiendo}</p>`
+      : `<div class="rlabel">Sin fuente</div>
+         <p>No he encontrado documentación municipal publicada que sustente una respuesta a esto, y no voy a improvisarla.</p>
+         <p>Le recomiendo consultarlo en ${OFI_SIGLA}: <b>${OFI}</b>.</p>`;
+  } else {
+    const c = (dos && hit[L2KEY]) ? hit[L2KEY] : hit.es;
+    let html = `<p>${c.h}</p>`;
+    if (c.l && c.l.length) html += "<ul>" + c.l.map(x=>`<li>${x}</li>`).join("") + "</ul>";
+    if (c.f) html += `<p>${c.f}</p>`;
+    html += `<div class="src"><a href="${hit.s.u}" target="_blank" rel="noopener">
+      <span class="k">${dos ? ({gl:"Fonte", eu:"Iturria"}[L2KEY] || "Font") : "Fuente"}</span><span>${esc(hit.s.t)}</span></a></div>`;
+    a.innerHTML = html;
+  }
+
+  turn.appendChild(a);
+  log.appendChild(turn);
+  a.scrollIntoView({behavior:"smooth", block:"nearest"});
+}
+
+function ask(t){ t = t.trim(); if(!t) return; render(t, match(t), is2(t)); }
+
+const SUG = [{"lang":"ES","t":"¿Qué necesito para empadronarme en La Rinconada?"},{"lang":"ES","t":"¿Cuánto cuesta exactamente la tasa de basuras?"},{"lang":"ES","t":"¿Dónde está el SAC y qué horario tiene?"},{"lang":"ES","t":"¿Cómo pongo una queja o una sugerencia?"}];
+const chips = document.getElementById("chips");
+SUG.forEach(s=>{
+  const b=document.createElement("button");
+  b.className="chip"; b.type="button";
+  b.innerHTML = `<span class="lang">${s.lang}</span><b>${esc(s.t)}</b>`;
+  b.onclick = ()=>ask(s.t);
+  chips.appendChild(b);
+});
+
+document.getElementById("form").onsubmit = e=>{
+  e.preventDefault();
+  const i=document.getElementById("q");
+  ask(i.value); i.value="";
+};
+</script>
+</html>
