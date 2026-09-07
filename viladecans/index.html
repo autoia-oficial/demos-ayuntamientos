@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Asistente de Viladecans</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#f6f4ef; --card:#fff; --ink:#16211c; --ink-2:#4a5751; --ink-3:#8b958f;
+  --line:#e2ded4; --line-2:#efece4;
+  --green:#2f6b4f; --green-soft:#eef3ef;
+  --amber:#a8681f; --amber-soft:#fbf3e7;
+  --ui:'Instrument Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0f1512; --card:#161d19; --ink:#e8eae7; --ink-2:#a3aca7; --ink-3:#6e7873;
+  --line:#26302b; --line-2:#1e2622;
+  --green:#7fc09c; --green-soft:#17241d; --amber:#e0a460; --amber-soft:#231a0f;
+}}
+:root[data-theme="dark"]{
+  --paper:#0f1512; --card:#161d19; --ink:#e8eae7; --ink-2:#a3aca7; --ink-3:#6e7873;
+  --line:#26302b; --line-2:#1e2622;
+  --green:#7fc09c; --green-soft:#17241d; --amber:#e0a460; --amber-soft:#231a0f;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--ui);
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:0 18px 40px}
+
+header{display:flex;align-items:center;gap:11px;padding:22px 0 18px;border-bottom:1px solid var(--line)}
+.mark{width:28px;height:28px;border-radius:50%;background:var(--ink);display:grid;place-items:center;flex:none}
+.mark i{width:9px;height:9px;border-radius:50%;background:var(--paper);display:block}
+.brand{font-weight:700;letter-spacing:-.02em;font-size:17px}
+.badge{margin-left:auto;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-3);border:1px solid var(--line);
+  padding:4px 9px;border-radius:999px;white-space:nowrap}
+
+.intro{padding:26px 0 20px}
+h1{margin:0 0 8px;font-size:clamp(23px,4.4vw,30px);font-weight:700;letter-spacing:-.03em;
+  line-height:1.15;text-wrap:balance}
+.sub{margin:0;color:var(--ink-2);font-size:15px;max-width:60ch}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:6px 0 22px}
+.chip{font:500 13.5px/1 var(--ui);color:var(--ink);background:var(--card);
+  border:1px solid var(--line);border-radius:999px;padding:9px 14px;cursor:pointer;
+  transition:border-color .15s,transform .1s;text-align:left}
+.chip:hover{border-color:var(--ink-3)}
+.chip:active{transform:translateY(1px)}
+.chip:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+.chip b{font-weight:600}
+.chip .lang{font-family:var(--mono);font-size:10px;color:var(--ink-3);
+  border:1px solid var(--line);border-radius:3px;padding:1px 4px;margin-right:7px}
+
+#log{display:flex;flex-direction:column;gap:16px;min-height:80px}
+.turn{display:flex;flex-direction:column;gap:4px}
+.q{align-self:flex-end;max-width:85%;background:var(--ink);color:var(--paper);
+  padding:11px 15px;border-radius:15px 15px 4px 15px;font-size:15px;font-weight:500}
+.a{align-self:flex-start;max-width:92%;background:var(--card);border:1px solid var(--line);
+  border-left:3px solid var(--green);padding:15px 17px;border-radius:4px 15px 15px 15px}
+.a.refuse{border-left-color:var(--amber);background:var(--amber-soft)}
+.a p{margin:0 0 9px;font-size:15px}
+.a p:last-child{margin-bottom:0}
+.a ul{margin:6px 0 10px;padding-left:19px;font-size:14.5px}
+.a li{margin-bottom:4px}
+.rlabel{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--amber);
+  margin-bottom:8px;font-weight:500}
+.rlabel::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--amber)}
+.src{margin-top:11px;padding-top:10px;border-top:1px solid var(--line-2)}
+.src a{display:inline-flex;align-items:baseline;gap:7px;font-family:var(--mono);
+  font-size:11.5px;color:var(--green);text-decoration:none;word-break:break-all}
+.src a:hover{text-decoration:underline}
+.src .k{color:var(--ink-3);flex:none}
+
+.ask{display:flex;gap:9px;margin-top:22px;position:sticky;bottom:14px}
+input{flex:1;font:400 15px/1 var(--ui);color:var(--ink);background:var(--card);
+  border:1px solid var(--line);border-radius:11px;padding:14px 16px}
+input:focus{outline:none;border-color:var(--green)}
+input::placeholder{color:var(--ink-3)}
+button.send{font:600 14.5px/1 var(--ui);color:var(--paper);background:var(--ink);
+  border:0;border-radius:11px;padding:0 20px;cursor:pointer}
+button.send:hover{opacity:.88}
+button.send:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+
+footer{margin-top:30px;padding-top:16px;border-top:1px solid var(--line);
+  font-size:12.5px;color:var(--ink-3);line-height:1.65}
+footer b{color:var(--ink-2);font-weight:600}
+@media (prefers-reduced-motion:no-preference){
+  .turn{animation:in .22s ease-out}
+  @keyframes in{from{opacity:0;transform:translateY(5px)}}
+}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="mark"><i></i></div>
+    <div class="brand">AutoIA</div>
+    <div class="badge">Demostración</div>
+  </header>
+
+  <div class="intro">
+    <h1>Asistente de atención ciudadana<br>del Ayuntamiento de Viladecans</h1>
+    <p class="sub">Responde con la documentación publicada en viladecans.cat y cita.viladecans.cat, citando en
+    cada respuesta la página de la que procede. Contesta en el idioma de la pregunta.</p>
+  </div>
+
+  <div class="chips" id="chips"></div>
+  <div id="log"></div>
+
+  <form class="ask" id="form" autocomplete="off">
+    <input id="q" placeholder="Escriba su consulta…" aria-label="Consulta">
+    <button class="send" type="submit">Enviar</button>
+  </form>
+
+  <footer>
+    <b>Demostración de AutoIA.</b> No es un servicio oficial del Ayuntamiento de Viladecans.
+    Contenido recogido de viladecans.cat y cita.viladecans.cat el 7 de septiembre de 2026.<br>
+    Las tasas, licencias y ayudas sociales están excluidas a propósito: son las materias en las que
+    una respuesta aproximada causa más perjuicio que la ausencia de respuesta.
+  </footer>
+</div>
+
+<script>
+const OFI = "93 635 18 00";
+const OFI_MAIL = "viladecansinfo@viladecans.cat";
+const OFI_SIGLA = "l'OAC";
+const KB = [{"k":["oac","oficina","atencion ciudadana","viladecans informacio","direccion","horario","hasta que hora","a que hora abren","abren","cierran","telefono","contacto","placa europa","atencio ciutadana","adreca","horari","a quina hora obren","telefon"],"es":{"h":"L'<b>Oficina d'Atenció Ciutadana (OAC)</b> está en la plaça Europa, 7.","l":["Teléfono: 93 635 18 00. Correo: viladecansinfo@viladecans.cat.","Horario: de lunes a jueves de 9:00 a 14:15; viernes de 9:00 a 14:00.","Martes y jueves también de 16:15 a 18:00."],"f":"Hay que pedir cita previa en cita.viladecans.cat."},"ca":{"h":"L'<b>Oficina d'Atenció Ciutadana (OAC)</b> és a la plaça Europa, 7.","l":["Telèfon: 93 635 18 00. Correu: viladecansinfo@viladecans.cat.","Horari: de dilluns a dijous de 9:00 a 14:15; divendres de 9:00 a 14:00.","Dimarts i dijous també de 16:15 a 18:00."],"f":"Cal demanar cita prèvia a cita.viladecans.cat."},"s":{"t":"Atenció ciutadana — viladecans.cat","u":"https://www.viladecans.cat/ca/atenciociutadana"}},{"k":["padron","empadronar","empadronarme","empadrono","me mudo","me empadrono","empadronamiento","alta padron","cambio de domicilio","mudarme","nuevo vecino","certificado","volante","empadronar-me","empadronament","alta padro","canvi de domicili","mudar-me","certificat","volant"],"es":{"h":"Los trámites de <b>padró</b> se hacen en la OAC, plaça Europa, 7, con cita previa.","l":["La cita se pide en cita.viladecans.cat."],"f":"La documentación depende de su caso. Confírmela en el 93 635 18 00 o en viladecansinfo@viladecans.cat antes de desplazarse."},"ca":{"h":"Els tràmits de <b>padró</b> es fan a l'OAC, plaça Europa, 7, amb cita prèvia.","l":["La cita es demana a cita.viladecans.cat."],"f":"La documentació depèn del seu cas. Confirmeu-la al 93 635 18 00 o a viladecansinfo@viladecans.cat abans de desplaçar-vos."},"s":{"t":"Atenció ciutadana — viladecans.cat","u":"https://www.viladecans.cat/ca/atenciociutadana"}},{"k":["cita","cita previa","pedir cita","turno","cita previa","demanar cita"],"es":{"h":"La <b>cita previa</b> se pide en cita.viladecans.cat.","l":[],"f":"Si el sistema no le da hueco, llame al 93 635 18 00."},"ca":{"h":"La <b>cita prèvia</b> es demana a cita.viladecans.cat.","l":[],"f":"Si el sistema no us dona hora, telefoneu al 93 635 18 00."},"s":{"t":"Atenció ciutadana — viladecans.cat","u":"https://www.viladecans.cat/ca/atenciociutadana"}},{"k":["sede electronica","tramite","tramites","online","internet","por internet","omic","consumo","reclamacion","registro","seu electronica","tramit","tramits","per internet","consum","reclamacio"],"es":{"h":"Los trámites en línea y el contacto están en viladecans.cat.","l":["El Ayuntamiento tiene además una <b>Oficina Municipal d'Informació al Consumidor (OMIC)</b>, que es donde van las reclamaciones de consumo, no a la OAC."],"f":"Dudas: 93 635 18 00 o viladecansinfo@viladecans.cat."},"ca":{"h":"Els tràmits en línia i el contacte són a viladecans.cat.","l":["L'Ajuntament té a més una <b>Oficina Municipal d'Informació al Consumidor (OMIC)</b>, que és on van les reclamacions de consum, no a l'OAC."],"f":"Dubtes: 93 635 18 00 o viladecansinfo@viladecans.cat."},"s":{"t":"Oficina Municipal d'Informació al Consumidor — viladecans.cat","u":"https://www.viladecans.cat/ca/omic"}}];
+const L2KEY = "ca";
+const T = {"fuera":"Fora d'abast","sinfuente":"Sense font","bloqueo":"No puc donar-li aquesta informació. <b>Els imports de taxes i impostos, les llicències i els ajuts socials estan exclosos d'aquest assistent</b> a propòsit: una resposta aproximada en aquestes matèries causa més perjudici que no respondre.","consulte":"Consulti-ho directament a l'OAC: <b>93 635 18 00</b>, o al correu viladecansinfo@viladecans.cat.","nose":"No he trobat documentació municipal publicada que sustenti una resposta a això, i no me la inventaré.","recomiendo":"Li recomano consultar-ho a l'OAC: <b>93 635 18 00</b>."};
+
+// Materias excluidas a proposito: importes, licencias y ayudas sociales.
+// OJO CON DOS COSAS DE ESTA LISTA, que ya han mordido:
+//
+//  1. "ayuda" a secas NO puede estar aqui. Estaba, y con ella "ajuda", "ajudes"
+//     y "axuda", pensando en las AYUDAS SOCIALES. El resultado es que
+//     "necesito ayuda", "necessito ajuda" o "preciso axuda" -la frase mas
+//     normal que se le dice a un mostrador- hacian que el asistente se negara
+//     a contestar. Las ayudas sociales se bloquean por frase, no por palabra.
+//
+//  2. "ibi" a secas tampoco, porque hay un municipio que se llama Ibi y
+//     cualquier pregunta que lo nombrara se negaba. El impuesto se bloquea
+//     como "el ibi" y por su nombre largo.
+const BLOCK = ["tasa","tasas","basura","basuras","el ibi","del ibi","impuesto de bienes inmuebles","impuesto sobre bienes inmuebles","contribucion","contribución","impuesto","impuestos","cuanto cuesta","cuánto cuesta","precio","importe","coste","cuota","recibo","licencia","licencias","obra","apertura","ayuda social","ayudas sociales","ayuda economica","ayuda económica","ayudas economicas","ayudas económicas","ayuda al alquiler","ayudas al alquiler","ayuda de emergencia","ayudas de emergencia","prestacion","prestación","prestaciones","subvencion","subvención","subvenciones","servicios sociales","emergencia social","plusvalia","plusvalía","circulacion","circulación","taxa","taxes","impost","quant costa","preu","import","llicencia","llicencies","ajuda social","ajudes socials","ajuda economica","ajuda econòmica","ajudes economiques","ajudes econòmiques","prestacio","prestació","subvencio","plusvalua","plusvàlua","licenzas","axuda social","axudas sociais","canto custa","prestacions"];
+
+const norm = s => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9\s]/g," ").replace(/\s+/g," ").trim();
+
+const L2 = ["que necessito","necessito","empadronar-me","aquest","aquesta","quin","quina","com puc","on puc","aixo","tramit","tramits","seu electronica","atencio","quant","per a","hi ha","cal","puc","voldria","m agradaria","gracies","si us plau","padro","volant","certificat","llicencia","ajuda","taxa","adreca","horari","telefon","demanar"];
+const is2 = t => { const n=norm(t); return L2.some(w=>(" "+n+" ").includes(" "+norm(w)+" ")); };
+
+// Las claves se buscan por PALABRA COMPLETA, no como subcadena. Con subcadena,
+// la clave catalana "on" casaba dentro de "Girona" y el asistente contestaba la
+// ficha de la oficina a quien preguntaba por un tren. En una demo comercial ese
+// fallo es el peor de todos: el ayuntamiento no ve un buscador flojo, ve un
+// sistema que responde con seguridad a algo que no le han preguntado.
+const tiene = (n, k) => (" " + n + " ").includes(" " + k + " ");
+
+function match(t){
+  const n = norm(t);
+  if (BLOCK.some(b => tiene(n, norm(b)))) return "BLOCK";
+  let best=null, bs=0;
+  for (const e of KB){
+    let sc=0;
+    for (const k of e.k){ const nk=norm(k); if(nk && tiene(n, nk)) sc += nk.split(" ").length*2 + nk.length/12; }
+    if (sc>bs){ bs=sc; best=e; }
+  }
+  return bs>=2 ? best : null;
+}
+
+const log = document.getElementById("log");
+function esc(s){ return String(s).replace(/[<>&]/g,c=>({"<":"&lt;",">":"&gt;","&":"&amp;"}[c])); }
+
+function render(q, hit, dos){
+  const turn = document.createElement("div"); turn.className = "turn";
+  const qq = document.createElement("div"); qq.className = "q"; qq.textContent = q;
+  turn.appendChild(qq);
+  const a = document.createElement("div"); a.className = "a";
+
+  if (hit === "BLOCK"){
+    a.classList.add("refuse");
+    a.innerHTML = dos
+      ? `<div class="rlabel">${T.fuera}</div><p>${T.bloqueo}</p><p>${T.consulte}</p>`
+      : `<div class="rlabel">Fuera de alcance</div>
+         <p>No puedo darle esa información. <b>Los importes de tasas e impuestos, las licencias y las ayudas sociales están excluidos de este asistente</b> a propósito: una respuesta aproximada en esas materias causa más perjuicio que no responder.</p>
+         <p>Consúltelo directamente en ${OFI_SIGLA}: <b>${OFI}</b>, o en el correo ${OFI_MAIL}.</p>`;
+  } else if (!hit){
+    a.classList.add("refuse");
+    a.innerHTML = dos
+      ? `<div class="rlabel">${T.sinfuente}</div><p>${T.nose}</p><p>${T.recomiendo}</p>`
+      : `<div class="rlabel">Sin fuente</div>
+         <p>No he encontrado documentación municipal publicada que sustente una respuesta a esto, y no voy a improvisarla.</p>
+         <p>Le recomiendo consultarlo en ${OFI_SIGLA}: <b>${OFI}</b>.</p>`;
+  } else {
+    const c = (dos && hit[L2KEY]) ? hit[L2KEY] : hit.es;
+    let html = `<p>${c.h}</p>`;
+    if (c.l && c.l.length) html += "<ul>" + c.l.map(x=>`<li>${x}</li>`).join("") + "</ul>";
+    if (c.f) html += `<p>${c.f}</p>`;
+    html += `<div class="src"><a href="${hit.s.u}" target="_blank" rel="noopener">
+      <span class="k">${dos ? ({gl:"Fonte", eu:"Iturria"}[L2KEY] || "Font") : "Fuente"}</span><span>${esc(hit.s.t)}</span></a></div>`;
+    a.innerHTML = html;
+  }
+
+  turn.appendChild(a);
+  log.appendChild(turn);
+  a.scrollIntoView({behavior:"smooth", block:"nearest"});
+}
+
+function ask(t){ t = t.trim(); if(!t) return; render(t, match(t), is2(t)); }
+
+const SUG = [{"lang":"ES","t":"¿Qué necesito para empadronarme en Viladecans?"},{"lang":"ES","t":"¿Cuánto cuesta exactamente el IBI?"},{"lang":"CA","t":"On és l'OAC i quin horari té?"},{"lang":"ES","t":"¿Cómo pido cita previa?"}];
+const chips = document.getElementById("chips");
+SUG.forEach(s=>{
+  const b=document.createElement("button");
+  b.className="chip"; b.type="button";
+  b.innerHTML = `<span class="lang">${s.lang}</span><b>${esc(s.t)}</b>`;
+  b.onclick = ()=>ask(s.t);
+  chips.appendChild(b);
+});
+
+document.getElementById("form").onsubmit = e=>{
+  e.preventDefault();
+  const i=document.getElementById("q");
+  ask(i.value); i.value="";
+};
+</script>
+</html>

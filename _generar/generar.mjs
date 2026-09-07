@@ -31,11 +31,12 @@ import { MUNICIPIOS_DIA10 as LOTE10 } from './municipios-dia10.mjs';
 import { MUNICIPIOS_DIA11 as LOTE11 } from './municipios-dia11.mjs';
 import { MUNICIPIOS_DIA12 as LOTE12 } from './municipios-dia12.mjs';
 import { MUNICIPIOS_DIA13 as LOTE13 } from './municipios-dia13.mjs';
+import { MUNICIPIOS_DIA14 as LOTE14 } from './municipios-dia14.mjs';
 
 // Todas las tandas en un solo array: generar es idempotente, asi que volver a
 // escribir las anteriores no molesta y evita que una quede sin regenerar
 // cuando se toca el motor.
-const MUNICIPIOS = [...LOTE2, ...LOTE3, ...LOTE4, ...LOTE5, ...LOTE6, ...LOTE7, ...LOTE8, ...LOTE9, ...LOTE10, ...LOTE11, ...LOTE12, ...LOTE13];
+const MUNICIPIOS = [...LOTE2, ...LOTE3, ...LOTE4, ...LOTE5, ...LOTE6, ...LOTE7, ...LOTE8, ...LOTE9, ...LOTE10, ...LOTE11, ...LOTE12, ...LOTE13, ...LOTE14];
 
 const AQUI = dirname(fileURLToPath(import.meta.url));
 const WEB = join(AQUI, '..');
@@ -163,7 +164,28 @@ const L2KEY = ${js(CLAVE2)};
 const T = ${js(T)};
 
 // Materias excluidas a proposito: importes, licencias y ayudas sociales.
-const BLOCK = ["tasa","tasas","basura","basuras","ibi","impuesto","impuestos","cuanto cuesta","cuánto cuesta","precio","importe","coste","cuota","recibo","licencia","licencias","obra","apertura","ayuda","ayudas","subvencion","subvención","subvenciones","servicios sociales","emergencia social","plusvalia","plusvalía","circulacion","circulación","taxa","taxes","impost","quant costa","preu","import","llicencia","llicencies","ajuda","ajudes","subvencio","plusvalua","plusvàlua","licenzas","axuda","axudas","canto custa"];
+// OJO CON DOS COSAS DE ESTA LISTA, que ya han mordido:
+//
+//  1. "ayuda" a secas NO puede estar aqui. Estaba, y con ella "ajuda", "ajudes"
+//     y "axuda", pensando en las AYUDAS SOCIALES. El resultado es que
+//     "necesito ayuda", "necessito ajuda" o "preciso axuda" -la frase mas
+//     normal que se le dice a un mostrador- hacian que el asistente se negara
+//     a contestar. Las ayudas sociales se bloquean por frase, no por palabra.
+//
+//  2. "ibi" a secas tampoco, porque hay un municipio que se llama Ibi y
+//     cualquier pregunta que lo nombrara se negaba. El impuesto se bloquea
+//     como "el ibi" y por su nombre largo.
+const BLOCK = ["tasa","tasas","basura","basuras",
+  "el ibi","del ibi","impuesto de bienes inmuebles","impuesto sobre bienes inmuebles","contribucion","contribución",
+  "impuesto","impuestos","cuanto cuesta","cuánto cuesta","precio","importe","coste","cuota","recibo",
+  "licencia","licencias","obra","apertura",
+  "ayuda social","ayudas sociales","ayuda economica","ayuda económica","ayudas economicas","ayudas económicas",
+  "ayuda al alquiler","ayudas al alquiler","ayuda de emergencia","ayudas de emergencia","prestacion","prestación","prestaciones",
+  "subvencion","subvención","subvenciones","servicios sociales","emergencia social","plusvalia","plusvalía","circulacion","circulación",
+  "taxa","taxes","impost","quant costa","preu","import","llicencia","llicencies",
+  "ajuda social","ajudes socials","ajuda economica","ajuda econòmica","ajudes economiques","ajudes econòmiques","prestacio","prestació",
+  "subvencio","plusvalua","plusvàlua",
+  "licenzas","axuda social","axudas sociais","canto custa","prestacions"];
 
 const norm = s => s.toLowerCase().normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").replace(/[^a-z0-9\\s]/g," ").replace(/\\s+/g," ").trim();
 
