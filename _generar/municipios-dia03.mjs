@@ -62,7 +62,7 @@ export const MUNICIPIOS_DIA03 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Dónde se tramita el padrón en Algeciras?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente la tasa de basuras?' },
+    { lang: 'ES', t: '¿Dónde está la oficina de atención ciudadana?' },
     { lang: 'ES', t: '¿Hace falta cita previa para Estadística?' },
     { lang: 'ES', t: '¿Qué horario tiene Estadística en verano?' },
   ],
@@ -141,7 +141,7 @@ export const MUNICIPIOS_DIA03 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué horario tiene la OIAC los miércoles?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'CA', t: 'Puc anar a l\'OIAC sense cita prèvia?' },
     { lang: 'ES', t: '¿Qué trámites de padrón puedo hacer?' },
   ],
@@ -186,7 +186,7 @@ export const MUNICIPIOS_DIA03 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Puedo pedir el volante de empadronamiento por internet?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente la tasa de basura?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿El ayuntamiento abre los sábados?' },
     { lang: 'ES', t: '¿Qué horario tiene la atención al ciudadano?' },
   ],
@@ -222,7 +222,7 @@ export const MUNICIPIOS_DIA03 = [
     },
     {
       k: ['descargar', 'portal del ciudadano', 'certificado digital', 'dnie', 'clave', 'online', 'internet', 'por internet'],
-      es: { h: 'Con <b>certificado digital, DNI electrónico o Cl@ve</b> el certificado de empadronamiento se descarga directamente.',
+      es: { h: 'Con <b>certificado digital, DNI electrónico o Clave</b> el certificado de empadronamiento se descarga directamente.',
             l: ['Se hace desde el Portal del Ciudadano del Ayuntamiento.',
                 'No hace falta desplazarse a ninguna oficina.'],
             f: 'Si no tiene certificado digital, puede acreditarlo en la Casa Consistorial sin cita previa.' },
@@ -239,7 +239,7 @@ export const MUNICIPIOS_DIA03 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Hace falta cita previa para el padrón?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Dónde está la oficina de atención ciudadana?' },
     { lang: 'ES', t: '¿Puedo descargar el certificado de empadronamiento?' },
     { lang: 'ES', t: '¿Dónde está la Oficina de Estadística?' },
   ],
@@ -296,7 +296,7 @@ export const MUNICIPIOS_DIA03 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Cómo consigo un volante de empadronamiento?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'GL', t: 'Onde está a Oficina de Atención Cidadá?' },
     { lang: 'GL', t: 'Podo descargar o certificado de empadroamento?' },
   ],
@@ -346,7 +346,7 @@ export const MUNICIPIOS_DIA03 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Cómo consigo el certificado de empadronamiento?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente la tasa de basuras?' },
+    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'ES', t: '¿Para qué sirve el PAC?' },
     { lang: 'ES', t: '¿Dónde está la oficina de Registro?' },
   ],
@@ -398,7 +398,7 @@ export const MUNICIPIOS_DIA03 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Hace falta cita previa para Estadística?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente la tasa de basuras?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Puedo pedir el volante de empadronamiento por internet?' },
     { lang: 'ES', t: '¿El ayuntamiento abre los sábados?' },
   ],
@@ -471,7 +471,7 @@ export const MUNICIPIOS_DIA03 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Puedo ir a la OAC sin cita previa?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'CA', t: 'Quin horari té l\'OAC de Mira-sol?' },
     { lang: 'ES', t: '¿Cuál es el teléfono del ayuntamiento?' },
   ],

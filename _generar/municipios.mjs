@@ -95,7 +95,7 @@ export const MUNICIPIOS = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Badalona?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Cómo pido el certificado de empadronamiento?' },
     { lang: 'CA', t: 'Què necessito per empadronar-me a Badalona?' },
     { lang: 'ES', t: '¿Dónde está el SAC y cómo pido cita?' },
   ],
@@ -176,9 +176,9 @@ export const MUNICIPIOS = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué diferencia hay entre volante y certificado de padrón?' },
-    { lang: 'ES', t: '¿Cuánto cuesta la tasa de residuos?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'CA', t: 'On és l\'OAC més propera i quin horari té?' },
-    { lang: 'ES', t: '¿Cómo cambio mi domicilio en el padrón?' },
+    { lang: 'ES', t: '¿Para qué sirve el volante de empadronamiento?' },
   ],
 },
 
@@ -228,7 +228,7 @@ export const MUNICIPIOS = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Jerez?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente la tasa de basuras?' },
+    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'ES', t: '¿Dónde está la OAC y qué horario tiene?' },
     { lang: 'ES', t: '¿Hace falta cita previa para ir a la OAC?' },
   ],
@@ -279,7 +279,7 @@ export const MUNICIPIOS = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué horario tiene la Casa del Reloj?' },
-    { lang: 'ES', t: '¿Cuánto cuesta el impuesto de circulación?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Hace falta cita previa para empadronarse?' },
     { lang: 'ES', t: '¿Puedo llamar al 010 un domingo?' },
   ],
@@ -333,7 +333,7 @@ export const MUNICIPIOS = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Dónde se tramita el padrón en Santander?' },
-    { lang: 'ES', t: '¿Cuánto cuesta el IBI este año?' },
+    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'ES', t: '¿Cómo pido cita previa?' },
     { lang: 'ES', t: '¿Cómo consigo un certificado de empadronamiento?' },
   ],
@@ -386,7 +386,7 @@ export const MUNICIPIOS = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué horario tiene la oficina de atención al ciudadano?' },
-    { lang: 'ES', t: '¿Cuánto cuesta la tasa de basura?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Puedo empadronarme por internet?' },
     { lang: 'ES', t: '¿Cómo pido cita previa?' },
   ],
@@ -442,7 +442,7 @@ export const MUNICIPIOS = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Dónde están las oficinas del SAC?' },
-    { lang: 'ES', t: '¿Cuánto cuesta la licencia de obra?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿El SAC abre los sábados?' },
     { lang: 'ES', t: '¿Cómo consigo el certificado digital?' },
   ],
@@ -515,7 +515,7 @@ export const MUNICIPIOS = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Hace falta cita previa para ir a la OMAC?' },
-    { lang: 'ES', t: '¿Cuánto se paga exactamente de plusvalía?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'CA', t: 'On és l\'OMAC i quin telèfon té?' },
     { lang: 'ES', t: '¿Puedo hacer trámites de padrón por internet?' },
   ],

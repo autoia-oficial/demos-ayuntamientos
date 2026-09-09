@@ -80,7 +80,7 @@ export const MUNICIPIOS_DIA09 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Hasta qué hora abre la oficina electrónica?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Hay atención telefónica?' },
     { lang: 'EU', t: 'Non dago SAC bulegoa?' },
     { lang: 'ES', t: '¿Cómo consigo un certificado de empadronamiento?' },
   ],
@@ -147,7 +147,7 @@ export const MUNICIPIOS_DIA09 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Dónde está el SAC y qué horario tiene?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'EU', t: 'Nola eskatzen da hitzordua?' },
     { lang: 'ES', t: '¿Puedo hacer el padrón ahí?' },
   ],
@@ -220,7 +220,7 @@ export const MUNICIPIOS_DIA09 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Hace falta cita previa?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'EU', t: 'Non dago SAC bulegoa?' },
     { lang: 'ES', t: '¿Tienen WhatsApp?' },
   ],
@@ -293,7 +293,7 @@ export const MUNICIPIOS_DIA09 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Dónde están las oficinas del HAZ-SAC?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Hace falta cita previa?' },
     { lang: 'EU', t: 'Zein da ordutegia?' },
     { lang: 'ES', t: '¿Cómo pido un volante de empadronamiento?' },
   ],
@@ -353,7 +353,7 @@ export const MUNICIPIOS_DIA09 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué horario tiene el HAZ-SAC?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'EU', t: 'Zein da udako ordutegia?' },
     { lang: 'ES', t: '¿Dónde está la oficina?' },
   ],
@@ -409,7 +409,7 @@ export const MUNICIPIOS_DIA09 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Dónde está el SAC?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'EU', t: 'Derrigorrezkoa da erroldatzea?' },
     { lang: 'ES', t: '¿Quién lleva el padrón?' },
   ],
@@ -480,7 +480,7 @@ export const MUNICIPIOS_DIA09 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Hace falta cita previa para el padrón?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'CA', t: 'On és el SAC i quin horari té?' },
     { lang: 'ES', t: '¿Qué opción elijo al pedir la cita?' },
   ],
@@ -532,7 +532,7 @@ export const MUNICIPIOS_DIA09 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Dónde están las oficinas del SAC?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Hace falta cita previa?' },
     { lang: 'ES', t: '¿Hasta qué hora abren?' },
     { lang: 'ES', t: '¿El certificado de residencia es gratis?' },
   ],

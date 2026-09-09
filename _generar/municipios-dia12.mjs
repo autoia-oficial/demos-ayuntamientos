@@ -89,7 +89,7 @@ export const MUNICIPIOS_DIA12 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Girona?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Cómo pido el certificado de empadronamiento?' },
     { lang: 'CA', t: "Obren els dissabtes?" },
     { lang: 'ES', t: '¿Dónde está la OAMR y qué horario tiene?' },
   ],
@@ -163,7 +163,7 @@ export const MUNICIPIOS_DIA12 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en el Prat?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'CA', t: 'Cal cita per recollir un volant?' },
     { lang: 'ES', t: '¿Dónde está la OIAC y qué horario tiene?' },
   ],
@@ -228,7 +228,7 @@ export const MUNICIPIOS_DIA12 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Sant Feliu?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Hace falta cita previa?' },
     { lang: 'CA', t: "Fins a quina hora obre l'OAC?" },
     { lang: 'ES', t: '¿Dónde está la OAC?' },
   ],
@@ -297,7 +297,7 @@ export const MUNICIPIOS_DIA12 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Alzira?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'VA', t: 'Quin horari té La Clau?' },
     { lang: 'ES', t: '¿Cómo pido cita previa?' },
   ],
@@ -348,7 +348,7 @@ export const MUNICIPIOS_DIA12 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Torrelavega?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente la tasa de basuras?' },
+    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'ES', t: '¿Hace falta cita previa para el padrón?' },
     { lang: 'ES', t: '¿Dónde está el Registro General?' },
   ],
@@ -398,7 +398,7 @@ export const MUNICIPIOS_DIA12 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Écija?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Dónde está la oficina de atención ciudadana?' },
     { lang: 'ES', t: '¿Cómo consigo un certificado de empadronamiento?' },
     { lang: 'ES', t: '¿Cómo pido cita previa?' },
   ],
@@ -447,7 +447,7 @@ export const MUNICIPIOS_DIA12 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en San Fernando de Henares?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Cómo pido el certificado de empadronamiento?' },
     { lang: 'ES', t: '¿Cómo pido cita previa?' },
     { lang: 'ES', t: '¿Puedo sacar el padrón sin ir al Ayuntamiento?' },
   ],
@@ -495,7 +495,7 @@ export const MUNICIPIOS_DIA12 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en La Rinconada?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente la tasa de basuras?' },
+    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'ES', t: '¿Dónde está el SAC y qué horario tiene?' },
     { lang: 'ES', t: '¿Cómo pongo una queja o una sugerencia?' },
   ],

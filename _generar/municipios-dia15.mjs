@@ -96,7 +96,7 @@ export const MUNICIPIOS_DIA15 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Blanes?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'CA', t: "On és l'AMIC i quin horari té?" },
     { lang: 'ES', t: '¿Cómo pido cita previa?' },
   ],
@@ -163,7 +163,7 @@ export const MUNICIPIOS_DIA15 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Esplugues?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Hace falta cita previa?' },
     { lang: 'ES', t: '¿Puedo hacerlo sin ir, por videollamada?' },
     { lang: 'CA', t: 'On són els punts d\'atenció?' },
   ],
@@ -214,7 +214,7 @@ export const MUNICIPIOS_DIA15 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Palencia?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Cómo pido el certificado de empadronamiento?' },
     { lang: 'ES', t: '¿Dónde está Atención Ciudadana y qué horario tiene?' },
     { lang: 'ES', t: '¿Cómo pido cita previa?' },
   ],
@@ -262,7 +262,7 @@ export const MUNICIPIOS_DIA15 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Ponferrada?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Hace falta cita previa?' },
     { lang: 'ES', t: '¿Qué horario tiene el Ayuntamiento?' },
     { lang: 'ES', t: '¿Qué es el CLIC?' },
   ],

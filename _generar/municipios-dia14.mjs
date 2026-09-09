@@ -89,7 +89,7 @@ export const MUNICIPIOS_DIA14 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Rubí?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'CA', t: 'Cal cita prèvia a la tarda?' },
     { lang: 'ES', t: '¿Dónde está la OAC y qué horario tiene?' },
   ],
@@ -156,7 +156,7 @@ export const MUNICIPIOS_DIA14 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Viladecans?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'CA', t: "On és l'OAC i quin horari té?" },
     { lang: 'ES', t: '¿Cómo pido cita previa?' },
   ],
@@ -225,7 +225,7 @@ export const MUNICIPIOS_DIA14 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Vic?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Me pueden ayudar con el certificado digital?' },
     { lang: 'CA', t: 'No sé fer un tràmit per internet, qui m\'ajuda?' },
     { lang: 'ES', t: '¿Dónde está la OAC y qué horario tiene?' },
   ],
@@ -296,7 +296,7 @@ export const MUNICIPIOS_DIA14 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Mollet?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'CA', t: 'Cal cita prèvia a la tarda?' },
     { lang: 'ES', t: '¿Dónde está la OAC y qué horario tiene?' },
   ],
@@ -348,7 +348,7 @@ export const MUNICIPIOS_DIA14 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en La Laguna?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Hace falta cita previa?' },
     { lang: 'ES', t: '¿Puedo sacar el certificado de padrón con usuario y contraseña?' },
     { lang: 'ES', t: '¿Qué horario tiene el SAC?' },
   ],
@@ -415,7 +415,7 @@ export const MUNICIPIOS_DIA14 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Ibi?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Hace falta cita previa?' },
     { lang: 'ES', t: 'Quiero empadronar a mi hijo, ¿tenemos que ir los dos padres?' },
     { lang: 'VA', t: "Quin horari té l'oficina del padró?" },
   ],
@@ -449,13 +449,13 @@ export const MUNICIPIOS_DIA14 = [
     {
       k: ['padron', 'empadronar', 'empadronarme', 'empadrono', 'me mudo', 'me empadrono', 'empadronamiento', 'alta padron', 'cambio de domicilio', 'mudarme', 'nuevo vecino', 'certificado', 'volante'],
       es: { h: 'Los trámites de <b>padrón</b> se presentan por la sede electrónica, en sede.puertoreal.es, o presencialmente con cita.',
-            l: ['A la sede se accede también con <b>Cl@ve</b>, la plataforma de identificación del Estado.'],
+            l: ['A la sede se accede también con <b>Clave</b>, la plataforma de identificación del Estado.'],
             f: 'La documentación concreta no está publicada en la ficha del SIAC: confírmela en el 956 47 00 00 antes de desplazarse.' },
       s: { t: 'Sede Electrónica — Ayuntamiento de Puerto Real', u: 'https://sede.puertoreal.es/' },
     },
     {
       k: ['sede electronica', 'tramite', 'tramites', 'online', 'internet', 'por internet', 'clave', 'preguntas frecuentes', 'omic', 'consumo', 'reclamacion', 'registro'],
-      es: { h: 'La <b>sede electrónica</b> está en sede.puertoreal.es y admite acceso con <b>Cl@ve</b>.',
+      es: { h: 'La <b>sede electrónica</b> está en sede.puertoreal.es y admite acceso con <b>Clave</b>.',
             l: ['Tiene su propio apartado de preguntas frecuentes.',
                 'Las reclamaciones de consumo van a la <b>OMIC</b>, que es un servicio distinto del SIAC.'],
             f: 'Dudas: 956 47 00 00 o ayuntamiento@puertoreal.es.' },
@@ -464,7 +464,7 @@ export const MUNICIPIOS_DIA14 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Puerto Real?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente la tasa de basuras?' },
+    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'ES', t: '¿Hace falta cita previa?' },
     { lang: 'ES', t: '¿Dónde está el SIAC?' },
   ],
@@ -513,7 +513,7 @@ export const MUNICIPIOS_DIA14 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Alhaurín el Grande?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'ES', t: '¿Hace falta cita previa para un certificado de empadronamiento?' },
     { lang: 'ES', t: '¿Dónde están las oficinas municipales?' },
   ],

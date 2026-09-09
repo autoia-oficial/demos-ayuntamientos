@@ -32,7 +32,7 @@ export const MUNICIPIOS_DIA05 = [
     {
       k: ['certificado', 'certificados de padron', 'historico', 'convivencia', 'descargar', 'clave', 'certificado digital'],
       es: { h: 'Los <b>certificados de padrón</b> se descargan de la sede electrónica identificándose.',
-            l: ['Sirve el certificado digital o Cl@ve Permanente.',
+            l: ['Sirve el certificado digital o Clave Permanente.',
                 'Se pueden obtener individuales, individuales históricos y colectivos.'],
             f: 'Si no tiene certificado digital, se pueden pedir en la oficina de Atención al Ciudadano: 968 388 500.' },
       s: { t: 'Certificados de padrón — sedeelectronica.molinadesegura.es', u: 'https://sedeelectronica.molinadesegura.es/index.php?option=com_content&view=article&id=403:certificados-de-padron&catid=88&Itemid=289' },
@@ -56,7 +56,7 @@ export const MUNICIPIOS_DIA05 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Dónde está la oficina de atención al ciudadano?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Cómo descargo un certificado de padrón?' },
     { lang: 'ES', t: '¿Abren los sábados?' },
   ],
@@ -106,9 +106,9 @@ export const MUNICIPIOS_DIA05 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué horario tiene la OAC?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
     { lang: 'ES', t: '¿Dónde me empadrono si me mudo aquí?' },
     { lang: 'ES', t: '¿La OMIC necesita cita previa?' },
+    { lang: 'ES', t: '¿Para qué sirve la OAC?' },
   ],
 },
 
@@ -150,16 +150,16 @@ export const MUNICIPIOS_DIA05 = [
     },
     {
       k: ['sede electronica', 'tramite', 'tramites', 'online', 'internet', 'por internet', 'clave', 'certificado digital'],
-      es: { h: 'Las gestiones de la <b>sede electrónica</b> se pueden hacer también con el sistema <b>Cl@ve</b>.',
+      es: { h: 'Las gestiones de la <b>sede electrónica</b> se pueden hacer también con el sistema <b>Clave</b>.',
             l: ['No hace falta certificado digital instalado para todo.',
                 'Hay además una oficina virtual del ciudadano para lo tributario.'],
             f: 'Si se atasca, la OAC atiende por teléfono en el 928 727 200 o el 010.' },
-      s: { t: 'Las gestiones en la sede electrónica también con Cl@ve — santaluciagc.com', u: 'https://www.santaluciagc.com/las-gestiones-en-la-sede-electronica-del-ayuntamiento-de-santa-lucia-tambien-se-pueden-hacer-a-traves-del-sistema-clave/' },
+      s: { t: 'Las gestiones en la sede electrónica también con Clave — santaluciagc.com', u: 'https://www.santaluciagc.com/las-gestiones-en-la-sede-electronica-del-ayuntamiento-de-santa-lucia-tambien-se-pueden-hacer-a-traves-del-sistema-clave/' },
     },
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué días abre la OAC por la tarde?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'ES', t: '¿Me dan el certificado de empadronamiento en el momento?' },
     { lang: 'ES', t: '¿Cómo pido cita previa?' },
   ],
@@ -228,7 +228,7 @@ export const MUNICIPIOS_DIA05 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Hace falta cita para el justificante de padrón?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Cómo pido el certificado de empadronamiento?' },
     { lang: 'VA', t: 'Quin horari té l\'oficina CIVIC a l\'estiu?' },
     { lang: 'ES', t: '¿Dónde está la oficina CIVIC?' },
   ],
@@ -307,7 +307,7 @@ export const MUNICIPIOS_DIA05 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Hasta qué hora atienden sin cita previa?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'CA', t: 'Quin horari té l\'OAC a l\'estiu?' },
     { lang: 'ES', t: '¿Qué trámites hace la OAC?' },
   ],
@@ -360,7 +360,7 @@ export const MUNICIPIOS_DIA05 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué teléfono tiene el padrón?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Puedo pedir cita previa por internet?' },
     { lang: 'ES', t: '¿Qué horario tiene el registro?' },
   ],
@@ -412,9 +412,9 @@ export const MUNICIPIOS_DIA05 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Dónde está la oficina del padrón?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
     { lang: 'ES', t: '¿Cómo pido un certificado de empadronamiento?' },
     { lang: 'ES', t: '¿Puedo darme de alta en el padrón por internet?' },
+    { lang: 'ES', t: '¿Cómo consigo un volante de convivencia?' },
   ],
 },
 
@@ -456,9 +456,9 @@ export const MUNICIPIOS_DIA05 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué días abren por la tarde?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
     { lang: 'ES', t: '¿Dónde está la oficina de atención al ciudadano?' },
     { lang: 'ES', t: '¿Dónde tramito el padrón?' },
+    { lang: 'ES', t: '¿A quién pregunto según el trámite?' },
   ],
 },
 

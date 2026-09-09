@@ -56,7 +56,7 @@ export const MUNICIPIOS_DIA04 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Dónde están las oficinas del SAC?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Hace falta cita previa?' },
     { lang: 'ES', t: '¿Puedo hacer trámites sin ir a la oficina?' },
   ],
@@ -129,7 +129,7 @@ export const MUNICIPIOS_DIA04 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué horario tiene la OAC en verano?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'CA', t: 'Amb quanta antelació he de demanar cita?' },
     { lang: 'ES', t: '¿Puedo hacer el padrón por videollamada?' },
   ],
@@ -184,7 +184,7 @@ export const MUNICIPIOS_DIA04 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué horario tiene el padrón?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Hace falta cita previa?' },
     { lang: 'ES', t: '¿Hay oficina en Orihuela Costa?' },
     { lang: 'ES', t: '¿Cómo pido un certificado de empadronamiento?' },
   ],
@@ -255,9 +255,9 @@ export const MUNICIPIOS_DIA04 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Puedo ir al padrón sin cita previa?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'GL', t: 'Onde está o Rexistro Xeral?' },
-    { lang: 'GL', t: 'Que horario ten no verán?' },
+    { lang: 'GL', t: 'Como consigo un certificado de empadroamento?' },
   ],
 },
 
@@ -328,7 +328,7 @@ export const MUNICIPIOS_DIA04 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿El eMAP abre por las tardes?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'CA', t: 'Quin horari té l\'eMAP els divendres?' },
     { lang: 'ES', t: '¿Cómo pido cita previa?' },
   ],
@@ -403,7 +403,7 @@ export const MUNICIPIOS_DIA04 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué horario tiene la OAC los lunes?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'CA', t: 'Quin horari té l\'OAC a l\'estiu?' },
     { lang: 'ES', t: '¿Hay WhatsApp del ayuntamiento?' },
   ],
@@ -456,7 +456,7 @@ export const MUNICIPIOS_DIA04 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Puedo pedir el volante de empadronamiento por teléfono?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'ES', t: '¿Qué horario tiene la oficina en verano?' },
     { lang: 'ES', t: '¿Hace falta cita previa?' },
   ],
@@ -509,7 +509,7 @@ export const MUNICIPIOS_DIA04 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Dónde están las oficinas de atención al ciudadano?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Puedo empadronarme por internet?' },
     { lang: 'ES', t: '¿Cómo pido cita previa?' },
   ],

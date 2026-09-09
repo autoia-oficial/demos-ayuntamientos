@@ -84,7 +84,7 @@ export const MUNICIPIOS_DIA08 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Dónde están las OAC?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'CA', t: 'Els majors de 65 anys necessiten cita?' },
     { lang: 'ES', t: '¿Hace falta cita para empadronarse?' },
   ],
@@ -137,7 +137,7 @@ export const MUNICIPIOS_DIA08 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Hasta qué hora dan números en el padrón?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Hace falta cita previa?' },
     { lang: 'ES', t: '¿Puedo hacer el padrón por correo?' },
     { lang: 'ES', t: '¿Dónde está la oficina del padrón?' },
   ],
@@ -191,7 +191,7 @@ export const MUNICIPIOS_DIA08 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Hace falta cita para el certificado de empadronamiento?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'ES', t: '¿Con cuánta antelación se piden las citas?' },
     { lang: 'ES', t: '¿Dónde están las oficinas del SAV?' },
   ],
@@ -244,7 +244,7 @@ export const MUNICIPIOS_DIA08 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Hasta qué hora abren?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Qué horario tienen en verano?' },
     { lang: 'ES', t: '¿Cómo pido cita para el padrón?' },
   ],
@@ -295,7 +295,7 @@ export const MUNICIPIOS_DIA08 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Hace falta cita previa en la OMACi?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'ES', t: '¿Dónde está la OMACi?' },
     { lang: 'ES', t: '¿Necesito cita para un volante de empadronamiento?' },
   ],
@@ -347,7 +347,7 @@ export const MUNICIPIOS_DIA08 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Hace falta cita previa en la OAC?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Dónde están las oficinas?' },
     { lang: 'ES', t: '¿Puedo hacer trámites sin ir?' },
   ],
@@ -396,7 +396,7 @@ export const MUNICIPIOS_DIA08 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Hace falta cita previa?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'ES', t: '¿Cómo consigo un volante de empadronamiento?' },
     { lang: 'ES', t: '¿Hasta qué hora abren?' },
   ],
@@ -473,7 +473,7 @@ export const MUNICIPIOS_DIA08 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Hace falta cita previa?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Puedo presentar un escrito en el registro?' },
     { lang: 'VA', t: 'Quin horari té l\'OAC els dilluns?' },
     { lang: 'ES', t: '¿Qué trámites de padrón puedo hacer?' },
   ],

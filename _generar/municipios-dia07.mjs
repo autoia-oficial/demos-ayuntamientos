@@ -61,7 +61,7 @@ export const MUNICIPIOS_DIA07 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Dónde está el SAC?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Puedo presentar un escrito en el registro?' },
     { lang: 'ES', t: '¿Cómo pido cita previa?' },
     { lang: 'ES', t: '¿Qué trámites de padrón puedo hacer?' },
   ],
@@ -111,7 +111,7 @@ export const MUNICIPIOS_DIA07 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Dónde está la oficina de atención al ciudadano?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿A qué teléfono llamo para pedir cita?' },
     { lang: 'ES', t: '¿Hasta qué hora abren?' },
   ],
@@ -182,7 +182,7 @@ export const MUNICIPIOS_DIA07 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué horario tiene la OIAC?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Hace falta cita previa?' },
     { lang: 'EU', t: 'Non dago OIAC bulegoa?' },
     { lang: 'EU', t: 'Nola eskatzen da errolda-ziurtagiria?' },
   ],
@@ -236,7 +236,7 @@ export const MUNICIPIOS_DIA07 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Hasta qué hora abren?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Hay oficina en San Isidro?' },
     { lang: 'ES', t: '¿Puedo hacer trámites por internet?' },
   ],
@@ -285,7 +285,7 @@ export const MUNICIPIOS_DIA07 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Dónde está el ayuntamiento?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Cómo pido cita previa?' },
     { lang: 'ES', t: '¿Puedo hacer trámites por internet?' },
   ],

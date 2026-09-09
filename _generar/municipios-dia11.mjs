@@ -90,7 +90,7 @@ export const MUNICIPIOS_DIA11 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Dénia?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Cómo pido el certificado de empadronamiento?' },
     { lang: 'VA', t: 'On està la OAC i quin horari té?' },
     { lang: 'ES', t: '¿Cómo pido cita previa?' },
   ],
@@ -138,7 +138,7 @@ export const MUNICIPIOS_DIA11 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Lucena?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente la tasa de basuras?' },
+    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'ES', t: '¿Dónde está el SIAC y qué horario tiene?' },
     { lang: 'ES', t: '¿Cómo pido cita previa?' },
   ],
@@ -205,7 +205,7 @@ export const MUNICIPIOS_DIA11 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Ripollet?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Dónde está la oficina de atención ciudadana?' },
     { lang: 'CA', t: "Què puc fer a la seu electrònica sense haver d'anar-hi?" },
     { lang: 'ES', t: '¿Cómo pido cita previa?' },
   ],
@@ -280,7 +280,7 @@ export const MUNICIPIOS_DIA11 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Figueres?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'CA', t: "On és l'OMAC i quin horari té?" },
     { lang: 'ES', t: '¿Puedo ir sin cita previa?' },
   ],
@@ -359,7 +359,7 @@ export const MUNICIPIOS_DIA11 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Igualada?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Cómo pido el certificado de empadronamiento?' },
     { lang: 'CA', t: "Què necessito per empadronar-me a Igualada?" },
     { lang: 'ES', t: '¿Dónde está la OAC y qué horario tiene?' },
   ],
@@ -409,7 +409,7 @@ export const MUNICIPIOS_DIA11 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Tudela?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente la tasa de basuras?' },
+    { lang: 'ES', t: '¿Cómo pido el certificado de empadronamiento?' },
     { lang: 'ES', t: '¿Puedo empadronarme sin cita previa?' },
     { lang: 'ES', t: '¿Dónde está el SAC?' },
   ],
@@ -480,7 +480,7 @@ export const MUNICIPIOS_DIA11 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Alcoi?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Cómo pido el certificado de empadronamiento?' },
     { lang: 'VA', t: "Com demane cita prèvia?" },
     { lang: 'ES', t: '¿Dónde se hacen los trámites de padrón?' },
   ],
@@ -559,7 +559,7 @@ export const MUNICIPIOS_DIA11 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Mislata?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'ES', t: '¿Dónde está la OAC ahora mismo?' },
     { lang: 'VA', t: "Com aconseguisc un certificat d'empadronament?" },
   ],

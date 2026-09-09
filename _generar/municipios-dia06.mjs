@@ -78,7 +78,7 @@ export const MUNICIPIOS_DIA06 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Hace falta cita previa para ir a la OAC?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'CA', t: 'Puc empadronar un nadó sense cita?' },
     { lang: 'ES', t: '¿Qué horario tiene la OAC en verano?' },
   ],
@@ -131,7 +131,7 @@ export const MUNICIPIOS_DIA06 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Hace falta cita previa en el registro?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Qué letra tengo que coger en la máquina?' },
     { lang: 'ES', t: '¿Puedo darme de alta en el padrón por internet?' },
   ],
@@ -174,7 +174,7 @@ export const MUNICIPIOS_DIA06 = [
     {
       k: ['sede electronica', 'tramite', 'tramites', 'online', 'internet', 'por internet', 'certificado digital', 'clave', 'dni electronico'],
       es: { h: 'Para los <b>servicios electrónicos</b> hace falta identificarse.',
-            l: ['Sirve el certificado electrónico, el DNI electrónico o la Cl@ve permanente.',
+            l: ['Sirve el certificado electrónico, el DNI electrónico o la Clave permanente.',
                 'La oficina virtual está en eamic.elda.es.'],
             f: 'Si no tiene ninguno de los tres, la OMAC atiende presencialmente sin cita.' },
       s: { t: 'Sedes, administración electrónica y transparencia — elda.es', u: 'https://www.elda.es/sedes/' },
@@ -182,7 +182,7 @@ export const MUNICIPIOS_DIA06 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Hace falta cita previa en la OMAC?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Qué horario tiene la OMAC en agosto?' },
     { lang: 'ES', t: '¿Qué necesito para entrar en la sede electrónica?' },
   ],
@@ -236,7 +236,7 @@ export const MUNICIPIOS_DIA06 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Hace falta cita previa para el padrón?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Hasta qué hora abren?' },
     { lang: 'ES', t: '¿Qué trámites de padrón puedo hacer?' },
   ],
@@ -288,7 +288,7 @@ export const MUNICIPIOS_DIA06 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué teléfono tiene el padrón?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Hace falta cita previa para darme de alta?' },
     { lang: 'ES', t: '¿Dónde está el ayuntamiento?' },
   ],
@@ -361,7 +361,7 @@ export const MUNICIPIOS_DIA06 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Dónde está la OAC?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Hace falta cita previa?' },
     { lang: 'CA', t: 'Hi ha WhatsApp de l\'Ajuntament?' },
     { lang: 'ES', t: '¿Qué horario tiene el certificado digital?' },
   ],
@@ -416,7 +416,7 @@ export const MUNICIPIOS_DIA06 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Hace falta cita para el certificado de empadronamiento?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Hace falta cita previa?' },
     { lang: 'ES', t: '¿Tienen WhatsApp?' },
     { lang: 'ES', t: '¿Qué horario tiene el SAC en agosto?' },
   ],
@@ -483,7 +483,7 @@ export const MUNICIPIOS_DIA06 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué días atiende Estadística?' },
-    { lang: 'ES', t: '¿Cuánto cuesta exactamente el IBI?' },
+    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'GL', t: 'Onde está o Concello?' },
     { lang: 'GL', t: 'Como podo pedir cita previa?' },
   ],
