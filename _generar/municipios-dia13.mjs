@@ -88,9 +88,10 @@ export const MUNICIPIOS_DIA13 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Olot?' },
+    { lang: 'ES', t: '¿Dónde está la OAC y qué horario tiene?' },
     { lang: 'ES', t: '¿Hace falta cita previa?' },
     { lang: 'CA', t: 'Puc empadronar-me per internet?' },
-    { lang: 'ES', t: '¿Dónde está la OAC y qué horario tiene?' },
+    { lang: 'ES', t: '¿Qué teléfono tienen?' },
   ],
 },
 
@@ -159,8 +160,9 @@ export const MUNICIPIOS_DIA13 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Sitges?' },
+    { lang: 'ES', t: '¿Puedo presentar un escrito en el registro?' },
     { lang: 'ES', t: '¿Hace falta cita previa?' },
-    { lang: 'CA', t: "Fins a quina hora obre l'OAC?" },
+    { lang: 'CA', t: 'Fins a quina hora obre l\'OAC?' },
     { lang: 'ES', t: '¿Dónde está la OAC?' },
   ],
 },
@@ -228,9 +230,10 @@ export const MUNICIPIOS_DIA13 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Valls?' },
+    { lang: 'ES', t: '¿Qué diferencia hay entre volante y certificado?' },
     { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'CA', t: 'Cal demanar cita prèvia?' },
-    { lang: 'ES', t: '¿Dónde está la OAC y qué horario tiene?' },
+    { lang: 'ES', t: '¿Abren en agosto?' },
   ],
 },
 
@@ -297,9 +300,10 @@ export const MUNICIPIOS_DIA13 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Premià de Mar?' },
-    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
-    { lang: 'CA', t: "Cal cita prèvia a l'agost?" },
     { lang: 'ES', t: '¿Dónde está la OAC y qué horario tiene?' },
+    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
+    { lang: 'CA', t: 'Cal cita prèvia a l\'agost?' },
+    { lang: 'ES', t: '¿Cuál es el teléfono?' },
   ],
 },
 
@@ -369,6 +373,7 @@ export const MUNICIPIOS_DIA13 = [
     { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'ES', t: '¿Abren los sábados?' },
     { lang: 'VA', t: 'Com demane cita prèvia?' },
+    { lang: 'ES', t: '¿Dónde está la oficina?' },
   ],
 },
 
@@ -438,6 +443,7 @@ export const MUNICIPIOS_DIA13 = [
     { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'VA', t: 'Quin horari té la OMAC?' },
     { lang: 'ES', t: '¿Cómo pido cita previa?' },
+    { lang: 'ES', t: '¿Dónde pido el volante?' },
   ],
 },
 
@@ -504,6 +510,7 @@ export const MUNICIPIOS_DIA13 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Arteixo?' },
+    { lang: 'ES', t: '¿Qué diferencia hay entre volante y certificado?' },
     { lang: 'ES', t: '¿Qué horario tienen?' },
     { lang: 'ES', t: '¿Puedo ir sin cita previa?' },
     { lang: 'GL', t: 'Onde está o Rexistro Xeral?' },
@@ -571,8 +578,9 @@ export const MUNICIPIOS_DIA13 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Redondela?' },
+    { lang: 'ES', t: '¿Puedo presentar un escrito en el registro?' },
     { lang: 'ES', t: '¿Hace falta cita previa?' },
-    { lang: 'ES', t: '¿Cómo consigo un certificado de empadronamiento?' },
+    { lang: 'ES', t: '¿Puedo hacerlo por internet?' },
     { lang: 'GL', t: 'Cal é o horario do Rexistro?' },
   ],
 },

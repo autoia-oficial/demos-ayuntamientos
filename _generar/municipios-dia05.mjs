@@ -56,9 +56,10 @@ export const MUNICIPIOS_DIA05 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Dónde está la oficina de atención al ciudadano?' },
-    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Cómo descargo un certificado de padrón?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Abren los sábados?' },
+    { lang: 'ES', t: '¿Qué teléfono tienen?' },
   ],
 },
 
@@ -106,9 +107,11 @@ export const MUNICIPIOS_DIA05 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué horario tiene la OAC?' },
-    { lang: 'ES', t: '¿Dónde me empadrono si me mudo aquí?' },
     { lang: 'ES', t: '¿La OMIC necesita cita previa?' },
     { lang: 'ES', t: '¿Para qué sirve la OAC?' },
+    { lang: 'ES', t: '¿Dónde está la oficina?' },
+    { lang: 'ES', t: '¿Cuál es el teléfono?' },
+    { lang: 'ES', t: '¿Puedo empadronarme por internet?' },
   ],
 },
 
@@ -159,9 +162,10 @@ export const MUNICIPIOS_DIA05 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué días abre la OAC por la tarde?' },
-    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
-    { lang: 'ES', t: '¿Me dan el certificado de empadronamiento en el momento?' },
+    { lang: 'ES', t: '¿Dónde está la oficina?' },
     { lang: 'ES', t: '¿Cómo pido cita previa?' },
+    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronar a un recién nacido?' },
   ],
 },
 
@@ -310,6 +314,7 @@ export const MUNICIPIOS_DIA05 = [
     { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'CA', t: 'Quin horari té l\'OAC a l\'estiu?' },
     { lang: 'ES', t: '¿Qué trámites hace la OAC?' },
+    { lang: 'ES', t: '¿Dónde pido el volante?' },
   ],
 },
 
@@ -360,9 +365,10 @@ export const MUNICIPIOS_DIA05 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué teléfono tiene el padrón?' },
+    { lang: 'ES', t: '¿Qué horario tiene el registro?' },
+    { lang: 'ES', t: '¿Dónde está la oficina?' },
     { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Puedo pedir cita previa por internet?' },
-    { lang: 'ES', t: '¿Qué horario tiene el registro?' },
   ],
 },
 
@@ -456,8 +462,9 @@ export const MUNICIPIOS_DIA05 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué días abren por la tarde?' },
-    { lang: 'ES', t: '¿Dónde está la oficina de atención al ciudadano?' },
     { lang: 'ES', t: '¿Dónde tramito el padrón?' },
+    { lang: 'ES', t: '¿Qué teléfono tienen?' },
+    { lang: 'ES', t: '¿Dónde está la oficina de atención al ciudadano?' },
     { lang: 'ES', t: '¿A quién pregunto según el trámite?' },
   ],
 },

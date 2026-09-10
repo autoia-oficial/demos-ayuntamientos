@@ -61,9 +61,11 @@ export const MUNICIPIOS_DIA10 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Hace falta cita previa en la OAC?' },
-    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Dónde está la OAC?' },
+    { lang: 'ES', t: '¿Necesito certificado digital?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Hay un teléfono gratuito?' },
+    { lang: 'ES', t: '¿Qué horario tienen?' },
   ],
 },
 
@@ -132,8 +134,9 @@ export const MUNICIPIOS_DIA10 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Hace falta cita previa en la OAC?' },
-    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'CA', t: 'On és l\'OAC?' },
+    { lang: 'ES', t: '¿Necesito certificado digital?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Qué diferencia hay entre la OAC y el SAIC?' },
   ],
 },
@@ -236,6 +239,7 @@ export const MUNICIPIOS_DIA10 = [
   sugerencias: [
     { lang: 'ES', t: '¿Cómo pido cita previa?' },
     { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
+    { lang: 'ES', t: '¿Qué teléfono tienen?' },
     { lang: 'ES', t: '¿Dónde está el ayuntamiento?' },
     { lang: 'ES', t: '¿Puedo hacer trámites por internet?' },
   ],
@@ -287,9 +291,10 @@ export const MUNICIPIOS_DIA10 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué oficina abre por las tardes?' },
+    { lang: 'ES', t: '¿Me atienden sin cita?' },
+    { lang: 'ES', t: '¿Necesito certificado digital?' },
     { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Hace falta cita previa para el padrón?' },
-    { lang: 'ES', t: '¿Me atienden sin cita?' },
   ],
 },
 
@@ -366,9 +371,10 @@ export const MUNICIPIOS_DIA10 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Hace falta cita previa para el padrón?' },
+    { lang: 'GL', t: 'Que horario ten no verán?' },
+    { lang: 'ES', t: '¿Cuál es el teléfono?' },
     { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'GL', t: 'Onde está o Padrón Municipal?' },
-    { lang: 'GL', t: 'Que horario ten no verán?' },
   ],
 },
 
@@ -444,6 +450,7 @@ export const MUNICIPIOS_DIA10 = [
     { lang: 'ES', t: '¿Hace falta cita previa?' },
     { lang: 'GL', t: 'É obrigatorio empadroarse?' },
     { lang: 'ES', t: '¿Cómo entro en la sede electrónica?' },
+    { lang: 'ES', t: '¿Qué diferencia hay entre volante y certificado?' },
   ],
 },
 
@@ -516,9 +523,10 @@ export const MUNICIPIOS_DIA10 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué día abre la OAC por la tarde?' },
+    { lang: 'ES', t: '¿Cómo pido cita previa?' },
+    { lang: 'ES', t: '¿Dónde pido el volante?' },
     { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'CA', t: 'Quin horari té l\'OAC els dimarts?' },
-    { lang: 'ES', t: '¿Cómo pido cita previa?' },
   ],
 },
 

@@ -80,9 +80,10 @@ export const MUNICIPIOS_DIA09 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Hasta qué hora abre la oficina electrónica?' },
+    { lang: 'ES', t: '¿Qué documentación necesito para el padrón?' },
     { lang: 'ES', t: '¿Hay atención telefónica?' },
     { lang: 'EU', t: 'Non dago SAC bulegoa?' },
-    { lang: 'ES', t: '¿Cómo consigo un certificado de empadronamiento?' },
+    { lang: 'ES', t: '¿Necesito certificado digital?' },
   ],
 },
 
@@ -150,6 +151,7 @@ export const MUNICIPIOS_DIA09 = [
     { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'EU', t: 'Nola eskatzen da hitzordua?' },
     { lang: 'ES', t: '¿Puedo hacer el padrón ahí?' },
+    { lang: 'ES', t: '¿Qué teléfono tienen?' },
   ],
 },
 
@@ -223,6 +225,7 @@ export const MUNICIPIOS_DIA09 = [
     { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'EU', t: 'Non dago SAC bulegoa?' },
     { lang: 'ES', t: '¿Tienen WhatsApp?' },
+    { lang: 'ES', t: '¿Qué diferencia hay entre volante y certificado?' },
   ],
 },
 
@@ -296,6 +299,7 @@ export const MUNICIPIOS_DIA09 = [
     { lang: 'ES', t: '¿Hace falta cita previa?' },
     { lang: 'EU', t: 'Zein da ordutegia?' },
     { lang: 'ES', t: '¿Cómo pido un volante de empadronamiento?' },
+    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
   ],
 },
 
@@ -353,9 +357,11 @@ export const MUNICIPIOS_DIA09 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué horario tiene el HAZ-SAC?' },
+    { lang: 'ES', t: '¿Dónde está la oficina?' },
+    { lang: 'ES', t: '¿Necesito certificado digital?' },
     { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'EU', t: 'Zein da udako ordutegia?' },
-    { lang: 'ES', t: '¿Dónde está la oficina?' },
+    { lang: 'ES', t: '¿Qué teléfono tienen?' },
   ],
 },
 
@@ -410,8 +416,9 @@ export const MUNICIPIOS_DIA09 = [
   sugerencias: [
     { lang: 'ES', t: '¿Dónde está el SAC?' },
     { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
-    { lang: 'EU', t: 'Derrigorrezkoa da erroldatzea?' },
     { lang: 'ES', t: '¿Quién lleva el padrón?' },
+    { lang: 'EU', t: 'Derrigorrezkoa da erroldatzea?' },
+    { lang: 'ES', t: '¿Qué diferencia hay entre volante y certificado?' },
   ],
 },
 
@@ -483,6 +490,7 @@ export const MUNICIPIOS_DIA09 = [
     { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'CA', t: 'On és el SAC i quin horari té?' },
     { lang: 'ES', t: '¿Qué opción elijo al pedir la cita?' },
+    { lang: 'ES', t: '¿Qué teléfono tienen?' },
   ],
 },
 
@@ -532,9 +540,11 @@ export const MUNICIPIOS_DIA09 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Dónde están las oficinas del SAC?' },
-    { lang: 'ES', t: '¿Hace falta cita previa?' },
+    { lang: 'ES', t: '¿Piden cita?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Hasta qué hora abren?' },
     { lang: 'ES', t: '¿El certificado de residencia es gratis?' },
+    { lang: 'ES', t: '¿Cuál es el teléfono?' },
   ],
 },
 

@@ -89,8 +89,9 @@ export const MUNICIPIOS_DIA12 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Girona?' },
+    { lang: 'CA', t: 'Obren els dissabtes?' },
+    { lang: 'ES', t: '¿Piden cita?' },
     { lang: 'ES', t: '¿Cómo pido el certificado de empadronamiento?' },
-    { lang: 'CA', t: "Obren els dissabtes?" },
     { lang: 'ES', t: '¿Dónde está la OAMR y qué horario tiene?' },
   ],
 },
@@ -165,7 +166,8 @@ export const MUNICIPIOS_DIA12 = [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en el Prat?' },
     { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'CA', t: 'Cal cita per recollir un volant?' },
-    { lang: 'ES', t: '¿Dónde está la OIAC y qué horario tiene?' },
+    { lang: 'ES', t: '¿Dónde pido el volante?' },
+    { lang: 'ES', t: '¿Qué horario tiene el registro?' },
   ],
 },
 
@@ -228,8 +230,9 @@ export const MUNICIPIOS_DIA12 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Sant Feliu?' },
+    { lang: 'ES', t: '¿Puedo presentar un escrito en el registro?' },
     { lang: 'ES', t: '¿Hace falta cita previa?' },
-    { lang: 'CA', t: "Fins a quina hora obre l'OAC?" },
+    { lang: 'CA', t: 'Fins a quina hora obre l\'OAC?' },
     { lang: 'ES', t: '¿Dónde está la OAC?' },
   ],
 },
@@ -300,6 +303,7 @@ export const MUNICIPIOS_DIA12 = [
     { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'VA', t: 'Quin horari té La Clau?' },
     { lang: 'ES', t: '¿Cómo pido cita previa?' },
+    { lang: 'ES', t: '¿Dónde pido el volante?' },
   ],
 },
 
@@ -447,9 +451,10 @@ export const MUNICIPIOS_DIA12 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en San Fernando de Henares?' },
-    { lang: 'ES', t: '¿Cómo pido el certificado de empadronamiento?' },
     { lang: 'ES', t: '¿Cómo pido cita previa?' },
+    { lang: 'ES', t: '¿Qué días abren?' },
     { lang: 'ES', t: '¿Puedo sacar el padrón sin ir al Ayuntamiento?' },
+    { lang: 'ES', t: '¿Cuál es el teléfono?' },
   ],
 },
 
@@ -495,8 +500,8 @@ export const MUNICIPIOS_DIA12 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en La Rinconada?' },
-    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'ES', t: '¿Dónde está el SAC y qué horario tiene?' },
+    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'ES', t: '¿Cómo pongo una queja o una sugerencia?' },
   ],
 },

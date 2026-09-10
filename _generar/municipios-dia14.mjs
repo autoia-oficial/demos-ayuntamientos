@@ -89,9 +89,10 @@ export const MUNICIPIOS_DIA14 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Rubí?' },
+    { lang: 'ES', t: '¿Qué diferencia hay entre volante y certificado?' },
     { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'CA', t: 'Cal cita prèvia a la tarda?' },
-    { lang: 'ES', t: '¿Dónde está la OAC y qué horario tiene?' },
+    { lang: 'ES', t: '¿Abren en agosto?' },
   ],
 },
 
@@ -157,8 +158,9 @@ export const MUNICIPIOS_DIA14 = [
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Viladecans?' },
     { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
-    { lang: 'CA', t: "On és l'OAC i quin horari té?" },
+    { lang: 'CA', t: 'On és l\'OAC i quin horari té?' },
     { lang: 'ES', t: '¿Cómo pido cita previa?' },
+    { lang: 'ES', t: '¿Qué teléfono tienen?' },
   ],
 },
 
@@ -225,8 +227,8 @@ export const MUNICIPIOS_DIA14 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Vic?' },
-    { lang: 'ES', t: '¿Me pueden ayudar con el certificado digital?' },
     { lang: 'CA', t: 'No sé fer un tràmit per internet, qui m\'ajuda?' },
+    { lang: 'ES', t: '¿Me pueden ayudar con el certificado digital?' },
     { lang: 'ES', t: '¿Dónde está la OAC y qué horario tiene?' },
   ],
 },
@@ -296,9 +298,10 @@ export const MUNICIPIOS_DIA14 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Mollet?' },
+    { lang: 'ES', t: '¿Qué diferencia hay entre volante y certificado?' },
     { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'CA', t: 'Cal cita prèvia a la tarda?' },
-    { lang: 'ES', t: '¿Dónde está la OAC y qué horario tiene?' },
+    { lang: 'ES', t: '¿Qué días abren?' },
   ],
 },
 
@@ -415,9 +418,10 @@ export const MUNICIPIOS_DIA14 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Ibi?' },
-    { lang: 'ES', t: '¿Hace falta cita previa?' },
+    { lang: 'ES', t: '¿Piden cita?' },
+    { lang: 'ES', t: '¿Puedo hacerlo por internet?' },
     { lang: 'ES', t: 'Quiero empadronar a mi hijo, ¿tenemos que ir los dos padres?' },
-    { lang: 'VA', t: "Quin horari té l'oficina del padró?" },
+    { lang: 'VA', t: 'Quin horari té l\'oficina del padró?' },
   ],
 },
 
@@ -464,6 +468,7 @@ export const MUNICIPIOS_DIA14 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Puerto Real?' },
+    { lang: 'ES', t: '¿Puedo presentar un escrito en el registro?' },
     { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'ES', t: '¿Hace falta cita previa?' },
     { lang: 'ES', t: '¿Dónde está el SIAC?' },
@@ -513,8 +518,8 @@ export const MUNICIPIOS_DIA14 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Alhaurín el Grande?' },
+    { lang: 'ES', t: '¿Qué horario tiene el registro?' },
     { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
-    { lang: 'ES', t: '¿Hace falta cita previa para un certificado de empadronamiento?' },
     { lang: 'ES', t: '¿Dónde están las oficinas municipales?' },
   ],
 },

@@ -78,7 +78,8 @@ export const MUNICIPIOS_DIA06 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Hace falta cita previa para ir a la OAC?' },
-    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
+    { lang: 'ES', t: '¿Qué teléfono tienen?' },
+    { lang: 'ES', t: '¿Dónde está la oficina?' },
     { lang: 'CA', t: 'Puc empadronar un nadó sense cita?' },
     { lang: 'ES', t: '¿Qué horario tiene la OAC en verano?' },
   ],
@@ -131,9 +132,9 @@ export const MUNICIPIOS_DIA06 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Hace falta cita previa en el registro?' },
+    { lang: 'ES', t: '¿Puedo darme de alta en el padrón por internet?' },
     { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Qué letra tengo que coger en la máquina?' },
-    { lang: 'ES', t: '¿Puedo darme de alta en el padrón por internet?' },
   ],
 },
 
@@ -182,9 +183,9 @@ export const MUNICIPIOS_DIA06 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Hace falta cita previa en la OMAC?' },
+    { lang: 'ES', t: '¿Qué necesito para entrar en la sede electrónica?' },
     { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Qué horario tiene la OMAC en agosto?' },
-    { lang: 'ES', t: '¿Qué necesito para entrar en la sede electrónica?' },
   ],
 },
 
@@ -236,8 +237,9 @@ export const MUNICIPIOS_DIA06 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Hace falta cita previa para el padrón?' },
-    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Hasta qué hora abren?' },
+    { lang: 'ES', t: '¿Qué teléfono tienen?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Qué trámites de padrón puedo hacer?' },
   ],
 },
@@ -288,9 +290,10 @@ export const MUNICIPIOS_DIA06 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué teléfono tiene el padrón?' },
+    { lang: 'ES', t: '¿Dónde está el ayuntamiento?' },
+    { lang: 'ES', t: '¿Qué horario tienen?' },
     { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Hace falta cita previa para darme de alta?' },
-    { lang: 'ES', t: '¿Dónde está el ayuntamiento?' },
   ],
 },
 
@@ -361,9 +364,11 @@ export const MUNICIPIOS_DIA06 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Dónde está la OAC?' },
-    { lang: 'ES', t: '¿Hace falta cita previa?' },
-    { lang: 'CA', t: 'Hi ha WhatsApp de l\'Ajuntament?' },
     { lang: 'ES', t: '¿Qué horario tiene el certificado digital?' },
+    { lang: 'ES', t: '¿Qué teléfono tienen?' },
+    { lang: 'ES', t: '¿Piden cita?' },
+    { lang: 'CA', t: 'Hi ha WhatsApp de l\'Ajuntament?' },
+    { lang: 'ES', t: '¿Cómo hago el cambio de domicilio?' },
   ],
 },
 
@@ -416,9 +421,10 @@ export const MUNICIPIOS_DIA06 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Hace falta cita para el certificado de empadronamiento?' },
-    { lang: 'ES', t: '¿Hace falta cita previa?' },
-    { lang: 'ES', t: '¿Tienen WhatsApp?' },
     { lang: 'ES', t: '¿Qué horario tiene el SAC en agosto?' },
+    { lang: 'ES', t: '¿Tienen WhatsApp?' },
+    { lang: 'ES', t: '¿Dónde está la oficina?' },
+    { lang: 'ES', t: '¿Cuál es el teléfono?' },
   ],
 },
 
@@ -483,9 +489,10 @@ export const MUNICIPIOS_DIA06 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué días atiende Estadística?' },
-    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'GL', t: 'Onde está o Concello?' },
     { lang: 'GL', t: 'Como podo pedir cita previa?' },
+    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronar a un recién nacido?' },
   ],
 },
 

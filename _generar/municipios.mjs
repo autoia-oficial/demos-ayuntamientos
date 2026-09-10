@@ -95,7 +95,7 @@ export const MUNICIPIOS = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Badalona?' },
-    { lang: 'ES', t: '¿Cómo pido el certificado de empadronamiento?' },
+    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'CA', t: 'Què necessito per empadronar-me a Badalona?' },
     { lang: 'ES', t: '¿Dónde está el SAC y cómo pido cita?' },
   ],
@@ -279,9 +279,10 @@ export const MUNICIPIOS = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué horario tiene la Casa del Reloj?' },
-    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
-    { lang: 'ES', t: '¿Hace falta cita previa para empadronarse?' },
+    { lang: 'ES', t: '¿Piden cita?' },
     { lang: 'ES', t: '¿Puedo llamar al 010 un domingo?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
+    { lang: 'ES', t: '¿Qué diferencia hay entre volante y certificado?' },
   ],
 },
 
@@ -386,9 +387,10 @@ export const MUNICIPIOS = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué horario tiene la oficina de atención al ciudadano?' },
-    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Puedo empadronarme por internet?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Cómo pido cita previa?' },
+    { lang: 'ES', t: '¿Cuál es el teléfono?' },
   ],
 },
 
@@ -442,9 +444,11 @@ export const MUNICIPIOS = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Dónde están las oficinas del SAC?' },
+    { lang: 'ES', t: '¿Cómo consigo el certificado digital?' },
+    { lang: 'ES', t: '¿Piden cita?' },
     { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿El SAC abre los sábados?' },
-    { lang: 'ES', t: '¿Cómo consigo el certificado digital?' },
+    { lang: 'ES', t: '¿Cuál es el teléfono?' },
   ],
 },
 
@@ -515,9 +519,9 @@ export const MUNICIPIOS = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Hace falta cita previa para ir a la OMAC?' },
+    { lang: 'ES', t: '¿Puedo hacer trámites de padrón por internet?' },
     { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'CA', t: 'On és l\'OMAC i quin telèfon té?' },
-    { lang: 'ES', t: '¿Puedo hacer trámites de padrón por internet?' },
   ],
 },
 

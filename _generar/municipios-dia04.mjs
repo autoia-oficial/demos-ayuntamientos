@@ -56,8 +56,9 @@ export const MUNICIPIOS_DIA04 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Dónde están las oficinas del SAC?' },
-    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Hace falta cita previa?' },
+    { lang: 'ES', t: '¿Qué teléfono tienen?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Puedo hacer trámites sin ir a la oficina?' },
   ],
 },
@@ -187,6 +188,7 @@ export const MUNICIPIOS_DIA04 = [
     { lang: 'ES', t: '¿Hace falta cita previa?' },
     { lang: 'ES', t: '¿Hay oficina en Orihuela Costa?' },
     { lang: 'ES', t: '¿Cómo pido un certificado de empadronamiento?' },
+    { lang: 'ES', t: '¿Puedo empadronarme por internet?' },
   ],
 },
 
@@ -255,8 +257,9 @@ export const MUNICIPIOS_DIA04 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Puedo ir al padrón sin cita previa?' },
-    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'GL', t: 'Onde está o Rexistro Xeral?' },
+    { lang: 'ES', t: '¿Qué teléfono tienen?' },
+    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'GL', t: 'Como consigo un certificado de empadroamento?' },
   ],
 },
@@ -328,9 +331,10 @@ export const MUNICIPIOS_DIA04 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿El eMAP abre por las tardes?' },
+    { lang: 'ES', t: '¿Cómo pido cita previa?' },
+    { lang: 'ES', t: '¿Necesito certificado digital?' },
     { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'CA', t: 'Quin horari té l\'eMAP els divendres?' },
-    { lang: 'ES', t: '¿Cómo pido cita previa?' },
   ],
 },
 
@@ -403,8 +407,9 @@ export const MUNICIPIOS_DIA04 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué horario tiene la OAC los lunes?' },
-    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'CA', t: 'Quin horari té l\'OAC a l\'estiu?' },
+    { lang: 'ES', t: '¿Atienden sin cita?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Hay WhatsApp del ayuntamiento?' },
   ],
 },
@@ -456,9 +461,9 @@ export const MUNICIPIOS_DIA04 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Puedo pedir el volante de empadronamiento por teléfono?' },
+    { lang: 'ES', t: '¿Hace falta cita previa?' },
     { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'ES', t: '¿Qué horario tiene la oficina en verano?' },
-    { lang: 'ES', t: '¿Hace falta cita previa?' },
   ],
 },
 
@@ -509,9 +514,10 @@ export const MUNICIPIOS_DIA04 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Dónde están las oficinas de atención al ciudadano?' },
-    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Puedo empadronarme por internet?' },
+    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Cómo pido cita previa?' },
+    { lang: 'ES', t: '¿Hasta qué hora abren?' },
   ],
 },
 
