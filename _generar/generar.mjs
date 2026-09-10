@@ -34,11 +34,12 @@ import { MUNICIPIOS_DIA13 as LOTE13 } from './municipios-dia13.mjs';
 import { MUNICIPIOS_DIA14 as LOTE14 } from './municipios-dia14.mjs';
 import { MUNICIPIOS_DIA15 as LOTE15 } from './municipios-dia15.mjs';
 import { MUNICIPIOS_DIA16 as LOTE16 } from './municipios-dia16.mjs';
+import { MUNICIPIOS_DIA17 as LOTE17 } from './municipios-dia17.mjs';
 
 // Todas las tandas en un solo array: generar es idempotente, asi que volver a
 // escribir las anteriores no molesta y evita que una quede sin regenerar
 // cuando se toca el motor.
-const MUNICIPIOS = [...LOTE2, ...LOTE3, ...LOTE4, ...LOTE5, ...LOTE6, ...LOTE7, ...LOTE8, ...LOTE9, ...LOTE10, ...LOTE11, ...LOTE12, ...LOTE13, ...LOTE14, ...LOTE15, ...LOTE16];
+const MUNICIPIOS = [...LOTE2, ...LOTE3, ...LOTE4, ...LOTE5, ...LOTE6, ...LOTE7, ...LOTE8, ...LOTE9, ...LOTE10, ...LOTE11, ...LOTE12, ...LOTE13, ...LOTE14, ...LOTE15, ...LOTE16, ...LOTE17];
 
 const AQUI = dirname(fileURLToPath(import.meta.url));
 const WEB = join(AQUI, '..');
