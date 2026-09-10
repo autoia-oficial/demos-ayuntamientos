@@ -254,7 +254,7 @@ export const MUNICIPIOS_DIA17 = [
   slug: 'ferrol',
   nombre: 'Ferrol',
   articulo: 'de Ferrol',
-  dominios: 'ferrol.gal e a súa sede electrónica',
+  dominios: 'ferrol.gal y su sede electrónica',
   fecha: '10 de septiembre de 2026',
   oficina: { sigla: 'el Concello', tel: '981 94 40 00', email: '' },
   idioma2: { cod: 'GL', clave: 'gl', sigla: 'no Concello', nombre: 'gallego' },
