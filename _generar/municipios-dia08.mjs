@@ -85,7 +85,7 @@ export const MUNICIPIOS_DIA08 = [
   sugerencias: [
     { lang: 'ES', t: '¿Dónde están las OAC?' },
     { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
-    { lang: 'ES', t: '¿Hasta qué hora abren?' },
+    { lang: 'ES', t: '¿Qué horario tienen?' },
     { lang: 'CA', t: 'Els majors de 65 anys necessiten cita?' },
     { lang: 'ES', t: '¿Hace falta cita para empadronarse?' },
   ],
@@ -247,10 +247,10 @@ export const MUNICIPIOS_DIA08 = [
   sugerencias: [
     { lang: 'ES', t: '¿Hasta qué hora abren?' },
     { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
+    { lang: 'ES', t: '¿Cuál es el teléfono?' },
     { lang: 'ES', t: '¿Dónde pido el volante?' },
     { lang: 'ES', t: '¿Qué horario tienen en verano?' },
-    { lang: 'ES', t: '¿Cómo pido cita para el padrón?' },
-    { lang: 'ES', t: '¿Cuál es el teléfono?' },
+    { lang: 'ES', t: '¿Puedo ir sin cita previa?' },
   ],
 },
 
@@ -299,10 +299,10 @@ export const MUNICIPIOS_DIA08 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Hace falta cita previa en la OMACi?' },
-    { lang: 'ES', t: '¿Dónde está la OMACi?' },
-    { lang: 'ES', t: '¿Hasta qué hora abren?' },
-    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'ES', t: '¿Necesito cita para un volante de empadronamiento?' },
+    { lang: 'ES', t: '¿Dónde está la OMACi?' },
+    { lang: 'ES', t: '¿Qué días abren?' },
+    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
   ],
 },
 
@@ -352,10 +352,10 @@ export const MUNICIPIOS_DIA08 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Hace falta cita previa en la OAC?' },
-    { lang: 'ES', t: '¿Puedo hacer trámites sin ir?' },
     { lang: 'ES', t: '¿Qué horario tienen?' },
-    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Dónde están las oficinas?' },
+    { lang: 'ES', t: '¿Puedo hacer trámites sin ir?' },
+    { lang: 'ES', t: '¿Necesito certificado digital?' },
     { lang: 'ES', t: '¿Cuál es el teléfono?' },
   ],
 },

@@ -61,10 +61,10 @@ export const MUNICIPIOS_DIA07 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Dónde está el SAC?' },
-    { lang: 'ES', t: '¿Puedo presentar un escrito en el registro?' },
     { lang: 'ES', t: '¿Cuál es el teléfono?' },
-    { lang: 'ES', t: '¿Cómo pido cita previa?' },
     { lang: 'ES', t: '¿Qué trámites de padrón puedo hacer?' },
+    { lang: 'ES', t: '¿Puedo presentar un escrito en el registro?' },
+    { lang: 'ES', t: '¿Piden cita?' },
     { lang: 'ES', t: '¿Qué horario tienen?' },
   ],
 },
@@ -116,7 +116,7 @@ export const MUNICIPIOS_DIA07 = [
     { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Cómo pido cita previa?' },
-    { lang: 'ES', t: '¿Hasta qué hora abren?' },
+    { lang: 'ES', t: '¿Abren los sábados?' },
   ],
 },
 
@@ -240,7 +240,7 @@ export const MUNICIPIOS_DIA07 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Hasta qué hora abren?' },
-    { lang: 'ES', t: '¿Dónde está la oficina?' },
+    { lang: 'ES', t: '¿Cuál es el teléfono?' },
     { lang: 'ES', t: '¿Puedo hacer trámites por internet?' },
     { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Qué diferencia hay entre volante y certificado?' },

@@ -90,7 +90,7 @@ export const MUNICIPIOS_DIA14 = [
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Rubí?' },
     { lang: 'ES', t: '¿Qué diferencia hay entre volante y certificado?' },
-    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
+    { lang: 'ES', t: '¿Cómo entro en la sede electrónica?' },
     { lang: 'CA', t: 'Cal cita prèvia a la tarda?' },
     { lang: 'ES', t: '¿Abren en agosto?' },
   ],
@@ -298,8 +298,8 @@ export const MUNICIPIOS_DIA14 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Mollet?' },
-    { lang: 'ES', t: '¿Qué diferencia hay entre volante y certificado?' },
     { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
+    { lang: 'ES', t: '¿Dónde pido el volante?' },
     { lang: 'CA', t: 'Cal cita prèvia a la tarda?' },
     { lang: 'ES', t: '¿Qué días abren?' },
   ],
@@ -418,9 +418,9 @@ export const MUNICIPIOS_DIA14 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Ibi?' },
+    { lang: 'ES', t: '¿Puedo presentar un escrito en el registro?' },
     { lang: 'ES', t: '¿Piden cita?' },
     { lang: 'ES', t: '¿Puedo hacerlo por internet?' },
-    { lang: 'ES', t: 'Quiero empadronar a mi hijo, ¿tenemos que ir los dos padres?' },
     { lang: 'VA', t: 'Quin horari té l\'oficina del padró?' },
   ],
 },
@@ -468,9 +468,9 @@ export const MUNICIPIOS_DIA14 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Puerto Real?' },
-    { lang: 'ES', t: '¿Puedo presentar un escrito en el registro?' },
     { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
-    { lang: 'ES', t: '¿Hace falta cita previa?' },
+    { lang: 'ES', t: '¿Puedo presentar un escrito en el registro?' },
+    { lang: 'ES', t: '¿Piden cita?' },
     { lang: 'ES', t: '¿Dónde está el SIAC?' },
   ],
 },

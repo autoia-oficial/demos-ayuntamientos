@@ -33,11 +33,12 @@ import { MUNICIPIOS_DIA12 as LOTE12 } from './municipios-dia12.mjs';
 import { MUNICIPIOS_DIA13 as LOTE13 } from './municipios-dia13.mjs';
 import { MUNICIPIOS_DIA14 as LOTE14 } from './municipios-dia14.mjs';
 import { MUNICIPIOS_DIA15 as LOTE15 } from './municipios-dia15.mjs';
+import { MUNICIPIOS_DIA16 as LOTE16 } from './municipios-dia16.mjs';
 
 // Todas las tandas en un solo array: generar es idempotente, asi que volver a
 // escribir las anteriores no molesta y evita que una quede sin regenerar
 // cuando se toca el motor.
-const MUNICIPIOS = [...LOTE2, ...LOTE3, ...LOTE4, ...LOTE5, ...LOTE6, ...LOTE7, ...LOTE8, ...LOTE9, ...LOTE10, ...LOTE11, ...LOTE12, ...LOTE13, ...LOTE14, ...LOTE15];
+const MUNICIPIOS = [...LOTE2, ...LOTE3, ...LOTE4, ...LOTE5, ...LOTE6, ...LOTE7, ...LOTE8, ...LOTE9, ...LOTE10, ...LOTE11, ...LOTE12, ...LOTE13, ...LOTE14, ...LOTE15, ...LOTE16];
 
 const AQUI = dirname(fileURLToPath(import.meta.url));
 const WEB = join(AQUI, '..');
@@ -116,8 +117,19 @@ function pagina(m) {
 
   // Los ${...} de NEGATIVAS se sustituyen AQUI, al generar, no en el navegador:
   // viajan dentro de un JSON, donde no interpolan solos.
+  //
+  // Hay ayuntamientos grandes que no publican NINGUN correo: solo el 010 y un
+  // formulario. Cuando pasa eso, la frase se queda en el telefono y se cae el
+  // ", o en el correo ...", que si no acaba diciendo "o en el correo undefined".
+  const sinMail = !of.email;
+  const quitaMail = s => s
+    .replace(/,\s*o en el correo \$\{OFI_MAIL\}/g, '')
+    .replace(/,\s*o al correu \$\{OFI_MAIL\}/g, '')
+    .replace(/,\s*ou no correo \$\{OFI_MAIL\}/g, '')
+    .replace(/,\s*edo \$\{OFI_MAIL\}/g, '');
   const T = bi ? Object.fromEntries(Object.entries(NEGATIVAS[CLAVE2]).map(([k, v]) => [k,
-    v.replace(/\$\{OFI_SIGLA2\}/g, SIGLA2).replace(/\$\{OFI_MAIL\}/g, of.email)
+    (sinMail ? quitaMail(v) : v)
+      .replace(/\$\{OFI_SIGLA2\}/g, SIGLA2).replace(/\$\{OFI_MAIL\}/g, of.email)
       .replace(/\$\{OFI\}/g, of.tel)])) : null;
 
   return `<title>Asistente de ${esc(m.nombre)}</title>
@@ -228,7 +240,7 @@ function render(q, hit, dos){
       ? \`<div class="rlabel">\${T.fuera}</div><p>\${T.bloqueo}</p><p>\${T.consulte}</p>\`
       : \`<div class="rlabel">Fuera de alcance</div>
          <p>No puedo darle esa información. <b>Los importes de tasas e impuestos, las licencias y las ayudas sociales están excluidos de este asistente</b> a propósito: una respuesta aproximada en esas materias causa más perjuicio que no responder.</p>
-         <p>Consúltelo directamente en \${OFI_SIGLA}: <b>\${OFI}</b>, o en el correo \${OFI_MAIL}.</p>\`;
+         <p>Consúltelo directamente en \${OFI_SIGLA}: <b>\${OFI}</b>\${OFI_MAIL ? ", o en el correo " + OFI_MAIL : ""}.</p>\`;
   } else if (!hit){
     a.classList.add("refuse");
     a.innerHTML = dos

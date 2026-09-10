@@ -176,7 +176,7 @@ export const MUNICIPIOS = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué diferencia hay entre volante y certificado de padrón?' },
-    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
+    { lang: 'ES', t: '¿Puedo pedir cita por internet?' },
     { lang: 'CA', t: 'On és l\'OAC més propera i quin horari té?' },
     { lang: 'ES', t: '¿Para qué sirve el volante de empadronamiento?' },
   ],
@@ -280,7 +280,7 @@ export const MUNICIPIOS = [
   sugerencias: [
     { lang: 'ES', t: '¿Qué horario tiene la Casa del Reloj?' },
     { lang: 'ES', t: '¿Piden cita?' },
-    { lang: 'ES', t: '¿Puedo llamar al 010 un domingo?' },
+    { lang: 'ES', t: '¿Puedo hacerlo por internet?' },
     { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Qué diferencia hay entre volante y certificado?' },
   ],
@@ -444,11 +444,11 @@ export const MUNICIPIOS = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Dónde están las oficinas del SAC?' },
+    { lang: 'ES', t: '¿Dónde pido el volante?' },
+    { lang: 'ES', t: '¿Cuál es el teléfono?' },
     { lang: 'ES', t: '¿Cómo consigo el certificado digital?' },
     { lang: 'ES', t: '¿Piden cita?' },
-    { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿El SAC abre los sábados?' },
-    { lang: 'ES', t: '¿Cuál es el teléfono?' },
   ],
 },
 

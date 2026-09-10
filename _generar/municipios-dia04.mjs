@@ -185,7 +185,7 @@ export const MUNICIPIOS_DIA04 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué horario tiene el padrón?' },
-    { lang: 'ES', t: '¿Hace falta cita previa?' },
+    { lang: 'ES', t: '¿Atienden sin cita?' },
     { lang: 'ES', t: '¿Hay oficina en Orihuela Costa?' },
     { lang: 'ES', t: '¿Cómo pido un certificado de empadronamiento?' },
     { lang: 'ES', t: '¿Puedo empadronarme por internet?' },
@@ -258,7 +258,7 @@ export const MUNICIPIOS_DIA04 = [
   sugerencias: [
     { lang: 'ES', t: '¿Puedo ir al padrón sin cita previa?' },
     { lang: 'GL', t: 'Onde está o Rexistro Xeral?' },
-    { lang: 'ES', t: '¿Qué teléfono tienen?' },
+    { lang: 'ES', t: '¿Abren en agosto?' },
     { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'GL', t: 'Como consigo un certificado de empadroamento?' },
   ],
@@ -331,7 +331,7 @@ export const MUNICIPIOS_DIA04 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿El eMAP abre por las tardes?' },
-    { lang: 'ES', t: '¿Cómo pido cita previa?' },
+    { lang: 'ES', t: '¿Cuál es el teléfono?' },
     { lang: 'ES', t: '¿Necesito certificado digital?' },
     { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'CA', t: 'Quin horari té l\'eMAP els divendres?' },
@@ -408,7 +408,7 @@ export const MUNICIPIOS_DIA04 = [
   sugerencias: [
     { lang: 'ES', t: '¿Qué horario tiene la OAC los lunes?' },
     { lang: 'CA', t: 'Quin horari té l\'OAC a l\'estiu?' },
-    { lang: 'ES', t: '¿Atienden sin cita?' },
+    { lang: 'ES', t: '¿Piden cita?' },
     { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Hay WhatsApp del ayuntamiento?' },
   ],
@@ -517,7 +517,7 @@ export const MUNICIPIOS_DIA04 = [
     { lang: 'ES', t: '¿Puedo empadronarme por internet?' },
     { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Cómo pido cita previa?' },
-    { lang: 'ES', t: '¿Hasta qué hora abren?' },
+    { lang: 'ES', t: '¿Abren los sábados?' },
   ],
 },
 

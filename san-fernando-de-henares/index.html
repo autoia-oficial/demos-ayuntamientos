@@ -198,7 +198,7 @@ function render(q, hit, dos){
       ? `<div class="rlabel">${T.fuera}</div><p>${T.bloqueo}</p><p>${T.consulte}</p>`
       : `<div class="rlabel">Fuera de alcance</div>
          <p>No puedo darle esa información. <b>Los importes de tasas e impuestos, las licencias y las ayudas sociales están excluidos de este asistente</b> a propósito: una respuesta aproximada en esas materias causa más perjuicio que no responder.</p>
-         <p>Consúltelo directamente en ${OFI_SIGLA}: <b>${OFI}</b>, o en el correo ${OFI_MAIL}.</p>`;
+         <p>Consúltelo directamente en ${OFI_SIGLA}: <b>${OFI}</b>${OFI_MAIL ? ", o en el correo " + OFI_MAIL : ""}.</p>`;
   } else if (!hit){
     a.classList.add("refuse");
     a.innerHTML = dos
@@ -246,7 +246,7 @@ function ask(t){
   }, 700 + Math.random()*450);
 }
 
-const SUG = [{"lang":"ES","t":"¿Qué necesito para empadronarme en San Fernando de Henares?"},{"lang":"ES","t":"¿Cómo pido cita previa?"},{"lang":"ES","t":"¿Qué días abren?"},{"lang":"ES","t":"¿Puedo sacar el padrón sin ir al Ayuntamiento?"},{"lang":"ES","t":"¿Cuál es el teléfono?"}];
+const SUG = [{"lang":"ES","t":"¿Qué necesito para empadronarme en San Fernando de Henares?"},{"lang":"ES","t":"¿Cómo pido cita previa?"},{"lang":"ES","t":"¿Qué días abren?"},{"lang":"ES","t":"¿Puedo hacer los trámites por internet?"},{"lang":"ES","t":"¿Cuál es el teléfono?"}];
 const chips = document.getElementById("chips");
 SUG.forEach(s=>{
   const b=document.createElement("button");

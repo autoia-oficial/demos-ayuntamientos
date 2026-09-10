@@ -108,10 +108,10 @@ export const MUNICIPIOS_DIA05 = [
   sugerencias: [
     { lang: 'ES', t: '¿Qué horario tiene la OAC?' },
     { lang: 'ES', t: '¿La OMIC necesita cita previa?' },
-    { lang: 'ES', t: '¿Para qué sirve la OAC?' },
     { lang: 'ES', t: '¿Dónde está la oficina?' },
+    { lang: 'ES', t: '¿Para qué sirve la OAC?' },
     { lang: 'ES', t: '¿Cuál es el teléfono?' },
-    { lang: 'ES', t: '¿Puedo empadronarme por internet?' },
+    { lang: 'ES', t: '¿Cómo hago el cambio de domicilio?' },
   ],
 },
 
@@ -162,7 +162,7 @@ export const MUNICIPIOS_DIA05 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué días abre la OAC por la tarde?' },
-    { lang: 'ES', t: '¿Dónde está la oficina?' },
+    { lang: 'ES', t: '¿Qué teléfono tienen?' },
     { lang: 'ES', t: '¿Cómo pido cita previa?' },
     { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'ES', t: '¿Qué necesito para empadronar a un recién nacido?' },
@@ -232,8 +232,8 @@ export const MUNICIPIOS_DIA05 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Hace falta cita para el justificante de padrón?' },
-    { lang: 'ES', t: '¿Cómo pido el certificado de empadronamiento?' },
     { lang: 'VA', t: 'Quin horari té l\'oficina CIVIC a l\'estiu?' },
+    { lang: 'ES', t: '¿Cómo pido el certificado de empadronamiento?' },
     { lang: 'ES', t: '¿Dónde está la oficina CIVIC?' },
   ],
 },
@@ -365,7 +365,7 @@ export const MUNICIPIOS_DIA05 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué teléfono tiene el padrón?' },
-    { lang: 'ES', t: '¿Qué horario tiene el registro?' },
+    { lang: 'ES', t: '¿Hasta qué hora abren?' },
     { lang: 'ES', t: '¿Dónde está la oficina?' },
     { lang: 'ES', t: '¿Qué necesito para empadronarme?' },
     { lang: 'ES', t: '¿Puedo pedir cita previa por internet?' },

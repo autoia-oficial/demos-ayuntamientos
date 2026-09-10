@@ -231,7 +231,7 @@ export const MUNICIPIOS_DIA13 = [
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Valls?' },
     { lang: 'ES', t: '¿Qué diferencia hay entre volante y certificado?' },
-    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
+    { lang: 'ES', t: '¿Cómo entro en la sede electrónica?' },
     { lang: 'CA', t: 'Cal demanar cita prèvia?' },
     { lang: 'ES', t: '¿Abren en agosto?' },
   ],
@@ -300,9 +300,9 @@ export const MUNICIPIOS_DIA13 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Premià de Mar?' },
-    { lang: 'ES', t: '¿Dónde está la OAC y qué horario tiene?' },
-    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'CA', t: 'Cal cita prèvia a l\'agost?' },
+    { lang: 'ES', t: '¿Qué horario tienen?' },
+    { lang: 'ES', t: '¿Puedo hacer los trámites por internet?' },
     { lang: 'ES', t: '¿Cuál es el teléfono?' },
   ],
 },
@@ -510,7 +510,7 @@ export const MUNICIPIOS_DIA13 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Arteixo?' },
-    { lang: 'ES', t: '¿Qué diferencia hay entre volante y certificado?' },
+    { lang: 'ES', t: '¿Puedo presentar un escrito en el registro?' },
     { lang: 'ES', t: '¿Qué horario tienen?' },
     { lang: 'ES', t: '¿Puedo ir sin cita previa?' },
     { lang: 'GL', t: 'Onde está o Rexistro Xeral?' },
@@ -578,7 +578,7 @@ export const MUNICIPIOS_DIA13 = [
   ],
   sugerencias: [
     { lang: 'ES', t: '¿Qué necesito para empadronarme en Redondela?' },
-    { lang: 'ES', t: '¿Puedo presentar un escrito en el registro?' },
+    { lang: 'ES', t: '¿Qué teléfono tienen?' },
     { lang: 'ES', t: '¿Hace falta cita previa?' },
     { lang: 'ES', t: '¿Puedo hacerlo por internet?' },
     { lang: 'GL', t: 'Cal é o horario do Rexistro?' },

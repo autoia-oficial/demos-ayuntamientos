@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Asistente de Gijón</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#f6f4ef; --card:#fff; --ink:#16211c; --ink-2:#4a5751; --ink-3:#8b958f;
+  --line:#e2ded4; --line-2:#efece4;
+  --green:#2f6b4f; --green-soft:#eef3ef;
+  --amber:#a8681f; --amber-soft:#fbf3e7;
+  --ui:'Instrument Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0f1512; --card:#161d19; --ink:#e8eae7; --ink-2:#a3aca7; --ink-3:#6e7873;
+  --line:#26302b; --line-2:#1e2622;
+  --green:#7fc09c; --green-soft:#17241d; --amber:#e0a460; --amber-soft:#231a0f;
+}}
+:root[data-theme="dark"]{
+  --paper:#0f1512; --card:#161d19; --ink:#e8eae7; --ink-2:#a3aca7; --ink-3:#6e7873;
+  --line:#26302b; --line-2:#1e2622;
+  --green:#7fc09c; --green-soft:#17241d; --amber:#e0a460; --amber-soft:#231a0f;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--ui);
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:0 18px 40px}
+
+header{display:flex;align-items:center;gap:11px;padding:22px 0 18px;border-bottom:1px solid var(--line)}
+.mark{width:28px;height:28px;border-radius:50%;background:var(--ink);display:grid;place-items:center;flex:none}
+.mark i{width:9px;height:9px;border-radius:50%;background:var(--paper);display:block}
+.brand{font-weight:700;letter-spacing:-.02em;font-size:17px}
+.badge{margin-left:auto;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-3);border:1px solid var(--line);
+  padding:4px 9px;border-radius:999px;white-space:nowrap}
+
+.intro{padding:26px 0 20px}
+h1{margin:0 0 8px;font-size:clamp(23px,4.4vw,30px);font-weight:700;letter-spacing:-.03em;
+  line-height:1.15;text-wrap:balance}
+.sub{margin:0;color:var(--ink-2);font-size:15px;max-width:60ch}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:6px 0 22px}
+.chip{font:500 13.5px/1 var(--ui);color:var(--ink);background:var(--card);
+  border:1px solid var(--line);border-radius:999px;padding:9px 14px;cursor:pointer;
+  transition:border-color .15s,transform .1s;text-align:left}
+.chip:hover{border-color:var(--ink-3)}
+.chip:active{transform:translateY(1px)}
+.chip:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+.chip b{font-weight:600}
+.chip .lang{font-family:var(--mono);font-size:10px;color:var(--ink-3);
+  border:1px solid var(--line);border-radius:3px;padding:1px 4px;margin-right:7px}
+
+#log{display:flex;flex-direction:column;gap:16px;min-height:80px}
+.turn{display:flex;flex-direction:column;gap:4px}
+.q{align-self:flex-end;max-width:85%;background:var(--ink);color:var(--paper);
+  padding:11px 15px;border-radius:15px 15px 4px 15px;font-size:15px;font-weight:500}
+.a{align-self:flex-start;max-width:92%;background:var(--card);border:1px solid var(--line);
+  border-left:3px solid var(--green);padding:15px 17px;border-radius:4px 15px 15px 15px}
+.a.refuse{border-left-color:var(--amber);background:var(--amber-soft)}
+.a p{margin:0 0 9px;font-size:15px}
+.a p:last-child{margin-bottom:0}
+.a ul{margin:6px 0 10px;padding-left:19px;font-size:14.5px}
+.a li{margin-bottom:4px}
+.rlabel{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--amber);
+  margin-bottom:8px;font-weight:500}
+.rlabel::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--amber)}
+.src{margin-top:11px;padding-top:10px;border-top:1px solid var(--line-2)}
+.src a{display:inline-flex;align-items:baseline;gap:7px;font-family:var(--mono);
+  font-size:11.5px;color:var(--green);text-decoration:none;word-break:break-all}
+.src a:hover{text-decoration:underline}
+.src .k{color:var(--ink-3);flex:none}
+
+.ask{display:flex;gap:9px;margin-top:22px;position:sticky;bottom:14px}
+input{flex:1;font:400 15px/1 var(--ui);color:var(--ink);background:var(--card);
+  border:1px solid var(--line);border-radius:11px;padding:14px 16px}
+input:focus{outline:none;border-color:var(--green)}
+input::placeholder{color:var(--ink-3)}
+button.send{font:600 14.5px/1 var(--ui);color:var(--paper);background:var(--ink);
+  border:0;border-radius:11px;padding:0 20px;cursor:pointer}
+button.send:hover{opacity:.88}
+button.send:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+
+footer{margin-top:30px;padding-top:16px;border-top:1px solid var(--line);
+  font-size:12.5px;color:var(--ink-3);line-height:1.65}
+footer b{color:var(--ink-2);font-weight:600}
+@media (prefers-reduced-motion:no-preference){
+  .turn{animation:in .22s ease-out}
+  @keyframes in{from{opacity:0;transform:translateY(5px)}}
+}
+
+  .a.pensar{display:flex;align-items:center;gap:9px;color:var(--ink-3);
+    border-left-color:var(--line-2);font-size:14.5px}
+  .dots{display:inline-flex;gap:4px}
+  .dots i{width:5px;height:5px;border-radius:50%;background:var(--ink-3);
+    animation:pens 1.15s ease-in-out infinite}
+  .dots i:nth-child(2){animation-delay:.16s}
+  .dots i:nth-child(3){animation-delay:.32s}
+  @keyframes pens{0%,65%,100%{opacity:.3;transform:translateY(0)}
+                  32%{opacity:1;transform:translateY(-3px)}}
+  .send:disabled{opacity:.4;cursor:default}
+  @media (prefers-reduced-motion:reduce){.dots i{animation:none;opacity:.55}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="mark"><i></i></div>
+    <div class="brand">AutoIA</div>
+    <div class="badge">Demostración</div>
+  </header>
+
+  <div class="intro">
+    <h1>Asistente de atención ciudadana<br>del Ayuntamiento de Gijón</h1>
+    <p class="sub">Responde con la documentación publicada en gijon.es y sedeelectronica.gijon.es, citando en
+    cada respuesta la página de la que procede.</p>
+  </div>
+
+  <div class="chips" id="chips"></div>
+  <div id="log"></div>
+
+  <form class="ask" id="form" autocomplete="off">
+    <input id="q" placeholder="Escriba su consulta…" aria-label="Consulta">
+    <button class="send" type="submit">Enviar</button>
+  </form>
+
+  <footer>
+    <b>Demostración de AutoIA.</b> No es un servicio oficial del Ayuntamiento de Gijón.
+    Contenido recogido de gijon.es y sedeelectronica.gijon.es el 10 de septiembre de 2026.<br>
+    Las tasas, licencias y ayudas sociales están excluidas a propósito: son las materias en las que
+    una respuesta aproximada causa más perjuicio que la ausencia de respuesta.
+  </footer>
+</div>
+
+<script>
+const OFI = "985 18 11 05";
+const OFI_MAIL = "";
+const OFI_SIGLA = "la atención telefónica municipal";
+const KB = [{"k":["oficina","oficinas","atencion ciudadana","atencion a la ciudadania","donde","direccion","cual me toca","mas cerca","cercana","pescaderia","casa rosada","ateneo","calzada","el coto","el llano","gijon sur","arena","larena"],"es":{"h":"Gijón tiene <b>siete Oficinas de Atención a la Ciudadanía</b>, y en todas se hace lo mismo: no hay una que le corresponda por barrio.","l":["Antigua Pescadería, calle Cabrales, 2 · Antiguo Hogar (Casa Rosada), paseo de la Infancia, 2.","Ateneo La Calzada, calle Ateneo Obrero de la Calzada, 1 · El Coto, plaza de la República s/n.","El Llano, calle Río de Oro, 37 · Gijón Sur, calle Ramón Areces, 7 · L’Arena, calle Canga Argüelles, 16-18."],"f":"Todas atienden en el mismo teléfono: 985 18 11 05."},"s":{"t":"Red de oficinas de atención a la ciudadanía — sedeelectronica.gijon.es","u":"https://sedeelectronica.gijon.es/red-de-oficinas-de-atencion-a-la-ciudadania"}},{"k":["horario","hasta que hora","a que hora abren","a que hora cierran","abren","cierran","verano","agosto","julio","sabado","sabados","tarde","por la tarde","que dias"],"es":{"h":"Las oficinas abren <b>de lunes a viernes de 8:30 a 17:00</b>.","l":["Del <b>15 de junio al 15 de septiembre</b> el horario es de 8:30 a 14:00, de lunes a viernes.","Tres de ellas abren también los sábados de 9:00 a 13:00: Antigua Pescadería, Ateneo La Calzada y Gijón Sur."],"f":"La atención telefónica en el 985 18 11 05 es de lunes a viernes de 8:30 a 18:00, salvo festivos."},"s":{"t":"Red de oficinas de atención a la ciudadanía — sedeelectronica.gijon.es","u":"https://sedeelectronica.gijon.es/red-de-oficinas-de-atencion-a-la-ciudadania"}},{"k":["padron","empadronar","empadronarme","empadrono","me mudo","me empadrono","empadronamiento","alta padron","cambio de domicilio","mudarme","nuevo vecino","documentacion","papeles","que necesito"],"es":{"h":"El <b>alta en el padrón</b> y el cambio de domicilio se presentan en cualquiera de las siete oficinas, o por el registro electrónico.","l":["Hace falta documento de identidad en vigor. El DNI es obligatorio a partir de los 14 años.","Y un documento que acredite la vivienda: escritura, contrato de alquiler o el último recibo del IBI, entre otros.","Si en el domicilio ya hay alguien empadronado, esa persona tiene que firmar la autorización."],"f":"La documentación cambia según el caso. Confírmela en el 985 18 11 05 antes de desplazarse."},"s":{"t":"¿Qué documentación necesita aportar? — sedeelectronica.gijon.es","u":"https://sedeelectronica.gijon.es/page/11396-que-documentacion-necesita-aportar"}},{"k":["cita","cita previa","pedir cita","sin cita","reservar","hace falta cita","necesito cita","turno"],"es":{"h":"La <b>cita previa</b> se pide por internet o llamando al 985 18 11 05.","l":["El Ayuntamiento la recomienda, y avisa de que la última atención es 15 minutos antes de la hora de cierre."],"f":"Por ese mismo teléfono se puede pedir la cita o preguntar cómo se solicita."},"s":{"t":"Atención telefónica — sedeelectronica.gijon.es","u":"https://sedeelectronica.gijon.es/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=SEDE_ATENCION_TELEFONICA"}},{"k":["telefono","llamar","atencion telefonica","por telefono","contacto","010","queja","quejas","sugerencia","sugerencias","reclamacion","empleo publico","oposiciones"],"es":{"h":"El teléfono de atención ciudadana es el <b>985 18 11 05</b>, de lunes a viernes de 8:30 a 18:00 salvo festivos.","l":["Da información general de servicios, organización municipal y trámites.","También sobre convocatorias de empleo público, y orienta para presentar quejas, sugerencias y agradecimientos."],"f":"Desde ahí le orientan además para hacer los trámites por los servicios electrónicos."},"s":{"t":"Atención telefónica — sedeelectronica.gijon.es","u":"https://sedeelectronica.gijon.es/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=SEDE_ATENCION_TELEFONICA"}},{"k":["certificado","volante","certificado de empadronamiento","volante de empadronamiento","acreditar residencia","justificante","como consigo","descargar"],"es":{"h":"El <b>certificado de empadronamiento</b> se puede pedir en la sede electrónica o en cualquiera de las siete oficinas.","l":["Para hacerlo por internet hay que darse de alta como usuario de la Oficina Virtual."],"f":"Si no tiene certificado digital, en las oficinas se lo tramitan presencialmente."},"s":{"t":"Certificado de empadronamiento — gijon.es","u":"https://www.gijon.es/es/tramites/certificado-de-empadronamiento"}}];
+const L2KEY = null;
+const T = null;
+
+// Materias excluidas a proposito: importes, licencias y ayudas sociales.
+// OJO CON DOS COSAS DE ESTA LISTA, que ya han mordido:
+//
+//  1. "ayuda" a secas NO puede estar aqui. Estaba, y con ella "ajuda", "ajudes"
+//     y "axuda", pensando en las AYUDAS SOCIALES. El resultado es que
+//     "necesito ayuda", "necessito ajuda" o "preciso axuda" -la frase mas
+//     normal que se le dice a un mostrador- hacian que el asistente se negara
+//     a contestar. Las ayudas sociales se bloquean por frase, no por palabra.
+//
+//  2. "ibi" a secas tampoco, porque hay un municipio que se llama Ibi y
+//     cualquier pregunta que lo nombrara se negaba. El impuesto se bloquea
+//     como "el ibi" y por su nombre largo.
+const BLOCK = ["tasa","tasas","basura","basuras","el ibi","del ibi","impuesto de bienes inmuebles","impuesto sobre bienes inmuebles","contribucion","contribución","impuesto","impuestos","cuanto cuesta","cuánto cuesta","precio","importe","coste","cuota","recibo","licencia","licencias","obra","apertura","ayuda social","ayudas sociales","ayuda economica","ayuda económica","ayudas economicas","ayudas económicas","ayuda al alquiler","ayudas al alquiler","ayuda de emergencia","ayudas de emergencia","prestacion","prestación","prestaciones","subvencion","subvención","subvenciones","servicios sociales","emergencia social","plusvalia","plusvalía","circulacion","circulación","taxa","taxes","impost","quant costa","preu","import","llicencia","llicencies","ajuda social","ajudes socials","ajuda economica","ajuda econòmica","ajudes economiques","ajudes econòmiques","prestacio","prestació","subvencio","plusvalua","plusvàlua","licenzas","axuda social","axudas sociais","canto custa","prestacions"];
+
+const norm = s => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9\s]/g," ").replace(/\s+/g," ").trim();
+
+const is2 = () => false;
+
+// Las claves se buscan por PALABRA COMPLETA, no como subcadena. Con subcadena,
+// la clave catalana "on" casaba dentro de "Girona" y el asistente contestaba la
+// ficha de la oficina a quien preguntaba por un tren. En una demo comercial ese
+// fallo es el peor de todos: el ayuntamiento no ve un buscador flojo, ve un
+// sistema que responde con seguridad a algo que no le han preguntado.
+const tiene = (n, k) => (" " + n + " ").includes(" " + k + " ");
+
+function match(t){
+  const n = norm(t);
+  if (BLOCK.some(b => tiene(n, norm(b)))) return "BLOCK";
+  let best=null, bs=0;
+  for (const e of KB){
+    let sc=0;
+    for (const k of e.k){ const nk=norm(k); if(nk && tiene(n, nk)) sc += nk.split(" ").length*2 + nk.length/12; }
+    if (sc>bs){ bs=sc; best=e; }
+  }
+  return bs>=2 ? best : null;
+}
+
+const log = document.getElementById("log");
+function esc(s){ return String(s).replace(/[<>&]/g,c=>({"<":"&lt;",">":"&gt;","&":"&amp;"}[c])); }
+
+function render(q, hit, dos){
+  const turn = document.createElement("div"); turn.className = "turn";
+  const qq = document.createElement("div"); qq.className = "q"; qq.textContent = q;
+  turn.appendChild(qq);
+  const a = document.createElement("div"); a.className = "a";
+
+  if (hit === "BLOCK"){
+    a.classList.add("refuse");
+    a.innerHTML = dos
+      ? `<div class="rlabel">${T.fuera}</div><p>${T.bloqueo}</p><p>${T.consulte}</p>`
+      : `<div class="rlabel">Fuera de alcance</div>
+         <p>No puedo darle esa información. <b>Los importes de tasas e impuestos, las licencias y las ayudas sociales están excluidos de este asistente</b> a propósito: una respuesta aproximada en esas materias causa más perjuicio que no responder.</p>
+         <p>Consúltelo directamente en ${OFI_SIGLA}: <b>${OFI}</b>${OFI_MAIL ? ", o en el correo " + OFI_MAIL : ""}.</p>`;
+  } else if (!hit){
+    a.classList.add("refuse");
+    a.innerHTML = dos
+      ? `<div class="rlabel">${T.sinfuente}</div><p>${T.nose}</p><p>${T.recomiendo}</p>`
+      : `<div class="rlabel">Sin fuente</div>
+         <p>No he encontrado documentación municipal publicada que sustente una respuesta a esto, y no voy a improvisarla.</p>
+         <p>Le recomiendo consultarlo en ${OFI_SIGLA}: <b>${OFI}</b>.</p>`;
+  } else {
+    const c = (dos && hit[L2KEY]) ? hit[L2KEY] : hit.es;
+    let html = `<p>${c.h}</p>`;
+    if (c.l && c.l.length) html += "<ul>" + c.l.map(x=>`<li>${x}</li>`).join("") + "</ul>";
+    if (c.f) html += `<p>${c.f}</p>`;
+    html += `<div class="src"><a href="${hit.s.u}" target="_blank" rel="noopener">
+      <span class="k">${dos ? ({gl:"Fonte", eu:"Iturria"}[L2KEY] || "Font") : "Fuente"}</span><span>${esc(hit.s.t)}</span></a></div>`;
+    a.innerHTML = html;
+  }
+
+  turn.appendChild(a);
+  log.appendChild(turn);
+  a.scrollIntoView({behavior:"smooth", block:"nearest"});
+}
+
+let __ocupado = false;
+const __envio = document.querySelector(".send");
+
+// La pregunta se pinta al momento; la respuesta, despues de pensarla. Mientras
+// piensa, el boton se bloquea: sin eso se pueden encadenar cinco preguntas y
+// las respuestas llegan todas de golpe y desordenadas.
+function ask(t){
+  t = t.trim(); if(!t || __ocupado) return;
+  __ocupado = true; if(__envio) __envio.disabled = true;
+
+  const __t = document.createElement("div"); __t.className = "turn";
+  const __q = document.createElement("div"); __q.className = "q"; __q.textContent = t;
+  const __p = document.createElement("div"); __p.className = "a pensar";
+  __p.innerHTML = '<span class="dots"><i></i><i></i><i></i></span>' + (is2(t) ? "Pensant…" : "Pensando…");
+  __t.appendChild(__q); __t.appendChild(__p);
+  log.appendChild(__t);
+  __p.scrollIntoView({behavior:"smooth", block:"nearest"});
+
+  setTimeout(function(){
+    __t.remove();
+    render(t, match(t), is2(t));
+    __ocupado = false; if(__envio) __envio.disabled = false;
+  }, 700 + Math.random()*450);
+}
+
+const SUG = [{"lang":"ES","t":"¿Qué necesito para empadronarme en Gijón?"},{"lang":"ES","t":"¿Puedo pedir el volante por internet?"},{"lang":"ES","t":"¿Qué oficina me toca?"},{"lang":"ES","t":"¿Qué horario tienen en verano?"},{"lang":"ES","t":"¿Hace falta cita previa?"}];
+const chips = document.getElementById("chips");
+SUG.forEach(s=>{
+  const b=document.createElement("button");
+  b.className="chip"; b.type="button";
+  b.innerHTML = `<span class="lang">${s.lang}</span><b>${esc(s.t)}</b>`;
+  b.onclick = ()=>{ const c=document.getElementById("q"); c.value=s.t; c.focus(); };
+  chips.appendChild(b);
+});
+
+document.getElementById("form").onsubmit = e=>{
+  e.preventDefault();
+  const i=document.getElementById("q");
+  ask(i.value); i.value="";
+};
+</script>
+</html>
