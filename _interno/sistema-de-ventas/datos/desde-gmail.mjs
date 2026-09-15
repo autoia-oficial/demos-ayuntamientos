@@ -1,7 +1,8 @@
 // ---------------------------------------------------------------------------
 //  ESTADO REAL DEL CRM A PARTIR DE LOS CORREOS YA ENVIADOS
 //
-//    node datos/desde-gmail.mjs datos/municipios.json crm-inicial.json
+//    node datos/desde-gmail.mjs datos/municipios.json crm-inicial.json \
+//                                correos/enviados.json
 //
 //  El CRM arrancaba vacío, pero la campaña ya había salido a mano desde
 //  contacto.autoia@gmail.com. Esto reconstruye ese estado para importarlo con
@@ -12,9 +13,19 @@
 //  septiembre de 2026. Ninguno rebotó y sólo contestó Badajoz. No hay aquí
 //  ninguna dirección que no saliera de verdad: eso es lo que la hace fiable.
 //
+//  Escribe dos ficheros:
+//
+//    · el JSON del CRM, para el botón "Importar"
+//    · correos/enviados.json, el registro que impide repetir un envío
+//
+//  El segundo importa más de lo que parece. Ahora que los ocho del día 01
+//  tienen correo en municipios.json, `enviar.mjs --dia 1 --enviar` volvería a
+//  escribirles: se les mandó a mano y no quedó registro. Sembrar enviados.json
+//  con lo que ya salió es lo que hace que la regla 3 los cubra.
+//
 //  Si se manda otra tanda a mano, se añade aquí y se vuelve a ejecutar. Lo que
 //  salga de correos/enviar.mjs NO hace falta apuntarlo: ese deja su propio
-//  registro en enviados.json.
+//  registro.
 // ---------------------------------------------------------------------------
 // El formato del CRM es { slug: { estado, nota, fecha } }. Los estados válidos
 // son los de crm/index.html: pendiente, enviado, respondido, reunion, cliente,
@@ -68,6 +79,7 @@ for (const m of municipios) {
 }
 
 const estado = {};
+const enviados = {};
 const sinCruzar = [];
 const porNombre = [];
 
@@ -90,10 +102,14 @@ for (const [email, fecha] of ENVIOS) {
   estado[m.slug] = r
     ? { estado: 'respondido', nota: r.nota, fecha: r.fecha }
     : { estado: 'enviado',    nota: `Enviado el ${fecha} a ${email}${otra}. Sin respuesta.`, fecha };
+  // El registro que lee enviar.mjs. Lleva la fecha del envío, no la de la
+  // respuesta: es lo que contesta a "¿ya se le escribió?".
+  enviados[m.slug] = { fecha, email };
   porNombre.push([m.nombre, m.slug, m.dia, via, estado[m.slug].estado]);
 }
 
 writeFileSync(process.argv[3], JSON.stringify(estado, null, 2) + '\n');
+if (process.argv[4]) writeFileSync(process.argv[4], JSON.stringify(enviados, null, 2) + '\n');
 
 porNombre.sort((a, b) => a[0].localeCompare(b[0], 'es'));
 console.log(`cruzados: ${porNombre.length} de ${ENVIOS.length}\n`);

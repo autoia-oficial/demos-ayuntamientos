@@ -32,25 +32,39 @@ function clavesDeLaDemo(slug) {
   return kb;
 }
 
+// Los correos de los ocho se anadieron despues. Fuente doble: el buzon de
+// enviados de contacto.autoia@gmail.com (los ocho recibieron el correo del 8 de
+// septiembre de 2026 y ninguno reboto) y la web oficial de cada ayuntamiento.
+// La entrega sin rebote es la prueba mas fuerte de las dos: significa que el
+// buzon existe y acepta correo hoy, no que lo pusiera una web que puede estar
+// desactualizada.
+//
+// Logrono es la excepcion y conviene saberlo: participacion@logrono.es entrego
+// sin rebotar, pero no aparece en logrono.es. Lo que si aparece alli es el
+// telefono 941 27 70 85 y otras direcciones (mot@logrono.es,
+// sabadodelvecino@logrono.es). Se deja el que funciono, no el que adivinemos.
 const META = [
   { slug: 'leon', nombre: 'León', articulo: 'de León', dominios: ['aytoleon.es'],
-    oficina: { sigla: 'el Servicio de Atención Ciudadana' }, idioma2: null },
+    oficina: { sigla: 'el Servicio de Atención Ciudadana', tel: '987 89 55 00 \u00b7 987 89 55 03', email: 'atencion.ciudadano@aytoleon.es' }, idioma2: null },
   { slug: 'alcala-de-henares', nombre: 'Alcalá de Henares', articulo: 'de Alcalá de Henares',
     dominios: ['ayto-alcaladehenares.es'],
-    oficina: { sigla: 'el Servicio de Atención Ciudadana' }, idioma2: null },
+    oficina: { sigla: 'el Servicio de Atención Ciudadana', tel: '010 \u00b7 91 880 28 11', email: '010@ayto-alcaladehenares.es' }, idioma2: null },
+  // Pinto tiene tambien sac@ayto-pinto.es para el SAC. Se usa el general
+  // porque es el que entrego; el otro queda de recambio si este deja de ir.
   { slug: 'pinto', nombre: 'Pinto', articulo: 'de Pinto', dominios: ['ayto-pinto.es'],
-    oficina: { sigla: 'el Servicio de Atención Ciudadana' }, idioma2: null },
+    oficina: { sigla: 'el Servicio de Atención Ciudadana', tel: '91 248 37 00 \u00b7 010', email: 'pinto@ayto-pinto.es' }, idioma2: null },
   { slug: 'elche', nombre: 'Elche', articulo: 'de Elche', dominios: ['elche.es'],
-    oficina: { sigla: 'la OMAC' },
+    oficina: { sigla: 'la OMAC', tel: '966 65 80 20', email: 'omac@elche.es' },
     idioma2: { cod: 'VA', clave: 'va', sigla: 'a la OMAC', nombre: 'valenciano', sufijo: 'va' } },
+  // Badajoz es el unico que ha contestado: remiten a la sede electronica.
   { slug: 'badajoz', nombre: 'Badajoz', articulo: 'de Badajoz', dominios: ['aytobadajoz.es'],
-    oficina: { sigla: 'el Servicio de Atención Ciudadana' }, idioma2: null },
+    oficina: { sigla: 'el Servicio de Atención Ciudadana', tel: '924 21 00 00', email: 'contacto@aytobadajoz.es' }, idioma2: null },
   { slug: 'telde', nombre: 'Telde', articulo: 'de Telde', dominios: ['telde.es'],
-    oficina: { sigla: 'la Oficina de Atención a la Ciudadanía' }, idioma2: null },
+    oficina: { sigla: 'la Oficina de Atención a la Ciudadanía', tel: '928 13 90 50 \u00b7 900 701 105', email: 'info@telde.es' }, idioma2: null },
   { slug: 'logrono', nombre: 'Logroño', articulo: 'de Logroño', dominios: ['logrono.es'],
-    oficina: { sigla: 'el Servicio de Atención Ciudadana' }, idioma2: null },
+    oficina: { sigla: 'el Servicio de Atención Ciudadana', tel: '941 27 70 00 \u00b7 010', email: 'participacion@logrono.es' }, idioma2: null },
   { slug: 'jumilla', nombre: 'Jumilla', articulo: 'de Jumilla', dominios: ['jumilla.org'],
-    oficina: { sigla: 'el Servicio de Atención Ciudadana' }, idioma2: null },
+    oficina: { sigla: 'el Servicio de Atención Ciudadana', tel: '968 78 20 20', email: 'info@jumilla.org' }, idioma2: null },
 ];
 
 export const MUNICIPIOS_DIA01 = META.map(m => ({ ...m, kb: clavesDeLaDemo(m.slug) }));
