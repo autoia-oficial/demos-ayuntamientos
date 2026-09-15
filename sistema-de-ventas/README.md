@@ -14,6 +14,8 @@ cd sistema-de-ventas
   2  Preparar los correos de una tanda (simulación)
   3  Ver el estado de los datos
   4  Regenerar municipios.json desde las demos
+  5  Guardar el CRM en la caja cifrada
+  6  Abrir la caja cifrada
   0  Salir
 ```
 
@@ -36,6 +38,8 @@ Atajo directo: `./abrir.sh crm`
 | `correos/plantilla.txt` | El texto del correo |
 | `correos/bajas.txt` | Quien pide la baja. **Nunca** se le vuelve a escribir |
 | `correos/config.json` | Tus datos SMTP. **No se sube al repo** |
+| `datos/caja.mjs` | Base de datos cifrada (AES-256-GCM) |
+| `datos/crm.caja` | Tus datos cifrados. **No se sube al repo** |
 
 ## Los datos
 
@@ -94,7 +98,41 @@ comunicación comercial y ofrece la baja en el propio texto, y por eso existe
 
 No es un consejo legal: si el volumen crece, consúltalo con quien sepa.
 
-## Copia de seguridad del CRM
+## Copia de seguridad cifrada
 
-El estado vive en el almacenamiento del navegador de ese equipo. Si formateas,
-se pierde. **Exporta la copia de vez en cuando** — es el botón azul.
+El estado del CRM vive en el almacenamiento del navegador. Si formateas, se
+pierde — que es exactamente lo que pasó con el sistema anterior.
+
+```bash
+# 1. Exporta desde el CRM (botón azul) → crm-ayuntamientos-2026-09-15.json
+# 2. Guárdalo cifrado:
+node datos/caja.mjs guardar ~/Descargas/crm-ayuntamientos-2026-09-15.json
+# 3. Borra el JSON sin cifrar
+rm ~/Descargas/crm-ayuntamientos-2026-09-15.json
+```
+
+Para recuperarlo:
+
+```bash
+node datos/caja.mjs abrir recuperado.json
+# y lo importas en el CRM con el botón "Importar"
+```
+
+### Qué protege y qué no
+
+`crm.caja` va cifrado con **AES-256-GCM**, y la clave sale de tu contraseña
+mediante **scrypt** con coste alto (N=131072): cada intento de adivinarla
+cuesta cerca de un segundo, lo que hace inviable probarlas a lo bruto.
+
+Va **autenticado**: si alguien cambia un solo bit del fichero, al abrirlo falla
+en vez de devolver datos alterados en silencio. Comprobado cambiando un bit
+del cuerpo y otro de la cabecera: los dos casos se detectan.
+
+El fichero se crea con permisos `600` — sólo tu usuario puede leerlo.
+
+**Lo que NO protege:** si te roban el portátil con la sesión abierta, o si
+alguien te instala un registrador de teclas, el cifrado no te salva. Para eso
+está el cifrado de disco (LUKS) y el 2FA. Esto protege la copia, no el equipo.
+
+**Si pierdes la contraseña, no hay recuperación.** No hay puerta trasera. Esa
+es justamente la razón por la que sirve de algo.

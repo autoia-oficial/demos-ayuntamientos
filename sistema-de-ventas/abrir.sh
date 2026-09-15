@@ -105,6 +105,27 @@ estado_actual() {
   '
 }
 
+# ----------------------------------------------------------------- caja -----
+guardar_caja() {
+  hay node || { error "Hace falta Node.js."; return 1; }
+  echo "  Exporta primero la copia desde el CRM (botón azul) y dime dónde está."
+  read -rp "  Ruta del JSON exportado: " fichero
+  fichero="${fichero/#\~/$HOME}"
+  [[ -f "$fichero" ]] || { error "No existe ese fichero."; return 1; }
+  node datos/caja.mjs guardar "$fichero"
+  echo
+  aviso "El JSON sin cifrar sigue en $fichero. Bórralo cuando lo tengas en la caja."
+}
+
+abrir_caja() {
+  hay node || { error "Hace falta Node.js."; return 1; }
+  node datos/caja.mjs estado
+  echo
+  read -rp "  ¿Descifrar a un fichero? (vacío = mostrar en pantalla): " salida
+  if [[ -n "$salida" ]]; then node datos/caja.mjs abrir "${salida/#\~/$HOME}"
+  else node datos/caja.mjs abrir; fi
+}
+
 # ---------------------------------------------------------------- menú ------
 menu() {
   while true; do
@@ -116,6 +137,8 @@ menu() {
     ${N}2${F}  Preparar los correos de una tanda (simulación)
     ${N}3${F}  Ver el estado de los datos
     ${N}4${F}  Regenerar municipios.json desde las demos
+    ${N}5${F}  Guardar el CRM en la caja cifrada
+    ${N}6${F}  Abrir la caja cifrada
     ${N}0${F}  Salir
 
 MENU
@@ -126,6 +149,8 @@ MENU
       2) correos_del_dia ;;
       3) estado_actual ;;
       4) generar_datos ;;
+      5) guardar_caja ;;
+      6) abrir_caja ;;
       0|q|salir) exit 0 ;;
       *) aviso "Opción no válida." ;;
     esac
@@ -134,9 +159,10 @@ MENU
 
 case "${1:-}" in
   crm)     abrir_crm ;;
+  caja)    abrir_caja ;;
   correos) correos_del_dia ;;
   estado)  estado_actual ;;
   datos)   generar_datos ;;
   "")      menu ;;
-  *)       error "Uso: ./abrir.sh [crm|correos|estado|datos]"; exit 1 ;;
+  *)       error "Uso: ./abrir.sh [crm|correos|estado|datos|caja]"; exit 1 ;;
 esac
