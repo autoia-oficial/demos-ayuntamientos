@@ -5,80 +5,168 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CRM · Ayuntamientos</title>
 <style>
-  :root{
-    --fondo:#f6f7f9; --papel:#fff; --texto:#15181d; --suave:#5b6472; --borde:#dfe3e9;
-    --acento:#2563eb; --ok:#0f8a4a; --aviso:#b45309; --mal:#b42318; --sombra:0 1px 2px rgba(0,0,0,.06);
-  }
-  :root:not([data-tema="claro"]){ @media (prefers-color-scheme:dark){
-    --fondo:#0f1115; --papel:#171a20; --texto:#e8eaed; --suave:#9aa3b0; --borde:#2a2f38;
-    --acento:#5b9dff; --ok:#3fbf7f; --aviso:#e0a23c; --mal:#ff6b5e; --sombra:0 1px 2px rgba(0,0,0,.4);
-  }}
-  :root[data-tema="oscuro"]{
-    --fondo:#0f1115; --papel:#171a20; --texto:#e8eaed; --suave:#9aa3b0; --borde:#2a2f38;
-    --acento:#5b9dff; --ok:#3fbf7f; --aviso:#e0a23c; --mal:#ff6b5e; --sombra:0 1px 2px rgba(0,0,0,.4);
-  }
-  *{box-sizing:border-box}
-  body{margin:0;background:var(--fondo);color:var(--texto);
-       font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-  .envoltorio{max-width:1180px;margin:0 auto;padding:20px 16px 60px}
-  h1{font-size:20px;margin:0 0 2px} .sub{color:var(--suave);font-size:13px;margin:0 0 18px}
+:root{
+  color-scheme: light;
+  --plano:#f9f9f7; --sup:#fcfcfb;
+  --tinta:#0b0b0b; --tinta2:#52514e; --apagado:#898781;
+  --rejilla:#e1e0d9; --base:#c3c2b7; --aro:rgba(11,11,11,.10);
+  --acento:#2a78d6;
+  --e1:#86b6ef; --e2:#5598e7; --e3:#2a78d6; --e4:#1c5cab; --e5:#104281;
+  --resto:#e6e5e0;
+  --bien:#0ca30c; --aviso:#fab219; --serio:#ec835a; --critico:#d03b3b;
+  --sombra:0 1px 2px rgba(11,11,11,.05), 0 1px 1px rgba(11,11,11,.03);
+}
+@media (prefers-color-scheme: dark){ :root:where(:not([data-tema="claro"])){
+  color-scheme: dark;
+  --plano:#0d0d0d; --sup:#1a1a19;
+  --tinta:#fff; --tinta2:#c3c2b7; --apagado:#898781;
+  --rejilla:#2c2c2a; --base:#383835; --aro:rgba(255,255,255,.10);
+  --acento:#3987e5;
+  --e1:#9ec5f4; --e2:#6da7ec; --e3:#3987e5; --e4:#256abf; --e5:#184f95;
+  --resto:#2c2c2a;
+  --sombra:0 1px 2px rgba(0,0,0,.4);
+}}
+:root[data-tema="oscuro"]{
+  color-scheme: dark;
+  --plano:#0d0d0d; --sup:#1a1a19;
+  --tinta:#fff; --tinta2:#c3c2b7; --apagado:#898781;
+  --rejilla:#2c2c2a; --base:#383835; --aro:rgba(255,255,255,.10);
+  --acento:#3987e5;
+  --e1:#9ec5f4; --e2:#6da7ec; --e3:#3987e5; --e4:#256abf; --e5:#184f95;
+  --resto:#2c2c2a;
+  --sombra:0 1px 2px rgba(0,0,0,.4);
+}
 
-  .marcadores{display:grid;grid-template-columns:repeat(auto-fit,minmax(115px,1fr));gap:10px;margin-bottom:18px}
-  .marcador{background:var(--papel);border:1px solid var(--borde);border-radius:10px;padding:11px 13px;box-shadow:var(--sombra)}
-  .marcador b{display:block;font-size:22px;line-height:1.15;font-variant-numeric:tabular-nums}
-  .marcador span{font-size:11.5px;color:var(--suave);text-transform:uppercase;letter-spacing:.04em}
+*{box-sizing:border-box}
+body{margin:0;background:var(--plano);color:var(--tinta);
+  font:15px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  -webkit-font-smoothing:antialiased}
+.envoltorio{max-width:1220px;margin:0 auto;padding:26px 18px 72px}
 
-  .barra{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px}
-  select,input[type=search],button{font:inherit;color:var(--texto);background:var(--papel);
-       border:1px solid var(--borde);border-radius:8px;padding:7px 10px}
-  input[type=search]{flex:1;min-width:170px}
-  button{cursor:pointer}
-  button:hover{border-color:var(--acento)}
-  .primario{background:var(--acento);color:#fff;border-color:transparent;font-weight:500}
+header{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:22px}
+h1{font-size:21px;font-weight:600;margin:0;letter-spacing:-.01em}
+.sub{color:var(--tinta2);font-size:13px;margin:3px 0 0}
+.iconobtn{background:var(--sup);border:1px solid var(--aro);border-radius:8px;
+  width:34px;height:34px;cursor:pointer;color:var(--tinta2);font-size:15px;flex:none}
+.iconobtn:hover{border-color:var(--acento);color:var(--tinta)}
 
-  .tabla{background:var(--papel);border:1px solid var(--borde);border-radius:10px;overflow:hidden;box-shadow:var(--sombra)}
-  .fila{display:grid;grid-template-columns:minmax(150px,1.6fr) 58px minmax(190px,2fr) 128px 84px;
-        gap:10px;align-items:center;padding:9px 13px;border-top:1px solid var(--borde)}
-  .fila:first-child{border-top:0}
-  .cab{font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--suave);background:transparent}
-  .nombre{font-weight:500}
-  .meta{font-size:12px;color:var(--suave)}
-  .correo{font-size:13px;word-break:break-all}
-  .sin{color:var(--aviso);font-size:12.5px}
-  .acciones{display:flex;gap:5px;justify-content:flex-end}
-  .acciones a,.acciones button{font-size:12px;padding:4px 7px;border-radius:6px;text-decoration:none;
-        border:1px solid var(--borde);color:var(--texto);background:var(--papel);display:inline-block}
-  .notas{grid-column:1/-1;margin-top:2px}
-  .notas input{width:100%;font:inherit;background:transparent;color:var(--suave);
-        border:0;border-top:1px dashed var(--borde);padding:5px 0 0;font-size:12.5px}
-  .notas input:focus{outline:none;color:var(--texto)}
-  .vacio{padding:34px;text-align:center;color:var(--suave)}
+/* ---------- fichas ---------- */
+.fichas{display:grid;grid-template-columns:repeat(auto-fit,minmax(142px,1fr));gap:12px;margin-bottom:20px}
+.ficha{background:var(--sup);border:1px solid var(--aro);border-radius:12px;
+  padding:14px 16px;box-shadow:var(--sombra)}
+.ficha .val{font-size:30px;font-weight:600;line-height:1.1;letter-spacing:-.02em;
+  display:block;color:var(--tinta)}
+.ficha .et{font-size:11.5px;color:var(--tinta2);text-transform:uppercase;
+  letter-spacing:.05em;margin-top:5px;display:flex;align-items:center;gap:5px}
+.punto{width:8px;height:8px;border-radius:2px;flex:none}
 
-  @media (max-width:760px){
-    .fila{grid-template-columns:1fr 1fr;gap:6px}
-    .cab{display:none}
-    .col-dia{order:3} .col-correo{grid-column:1/-1;order:2} .acciones{grid-column:1/-1;justify-content:flex-start;order:4}
-  }
-  footer{margin-top:22px;font-size:12px;color:var(--suave);display:flex;gap:14px;flex-wrap:wrap}
+/* ---------- paneles ---------- */
+.paneles{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px}
+@media (max-width:860px){ .paneles{grid-template-columns:1fr} }
+.panel{background:var(--sup);border:1px solid var(--aro);border-radius:12px;
+  padding:16px 18px 14px;box-shadow:var(--sombra);min-width:0}
+.panel h2{font-size:13px;font-weight:600;margin:0 0 2px;color:var(--tinta)}
+.panel .pie{font-size:12px;color:var(--apagado);margin:0 0 14px}
+
+/* ---------- embudo ---------- */
+.etapa{display:grid;grid-template-columns:96px 1fr 78px;gap:10px;align-items:center;
+  margin-bottom:7px;font-size:12.5px}
+.etapa .nom{color:var(--tinta2);text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pista{height:22px;background:var(--resto);border-radius:4px;overflow:hidden;position:relative}
+.barra{height:100%;border-radius:4px;width:0;
+  transition:width .62s cubic-bezier(.22,.9,.3,1)}
+.etapa .n{font-variant-numeric:tabular-nums;color:var(--tinta);font-weight:600;
+  text-align:right;font-size:13px;white-space:nowrap}
+.etapa .conv{font-weight:400;color:var(--apagado);font-size:11.5px;margin-left:3px}
+
+/* ---------- tandas ---------- */
+.tandas{display:flex;flex-direction:column;gap:5px;max-height:232px;overflow-y:auto;padding-right:4px}
+.tanda{display:grid;grid-template-columns:50px 1fr 52px;gap:9px;align-items:center;font-size:12px}
+.tanda .et{color:var(--apagado);font-variant-numeric:tabular-nums;white-space:nowrap}
+.tanda .n{color:var(--tinta2);font-variant-numeric:tabular-nums;text-align:right}
+.apilada{height:16px;display:flex;gap:2px;border-radius:4px;overflow:hidden;background:var(--resto)}
+.seg{height:100%;width:0;transition:width .55s cubic-bezier(.22,.9,.3,1)}
+.leyenda{display:flex;gap:14px;font-size:11.5px;color:var(--tinta2);margin-top:12px;flex-wrap:wrap}
+.leyenda span{display:flex;align-items:center;gap:5px}
+
+/* ---------- filtros ---------- */
+.barra-f{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+select,input[type=search],button{font:inherit;color:var(--tinta);background:var(--sup);
+  border:1px solid var(--aro);border-radius:8px;padding:7px 11px}
+input[type=search]{flex:1;min-width:160px}
+button{cursor:pointer}
+button:hover{border-color:var(--acento)}
+.primario{background:var(--acento);color:#fff;border-color:transparent;font-weight:500}
+.primario:hover{filter:brightness(1.08)}
+
+/* ---------- tabla ---------- */
+.tabla{background:var(--sup);border:1px solid var(--aro);border-radius:12px;
+  overflow:hidden;box-shadow:var(--sombra)}
+.fila{display:grid;grid-template-columns:minmax(150px,1.5fr) 56px minmax(180px,1.7fr) 132px 96px;
+  gap:11px;align-items:center;padding:10px 15px;border-top:1px solid var(--rejilla)}
+.fila:first-child{border-top:0}
+.cab{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--apagado);padding-top:11px;padding-bottom:9px}
+.nombre{font-weight:500;font-size:14px}
+.meta{font-size:12px;color:var(--apagado)}
+.correo{font-size:12.5px;color:var(--tinta2);word-break:break-all}
+.sin{color:var(--serio);font-size:12px;display:flex;align-items:center;gap:4px}
+.acciones{display:flex;gap:5px;justify-content:flex-end}
+.acciones a,.acciones button{font-size:11.5px;padding:4px 8px;border-radius:6px;
+  text-decoration:none;border:1px solid var(--aro);color:var(--tinta2);background:transparent}
+.acciones a:hover,.acciones button:hover{border-color:var(--acento);color:var(--tinta)}
+.notas{grid-column:1/-1}
+.notas input{width:100%;font:inherit;background:transparent;color:var(--apagado);
+  border:0;border-top:1px dashed var(--rejilla);padding:6px 0 0;font-size:12.5px}
+.notas input:focus{outline:none;color:var(--tinta)}
+.vacio{padding:38px;text-align:center;color:var(--apagado)}
+
+@media (max-width:760px){
+  .fila{grid-template-columns:1fr auto;gap:6px}
+  .cab{display:none}
+  .c-dia{order:2;text-align:right} .c-mail{grid-column:1/-1;order:3}
+  .acciones{grid-column:1/-1;justify-content:flex-start;order:5}
+  .fila>div:nth-child(4){grid-column:1/-1;order:4}
+}
+footer{margin-top:18px;font-size:12px;color:var(--apagado);display:flex;gap:16px;flex-wrap:wrap}
+
+@media (prefers-reduced-motion: reduce){ *{transition:none !important} }
 </style>
 </head>
 <body>
 <div class="envoltorio">
-  <h1>CRM · Ayuntamientos</h1>
-  <p class="sub">El estado se guarda en este navegador. Expórtalo para no perderlo al formatear.</p>
 
-  <div class="marcadores" id="marcadores"></div>
+  <header>
+    <div>
+      <h1>CRM · Ayuntamientos</h1>
+      <p class="sub" id="sub">Cargando…</p>
+    </div>
+    <button class="iconobtn" id="tema" title="Cambiar tema" aria-label="Cambiar tema">◐</button>
+  </header>
 
-  <div class="barra">
+  <div class="fichas" id="fichas"></div>
+
+  <div class="paneles">
+    <section class="panel">
+      <h2>Embudo comercial</h2>
+      <p class="pie">Acumulado: cada peldaño incluye los de abajo. Con la conversión respecto al anterior.</p>
+      <div id="embudo"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Avance por tanda</h2>
+      <p class="pie">Cuántos se han contactado de cada envío diario.</p>
+      <div class="tandas" id="tandas"></div>
+      <div class="leyenda">
+        <span><i class="punto" style="background:var(--e3)"></i>Contactado</span>
+        <span><i class="punto" style="background:var(--resto)"></i>Pendiente</span>
+      </div>
+    </section>
+  </div>
+
+  <div class="barra-f">
     <select id="fDia"><option value="">Todas las tandas</option></select>
     <select id="fEstado">
       <option value="">Cualquier estado</option>
-      <option value="pendiente">Pendiente</option>
-      <option value="enviado">Enviado</option>
-      <option value="respondido">Respondido</option>
-      <option value="reunion">Reunión</option>
-      <option value="cliente">Cliente</option>
-      <option value="descartado">Descartado</option>
     </select>
     <select id="fContacto">
       <option value="">Cualquier contacto</option>
@@ -90,169 +178,229 @@
     <button id="exportar" class="primario">Exportar copia</button>
     <button id="importar">Importar</button>
     <input type="file" id="ficheroImport" accept="application/json" hidden>
-    <button id="tema" title="Cambiar tema">◐</button>
   </div>
 
   <div class="tabla" id="tabla"></div>
 
   <footer>
     <span id="conteo"></span>
-    <span>Datos: <code>datos/municipios.json</code> · Estado: almacenamiento del navegador</span>
+    <span>Estado guardado en este navegador · expórtalo antes de formatear</span>
   </footer>
 </div>
 
 <script>
-const ESTADOS = ['pendiente','enviado','respondido','reunion','cliente','descartado'];
+// Etapas del embudo, en orden de avance. El color es una rampa ordinal de un
+// solo tono (azul, claro→oscuro): son fases de lo mismo, no categorías sueltas,
+// y la intensidad es lo que marca el avance.
+const ETAPAS = [
+  { id:'pendiente',  nom:'Pendiente',  tono:'var(--e1)' },
+  { id:'enviado',    nom:'Enviado',    tono:'var(--e2)' },
+  { id:'respondido', nom:'Respondido', tono:'var(--e3)' },
+  { id:'reunion',    nom:'Reunión',    tono:'var(--e4)' },
+  { id:'cliente',    nom:'Cliente',    tono:'var(--e5)' },
+];
+const TODOS = [...ETAPAS.map(e=>e.id), 'descartado'];
 const CLAVE = 'crm-ayuntamientos-v1';
 
-let municipios = [];
-let estado = {};
-
-// -- persistencia -----------------------------------------------------------
-// localStorage puede fallar (ventana privada, datos bloqueados). Si falla, el
-// CRM sigue funcionando en memoria: mejor eso que una pantalla en blanco.
-function cargarEstado(){
-  try { estado = JSON.parse(localStorage.getItem(CLAVE) || '{}'); }
-  catch { estado = {}; }
-}
-function guardarEstado(){
-  try { localStorage.setItem(CLAVE, JSON.stringify(estado)); }
-  catch { /* sin persistencia; la sesión sigue */ }
-}
-function fichaDe(slug){
-  if (!estado[slug]) estado[slug] = { estado:'pendiente', nota:'', fecha:'' };
-  return estado[slug];
-}
-
-// -- pintado ----------------------------------------------------------------
+let municipios = [], estado = {}, primeraVez = true;
 const el = id => document.getElementById(id);
+const esc = s => String(s??'').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
-function filtrados(){
-  const d = el('fDia').value, e = el('fEstado').value,
-        c = el('fContacto').value, t = el('fTexto').value.trim().toLowerCase();
-  return municipios.filter(m =>
-    (!d || String(m.dia) === d) &&
-    (!e || fichaDe(m.slug).estado === e) &&
-    (!c || m.contacto === c) &&
-    (!t || m.nombre.toLowerCase().includes(t) || (m.email||'').toLowerCase().includes(t))
-  );
+function cargarEstado(){ try{ estado = JSON.parse(localStorage.getItem(CLAVE)||'{}'); }catch{ estado={}; } }
+function guardarEstado(){ try{ localStorage.setItem(CLAVE, JSON.stringify(estado)); }catch{} }
+function ficha(slug){ return estado[slug] ??= { estado:'pendiente', nota:'', fecha:'' }; }
+const cuantos = e => municipios.filter(m => ficha(m.slug).estado === e).length;
+
+// Contactado = ha salido de 'pendiente' por la vía buena. 'descartado' no cuenta
+// como avance, así que se excluye: si no, un municipio sin correo inflaría la cifra.
+const contactado = m => !['pendiente','descartado'].includes(ficha(m.slug).estado);
+
+// ---------- fichas de cabecera ----------
+// El tipo de contacto NO se pinta como un gráfico de tres colores: son colores
+// de estado, y el validador de la paleta los rechaza como categóricos. Van con
+// etiqueta escrita al lado, que es lo que la guía exige para un color de estado.
+function pintarFichas(){
+  const conMail = municipios.filter(m => m.contacto === 'email').length;
+  const sinNada = municipios.filter(m => m.contacto === 'falta').length;
+  el('fichas').innerHTML = [
+    ['Municipios', municipios.length, null],
+    ['Contactados', municipios.filter(contactado).length, 'var(--e3)'],
+    ['Respondidos', cuantos('respondido') + cuantos('reunion') + cuantos('cliente'), 'var(--e4)'],
+    ['Clientes', cuantos('cliente'), 'var(--bien)'],
+    ['Con correo', conMail, 'var(--bien)'],
+    ['Sin contacto', sinNada, 'var(--serio)'],
+  ].map(([et, val, tono]) => `<div class="ficha">
+      <span class="val">${val}</span>
+      <span class="et">${tono?`<i class="punto" style="background:${tono}"></i>`:''}${et}</span>
+    </div>`).join('');
 }
 
-function pintarMarcadores(){
-  const n = est => municipios.filter(m => fichaDe(m.slug).estado === est).length;
-  el('marcadores').innerHTML = [
-    ['Municipios', municipios.length, ''],
-    ['Pendientes', n('pendiente'), ''],
-    ['Enviados',   n('enviado'),    ''],
-    ['Respondidos',n('respondido'), 'var(--ok)'],
-    ['Clientes',   n('cliente'),    'var(--ok)'],
-    ['Sin contacto', municipios.filter(m=>m.contacto==='falta').length, 'var(--aviso)'],
-  ].map(([t,v,col]) =>
-    `<div class="marcador"><b style="${col?`color:${col}`:''}">${v}</b><span>${t}</span></div>`
-  ).join('');
+// ---------- embudo ----------
+// Un embudo cuenta ACUMULADO, no el estado actual de cada uno: quien ya es
+// cliente también respondió y también fue contactado. Contando estados sueltos
+// salía 'Pendiente 49' más corto que 'Enviado 58' y el embudo se leía al revés.
+// Así las barras sólo pueden decrecer, que es lo que un embudo significa.
+const PELDANOS = [
+  { nom:'En cartera',   tono:'var(--e1)', incluye: () => true },
+  { nom:'Contactados',  tono:'var(--e2)', incluye: f => ['enviado','respondido','reunion','cliente'].includes(f.estado) },
+  { nom:'Respondieron', tono:'var(--e3)', incluye: f => ['respondido','reunion','cliente'].includes(f.estado) },
+  { nom:'Reunión',      tono:'var(--e4)', incluye: f => ['reunion','cliente'].includes(f.estado) },
+  { nom:'Clientes',     tono:'var(--e5)', incluye: f => f.estado === 'cliente' },
+];
+
+function pintarEmbudo(){
+  const total = municipios.length || 1;
+  let anterior = null;
+  el('embudo').innerHTML = PELDANOS.map(p => {
+    const n = municipios.filter(m => p.incluye(ficha(m.slug))).length;
+    // Conversión respecto al peldaño de arriba: es el número que de verdad
+    // dice si el embudo va bien, y no se puede deducir mirando las barras.
+    const conv = anterior === null ? '' : anterior ? ` · ${Math.round(n/anterior*100)}%` : ' · —';
+    anterior = n;
+    return `<div class="etapa">
+      <span class="nom">${p.nom}</span>
+      <div class="pista"><div class="barra" data-ancho="${(n/total*100).toFixed(1)}"
+           style="background:${p.tono}" title="${p.nom}: ${n} de ${total}${conv}"></div></div>
+      <span class="n">${n}<small class="conv">${conv}</small></span>
+    </div>`;
+  }).join('');
+  animar('#embudo .barra');
+}
+
+// ---------- tandas ----------
+function pintarTandas(){
+  const dias = [...new Set(municipios.map(m => m.dia))].sort((a,b)=>a-b);
+  el('tandas').innerHTML = dias.map(d => {
+    const enTanda = municipios.filter(m => m.dia === d);
+    const hechos  = enTanda.filter(contactado).length;
+    const pct     = enTanda.length ? hechos/enTanda.length*100 : 0;
+    return `<div class="tanda">
+      <span class="et">Día ${d}</span>
+      <div class="apilada" title="Tanda ${d}: ${hechos} de ${enTanda.length} contactados">
+        <div class="seg" data-ancho="${pct.toFixed(1)}" style="background:var(--e3)"></div>
+      </div>
+      <span class="n">${hechos}/${enTanda.length}</span>
+    </div>`;
+  }).join('');
+  animar('#tandas .seg');
+}
+
+// Las barras crecen desde cero la primera vez. En recargas posteriores se pintan
+// ya puestas: animar cada cambio de filtro marea más que informa.
+function animar(selector){
+  const nodos = document.querySelectorAll(selector);
+  const poner = () => nodos.forEach(n => n.style.width = n.dataset.ancho + '%');
+  if (primeraVez && !matchMedia('(prefers-reduced-motion: reduce)').matches)
+    requestAnimationFrame(() => requestAnimationFrame(poner));
+  else poner();
+}
+
+// ---------- tabla ----------
+function filtrados(){
+  const d=el('fDia').value, e=el('fEstado').value,
+        c=el('fContacto').value, t=el('fTexto').value.trim().toLowerCase();
+  return municipios.filter(m =>
+    (!d || String(m.dia)===d) && (!e || ficha(m.slug).estado===e) &&
+    (!c || m.contacto===c) &&
+    (!t || m.nombre.toLowerCase().includes(t) || (m.email||'').toLowerCase().includes(t)));
 }
 
 function pintarTabla(){
   const lista = filtrados();
   const cab = `<div class="fila cab"><div>Municipio</div><div>Tanda</div>
-      <div>Contacto</div><div>Estado</div><div></div></div>`;
-  if (!lista.length){
-    el('tabla').innerHTML = cab + `<div class="vacio">Ningún municipio con esos filtros.</div>`;
-  } else {
-    el('tabla').innerHTML = cab + lista.map(m => {
-      const f = fichaDe(m.slug);
-      const contacto = m.email
-        ? `<span class="correo">${m.email}</span>`
-        : m.tel ? `<span class="meta">☎ ${m.tel}</span>`
-                : `<span class="sin">sin contacto — buscar en ${m.dominios||'su web'}</span>`;
-      return `<div class="fila" data-slug="${m.slug}">
-        <div><div class="nombre">${m.nombre}</div><div class="meta">${m.oficina||''}</div></div>
-        <div class="col-dia meta">día ${m.dia}</div>
-        <div class="col-correo">${contacto}</div>
-        <div><select class="selEstado">${ESTADOS.map(e =>
-             `<option value="${e}" ${f.estado===e?'selected':''}>${e[0].toUpperCase()+e.slice(1)}</option>`
-           ).join('')}</select></div>
-        <div class="acciones">
-          <a href="${m.demo}" target="_blank" rel="noopener">Demo</a>
-          ${m.email ? `<button class="copiar" data-email="${m.email}">Copiar</button>` : ''}
-        </div>
-        <div class="notas"><input placeholder="Nota…" value="${(f.nota||'').replace(/"/g,'&quot;')}"></div>
-      </div>`;
-    }).join('');
-  }
+    <div>Contacto</div><div>Estado</div><div></div></div>`;
+  el('tabla').innerHTML = lista.length ? cab + lista.map(m => {
+    const f = ficha(m.slug);
+    const contacto = m.email ? `<span class="correo">${esc(m.email)}</span>`
+      : m.tel ? `<span class="meta">☎ ${esc(m.tel)}</span>`
+      : `<span class="sin">⚠ sin contacto — buscar en ${esc(m.dominios||'su web')}</span>`;
+    return `<div class="fila" data-slug="${esc(m.slug)}">
+      <div><div class="nombre">${esc(m.nombre)}</div><div class="meta">${esc(m.oficina)}</div></div>
+      <div class="c-dia meta">día ${m.dia}</div>
+      <div class="c-mail">${contacto}</div>
+      <div><select class="selEstado">${TODOS.map(e=>{
+          const nom = ETAPAS.find(x=>x.id===e)?.nom ?? 'Descartado';
+          return `<option value="${e}" ${f.estado===e?'selected':''}>${nom}</option>`;
+        }).join('')}</select></div>
+      <div class="acciones">
+        <a href="${esc(m.demo)}" target="_blank" rel="noopener">Demo</a>
+        ${m.email?`<button class="copiar" data-email="${esc(m.email)}">Copiar</button>`:''}
+      </div>
+      <div class="notas"><input placeholder="Nota…" value="${esc(f.nota)}"></div>
+    </div>`;
+  }).join('') : cab + `<div class="vacio">Ningún municipio con esos filtros.</div>`;
   el('conteo').textContent = `${lista.length} de ${municipios.length} municipios`;
 }
 
-function pintar(){ pintarMarcadores(); pintarTabla(); }
+function pintarTodo(){ pintarFichas(); pintarEmbudo(); pintarTandas(); pintarTabla(); primeraVez = false; }
 
-// -- eventos ----------------------------------------------------------------
+// ---------- eventos ----------
 el('tabla').addEventListener('change', ev => {
-  const fila = ev.target.closest('.fila'); if (!fila) return;
-  const f = fichaDe(fila.dataset.slug);
-  if (ev.target.classList.contains('selEstado')){
-    f.estado = ev.target.value;
-    f.fecha  = new Date().toISOString().slice(0,10);
-    guardarEstado(); pintarMarcadores();
-  }
+  const fila = ev.target.closest('.fila'); if(!fila || !ev.target.classList.contains('selEstado')) return;
+  const f = ficha(fila.dataset.slug);
+  f.estado = ev.target.value;
+  f.fecha  = new Date().toISOString().slice(0,10);
+  guardarEstado(); pintarFichas(); pintarEmbudo(); pintarTandas();
 });
 el('tabla').addEventListener('input', ev => {
-  if (ev.target.tagName !== 'INPUT') return;
-  const fila = ev.target.closest('.fila'); if (!fila) return;
-  fichaDe(fila.dataset.slug).nota = ev.target.value;
-  guardarEstado();
+  if(ev.target.tagName!=='INPUT') return;
+  const fila = ev.target.closest('.fila'); if(!fila) return;
+  ficha(fila.dataset.slug).nota = ev.target.value; guardarEstado();
 });
 el('tabla').addEventListener('click', async ev => {
-  const b = ev.target.closest('.copiar'); if (!b) return;
-  try { await navigator.clipboard.writeText(b.dataset.email); b.textContent = '✓'; }
-  catch { b.textContent = b.dataset.email; }   // sin permiso de portapapeles: se muestra
-  setTimeout(() => { b.textContent = 'Copiar'; }, 1400);
+  const b = ev.target.closest('.copiar'); if(!b) return;
+  try{ await navigator.clipboard.writeText(b.dataset.email); b.textContent='✓'; }
+  catch{ b.textContent = b.dataset.email; }
+  setTimeout(()=>{ b.textContent='Copiar'; }, 1400);
 });
-
-['fDia','fEstado','fContacto','fTexto'].forEach(id =>
-  el(id).addEventListener('input', pintarTabla));
+['fDia','fEstado','fContacto','fTexto'].forEach(id => el(id).addEventListener('input', pintarTabla));
 
 el('exportar').addEventListener('click', () => {
-  const blob = new Blob([JSON.stringify(estado,null,2)], {type:'application/json'});
+  const b = new Blob([JSON.stringify(estado,null,2)],{type:'application/json'});
   const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
+  a.href = URL.createObjectURL(b);
   a.download = `crm-ayuntamientos-${new Date().toISOString().slice(0,10)}.json`;
   a.click(); URL.revokeObjectURL(a.href);
 });
-el('importar').addEventListener('click', () => el('ficheroImport').click());
+el('importar').addEventListener('click', ()=>el('ficheroImport').click());
 el('ficheroImport').addEventListener('change', async ev => {
-  const f = ev.target.files[0]; if (!f) return;
-  try {
-    const entrante = JSON.parse(await f.text());
-    if (typeof entrante !== 'object' || Array.isArray(entrante)) throw new Error('formato');
-    estado = { ...estado, ...entrante };   // no borra lo que ya hay
-    guardarEstado(); pintar();
-  } catch { alert('Ese fichero no es una copia válida del CRM.'); }
-  ev.target.value = '';
+  const f = ev.target.files[0]; if(!f) return;
+  try{
+    const e = JSON.parse(await f.text());
+    if(typeof e!=='object'||Array.isArray(e)) throw 0;
+    estado = {...estado, ...e}; guardarEstado(); primeraVez = true; pintarTodo();
+  }catch{ alert('Ese fichero no es una copia válida del CRM.'); }
+  ev.target.value='';
 });
 el('tema').addEventListener('click', () => {
   const r = document.documentElement;
-  const oscuro = r.dataset.tema === 'oscuro' ||
+  const osc = r.dataset.tema==='oscuro' ||
     (!r.dataset.tema && matchMedia('(prefers-color-scheme:dark)').matches);
-  r.dataset.tema = oscuro ? 'claro' : 'oscuro';
+  r.dataset.tema = osc ? 'claro' : 'oscuro';
 });
 
-// -- arranque ---------------------------------------------------------------
+// ---------- arranque ----------
+el('fEstado').insertAdjacentHTML('beforeend',
+  TODOS.map(e=>`<option value="${e}">${ETAPAS.find(x=>x.id===e)?.nom ?? 'Descartado'}</option>`).join(''));
+
 cargarEstado();
 fetch('../datos/municipios.json')
   .then(r => { if(!r.ok) throw new Error(r.status); return r.json(); })
-  .then(datos => {
-    municipios = datos.sort((a,b) => a.dia - b.dia || a.nombre.localeCompare(b.nombre,'es'));
-    const dias = [...new Set(municipios.map(m => m.dia))].sort((a,b)=>a-b);
+  .then(d => {
+    municipios = d.sort((a,b)=> a.dia-b.dia || a.nombre.localeCompare(b.nombre,'es'));
     el('fDia').insertAdjacentHTML('beforeend',
-      dias.map(d => `<option value="${d}">Tanda ${d}</option>`).join(''));
-    pintar();
+      [...new Set(municipios.map(m=>m.dia))].sort((a,b)=>a-b)
+        .map(x=>`<option value="${x}">Tanda ${x}</option>`).join(''));
+    el('sub').textContent =
+      `${municipios.length} municipios · ${new Set(municipios.map(m=>m.dia)).size} tandas`;
+    pintarTodo();
   })
   .catch(e => {
+    el('sub').textContent = 'No se pudieron cargar los datos';
     el('tabla').innerHTML = `<div class="vacio">
-      No se pudo leer <code>datos/municipios.json</code> (${e.message}).<br><br>
-      Genéralo con <code>node sistema-de-ventas/datos/extraer.mjs</code>,
-      y abre el CRM con <code>./abrir.sh</code> — no con doble clic:
-      el navegador bloquea la lectura de ficheros locales.</div>`;
+      No se pudo leer <code>datos/municipios.json</code> (${esc(e.message)}).<br><br>
+      Genéralo con <code>node datos/extraer.mjs</code> y abre el CRM
+      con <code>./abrir.sh</code>, no con doble clic.</div>`;
   });
 </script>
 </body>
