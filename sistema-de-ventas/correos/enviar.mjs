@@ -28,8 +28,67 @@ const valor = n => { const i = args.indexOf(n); return i === -1 ? null : args[i 
 const dia     = valor('--dia');
 const deVerdad = args.includes('--enviar');
 
+// --comprobar: revisa la configuración y hace un saludo real al servidor SMTP,
+// sin mandar nada. Descubrir que la contraseña está mal escribiendo a un
+// ayuntamiento de verdad sale caro; descubrirlo aquí no cuesta nada.
+if (args.includes('--comprobar')) {
+  const ruta = join(dirname(fileURLToPath(import.meta.url)), 'config.json');
+  if (!existsSync(ruta)) {
+    console.error('\n  Falta correos/config.json.');
+    console.error('  Cópialo:  cp correos/config.ejemplo.json correos/config.json\n');
+    process.exit(1);
+  }
+  let c;
+  try { c = JSON.parse(readFileSync(ruta, 'utf8')); }
+  catch (e) {
+    console.error(`\n  config.json no es JSON válido: ${e.message}`);
+    console.error('  Suele ser una coma de más, o unas comillas sin cerrar.\n');
+    process.exit(1);
+  }
+
+  console.log('\n  CONFIGURACIÓN\n');
+  let mal = 0;
+  const revisar = (campo, ok, pista) => {
+    if (ok) console.log(`  ✓ ${campo}`);
+    else { console.log(`  ✗ ${campo} — ${pista}`); mal++; }
+  };
+  revisar('host',      !!c.host, 'vacío');
+  revisar('puerto',    [25,465,587,2525].includes(c.puerto), `${c.puerto} no es un puerto de correo habitual`);
+  revisar('usuario',   c.usuario && !/^TU-|tudominio/i.test(c.usuario), 'sigue con el texto de ejemplo');
+  revisar('clave',     c.clave && !/CONTRASEÑA DE APLICACI/i.test(c.clave), 'sigue con el texto de ejemplo');
+  revisar('remitente', c.remitente && !/^TU-|tudominio/i.test(c.remitente), 'sigue con el texto de ejemplo');
+  // Gmail rechaza enviar con un remitente distinto del usuario autenticado.
+  if (/gmail\.com$/i.test(c.host || '') && c.usuario && c.remitente && c.usuario !== c.remitente)
+    console.log(`  ! usuario y remitente son distintos; Gmail rechazará el envío`);
+  if (/^\S{16}$|^(\S{4}\s){3}\S{4}$/.test((c.clave||'').trim()))
+    console.log('  · la clave tiene pinta de contraseña de aplicación de Google');
+
+  if (mal) { console.error(`\n  ${mal} campo(s) por rellenar. Edita correos/config.json.\n`); process.exit(1); }
+
+  console.log('\n  CONEXIÓN\n');
+  try {
+    const { comprobarConexion } = await import('./smtp.mjs');
+    await comprobarConexion(c);
+    console.log('  ✓ el servidor acepta tu usuario y tu contraseña');
+    console.log('\n  Todo listo. Prueba una tanda:  node correos/enviar.mjs --dia 20\n');
+  } catch (e) {
+    console.error(`  ✗ ${e.message}`);
+    if (/535|BadCredentials|auth/i.test(e.message)) {
+      console.error('\n  Usuario o contraseña rechazados. Con Gmail hace falta una');
+      console.error('  CONTRASEÑA DE APLICACIÓN, no la de tu cuenta, y la verificación');
+      console.error('  en dos pasos tiene que estar activada:');
+      console.error('  https://myaccount.google.com/apppasswords\n');
+    } else {
+      console.error('\n  Revisa host y puerto, y que tengas salida a internet.\n');
+    }
+    process.exit(1);
+  }
+  process.exit(0);
+}
+
 if (!dia || !/^\d+$/.test(dia)) {
   console.error('Uso: node correos/enviar.mjs --dia <número> [--enviar]');
+  console.error('     node correos/enviar.mjs --comprobar');
   process.exit(1);
 }
 

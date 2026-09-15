@@ -112,3 +112,40 @@ export async function enviarCorreo(cfg, msg) {
   s.end();
   socket.destroy();
 }
+
+/**
+ * Saluda al servidor y autentica, sin enviar nada. Para comprobar la
+ * configuración antes de escribirle a un ayuntamiento de verdad.
+ */
+export async function comprobarConexion(cfg) {
+  const implicito = cfg.puerto === 465;
+  const socket = implicito
+    ? tls.connect({ host: cfg.host, port: cfg.puerto, servername: cfg.host })
+    : net.connect({ host: cfg.host, port: cfg.puerto });
+
+  await new Promise((ok, mal) => {
+    socket.once(implicito ? 'secureConnect' : 'connect', ok);
+    socket.once('error', mal);
+    socket.setTimeout(20000, () => mal(new Error('el servidor no responde (20 s)')));
+  });
+
+  let charla = conversacion(socket);
+  let s = socket;
+  try {
+    await charla.enviar(null);
+    await charla.enviar(`EHLO ${cfg.host}`);
+    if (!implicito) {
+      await charla.enviar('STARTTLS');
+      s = tls.connect({ socket, servername: cfg.host });
+      await new Promise((ok, mal) => { s.once('secureConnect', ok); s.once('error', mal); });
+      charla = conversacion(s);
+      await charla.enviar(`EHLO ${cfg.host}`);
+    }
+    await charla.enviar('AUTH LOGIN');
+    await charla.enviar(base64(cfg.usuario));
+    await charla.enviar(base64(cfg.clave));
+    await charla.enviar('QUIT').catch(() => {});
+  } finally {
+    s.end(); socket.destroy();
+  }
+}
