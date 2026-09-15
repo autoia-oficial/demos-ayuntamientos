@@ -1,7 +1,7 @@
 // ---------------------------------------------------------------------------
 //  EXTRAE LOS MUNICIPIOS A UN JSON QUE EL CRM PUEDA LEER
 //
-//    node sistema-de-ventas/datos/extraer.mjs
+//    node _interno/sistema-de-ventas/datos/extraer.mjs
 //
 //  Importa los mismos ficheros que usa _generar/generar.mjs, así que la lista
 //  del CRM y la de las demos no pueden desincronizarse: hay una sola fuente.
@@ -11,12 +11,29 @@
 //  siguen los ficheros de origen, y conviene respetarla: un correo inventado
 //  rebota, y los rebotes queman el dominio del remitente.
 // ---------------------------------------------------------------------------
-import { writeFileSync, mkdirSync } from 'node:fs';
+import { writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const AQUI = dirname(fileURLToPath(import.meta.url));
-const GEN  = join(AQUI, '..', '..', '_generar');
+
+// Sube hasta encontrar _generar en vez de contar '..' a mano. Esto ya se movió
+// una vez (de la raíz a _interno/) y una ruta con el número de saltos escrito a
+// mano se rompe en silencio: devolvería 0 municipios sin decir por qué.
+function buscarGenerar(desde) {
+  let dir = desde;
+  for (let i = 0; i < 6; i++) {
+    if (existsSync(join(dir, '_generar'))) return join(dir, '_generar');
+    const arriba = dirname(dir);
+    if (arriba === dir) break;
+    dir = arriba;
+  }
+  console.error(`No encuentro _generar/ subiendo desde ${desde}.`);
+  console.error('¿Se ha movido esta carpeta fuera del repositorio de las demos?');
+  process.exit(1);
+}
+
+const GEN = buscarGenerar(AQUI);
 
 // Las tandas, en el orden en que se enviaron. La primera se llama
 // municipios.mjs por razones históricas; las demás siguen el patrón del día.

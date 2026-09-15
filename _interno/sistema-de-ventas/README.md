@@ -2,10 +2,14 @@
 
 CRM y envío diario de correos a ayuntamientos, sobre las demos de este repo.
 
+Vive en `_interno/` para que la raíz del repositorio sea sólo las 132 demos:
+esto es GitHub Pages, y las herramientas internas no pintan al lado de lo que
+se publica.
+
 ## Empezar
 
 ```bash
-cd sistema-de-ventas
+cd _interno/sistema-de-ventas
 ./abrir.sh
 ```
 

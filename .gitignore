@@ -1,5 +1,7 @@
 
 # --- sistema de ventas ---
-sistema-de-ventas/correos/config.json
-sistema-de-ventas/correos/enviados.json
-sistema-de-ventas/datos/crm.caja
+# Sin anclar a una ruta concreta: si la carpeta se vuelve a mover, estos tres
+# ficheros siguen sin subirse. Llevan credenciales SMTP y datos del CRM.
+**/correos/config.json
+**/correos/enviados.json
+**/datos/crm.caja
