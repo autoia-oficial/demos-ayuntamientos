@@ -5,3 +5,10 @@
 **/correos/config.json
 **/correos/enviados.json
 **/datos/crm.caja
+
+# El estado del CRM (a quién se ha escrito, quién ha contestado) es información
+# comercial y este repositorio es público. El JSON que genera desde-gmail.mjs se
+# importa en el CRM y se guarda cifrado con datos/caja.mjs, no aquí.
+**/datos/crm-inicial.json
+**/crm-ayuntamientos-*.json
+**/datos/crm-*.json
