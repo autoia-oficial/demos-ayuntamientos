@@ -2,7 +2,8 @@
 //  CAJA — base de datos cifrada para los datos del CRM
 //
 //    node datos/caja.mjs guardar <fichero.json>   cifra y guarda
-//    node datos/caja.mjs abrir [salida.json]      descifra
+//    node datos/caja.mjs ver                      enseña el contenido
+//    node datos/caja.mjs abrir [salida.json]      descifra a JSON
 //    node datos/caja.mjs estado                   info sin descifrar nada
 //
 //  Cifrado: AES-256-GCM. La clave sale de tu contraseña con scrypt.
@@ -142,6 +143,51 @@ if (orden === 'guardar') {
     process.stdout.write(plano.endsWith('\n') ? plano : plano + '\n');
   }
 
+} else if (orden === 'ver') {
+  // Como 'abrir', pero en vez de escupir JSON crudo enseña una tabla. El JSON
+  // sirve para volver a importarlo; esto sirve para mirarlo.
+  if (!existsSync(CAJA)) { console.error(`No existe ${CAJA}.`); process.exit(1); }
+  const clave = await pedirClave();
+  let datos;
+  try {
+    datos = JSON.parse(descifrar(readFileSync(CAJA), clave));
+  } catch (e) {
+    console.error(`\n  No se pudo abrir: contraseña incorrecta o fichero alterado.`);
+    console.error(`  (${e.message})`);
+    process.exit(1);
+  }
+
+  // Los nombres bonitos salen de municipios.json si está; si no, del slug.
+  const ruta = join(AQUI, 'municipios.json');
+  const nombres = existsSync(ruta)
+    ? Object.fromEntries(JSON.parse(readFileSync(ruta, 'utf8')).map(m => [m.slug, m.nombre]))
+    : {};
+
+  const filas = Object.entries(datos);
+  if (!filas.length) { console.log('\n  La caja está vacía.\n'); process.exit(0); }
+
+  const cuenta = {};
+  for (const [, f] of filas) cuenta[f.estado] = (cuenta[f.estado] || 0) + 1;
+
+  const ORDEN = ['cliente', 'reunion', 'respondido', 'enviado', 'pendiente', 'descartado'];
+  const peso = e => { const i = ORDEN.indexOf(e); return i === -1 ? 99 : i; };
+  filas.sort((a, b) => peso(a[1].estado) - peso(b[1].estado)
+                    || (nombres[a[0]] || a[0]).localeCompare(nombres[b[0]] || b[0], 'es'));
+
+  console.log(`\n  ${filas.length} municipios en la caja\n`);
+  console.log('  ' + ORDEN.filter(e => cuenta[e])
+                          .map(e => `${e}: ${cuenta[e]}`).join('   ') + '\n');
+
+  const ancho = Math.max(...filas.map(([s]) => (nombres[s] || s).length));
+  let ultimo = null;
+  for (const [slug, f] of filas) {
+    if (f.estado !== ultimo) { console.log(`  ── ${f.estado.toUpperCase()}`); ultimo = f.estado; }
+    const nota = f.nota ? `  · ${f.nota}` : '';
+    const fecha = f.fecha ? ` (${f.fecha})` : '';
+    console.log(`     ${(nombres[slug] || slug).padEnd(ancho)}${fecha}${nota}`);
+  }
+  console.log();
+
 } else if (orden === 'estado') {
   if (!existsSync(CAJA)) { console.log('  No hay ninguna caja todavía.'); process.exit(0); }
   const s = statSync(CAJA);
@@ -159,7 +205,8 @@ if (orden === 'guardar') {
   CAJA — base de datos cifrada del CRM
 
     node datos/caja.mjs guardar <fichero.json>   cifra un JSON
-    node datos/caja.mjs abrir [salida.json]      lo descifra
+    node datos/caja.mjs ver                      lo enseña en una tabla
+    node datos/caja.mjs abrir [salida.json]      lo descifra a JSON
     node datos/caja.mjs estado                   info sin descifrar
 
   La contraseña se pregunta por pantalla, o se pasa en CAJA_CLAVE.

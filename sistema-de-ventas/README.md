@@ -38,7 +38,7 @@ Atajo directo: `./abrir.sh crm`
 | `correos/plantilla.txt` | El texto del correo |
 | `correos/bajas.txt` | Quien pide la baja. **Nunca** se le vuelve a escribir |
 | `correos/config.json` | Tus datos SMTP. **No se sube al repo** |
-| `datos/caja.mjs` | Base de datos cifrada (AES-256-GCM) |
+| `datos/caja.mjs` | Base de datos cifrada: `guardar`, `ver`, `abrir`, `estado` |
 | `datos/crm.caja` | Tus datos cifrados. **No se sube al repo** |
 
 ## Los datos
@@ -111,7 +111,29 @@ node datos/caja.mjs guardar ~/Descargas/crm-ayuntamientos-2026-09-15.json
 rm ~/Descargas/crm-ayuntamientos-2026-09-15.json
 ```
 
-Para recuperarlo:
+Para mirar qué hay dentro sin sacarlo a un fichero:
+
+```bash
+node datos/caja.mjs ver
+```
+
+```
+  132 municipios en la caja
+
+  cliente: 1   respondido: 1   enviado: 1   pendiente: 128   descartado: 1
+
+  ── CLIENTE
+     Elche         (2026-09-10)  · firmado, demo en producción
+  ── RESPONDIDO
+     León          (2026-09-14)  · preguntan por el precio
+  ── ENVIADO
+     Burjassot     (2026-09-15)  · respondió el SAC, pide llamada
+  ── PENDIENTE
+     A Coruña
+     ...
+```
+
+Para recuperarlo al CRM:
 
 ```bash
 node datos/caja.mjs abrir recuperado.json
