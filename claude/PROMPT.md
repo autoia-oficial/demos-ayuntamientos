@@ -41,6 +41,33 @@ desenfoque de 20px, azul #2997ff, gris #86868b, -apple-system con
 letter-spacing -0.022em, curvas ease-apple y ease-spring. Si tocas la interfaz,
 respétalo. Si haces gráficos, valida la paleta antes en vez de elegir a ojo.
 
+ORGANIZACIÓN QUE QUIERO (esto primero):
+
+  Ahora mismo sistema-de-ventas/ y claude/ cuelgan de la raíz del repositorio,
+  mezclados con las 132 carpetas de municipios (a-coruna/, albacete/, elche/…).
+  Eso ensucia: este repo es un GitHub Pages que sirve las demos, y las
+  herramientas internas no pintan ahí al lado.
+
+  Quiero las dos cosas APARTE de las demos:
+    · el sistema de ventas en su propia carpeta, con todo lo suyo dentro
+    · una carpeta claude/ con todo lo que has hecho tú
+
+  Hay dos formas y no sé cuál conviene. Míralo y recomiéndame una:
+
+    a) Moverlo a un repositorio propio (autoia-oficial/sistema-de-ventas).
+       Queda del todo separado, pero el extractor lee _generar/*.mjs de este
+       repo, así que habría que resolver cómo accede a esos datos.
+
+    b) Dejarlo aquí pero bajo una sola carpeta (por ejemplo _interno/), para
+       que la raíz vuelva a ser sólo demos. Más simple, y el extractor sigue
+       leyendo los datos con una ruta relativa.
+
+  Dime cuál ves mejor y por qué, y luego hazlo. Si mueves ficheros, comprueba
+  después que sigue funcionando:
+      node datos/extraer.mjs       tiene que sacar 132 municipios
+      ./abrir.sh estado            tiene que responder
+      ./abrir.sh crm               el CRM tiene que cargar la tabla
+
 LO QUE ME FALTA, por orden:
 
   1. LOS DATOS REALES. El CRM arranca vacío, pero yo ya he enviado correos a
