@@ -1,0 +1,11 @@
+{
+  "host": "smtp.gmail.com",
+  "puerto": 587,
+  "usuario": "tu-correo@tudominio.es",
+  "clave": "CONTRASEÑA DE APLICACIÓN, no la de tu cuenta",
+  "remitente": "tu-correo@tudominio.es",
+  "nombre": "Ander · AutoIA",
+  "responderA": "",
+  "porDia": 15,
+  "segundosEntreEnvios": 45
+}

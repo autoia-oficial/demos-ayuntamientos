@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CRM · Ayuntamientos</title>
+<style>
+  :root{
+    --fondo:#f6f7f9; --papel:#fff; --texto:#15181d; --suave:#5b6472; --borde:#dfe3e9;
+    --acento:#2563eb; --ok:#0f8a4a; --aviso:#b45309; --mal:#b42318; --sombra:0 1px 2px rgba(0,0,0,.06);
+  }
+  :root:not([data-tema="claro"]){ @media (prefers-color-scheme:dark){
+    --fondo:#0f1115; --papel:#171a20; --texto:#e8eaed; --suave:#9aa3b0; --borde:#2a2f38;
+    --acento:#5b9dff; --ok:#3fbf7f; --aviso:#e0a23c; --mal:#ff6b5e; --sombra:0 1px 2px rgba(0,0,0,.4);
+  }}
+  :root[data-tema="oscuro"]{
+    --fondo:#0f1115; --papel:#171a20; --texto:#e8eaed; --suave:#9aa3b0; --borde:#2a2f38;
+    --acento:#5b9dff; --ok:#3fbf7f; --aviso:#e0a23c; --mal:#ff6b5e; --sombra:0 1px 2px rgba(0,0,0,.4);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--fondo);color:var(--texto);
+       font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+  .envoltorio{max-width:1180px;margin:0 auto;padding:20px 16px 60px}
+  h1{font-size:20px;margin:0 0 2px} .sub{color:var(--suave);font-size:13px;margin:0 0 18px}
+
+  .marcadores{display:grid;grid-template-columns:repeat(auto-fit,minmax(115px,1fr));gap:10px;margin-bottom:18px}
+  .marcador{background:var(--papel);border:1px solid var(--borde);border-radius:10px;padding:11px 13px;box-shadow:var(--sombra)}
+  .marcador b{display:block;font-size:22px;line-height:1.15;font-variant-numeric:tabular-nums}
+  .marcador span{font-size:11.5px;color:var(--suave);text-transform:uppercase;letter-spacing:.04em}
+
+  .barra{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px}
+  select,input[type=search],button{font:inherit;color:var(--texto);background:var(--papel);
+       border:1px solid var(--borde);border-radius:8px;padding:7px 10px}
+  input[type=search]{flex:1;min-width:170px}
+  button{cursor:pointer}
+  button:hover{border-color:var(--acento)}
+  .primario{background:var(--acento);color:#fff;border-color:transparent;font-weight:500}
+
+  .tabla{background:var(--papel);border:1px solid var(--borde);border-radius:10px;overflow:hidden;box-shadow:var(--sombra)}
+  .fila{display:grid;grid-template-columns:minmax(150px,1.6fr) 58px minmax(190px,2fr) 128px 84px;
+        gap:10px;align-items:center;padding:9px 13px;border-top:1px solid var(--borde)}
+  .fila:first-child{border-top:0}
+  .cab{font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--suave);background:transparent}
+  .nombre{font-weight:500}
+  .meta{font-size:12px;color:var(--suave)}
+  .correo{font-size:13px;word-break:break-all}
+  .sin{color:var(--aviso);font-size:12.5px}
+  .acciones{display:flex;gap:5px;justify-content:flex-end}
+  .acciones a,.acciones button{font-size:12px;padding:4px 7px;border-radius:6px;text-decoration:none;
+        border:1px solid var(--borde);color:var(--texto);background:var(--papel);display:inline-block}
+  .notas{grid-column:1/-1;margin-top:2px}
+  .notas input{width:100%;font:inherit;background:transparent;color:var(--suave);
+        border:0;border-top:1px dashed var(--borde);padding:5px 0 0;font-size:12.5px}
+  .notas input:focus{outline:none;color:var(--texto)}
+  .vacio{padding:34px;text-align:center;color:var(--suave)}
+
+  @media (max-width:760px){
+    .fila{grid-template-columns:1fr 1fr;gap:6px}
+    .cab{display:none}
+    .col-dia{order:3} .col-correo{grid-column:1/-1;order:2} .acciones{grid-column:1/-1;justify-content:flex-start;order:4}
+  }
+  footer{margin-top:22px;font-size:12px;color:var(--suave);display:flex;gap:14px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<div class="envoltorio">
+  <h1>CRM · Ayuntamientos</h1>
+  <p class="sub">El estado se guarda en este navegador. Expórtalo para no perderlo al formatear.</p>
+
+  <div class="marcadores" id="marcadores"></div>
+
+  <div class="barra">
+    <select id="fDia"><option value="">Todas las tandas</option></select>
+    <select id="fEstado">
+      <option value="">Cualquier estado</option>
+      <option value="pendiente">Pendiente</option>
+      <option value="enviado">Enviado</option>
+      <option value="respondido">Respondido</option>
+      <option value="reunion">Reunión</option>
+      <option value="cliente">Cliente</option>
+      <option value="descartado">Descartado</option>
+    </select>
+    <select id="fContacto">
+      <option value="">Cualquier contacto</option>
+      <option value="email">Con correo</option>
+      <option value="solo-tel">Sólo teléfono</option>
+      <option value="falta">Sin contacto</option>
+    </select>
+    <input type="search" id="fTexto" placeholder="Buscar municipio…">
+    <button id="exportar" class="primario">Exportar copia</button>
+    <button id="importar">Importar</button>
+    <input type="file" id="ficheroImport" accept="application/json" hidden>
+    <button id="tema" title="Cambiar tema">◐</button>
+  </div>
+
+  <div class="tabla" id="tabla"></div>
+
+  <footer>
+    <span id="conteo"></span>
+    <span>Datos: <code>datos/municipios.json</code> · Estado: almacenamiento del navegador</span>
+  </footer>
+</div>
+
+<script>
+const ESTADOS = ['pendiente','enviado','respondido','reunion','cliente','descartado'];
+const CLAVE = 'crm-ayuntamientos-v1';
+
+let municipios = [];
+let estado = {};
+
+// -- persistencia -----------------------------------------------------------
+// localStorage puede fallar (ventana privada, datos bloqueados). Si falla, el
+// CRM sigue funcionando en memoria: mejor eso que una pantalla en blanco.
+function cargarEstado(){
+  try { estado = JSON.parse(localStorage.getItem(CLAVE) || '{}'); }
+  catch { estado = {}; }
+}
+function guardarEstado(){
+  try { localStorage.setItem(CLAVE, JSON.stringify(estado)); }
+  catch { /* sin persistencia; la sesión sigue */ }
+}
+function fichaDe(slug){
+  if (!estado[slug]) estado[slug] = { estado:'pendiente', nota:'', fecha:'' };
+  return estado[slug];
+}
+
+// -- pintado ----------------------------------------------------------------
+const el = id => document.getElementById(id);
+
+function filtrados(){
+  const d = el('fDia').value, e = el('fEstado').value,
+        c = el('fContacto').value, t = el('fTexto').value.trim().toLowerCase();
+  return municipios.filter(m =>
+    (!d || String(m.dia) === d) &&
+    (!e || fichaDe(m.slug).estado === e) &&
+    (!c || m.contacto === c) &&
+    (!t || m.nombre.toLowerCase().includes(t) || (m.email||'').toLowerCase().includes(t))
+  );
+}
+
+function pintarMarcadores(){
+  const n = est => municipios.filter(m => fichaDe(m.slug).estado === est).length;
+  el('marcadores').innerHTML = [
+    ['Municipios', municipios.length, ''],
+    ['Pendientes', n('pendiente'), ''],
+    ['Enviados',   n('enviado'),    ''],
+    ['Respondidos',n('respondido'), 'var(--ok)'],
+    ['Clientes',   n('cliente'),    'var(--ok)'],
+    ['Sin contacto', municipios.filter(m=>m.contacto==='falta').length, 'var(--aviso)'],
+  ].map(([t,v,col]) =>
+    `<div class="marcador"><b style="${col?`color:${col}`:''}">${v}</b><span>${t}</span></div>`
+  ).join('');
+}
+
+function pintarTabla(){
+  const lista = filtrados();
+  const cab = `<div class="fila cab"><div>Municipio</div><div>Tanda</div>
+      <div>Contacto</div><div>Estado</div><div></div></div>`;
+  if (!lista.length){
+    el('tabla').innerHTML = cab + `<div class="vacio">Ningún municipio con esos filtros.</div>`;
+  } else {
+    el('tabla').innerHTML = cab + lista.map(m => {
+      const f = fichaDe(m.slug);
+      const contacto = m.email
+        ? `<span class="correo">${m.email}</span>`
+        : m.tel ? `<span class="meta">☎ ${m.tel}</span>`
+                : `<span class="sin">sin contacto — buscar en ${m.dominios||'su web'}</span>`;
+      return `<div class="fila" data-slug="${m.slug}">
+        <div><div class="nombre">${m.nombre}</div><div class="meta">${m.oficina||''}</div></div>
+        <div class="col-dia meta">día ${m.dia}</div>
+        <div class="col-correo">${contacto}</div>
+        <div><select class="selEstado">${ESTADOS.map(e =>
+             `<option value="${e}" ${f.estado===e?'selected':''}>${e[0].toUpperCase()+e.slice(1)}</option>`
+           ).join('')}</select></div>
+        <div class="acciones">
+          <a href="${m.demo}" target="_blank" rel="noopener">Demo</a>
+          ${m.email ? `<button class="copiar" data-email="${m.email}">Copiar</button>` : ''}
+        </div>
+        <div class="notas"><input placeholder="Nota…" value="${(f.nota||'').replace(/"/g,'&quot;')}"></div>
+      </div>`;
+    }).join('');
+  }
+  el('conteo').textContent = `${lista.length} de ${municipios.length} municipios`;
+}
+
+function pintar(){ pintarMarcadores(); pintarTabla(); }
+
+// -- eventos ----------------------------------------------------------------
+el('tabla').addEventListener('change', ev => {
+  const fila = ev.target.closest('.fila'); if (!fila) return;
+  const f = fichaDe(fila.dataset.slug);
+  if (ev.target.classList.contains('selEstado')){
+    f.estado = ev.target.value;
+    f.fecha  = new Date().toISOString().slice(0,10);
+    guardarEstado(); pintarMarcadores();
+  }
+});
+el('tabla').addEventListener('input', ev => {
+  if (ev.target.tagName !== 'INPUT') return;
+  const fila = ev.target.closest('.fila'); if (!fila) return;
+  fichaDe(fila.dataset.slug).nota = ev.target.value;
+  guardarEstado();
+});
+el('tabla').addEventListener('click', async ev => {
+  const b = ev.target.closest('.copiar'); if (!b) return;
+  try { await navigator.clipboard.writeText(b.dataset.email); b.textContent = '✓'; }
+  catch { b.textContent = b.dataset.email; }   // sin permiso de portapapeles: se muestra
+  setTimeout(() => { b.textContent = 'Copiar'; }, 1400);
+});
+
+['fDia','fEstado','fContacto','fTexto'].forEach(id =>
+  el(id).addEventListener('input', pintarTabla));
+
+el('exportar').addEventListener('click', () => {
+  const blob = new Blob([JSON.stringify(estado,null,2)], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `crm-ayuntamientos-${new Date().toISOString().slice(0,10)}.json`;
+  a.click(); URL.revokeObjectURL(a.href);
+});
+el('importar').addEventListener('click', () => el('ficheroImport').click());
+el('ficheroImport').addEventListener('change', async ev => {
+  const f = ev.target.files[0]; if (!f) return;
+  try {
+    const entrante = JSON.parse(await f.text());
+    if (typeof entrante !== 'object' || Array.isArray(entrante)) throw new Error('formato');
+    estado = { ...estado, ...entrante };   // no borra lo que ya hay
+    guardarEstado(); pintar();
+  } catch { alert('Ese fichero no es una copia válida del CRM.'); }
+  ev.target.value = '';
+});
+el('tema').addEventListener('click', () => {
+  const r = document.documentElement;
+  const oscuro = r.dataset.tema === 'oscuro' ||
+    (!r.dataset.tema && matchMedia('(prefers-color-scheme:dark)').matches);
+  r.dataset.tema = oscuro ? 'claro' : 'oscuro';
+});
+
+// -- arranque ---------------------------------------------------------------
+cargarEstado();
+fetch('../datos/municipios.json')
+  .then(r => { if(!r.ok) throw new Error(r.status); return r.json(); })
+  .then(datos => {
+    municipios = datos.sort((a,b) => a.dia - b.dia || a.nombre.localeCompare(b.nombre,'es'));
+    const dias = [...new Set(municipios.map(m => m.dia))].sort((a,b)=>a-b);
+    el('fDia').insertAdjacentHTML('beforeend',
+      dias.map(d => `<option value="${d}">Tanda ${d}</option>`).join(''));
+    pintar();
+  })
+  .catch(e => {
+    el('tabla').innerHTML = `<div class="vacio">
+      No se pudo leer <code>datos/municipios.json</code> (${e.message}).<br><br>
+      Genéralo con <code>node sistema-de-ventas/datos/extraer.mjs</code>,
+      y abre el CRM con <code>./abrir.sh</code> — no con doble clic:
+      el navegador bloquea la lectura de ficheros locales.</div>`;
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+Asunto: Demo del asistente de atención ciudadana para {{NOMBRE}}
+
+Buenos días:
+
+Me llamo Ander y trabajo en AutoIA. Hemos preparado una demostración de un
+asistente de atención ciudadana para el Ayuntamiento de {{NOMBRE}}, montada
+con la información que su ayuntamiento ya publica:
+
+    {{DEMO}}
+
+Es una página que funciona sin instalar nada. Responde a las preguntas que
+más llegan {{A_OFICINA}} —horarios, trámites, documentación necesaria— y,
+cuando no tiene la respuesta publicada, lo dice y remite a la oficina en
+lugar de improvisar.
+
+No busca sustituir a nadie: busca que las llamadas y correos repetidos no
+lleguen al mostrador.
+
+Si le interesa, respondo a este correo y lo vemos en quince minutos. Y si no
+es el momento, dígamelo y no le vuelvo a escribir.
+
+Un saludo,
+
+Ander
+AutoIA · {{REMITENTE}}
+
+---
+Comunicación comercial. Si no desea recibir más correos nuestros, responda
+con la palabra BAJA y quedará excluido de nuestros envíos.
