@@ -46,32 +46,34 @@ Cualquiera admite `DRY_RUN=1` delante para ver qué haría sin ejecutarlo.
 
 ## Las cuatro fases
 
-Estado real, a 15 de septiembre de 2026:
+Estado real, a 16 de septiembre de 2026:
 
 | | Fase | Estado |
 |---|---|---|
 | 1 | Base de datos cifrada | ✅ Hecha — `../sistema-de-ventas/datos/caja.mjs` |
-| 2 | IA en local | ⬜ Sin empezar. Ver la nota de abajo |
+| 2 | IA en local | ✅ Hecha — Ollama en el repo `autoia`. Ver la nota de abajo |
 | 3 | Animaciones personalizadas | ✅ Hechas — GSAP en el repo `autoia` |
 | 4 | **Correos diarios a ayuntamientos** | ✅ **Hecho — `../sistema-de-ventas/`** |
 
-### La fase 2 no estaba empezada
+### La fase 2: qué había y qué hay ahora
 
 Esta tabla decía que la fase 2 estaba a medias, «empezada (Ollama), con errores
-de sintaxis pendientes». Eran dos cosas distintas que se anotaron como una:
+de sintaxis pendientes». Eran dos cosas distintas anotadas como una:
 
-**No hay código de Ollama.** Ni una línea, en ningún commit de ningún repo. Se
-buscó en todo el historial de `autoia` y de este repositorio.
+**No había código de Ollama.** Ni una línea, en ningún commit de ningún repo.
 
 **Los errores de sintaxis sí existían, y eran otra cosa.** No tres ficheros,
 sino siete: a todo el backend de `autoia` se le habían quitado los acentos
-graves de las plantillas de cadena, y con ellos algunas interpolaciones. Ya
-está arreglado y la suite queda en 31 de 31. No tenía relación con Ollama.
+graves de las plantillas de cadena, y con ellos algunas interpolaciones. El peor
+era `formatters.js`, que *pasaba* `node --check` estando roto y devolvía
+`undefined` en todas las frases que oye quien llama.
 
-Así que la fase 2 empieza de cero, y lo primero es decidir qué tiene que hacer
-el modelo local: hoy el backend responde con frases fijas y el `switch` del
-webhook manda a «función no reconocida» todo lo que no sea una de las cuatro
-herramientas de reserva.
+Ya está lo uno y lo otro. El módulo de Ollama cubre lo que no es una reserva
+(horarios, parking, si se admiten perros), que antes moría en «función no
+reconocida». Sólo puede contar lo que está en la ficha del restaurante: lo que
+no está ahí pasa la llamada a una persona en vez de inventarse un precio. Las
+reservas no pasan por el modelo. Está en `src/services/ollama.js` del repo
+`autoia`, con el porqué del diseño en su README, y la suite queda en 44 de 44.
 
 ## Una cosa que conviene no repetir
 

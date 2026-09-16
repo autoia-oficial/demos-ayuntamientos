@@ -12,19 +12,23 @@ sistema de ventas para gestionarlas. Necesito que sigas desde donde se quedó.
 
 QUÉ HAY YA HECHO (no lo rehagas, léelo antes de tocar nada):
 
-  sistema-de-ventas/
+  _interno/sistema-de-ventas/
     abrir.sh              menú: 1=CRM, 2=correos, 3=estado, 4=datos,
                           5=guardar caja, 6=abrir caja
     crm/index.html        CRM con embudo y avance por tanda
     datos/extraer.mjs     saca los municipios de _generar/*.mjs a JSON
     datos/municipios.json 132 municipios (generado, no editar a mano)
+    datos/desde-gmail.mjs reconstruye el estado del CRM desde los enviados
     datos/caja.mjs        base de datos cifrada AES-256-GCM + scrypt
     correos/enviar.mjs    envío diario; simula salvo que pases --enviar
     correos/smtp.mjs      cliente SMTP sin dependencias
     correos/plantilla.txt el texto del correo
     correos/bajas.txt     quien pide la baja; nunca se le vuelve a escribir
-  claude/
+  _interno/claude/
     seguridad/            scripts de endurecimiento del equipo + guías
+
+  Las dos cuelgan de _interno/ para que la raíz sea sólo las 132 demos, que es
+  lo que publica GitHub Pages.
 
 REGLAS QUE NO SE SALTAN (vienen de los ficheros originales del proyecto):
 
@@ -33,7 +37,8 @@ REGLAS QUE NO SE SALTAN (vienen de los ficheros originales del proyecto):
      rebotes queman el dominio del remitente.
   2. A quien esté en bajas.txt no se le escribe nunca.
   3. A quien ya figure en enviados.json no se le repite.
-  4. correos/config.json y datos/crm.caja NUNCA se suben al repositorio.
+  4. correos/config.json, correos/enviados.json y datos/crm.caja NUNCA se suben
+     al repositorio. Tampoco el JSON del CRM: este repo es público.
 
 DISEÑO: el CRM usa el lenguaje visual de la landing, que está en el repo
 autoia-oficial/autoia (styles.css): negro #000, superficie #1d1d1f al 60% con
@@ -41,73 +46,39 @@ desenfoque de 20px, azul #2997ff, gris #86868b, -apple-system con
 letter-spacing -0.022em, curvas ease-apple y ease-spring. Si tocas la interfaz,
 respétalo. Si haces gráficos, valida la paleta antes en vez de elegir a ojo.
 
-ORGANIZACIÓN QUE QUIERO (esto primero):
+DÓNDE ESTÁ CADA COSA. Este repositorio es autoia-oficial/demos-ayuntamientos.
+La landing y el backend de reservas están en otro, autoia-oficial/autoia. No
+son el mismo: si la sesión arranca en `autoia` no verás ninguna demo.
 
-  Ahora mismo sistema-de-ventas/ y claude/ cuelgan de la raíz del repositorio,
-  mezclados con las 132 carpetas de municipios (a-coruna/, albacete/, elche/…).
-  Eso ensucia: este repo es un GitHub Pages que sirve las demos, y las
-  herramientas internas no pintan ahí al lado.
+ESTADO A 16 DE SEPTIEMBRE DE 2026
 
-  Quiero las dos cosas APARTE de las demos:
-    · el sistema de ventas en su propia carpeta, con todo lo suyo dentro
-    · una carpeta claude/ con todo lo que has hecho tú
+  · 132 municipios, 117 con correo, 15 sólo teléfono, 0 sin contacto.
+  · 16 ayuntamientos contactados el 8 y el 10 de septiembre desde
+    contacto.autoia@gmail.com. Sólo contestó Badajoz: remiten a la sede
+    electrónica. Cero rebotes, cero bajas.
+  · El registro de esos 16 está sembrado en enviados.json, así que las tandas
+    1 y 2 ya no se repiten.
+  · Las cuatro fases están hechas. El backend de `autoia` está reparado (eran
+    siete ficheros con las plantillas de cadena rotas, no tres) y su suite
+    queda en 44 de 44, con el módulo de Ollama integrado.
 
-  Hay dos formas y no sé cuál conviene. Míralo y recomiéndame una:
+LO QUE FALTA
 
-    a) Moverlo a un repositorio propio (autoia-oficial/sistema-de-ventas).
-       Queda del todo separado, pero el extractor lee _generar/*.mjs de este
-       repo, así que habría que resolver cómo accede a esos datos.
-
-    b) Dejarlo aquí pero bajo una sola carpeta (por ejemplo _interno/), para
-       que la raíz vuelva a ser sólo demos. Más simple, y el extractor sigue
-       leyendo los datos con una ruta relativa.
-
-  Dime cuál ves mejor y por qué, y luego hazlo. Si mueves ficheros, comprueba
-  después que sigue funcionando:
-      node datos/extraer.mjs       tiene que sacar 132 municipios
-      ./abrir.sh estado            tiene que responder
-      ./abrir.sh crm               el CRM tiene que cargar la tabla
-
-LO QUE ME FALTA, por orden:
-
-  1. LOS DATOS REALES. El CRM arranca vacío, pero yo ya he enviado correos a
-     muchos de estos ayuntamientos desde mi Gmail. Busca en mi bandeja de
-     enviados los correos a dominios de ayuntamiento, crúzalos con
-     datos/municipios.json, y genera un JSON con el estado real (enviado, con
-     su fecha; respondido si contestaron) que pueda importar con el botón
-     "Importar" del CRM. Pregúntame con qué cuenta los envié.
-
-  2. CONFIGURAR EL ENVÍO. Ayúdame a rellenar correos/config.json con mi Gmail
-     y una contraseña de aplicación de Google, y comprueba que funciona con:
+  1. CONFIGURAR EL ENVÍO. Falta correos/config.json con la contraseña de
+     aplicación de Google. Se hace en el ordenador de Ander, no aquí: es una
+     credencial y hace falta salida SMTP. Luego:
          node correos/enviar.mjs --comprobar
-     Eso valida la configuración y autentica contra el servidor sin enviar nada.
 
-  3. LOS 8 MUNICIPIOS SIN CONTACTO. La tanda del día 01 (León, Alcalá de
-     Henares, Pinto, Elche, Badajoz, Telde, Logroño, Jumilla) se envió a mano y
-     no dejó los correos apuntados. Búscalos en las webs oficiales que indica
-     el campo "dominios", verifícalos, y añádelos a
-     _generar/municipios-dia01.mjs. Si alguno no se puede verificar, déjalo sin
-     correo antes que inventarlo.
+  2. SEGUIR LA CAMPAÑA. Las tandas 3 a 19 están sin enviar. Primero en
+     simulación, y sólo después con --enviar.
 
-  4. FASE 2 — IA EN LOCAL. En el repo autoia-oficial/autoia hay tres ficheros
-     que no pasan "node --check": respuestas.js, server.js y reservas.js
-     (comillas invertidas mal cerradas). Arréglalos y termina de integrar el
-     módulo de Ollama que se quedó a medias.
-
-Empieza por leer sistema-de-ventas/README.md y claude/README.md, dime qué has
-entendido del estado actual, y luego vamos por el punto 1.
+  3. DECIDIR SI LA LISTA DEBE SEGUIR SIENDO PÚBLICA. Este repo es público y
+     tiene .nojekyll, así que _generar/ y _interno/ se sirven tal cual por
+     Pages, con los 117 correos dentro. El README de la raíz lo avisa. Si eso
+     tiene que dejar de ser accesible, hay que pasar el repo a privado y
+     publicar sólo las demos.
 ```
 
----
-
-## Antes de pegarlo
-
-Necesitas Claude Code instalado y la carpeta clonada:
-
-```bash
-cd ~/demos-ayuntamientos
-claude
-```
 
 Y pulsar **1** para confiar en la carpeta. Si `claude` dice *command not found*,
 está sin instalar: mira la sección de Claude Code en `seguridad/MIGRAR-DISTRO.md`.
